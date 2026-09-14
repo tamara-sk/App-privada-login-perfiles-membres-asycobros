@@ -1,0 +1,381 @@
+{
+  "_note": "Replacement copy for the O{} translations object in the TheRadiance component (currently minified as `Fm` in the live bundle). Keys match the existing component exactly, plus 3 NEW keys: bigBang/bigBangBody, opened/openedBody, release/releaseBody. DATES ARE UNCHANGED FROM LIVE - confirm before shipping.",
+  "en": {
+    "eyebrow": "The Radiance · Bali · October 17-21, 2026",
+    "title": "The flame was lit.",
+    "titleEm": "Now the light learns to stay.",
+    "subtitle": "The Big Bang was for a few. The Radiance is where we close the circle — with intention, and with open hands.",
+    "bigBang": "It Began With a Few",
+    "bigBangBody": "The Big Bang was never meant to be big. A small circle, Bali, and the kind of days that quietly rearrange something inside you. No stage. No audience. Just presence, and people willing to be honest in front of each other. What happened there is difficult to explain to anyone who wasn't in the room — which is exactly why it worked.",
+    "opened": "What Has Opened Since",
+    "openedBody": "The circle didn't end when we flew home. It kept working. Conversations became collaborations. Doors opened that nobody asked for. People changed what they were building, who they were building it with, and how much of their life they were willing to trade for it. That is the part nobody plans. That is the part we are coming back for.",
+    "sequence": "The Deepening",
+    "sequenceBody": "This is not a continuation. It is an integration. The Radiance exists to anchor presence into practice: to show you how to sustain what you've discovered, and how to invest clarity into the world with precision and grace.",
+    "whatIs": "What This Is",
+    "whatIsBody": "Deeper, and wider. The Big Bang was for a few; The Radiance opens. We hold the circle at around fifty — large enough for the room to carry real energy, small enough that nobody disappears inside it. Five days of immersion (Premium), or six with integration nights (VIP).",
+    "fiveDays": "The Five Days",
+    "days": [
+      {
+        "day": "Day 1",
+        "title": "Arrival · Earth",
+        "desc": "No agenda. A welcome ceremony at dusk, fire, frangipani."
+      },
+      {
+        "day": "Day 2",
+        "title": "Descent · Water",
+        "desc": "Rice terrace immersion. Cold water ritual. Journaling what clarity became in your life."
+      },
+      {
+        "day": "Day 3",
+        "title": "Expansion · Air",
+        "desc": "Quantum Mapping for the next chapter. How to invest your energy into what matters."
+      },
+      {
+        "day": "Day 4",
+        "title": "Integration · Fire",
+        "desc": "Fire ceremony. Writing your commitment, a living contract with yourself."
+      },
+      {
+        "day": "Day 5",
+        "title": "Ascension · Light",
+        "desc": "Sunrise at the temple. You leave with a plan, with practices, with a circle that holds you."
+      }
+    ],
+    "release": "What We Come to Release",
+    "releaseBody": "Closing a cycle with intention means naming what no longer belongs to you — the commitments you've outgrown, the versions of yourself you keep performing, the weight you carry because putting it down felt like losing. You don't leave lighter by accident. You leave lighter because you chose, out loud, in front of people who will remember.",
+    "decision": "The Only Question Is This:",
+    "decisionBody": "Will you spend the next months wondering what The Radiance might have become in your life? Or will you trust the pull you feel now?",
+    "formTitle": "Request Your Invitation",
+    "formBody": "The Radiance. Bali. A circle of around fifty, closing one cycle and opening the next. Tell us what brings you.",
+    "formName": "Full name",
+    "formEmail": "Email",
+    "formMessage": "What brought you here?",
+    "formSubmit": "Request Invitation",
+    "formOk": "Received. Someone from the circle will reach out.",
+    "footer": "Secret Key · The Radiance · Where light learns to stay."
+  },
+  "es": {
+    "eyebrow": "The Radiance · Bali · 17-21 de octubre de 2026",
+    "title": "La llama fue encendida.",
+    "titleEm": "Ahora la luz aprende a quedarse.",
+    "subtitle": "El Big Bang fue para unos pocos. The Radiance es donde cerramos el círculo: con intención, y con las manos abiertas.",
+    "bigBang": "Empezó Con Unos Pocos",
+    "bigBangBody": "El Big Bang nunca quiso ser grande. Un círculo pequeño, Bali, y esos días que te recolocan algo por dentro sin hacer ruido. Sin escenario. Sin público. Solo presencia, y gente dispuesta a ser honesta delante de los demás. Lo que pasó allí es difícil de explicar a quien no estuvo en la sala; por eso mismo funcionó.",
+    "opened": "Lo Que Se Ha Abierto Desde Entonces",
+    "openedBody": "El círculo no se cerró cuando volvimos a casa. Siguió trabajando. Conversaciones que se convirtieron en colaboraciones. Puertas que se abrieron sin que nadie las pidiera. Gente que cambió lo que estaba construyendo, con quién lo construía, y cuánta vida estaba dispuesta a entregar a cambio. Esa es la parte que nadie planifica. Esa es la parte a la que volvemos.",
+    "sequence": "La Profundización",
+    "sequenceBody": "Esto no es una continuación. Es una integración. The Radiance existe para anclar la presencia en la práctica: mostrarte cómo sostener lo que has descubierto, y cómo invertir claridad en el mundo con precisión y gracia.",
+    "whatIs": "Lo Que Esto Es",
+    "whatIsBody": "Más profundo, y más amplio. El Big Bang fue para unos pocos; The Radiance se abre. Sostenemos el círculo en torno a cincuenta personas: suficiente para que la sala tenga energía real, y pequeño para que nadie desaparezca dentro. Cinco días de inmersión (Premium) o seis con noches de integración (VIP).",
+    "fiveDays": "Los Cinco Días",
+    "days": [
+      {
+        "day": "Día 1",
+        "title": "Llegada · Tierra",
+        "desc": "Sin agenda. Una ceremonia de bienvenida al atardecer, fuego, frangipani."
+      },
+      {
+        "day": "Día 2",
+        "title": "Descenso · Agua",
+        "desc": "Inmersión en los arrozales. Ritual de agua fría. Escribir en qué se convirtió la claridad en tu vida."
+      },
+      {
+        "day": "Día 3",
+        "title": "Expansión · Aire",
+        "desc": "Quantum Mapping para el próximo capítulo. Cómo invertir tu energía en lo que importa."
+      },
+      {
+        "day": "Día 4",
+        "title": "Integración · Fuego",
+        "desc": "Ceremonia de fuego. Escribir tu compromiso, un contrato vivo contigo mismo."
+      },
+      {
+        "day": "Día 5",
+        "title": "Ascensión · Luz",
+        "desc": "Amanecer en el templo. Te vas con un plan, con prácticas, con un círculo que te sostiene."
+      }
+    ],
+    "release": "Lo Que Venimos a Soltar",
+    "releaseBody": "Cerrar un ciclo con intención es nombrar lo que ya no te pertenece: los compromisos que se te han quedado pequeños, las versiones de ti que sigues interpretando, el peso que cargas porque soltarlo parecía perder. No te vas más ligero por casualidad. Te vas más ligero porque lo elegiste, en voz alta, delante de gente que lo va a recordar.",
+    "decision": "La Única Pregunta Es Esta:",
+    "decisionBody": "¿Pasarás los próximos meses preguntándote qué habría podido ser The Radiance en tu vida? ¿O confiarás en la llamada que sientes ahora?",
+    "formTitle": "Solicita Tu Invitación",
+    "formBody": "The Radiance. Bali. Un círculo de unas cincuenta personas, cerrando un ciclo y abriendo el siguiente. Cuéntanos qué te trae.",
+    "formName": "Nombre completo",
+    "formEmail": "Email",
+    "formMessage": "¿Qué te trajo aquí?",
+    "formSubmit": "Solicitar Invitación",
+    "formOk": "Recibido. Alguien del círculo te contactará.",
+    "footer": "Secret Key · The Radiance · Donde la luz aprende a quedarse."
+  },
+  "fr": {
+    "eyebrow": "The Radiance · Bali · 17-21 octobre 2026",
+    "title": "La flamme a été allumée.",
+    "titleEm": "Maintenant la lumière apprend à rester.",
+    "subtitle": "Le Big Bang était pour quelques-uns. The Radiance, c'est là que nous refermons le cercle : avec intention, et les mains ouvertes.",
+    "bigBang": "Cela a Commencé Avec Quelques-uns",
+    "bigBangBody": "Le Big Bang n'a jamais cherché à être grand. Un petit cercle, Bali, et ces journées qui déplacent quelque chose en vous sans bruit. Pas de scène. Pas de public. Seulement la présence, et des personnes prêtes à être honnêtes devant les autres. Ce qui s'y est passé est difficile à expliquer à qui n'était pas dans la pièce ; c'est précisément pour cela que cela a fonctionné.",
+    "opened": "Ce Qui s'Est Ouvert Depuis",
+    "openedBody": "Le cercle ne s'est pas refermé quand nous sommes rentrés. Il a continué à travailler. Des conversations devenues collaborations. Des portes ouvertes que personne n'avait demandées. Des gens qui ont changé ce qu'ils construisaient, avec qui ils le construisaient, et la part de vie qu'ils étaient prêts à échanger contre cela. C'est la partie que personne ne planifie. C'est la partie pour laquelle nous revenons.",
+    "sequence": "L'Approfondissement",
+    "sequenceBody": "Ce n'est pas une continuation. C'est une intégration. The Radiance existe pour ancrer la présence dans la pratique : vous montrer comment soutenir ce que vous avez découvert, et comment investir la clarté dans le monde avec précision et grâce.",
+    "whatIs": "Ce Que C'est",
+    "whatIsBody": "Plus profond, et plus large. Le Big Bang était pour quelques-uns ; The Radiance s'ouvre. Nous tenons le cercle autour de cinquante personnes : assez grand pour que la salle porte une vraie énergie, assez petit pour que personne n'y disparaisse. Cinq jours d'immersion (Premium) ou six avec nuits d'intégration (VIP).",
+    "fiveDays": "Les Cinq Jours",
+    "days": [
+      {
+        "day": "Jour 1",
+        "title": "Arrivée · Terre",
+        "desc": "Aucun agenda. Une cérémonie de bienvenue au crépuscule, le feu, le frangipanier."
+      },
+      {
+        "day": "Jour 2",
+        "title": "Descente · Eau",
+        "desc": "Immersion dans les rizières. Rituel d'eau froide. Écrire ce que la clarté est devenue dans votre vie."
+      },
+      {
+        "day": "Jour 3",
+        "title": "Expansion · Air",
+        "desc": "Quantum Mapping pour le prochain chapitre. Comment investir votre énergie dans ce qui compte."
+      },
+      {
+        "day": "Jour 4",
+        "title": "Intégration · Feu",
+        "desc": "Cérémonie du feu. Écrire votre engagement, un contrat vivant avec vous-même."
+      },
+      {
+        "day": "Jour 5",
+        "title": "Ascension · Lumière",
+        "desc": "Lever de soleil au temple. Vous repartez avec un plan, des pratiques, un cercle qui vous soutient."
+      }
+    ],
+    "release": "Ce Que Nous Venons Déposer",
+    "releaseBody": "Refermer un cycle avec intention, c'est nommer ce qui ne vous appartient plus : les engagements devenus trop petits, les versions de vous que vous continuez à jouer, le poids que vous portez parce que le déposer ressemblait à une perte. On ne repart pas plus léger par hasard. On repart plus léger parce qu'on l'a choisi, à voix haute, devant des gens qui s'en souviendront.",
+    "decision": "La Seule Question Est Celle-ci :",
+    "decisionBody": "Passerez-vous les prochains mois à vous demander ce que The Radiance aurait pu devenir dans votre vie ? Ou ferez-vous confiance à l'appel que vous ressentez maintenant ?",
+    "formTitle": "Demandez Votre Invitation",
+    "formBody": "The Radiance. Bali. Un cercle d'une cinquantaine de personnes, qui referme un cycle et en ouvre un autre. Dites-nous ce qui vous amène.",
+    "formName": "Nom complet",
+    "formEmail": "Email",
+    "formMessage": "Qu'est-ce qui vous amène ici ?",
+    "formSubmit": "Demander une Invitation",
+    "formOk": "Bien reçu. Quelqu'un du cercle vous contactera.",
+    "footer": "Secret Key · The Radiance · Là où la lumière apprend à rester."
+  },
+  "pt": {
+    "eyebrow": "The Radiance · Bali · 17-21 de outubro de 2026",
+    "title": "A chama foi acesa.",
+    "titleEm": "Agora a luz aprende a ficar.",
+    "subtitle": "O Big Bang foi para poucos. The Radiance é onde fechamos o círculo: com intenção, e de mãos abertas.",
+    "bigBang": "Começou Com Poucos",
+    "bigBangBody": "O Big Bang nunca quis ser grande. Um círculo pequeno, Bali, e aqueles dias que mudam algo dentro de si sem fazer barulho. Sem palco. Sem plateia. Apenas presença, e pessoas dispostas a ser honestas diante das outras. O que aconteceu ali é difícil de explicar a quem não esteve na sala; foi exatamente por isso que funcionou.",
+    "opened": "O Que Se Abriu Desde Então",
+    "openedBody": "O círculo não terminou quando voltámos para casa. Continuou a trabalhar. Conversas que se tornaram colaborações. Portas que se abriram sem ninguém pedir. Pessoas que mudaram o que estavam a construir, com quem o construíam, e quanta vida estavam dispostas a trocar por isso. Essa é a parte que ninguém planeia. É a parte a que voltamos.",
+    "sequence": "O Aprofundamento",
+    "sequenceBody": "Isto não é uma continuação. É uma integração. The Radiance existe para ancorar a presença na prática: mostrar-lhe como sustentar o que descobriu, e como investir clareza no mundo com precisão e graça.",
+    "whatIs": "O Que Isto É",
+    "whatIsBody": "Mais profundo, e mais amplo. O Big Bang foi para poucos; The Radiance abre-se. Mantemos o círculo em cerca de cinquenta pessoas: grande o suficiente para a sala ter energia real, pequeno o suficiente para ninguém desaparecer nela. Cinco dias de imersão (Premium) ou seis com noites de integração (VIP).",
+    "fiveDays": "Os Cinco Dias",
+    "days": [
+      {
+        "day": "Dia 1",
+        "title": "Chegada · Terra",
+        "desc": "Sem agenda. Uma cerimónia de boas-vindas ao anoitecer, fogo, frangipani."
+      },
+      {
+        "day": "Dia 2",
+        "title": "Descida · Água",
+        "desc": "Imersão nos arrozais. Ritual de água fria. Escrever no que a clareza se tornou na sua vida."
+      },
+      {
+        "day": "Dia 3",
+        "title": "Expansão · Ar",
+        "desc": "Quantum Mapping para o próximo capítulo. Como investir a sua energia no que importa."
+      },
+      {
+        "day": "Dia 4",
+        "title": "Integração · Fogo",
+        "desc": "Cerimónia do fogo. Escrever o seu compromisso, um contrato vivo consigo mesmo."
+      },
+      {
+        "day": "Dia 5",
+        "title": "Ascensão · Luz",
+        "desc": "Amanhecer no templo. Parte com um plano, com práticas, com um círculo que o sustenta."
+      }
+    ],
+    "release": "O Que Vimos Soltar",
+    "releaseBody": "Fechar um ciclo com intenção é nomear o que já não lhe pertence: os compromissos que ficaram pequenos, as versões de si que continua a representar, o peso que carrega porque pousá-lo parecia perder. Não se sai mais leve por acaso. Sai-se mais leve porque se escolheu, em voz alta, diante de pessoas que vão lembrar-se.",
+    "decision": "A Única Pergunta É Esta:",
+    "decisionBody": "Vai passar os próximos meses a perguntar-se o que The Radiance poderia ter sido na sua vida? Ou vai confiar no chamamento que sente agora?",
+    "formTitle": "Solicite o Seu Convite",
+    "formBody": "The Radiance. Bali. Um círculo de cerca de cinquenta pessoas, a fechar um ciclo e a abrir o seguinte. Diga-nos o que o traz.",
+    "formName": "Nome completo",
+    "formEmail": "Email",
+    "formMessage": "O que o trouxe aqui?",
+    "formSubmit": "Solicitar Convite",
+    "formOk": "Recebido. Alguém do círculo entrará em contacto.",
+    "footer": "Secret Key · The Radiance · Onde a luz aprende a ficar."
+  },
+  "it": {
+    "eyebrow": "The Radiance · Bali · 17-21 ottobre 2026",
+    "title": "La fiamma è stata accesa.",
+    "titleEm": "Ora la luce impara a restare.",
+    "subtitle": "Il Big Bang è stato per pochi. The Radiance è dove chiudiamo il cerchio: con intenzione, e a mani aperte.",
+    "bigBang": "È Iniziato Con Pochi",
+    "bigBangBody": "Il Big Bang non ha mai voluto essere grande. Un cerchio piccolo, Bali, e quei giorni che spostano qualcosa dentro di te senza far rumore. Nessun palco. Nessun pubblico. Solo presenza, e persone disposte a essere oneste davanti alle altre. Quello che è successo lì è difficile da spiegare a chi non era nella stanza; è esattamente per questo che ha funzionato.",
+    "opened": "Ciò Che Si È Aperto Da Allora",
+    "openedBody": "Il cerchio non si è chiuso quando siamo tornati a casa. Ha continuato a lavorare. Conversazioni diventate collaborazioni. Porte aperte che nessuno aveva chiesto. Persone che hanno cambiato ciò che stavano costruendo, con chi lo costruivano, e quanta vita erano disposte a dare in cambio. È la parte che nessuno pianifica. È la parte per cui torniamo.",
+    "sequence": "L'Approfondimento",
+    "sequenceBody": "Questa non è una continuazione. È un'integrazione. The Radiance esiste per ancorare la presenza nella pratica: mostrarti come sostenere ciò che hai scoperto, e come investire chiarezza nel mondo con precisione e grazia.",
+    "whatIs": "Che Cos'È",
+    "whatIsBody": "Più profondo, e più ampio. Il Big Bang è stato per pochi; The Radiance si apre. Teniamo il cerchio intorno a cinquanta persone: abbastanza grande perché la sala abbia energia vera, abbastanza piccolo perché nessuno ci scompaia dentro. Cinque giorni di immersione (Premium) o sei con notti di integrazione (VIP).",
+    "fiveDays": "I Cinque Giorni",
+    "days": [
+      {
+        "day": "Giorno 1",
+        "title": "Arrivo · Terra",
+        "desc": "Nessuna agenda. Una cerimonia di benvenuto al tramonto, fuoco, frangipani."
+      },
+      {
+        "day": "Giorno 2",
+        "title": "Discesa · Acqua",
+        "desc": "Immersione nelle risaie. Rituale di acqua fredda. Scrivere in cosa è diventata la chiarezza nella tua vita."
+      },
+      {
+        "day": "Giorno 3",
+        "title": "Espansione · Aria",
+        "desc": "Quantum Mapping per il prossimo capitolo. Come investire la tua energia in ciò che conta."
+      },
+      {
+        "day": "Giorno 4",
+        "title": "Integrazione · Fuoco",
+        "desc": "Cerimonia del fuoco. Scrivere il tuo impegno, un contratto vivo con te stesso."
+      },
+      {
+        "day": "Giorno 5",
+        "title": "Ascensione · Luce",
+        "desc": "Alba al tempio. Parti con un piano, con pratiche, con un cerchio che ti sostiene."
+      }
+    ],
+    "release": "Ciò Che Veniamo a Lasciare Andare",
+    "releaseBody": "Chiudere un ciclo con intenzione significa nominare ciò che non ti appartiene più: gli impegni che ti sono diventati stretti, le versioni di te che continui a recitare, il peso che porti perché posarlo sembrava perdere. Non si riparte più leggeri per caso. Si riparte più leggeri perché lo si è scelto, ad alta voce, davanti a persone che se ne ricorderanno.",
+    "decision": "L'Unica Domanda È Questa:",
+    "decisionBody": "Passerai i prossimi mesi a chiederti cosa sarebbe potuta diventare The Radiance nella tua vita? O ti fiderai del richiamo che senti ora?",
+    "formTitle": "Richiedi il Tuo Invito",
+    "formBody": "The Radiance. Bali. Un cerchio di circa cinquanta persone, che chiude un ciclo e ne apre un altro. Raccontaci cosa ti porta qui.",
+    "formName": "Nome completo",
+    "formEmail": "Email",
+    "formMessage": "Cosa ti ha portato qui?",
+    "formSubmit": "Richiedi Invito",
+    "formOk": "Ricevuto. Qualcuno del cerchio ti contatterà.",
+    "footer": "Secret Key · The Radiance · Dove la luce impara a restare."
+  },
+  "va": {
+    "eyebrow": "The Radiance · Bali · 17-21 d'octubre de 2026",
+    "title": "La flama va ser encesa.",
+    "titleEm": "Ara la llum aprén a quedar-se.",
+    "subtitle": "El Big Bang va ser per a uns pocs. The Radiance és on tanquem el cercle: amb intenció, i amb les mans obertes.",
+    "bigBang": "Va Començar Amb Uns Pocs",
+    "bigBangBody": "El Big Bang mai va voler ser gran. Un cercle xicotet, Bali, i eixos dies que et recol·loquen alguna cosa per dins sense fer soroll. Sense escenari. Sense públic. Només presència, i gent disposada a ser honesta davant dels altres. El que va passar allí és difícil d'explicar a qui no va estar a la sala; precisament per això va funcionar.",
+    "opened": "El Que S'Ha Obert Des D'Aleshores",
+    "openedBody": "El cercle no es va tancar quan vam tornar a casa. Va continuar treballant. Converses que es van convertir en col·laboracions. Portes que es van obrir sense que ningú les demanara. Gent que va canviar el que estava construint, amb qui ho construïa, i quanta vida estava disposada a entregar a canvi. Eixa és la part que ningú planifica. Eixa és la part a la qual tornem.",
+    "sequence": "L'Aprofundiment",
+    "sequenceBody": "Açò no és una continuació. És una integració. The Radiance existix per a ancorar la presència en la pràctica: mostrar-te com sostindre el que has descobert, i com invertir claredat en el món amb precisió i gràcia.",
+    "whatIs": "El Que Açò És",
+    "whatIsBody": "Més profund, i més ampli. El Big Bang va ser per a uns pocs; The Radiance s'obri. Sostenim el cercle al voltant de cinquanta persones: prou gran perquè la sala tinga energia real, i prou xicotet perquè ningú desaparega dins. Cinc dies d'immersió (Premium) o sis amb nits d'integració (VIP).",
+    "fiveDays": "Els Cinc Dies",
+    "days": [
+      {
+        "day": "Dia 1",
+        "title": "Arribada · Terra",
+        "desc": "Sense agenda. Una cerimònia de benvinguda al capvespre, foc, frangipani."
+      },
+      {
+        "day": "Dia 2",
+        "title": "Descens · Aigua",
+        "desc": "Immersió als arrossars. Ritual d'aigua freda. Escriure en què s'ha convertit la claredat en la teua vida."
+      },
+      {
+        "day": "Dia 3",
+        "title": "Expansió · Aire",
+        "desc": "Quantum Mapping per al pròxim capítol. Com invertir la teua energia en el que importa."
+      },
+      {
+        "day": "Dia 4",
+        "title": "Integració · Foc",
+        "desc": "Cerimònia de foc. Escriure el teu compromís, un contracte viu amb tu mateix."
+      },
+      {
+        "day": "Dia 5",
+        "title": "Ascensió · Llum",
+        "desc": "Eixida del sol al temple. Te'n vas amb un pla, amb pràctiques, amb un cercle que et sosté."
+      }
+    ],
+    "release": "El Que Venim a Soltar",
+    "releaseBody": "Tancar un cicle amb intenció és nomenar el que ja no et pertany: els compromisos que se t'han quedat xicotets, les versions de tu que continues interpretant, el pes que carregues perquè soltar-lo semblava perdre. No te'n vas més lleuger per casualitat. Te'n vas més lleuger perquè ho vas triar, en veu alta, davant de gent que ho recordarà.",
+    "decision": "L'Única Pregunta És Esta:",
+    "decisionBody": "Passaràs els pròxims mesos preguntant-te què hauria pogut ser The Radiance en la teua vida? O confiaràs en la crida que sents ara?",
+    "formTitle": "Sol·licita La Teua Invitació",
+    "formBody": "The Radiance. Bali. Un cercle d'unes cinquanta persones, tancant un cicle i obrint el següent. Conta'ns què et porta.",
+    "formName": "Nom complet",
+    "formEmail": "Email",
+    "formMessage": "Què t'ha portat ací?",
+    "formSubmit": "Sol·licitar Invitació",
+    "formOk": "Rebut. Algú del cercle et contactarà.",
+    "footer": "Secret Key · The Radiance · On la llum aprén a quedar-se."
+  },
+  "hi": {
+    "eyebrow": "The Radiance · Bali · 17-21 अक्टूबर 2026",
+    "title": "लौ जल चुकी है।",
+    "titleEm": "अब रोशनी ठहरना सीखती है।",
+    "subtitle": "The Big Bang कुछ ही लोगों के लिए था। The Radiance वह जगह है जहाँ हम इस चक्र को पूरा करते हैं — इरादे के साथ, और खुले हाथों से।",
+    "bigBang": "शुरुआत कुछ ही लोगों से हुई",
+    "bigBangBody": "The Big Bang कभी बड़ा होना ही नहीं चाहता था। एक छोटा-सा घेरा, बाली, और वे दिन जो चुपचाप आपके भीतर कुछ बदल देते हैं। कोई मंच नहीं। कोई दर्शक नहीं। सिर्फ़ उपस्थिति, और एक-दूसरे के सामने ईमानदार होने को तैयार लोग। वहाँ जो हुआ, उसे उस व्यक्ति को समझाना कठिन है जो उस कमरे में नहीं था — और ठीक इसीलिए वह काम कर गया।",
+    "opened": "तब से क्या खुला है",
+    "openedBody": "घर लौटने पर घेरा ख़त्म नहीं हुआ। वह काम करता रहा। बातचीत सहयोग में बदली। ऐसे दरवाज़े खुले जो किसी ने माँगे नहीं थे। लोगों ने बदला कि वे क्या बना रहे थे, किसके साथ बना रहे थे, और उसके बदले अपनी कितनी ज़िंदगी देने को तैयार थे। यही वह हिस्सा है जिसकी कोई योजना नहीं बनाता। यही वह हिस्सा है जिसके लिए हम लौट रहे हैं।",
+    "sequence": "गहराई",
+    "sequenceBody": "यह निरंतरता नहीं है। यह एकीकरण है। The Radiance इसलिए है कि उपस्थिति को अभ्यास में उतारा जाए: आपको दिखाना कि जो आपने पाया है उसे कैसे बनाए रखें, और स्पष्टता को दुनिया में सटीकता और गरिमा के साथ कैसे लगाएँ।",
+    "whatIs": "यह क्या है",
+    "whatIsBody": "अधिक गहरा, और अधिक विस्तृत। The Big Bang कुछ लोगों के लिए था; The Radiance खुलता है। हम घेरे को लगभग पचास लोगों पर रखते हैं — इतना बड़ा कि कमरे में सच्ची ऊर्जा हो, और इतना छोटा कि कोई उसमें खो न जाए। पाँच दिन की इमर्शन (Premium) या छह दिन एकीकरण रातों के साथ (VIP)।",
+    "fiveDays": "पाँच दिन",
+    "days": [
+      {
+        "day": "दिन 1",
+        "title": "आगमन · पृथ्वी",
+        "desc": "कोई एजेंडा नहीं। संध्या में स्वागत समारोह, अग्नि, फ्रंगीपानी।"
+      },
+      {
+        "day": "दिन 2",
+        "title": "अवतरण · जल",
+        "desc": "धान की सीढ़ियों में इमर्शन। ठंडे जल का अनुष्ठान। लिखना कि स्पष्टता आपके जीवन में क्या बनी।"
+      },
+      {
+        "day": "दिन 3",
+        "title": "विस्तार · वायु",
+        "desc": "अगले अध्याय के लिए Quantum Mapping। अपनी ऊर्जा को उसमें कैसे लगाएँ जो मायने रखता है।"
+      },
+      {
+        "day": "दिन 4",
+        "title": "एकीकरण · अग्नि",
+        "desc": "अग्नि समारोह। अपना संकल्प लिखना, स्वयं से एक जीवित अनुबंध।"
+      },
+      {
+        "day": "दिन 5",
+        "title": "आरोहण · प्रकाश",
+        "desc": "मंदिर में सूर्योदय। आप एक योजना, अभ्यास, और आपको थामने वाले घेरे के साथ लौटते हैं।"
+      }
+    ],
+    "release": "हम क्या छोड़ने आते हैं",
+    "releaseBody": "इरादे के साथ किसी चक्र को पूरा करने का अर्थ है उसे नाम देना जो अब आपका नहीं है — वे प्रतिबद्धताएँ जिनसे आप आगे बढ़ चुके हैं, अपने वे रूप जिन्हें आप निभाते रहते हैं, वह बोझ जिसे आप इसलिए ढोते हैं क्योंकि उसे रखना हार जैसा लगता था। कोई संयोग से हल्का नहीं लौटता। आप हल्के लौटते हैं क्योंकि आपने चुना, ऊँची आवाज़ में, उन लोगों के सामने जो याद रखेंगे।",
+    "decision": "बस एक ही सवाल है:",
+    "decisionBody": "क्या आप अगले महीने यह सोचते हुए बिताएँगे कि The Radiance आपके जीवन में क्या बन सकता था? या आप उस पुकार पर भरोसा करेंगे जो अभी महसूस हो रही है?",
+    "formTitle": "अपना निमंत्रण माँगें",
+    "formBody": "The Radiance. बाली। लगभग पचास लोगों का एक घेरा, एक चक्र पूरा करता और अगला खोलता हुआ। हमें बताइए कि आपको क्या यहाँ लाया।",
+    "formName": "पूरा नाम",
+    "formEmail": "ईमेल",
+    "formMessage": "आपको यहाँ क्या लाया?",
+    "formSubmit": "निमंत्रण का अनुरोध करें",
+    "formOk": "प्राप्त हुआ। घेरे से कोई आपसे संपर्क करेगा।",
+    "footer": "Secret Key · The Radiance · जहाँ रोशनी ठहरना सीखती है।"
+  }
+}
