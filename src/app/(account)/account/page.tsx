@@ -8,9 +8,16 @@ import { getSubscription } from '@/features/account/controllers/get-subscription
 import { PricingCard } from '@/features/pricing/components/price-card';
 import { getProducts } from '@/features/pricing/controllers/get-products';
 import { Price, ProductWithPrices } from '@/features/pricing/types';
+import { getOrders } from '@/features/store/controllers/get-orders';
+import { formatPrice } from '@/features/store/utils/format-price';
 
 export default async function AccountPage() {
-  const [session, subscription, products] = await Promise.all([getSession(), getSubscription(), getProducts()]);
+  const [session, subscription, products, orders] = await Promise.all([
+    getSession(),
+    getSubscription(),
+    getProducts(),
+    getOrders(),
+  ]);
 
   if (!session) {
     redirect('/login');
@@ -53,6 +60,39 @@ export default async function AccountPage() {
             <PricingCard product={userProduct} price={userPrice} />
           ) : (
             <p>You don&apos;t have an active subscription</p>
+          )}
+        </Card>
+
+        <Card
+          title='Shop orders'
+          footer={
+            <Button size='sm' variant='secondary' asChild>
+              <Link href='/store'>Visit the shop</Link>
+            </Button>
+          }
+        >
+          {orders.length === 0 ? (
+            <p>No orders yet.</p>
+          ) : (
+            <ul className='flex flex-col divide-y divide-zinc-800'>
+              {orders.map((order) => (
+                <li key={order.id} className='flex flex-wrap items-center justify-between gap-2 py-3 text-sm'>
+                  <div className='flex flex-col'>
+                    <span className='text-neutral-200'>
+                      {new Date(order.created).toLocaleDateString('en-GB', {
+                        day: 'numeric',
+                        month: 'short',
+                        year: 'numeric',
+                      })}
+                    </span>
+                    <span className='text-xs uppercase tracking-widest text-neutral-500'>{order.status}</span>
+                  </div>
+                  <span className='font-semibold text-white'>
+                    {formatPrice(order.amount_total, order.currency.toUpperCase())}
+                  </span>
+                </li>
+              ))}
+            </ul>
           )}
         </Card>
       </div>

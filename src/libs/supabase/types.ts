@@ -26,6 +26,59 @@ export interface Database {
           }
         ];
       };
+      orders: {
+        Row: {
+          amount_shipping: number | null;
+          amount_subtotal: number | null;
+          amount_total: number;
+          created: string;
+          currency: string;
+          email: string | null;
+          id: string;
+          items: Json;
+          payment_intent_id: string | null;
+          shipping_details: Json | null;
+          status: string;
+          user_id: string | null;
+        };
+        Insert: {
+          amount_shipping?: number | null;
+          amount_subtotal?: number | null;
+          amount_total: number;
+          created?: string;
+          currency: string;
+          email?: string | null;
+          id: string;
+          items?: Json;
+          payment_intent_id?: string | null;
+          shipping_details?: Json | null;
+          status?: string;
+          user_id?: string | null;
+        };
+        Update: {
+          amount_shipping?: number | null;
+          amount_subtotal?: number | null;
+          amount_total?: number;
+          created?: string;
+          currency?: string;
+          email?: string | null;
+          id?: string;
+          items?: Json;
+          payment_intent_id?: string | null;
+          shipping_details?: Json | null;
+          status?: string;
+          user_id?: string | null;
+        };
+        Relationships: [
+          {
+            foreignKeyName: 'orders_user_id_fkey';
+            columns: ['user_id'];
+            isOneToOne: false;
+            referencedRelation: 'users';
+            referencedColumns: ['id'];
+          }
+        ];
+      };
       prices: {
         Row: {
           active: boolean | null;

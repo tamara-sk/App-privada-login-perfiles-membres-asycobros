@@ -131,6 +131,37 @@ const productMetadata = productMetadataSchema.parse(products[0].metadata); // No
 productMetadata.teamInvites; // The value you set in the fixture
 ```
 
+### The shop
+
+The merch store lives in `src/features/store` and is served from `/store`.
+
+- **Catalog** — `src/features/store/catalog.ts` is the single source of truth: slug, copy, phrase, price (in cents), sizes, colours and the silhouette used by the preview. Add a product by adding an object; the grid, the product page, the sitemap and the structured data pick it up automatically.
+- **Previews** — there is no product photography yet, so `merch-preview.tsx` draws each item: the silhouette sits behind the print, the phrase is typeset the way it is printed (discreet front mark, full phrase on the back). Swap it for real photos by replacing that component.
+- **Cart** — client side, persisted in `localStorage` (`cart-provider.tsx`). It only ever stores slugs, variants and quantities.
+- **Checkout** — `create-store-checkout-action.ts` rebuilds the basket from the catalog on the server and creates a Stripe Checkout session with inline `price_data`, so no Stripe product has to be created up front. A tampered cart cannot change what a customer is charged. Shipping countries and rates are configured at the top of that file and in `catalog.ts`.
+- **Orders** — the Stripe webhook writes every completed one-off payment to the `orders` table (migration `20260914120000_store_orders.sql`). Members see their history on `/account`; row-level security keeps each member to their own rows. Run `npm run migration:up` after pulling.
+
+To change prices, edit `priceCents` in the catalog. To go live with a new product line, add products there and Stripe will price them at checkout.
+
+### Website tracking
+
+Tags are wired in `src/libs/analytics` and configured entirely through environment variables. Any id you leave blank simply does not load.
+
+| Variable | What it does |
+| --- | --- |
+| `NEXT_PUBLIC_GTM_ID` | Google Tag Manager container. Recommended: manage GA4, Ads and Meta from inside GTM. |
+| `NEXT_PUBLIC_GA_MEASUREMENT_ID` | GA4. Only injected directly when there is no GTM container, to avoid double counting. |
+| `NEXT_PUBLIC_META_PIXEL_ID` | Meta pixel for Instagram/Facebook campaigns. |
+| `NEXT_PUBLIC_GOOGLE_ADS_ID` | Google Ads conversion linker. |
+
+What is already instrumented, using the GA4 recommended e-commerce schema (so GTM's built-in tags work with no extra mapping):
+
+`page_view` on every client-side navigation, `view_item_list`, `view_item`, `add_to_cart`, `remove_from_cart`, `view_cart`, `begin_checkout`, and `purchase` on the confirmation page (deduplicated per order id, because people refresh). Membership events (`sign_up`, `login`, `select_plan`, `cta_click`) are available in `src/libs/analytics/events.ts`.
+
+Consent Mode v2 is set to denied by default in `<head>` before any tag loads, and the banner in `consent-banner.tsx` updates it. This is what keeps EU traffic compliant and the numbers defensible.
+
+**Setting up GTM:** create a container at [tagmanager.google.com](https://tagmanager.google.com), put the `GTM-XXXXXXX` id in `NEXT_PUBLIC_GTM_ID`, then inside GTM add a GA4 Configuration tag on *All Pages* and GA4 Event tags triggered by the custom events listed above. Use *Preview* mode to confirm events fire before publishing the container.
+
 ### Managing your database schema
 
 [Migrations](https://supabase.com/docs/reference/cli/supabase-migration-new) are a powerful concept for managing your database schema. Any changes you make to your database schema should be done through migrations.

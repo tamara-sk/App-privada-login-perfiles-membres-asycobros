@@ -3,6 +3,7 @@ import Stripe from 'stripe';
 import { upsertUserSubscription } from '@/features/account/controllers/upsert-user-subscription';
 import { upsertPrice } from '@/features/pricing/controllers/upsert-price';
 import { upsertProduct } from '@/features/pricing/controllers/upsert-product';
+import { upsertOrder } from '@/features/store/controllers/upsert-order';
 import { stripeAdmin } from '@/libs/stripe/stripe-admin';
 import { getEnvVar } from '@/utils/get-env-var';
 
@@ -61,6 +62,12 @@ export async function POST(req: Request) {
               customerId: checkoutSession.customer as string,
               isCreateAction: true,
             });
+          }
+
+          // One-off payments are shop orders. Persist them so members and ops
+          // have an order history outside the Stripe dashboard.
+          if (checkoutSession.mode === 'payment') {
+            await upsertOrder(checkoutSession);
           }
           break;
         default:
