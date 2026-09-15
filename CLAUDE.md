@@ -69,6 +69,24 @@ deployed on Vercel.
 - **Legal entity details** are placeholders in `companyConfig` (`src/libs/seo/metadata.ts`)
   until Tamara fills them in.
 
+## Deployment
+
+The Vercel project `secret-key-site` serves **secretkey.vip** from a *different*
+codebase: a Vite SPA deployed by CLI from a local machine. That same Vercel project is
+also git-linked to this repository, so every push here triggers a preview build of this
+Next.js app inside a project configured for Vite.
+
+Until the two are separated into their own Vercel projects:
+
+- `vercel.json` disables git deployments for `main`, so a merge here can never publish
+  this app over the live secretkey.vip.
+- Previews still build, and they build **without any environment variables**, because the
+  SDK clients are constructed lazily (`src/utils/create-lazy-client.ts`). Keep it that
+  way: a client that reads its credentials at import time will take the whole build down
+  when Next collects page data.
+- A project that actually runs this app needs the Supabase, Stripe and Resend variables
+  set for both Preview and Production.
+
 ### Before pushing
 
 ```bash

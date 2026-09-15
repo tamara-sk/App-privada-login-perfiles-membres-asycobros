@@ -143,6 +143,18 @@ The merch store lives in `src/features/store` and is served from `/store`.
 
 To change prices, edit `priceCents` in the catalog. To go live with a new product line, add products there and Stripe will price them at checkout.
 
+### Deployment and environment variables
+
+Build-time safety: the Stripe, Supabase-admin and Resend clients are built lazily through
+`src/utils/create-lazy-client.ts`, so `next build` completes with no secrets present and a
+missing credential surfaces on the request that needs it. Anything new that reads an env
+var at module scope will break preview builds again - construct it inside a factory
+instead.
+
+`vercel.json` turns off git-triggered deployments for `main`. Remove that line once this
+repository has a Vercel project of its own, separate from the one serving the marketing
+site.
+
 ### Website tracking
 
 Tags are wired in `src/libs/analytics` and configured entirely through environment variables. Any id you leave blank simply does not load.
