@@ -8,16 +8,18 @@ import type { StoreCategory } from '@/features/store/types';
 import { formatPrice } from '@/features/store/utils/format-price';
 import { constructMetadata } from '@/libs/seo/metadata';
 import { cn } from '@/utils/cn';
+import { getURL } from '@/utils/get-url';
 
 export const metadata: Metadata = constructMetadata({
   title: 'Shop',
   description:
-    'Caps, tees and everyday objects carrying phrases worth reading. Discreet on the front, generous on the back. Free shipping over 90 euro.',
+    'Caps, tees and everyday objects carrying phrases worth reading, plus experience packs that gift somebody their time back. Free shipping over 90 euro across Europe.',
   path: '/store',
 });
 
 const FILTERS: { value: 'all' | StoreCategory; label: string }[] = [
   { value: 'all', label: 'Everything' },
+  { value: 'experience', label: CATEGORY_LABELS.experience },
   { value: 'headwear', label: CATEGORY_LABELS.headwear },
   { value: 'apparel', label: CATEGORY_LABELS.apparel },
   { value: 'everyday', label: CATEGORY_LABELS.everyday },
@@ -26,7 +28,10 @@ const FILTERS: { value: 'all' | StoreCategory; label: string }[] = [
 export default async function StorePage({ searchParams }: { searchParams: Promise<{ category?: string }> }) {
   const { category } = await searchParams;
   const activeFilter = FILTERS.find((filter) => filter.value === category)?.value ?? 'all';
-  const products = getAllProducts().filter((product) => activeFilter === 'all' || product.category === activeFilter);
+  const products = getAllProducts()
+    .filter((product) => activeFilter === 'all' || product.category === activeFilter)
+    // Experience packs lead: they are the reason most people arrive with a gift in mind.
+    .sort((a, b) => Number(b.category === 'experience') - Number(a.category === 'experience'));
 
   return (
     <div className='flex flex-col gap-10 py-8 lg:py-16'>
@@ -36,8 +41,9 @@ export default async function StorePage({ searchParams }: { searchParams: Promis
         <span className='text-xs uppercase tracking-[0.3em] text-neutral-500'>The Shop</span>
         <h1 className='max-w-3xl'>Words worth wearing.</h1>
         <p className='max-w-2xl text-lg text-neutral-400'>
-          A small collection of objects that say something kind to the person standing behind you. Discreet on the
-          front. Generous on the back. Free standard shipping over {formatPrice(FREE_SHIPPING_THRESHOLD_CENTS)}.
+          Objects that say something kind to the person standing behind you, and gifts that hand somebody their week
+          back. Discreet on the front. Generous on the back. Free standard shipping over{' '}
+          {formatPrice(FREE_SHIPPING_THRESHOLD_CENTS)}.
         </p>
       </header>
 
@@ -58,6 +64,24 @@ export default async function StorePage({ searchParams }: { searchParams: Promis
         ))}
       </nav>
 
+      <script
+        type='application/ld+json'
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'ItemList',
+            name: 'The Secret Key shop',
+            numberOfItems: products.length,
+            itemListElement: products.map((product, index) => ({
+              '@type': 'ListItem',
+              position: index + 1,
+              url: getURL(`store/${product.slug}`),
+              name: product.name,
+            })),
+          }),
+        }}
+      />
+
       <section className='grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4'>
         {products.map((product) => (
           <ProductCard key={product.slug} product={product} />
@@ -69,7 +93,10 @@ export default async function StorePage({ searchParams }: { searchParams: Promis
           title='Made to outlast trends'
           body='Heavy fabrics, tonal prints, one long life. Buy once, wear for years.'
         />
-        <Benefit title='Free shipping over 90 euro' body='Tracked delivery across Europe, the UK and North America.' />
+        <Benefit
+          title='Gifts that arrive in minutes'
+          body='Experience packs reach the inbox straight away, ready to forward or print.'
+        />
         <Benefit title='30-day returns' body='Wrong size, wrong mood - send it back within 30 days and we sort it.' />
       </section>
     </div>

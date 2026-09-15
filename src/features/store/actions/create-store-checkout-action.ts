@@ -7,7 +7,13 @@ import { getURL } from '@/utils/get-url';
 
 import { STORE_CURRENCY } from '../catalog';
 import type { CartItem } from '../types';
-import { getCartSubtotalCents, getShippingOptions, resolveCart } from '../utils/resolve-cart';
+import {
+  cartNeedsShipping,
+  getCartSubtotalCents,
+  getShippableSubtotalCents,
+  getShippingOptions,
+  resolveCart,
+} from '../utils/resolve-cart';
 
 /** Countries we ship to today. Extend as fulfilment coverage grows. */
 const SHIPPING_COUNTRIES = [
@@ -46,6 +52,9 @@ export async function createStoreCheckoutAction({ items }: { items: CartItem[] }
   }
 
   const subtotalCents = getCartSubtotalCents(resolvedItems);
+  // Experience packs are emailed, so an all-digital basket skips the address
+  // step entirely. A mixed basket still ships, priced on its physical part.
+  const needsShipping = cartNeedsShipping(resolvedItems);
 
   // 2. Attach the Stripe customer when the shopper is a signed-in member, so
   //    merch orders and membership live under one customer record.
@@ -70,18 +79,22 @@ export async function createStoreCheckoutAction({ items }: { items: CartItem[] }
       ...(customerId
         ? { customer: customerId, customer_update: { address: 'auto', shipping: 'auto', name: 'auto' } }
         : {}),
-      shipping_address_collection: { allowed_countries: [...SHIPPING_COUNTRIES] },
-      shipping_options: getShippingOptions(subtotalCents).map((option) => ({
-        shipping_rate_data: {
-          type: 'fixed_amount' as const,
-          fixed_amount: { amount: option.amountCents, currency: STORE_CURRENCY },
-          display_name: option.label,
-          delivery_estimate: {
-            minimum: { unit: 'business_day' as const, value: option.minBusinessDays },
-            maximum: { unit: 'business_day' as const, value: option.maxBusinessDays },
-          },
-        },
-      })),
+      ...(needsShipping
+        ? {
+            shipping_address_collection: { allowed_countries: [...SHIPPING_COUNTRIES] },
+            shipping_options: getShippingOptions(getShippableSubtotalCents(resolvedItems)).map((option) => ({
+              shipping_rate_data: {
+                type: 'fixed_amount' as const,
+                fixed_amount: { amount: option.amountCents, currency: STORE_CURRENCY },
+                display_name: option.label,
+                delivery_estimate: {
+                  minimum: { unit: 'business_day' as const, value: option.minBusinessDays },
+                  maximum: { unit: 'business_day' as const, value: option.maxBusinessDays },
+                },
+              },
+            })),
+          }
+        : {}),
       line_items: resolvedItems.map((item) => ({
         quantity: item.quantity,
         price_data: {
@@ -95,7 +108,7 @@ export async function createStoreCheckoutAction({ items }: { items: CartItem[] }
         },
       })),
       metadata: {
-        order_type: 'merch',
+        order_type: needsShipping ? 'merch' : 'experience',
         user_id: session?.user?.id ?? '',
         // Stripe caps metadata values at 500 characters, so keep this compact.
         items: resolvedItems

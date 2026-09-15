@@ -1,7 +1,31 @@
-export type StoreCategory = 'headwear' | 'apparel' | 'everyday';
+export type StoreCategory = 'headwear' | 'apparel' | 'everyday' | 'experience';
 
 /** Silhouette used by the product preview canvas. */
-export type MerchShape = 'cap' | 'beanie' | 'tee' | 'hoodie' | 'tote' | 'bottle' | 'journal' | 'socks';
+export type MerchShape =
+  | 'cap'
+  | 'beanie'
+  | 'tee'
+  | 'hoodie'
+  | 'tote'
+  | 'bottle'
+  | 'journal'
+  | 'socks'
+  | 'giftcard';
+
+/** How an order line reaches the person who bought it. */
+export type Fulfilment = 'shipped' | 'digital';
+
+/** Extra detail carried by an experience pack. */
+export type ExperienceDetails = {
+  /** What the recipient actually gets, line by line. */
+  includes: string[];
+  /** How long the gift stays redeemable. */
+  validityMonths: number;
+  /** Who it suits, in one line. */
+  forWhom: string;
+  /** How it arrives: a card to forward, a call to book. */
+  deliveredAs: string;
+};
 
 export type StoreColor = {
   name: string;
@@ -25,6 +49,10 @@ export type StoreProduct = {
   sizes: string[];
   colors: StoreColor[];
   material: string;
+  /** Shipped goods collect an address at checkout; digital gifts skip it. */
+  fulfilment: Fulfilment;
+  /** Present on experience packs only. */
+  experience?: ExperienceDetails;
   badge?: string;
   featured?: boolean;
   /** Tailwind gradient stops used by the preview canvas. */

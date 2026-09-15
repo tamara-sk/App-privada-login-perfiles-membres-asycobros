@@ -18,6 +18,7 @@ const SHAPE_PATHS: Record<MerchShape, string> = {
   bottle: 'M84 20h32v22l10 16v130a10 10 0 01-10 10H84a10 10 0 01-10-10V58l10-16V20z',
   journal: 'M46 28h96a10 10 0 0110 10v124a10 10 0 01-10 10H46V28zm0 0a10 10 0 00-10 10v124a10 10 0 0010 10',
   socks: 'M62 24h34v76l34 30a30 30 0 01-42 42L58 140a24 24 0 01-8-18V24z',
+  giftcard: 'M28 52h144a10 10 0 0110 10v76a10 10 0 01-10 10H28a10 10 0 01-10-10V62a10 10 0 0110-10zm0 34h164',
 };
 
 export function MerchPreview({
@@ -31,6 +32,8 @@ export function MerchPreview({
   colorHex?: string;
   className?: string;
 }) {
+  // Experience packs arrive as a card, so they get a card rather than a garment.
+  const isExperience = product.category === 'experience';
   const fill = colorHex ?? product.colors[0].hex;
   const isLightGarment = isLight(fill);
   const inkClass = isLightGarment ? 'text-black/80' : 'text-white/90';
@@ -56,8 +59,11 @@ export function MerchPreview({
         />
       </svg>
 
-      <div className='relative z-10 flex h-full w-full items-center justify-center px-6 py-10 text-center'>
-        {view === 'back' ? (
+      <div className='relative z-10 flex h-full w-full flex-col items-center justify-center gap-3 px-6 py-10 text-center'>
+        {isExperience && (
+          <span className='font-alt text-[10px] uppercase tracking-[0.4em] text-white/50'>{product.frontMark}</span>
+        )}
+        {isExperience || view === 'back' ? (
           <p
             className={cn(
               'max-w-[85%] font-alt font-semibold uppercase leading-tight tracking-tight',
@@ -75,7 +81,7 @@ export function MerchPreview({
       </div>
 
       <span className='absolute bottom-3 right-3 z-10 rounded-full border border-white/15 bg-black/50 px-2 py-0.5 text-[10px] uppercase tracking-widest text-neutral-300 backdrop-blur'>
-        {view}
+        {isExperience ? 'gift' : view}
       </span>
     </div>
   );

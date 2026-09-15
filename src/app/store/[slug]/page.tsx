@@ -31,8 +31,10 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
 
   if (!product) notFound();
 
+  // Show like with like first, so a gift page suggests other gifts.
   const related = getAllProducts()
     .filter((item) => item.slug !== product.slug)
+    .sort((a, b) => Number(b.category === product.category) - Number(a.category === product.category))
     .slice(0, 4);
 
   const productJsonLd = {
@@ -50,12 +52,23 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
       price: (product.priceCents / 100).toFixed(2),
       availability: 'https://schema.org/InStock',
       itemCondition: 'https://schema.org/NewCondition',
+      seller: { '@type': 'Organization', name: siteConfig.name },
     },
+  };
+
+  const breadcrumbJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Shop', item: getURL('store') },
+      { '@type': 'ListItem', position: 2, name: product.name, item: getURL(`store/${product.slug}`) },
+    ],
   };
 
   return (
     <div className='flex flex-col gap-16 py-8 lg:py-16'>
       <script type='application/ld+json' dangerouslySetInnerHTML={{ __html: JSON.stringify(productJsonLd) }} />
+      <script type='application/ld+json' dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
 
       <nav aria-label='Breadcrumb' className='text-sm text-neutral-500'>
         <Link href='/store' className='hover:text-neutral-300'>

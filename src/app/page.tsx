@@ -86,7 +86,7 @@ function PillarsSection() {
 }
 
 function ShopSection() {
-  const products = getFeaturedProducts();
+  const products = getFeaturedProducts().slice(0, 3);
 
   return (
     <section className='flex flex-col gap-8'>
@@ -95,8 +95,11 @@ function ShopSection() {
           <span className='text-xs uppercase tracking-[0.3em] text-neutral-500'>The Shop</span>
           <h2 className='font-alt text-3xl font-bold text-white lg:text-4xl'>Words worth wearing.</h2>
           <p className='max-w-xl text-neutral-400'>
-            Discreet on the front. Generous on the back. Starting with the one people stop to read in the queue behind
-            you.
+            Discreet on the front. Generous on the back. And for the people who have everything,{' '}
+            <Link href='/store?category=experience' className='underline underline-offset-4 hover:text-white'>
+              gifts that hand back their time
+            </Link>
+            .
           </p>
         </div>
         <Button variant='outline' asChild>

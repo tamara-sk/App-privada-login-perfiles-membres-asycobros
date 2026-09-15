@@ -40,6 +40,18 @@ export function getCartItemCount(items: { quantity: number }[]) {
   return items.reduce((total, item) => total + item.quantity, 0);
 }
 
+/** A basket of experience packs arrives by email, so it needs no address. */
+export function cartNeedsShipping(items: ResolvedCartItem[]) {
+  return items.some((item) => item.product.fulfilment === 'shipped');
+}
+
+/** Shipping is only charged on the physical part of a mixed basket. */
+export function getShippableSubtotalCents(items: ResolvedCartItem[]) {
+  return items
+    .filter((item) => item.product.fulfilment === 'shipped')
+    .reduce((total, item) => total + item.lineTotalCents, 0);
+}
+
 export function qualifiesForFreeShipping(subtotalCents: number) {
   return subtotalCents >= FREE_SHIPPING_THRESHOLD_CENTS;
 }

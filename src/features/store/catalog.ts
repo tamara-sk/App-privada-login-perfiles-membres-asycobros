@@ -50,6 +50,7 @@ export const STORE_PRODUCTS: StoreProduct[] = [
       { name: 'Olive', hex: '#3f4434' },
     ],
     material: '100% brushed cotton twill, 280gsm',
+    fulfilment: 'shipped',
     badge: 'Signature',
     featured: true,
     accent: 'from-[#5ED4FF]/20 via-transparent to-[#D13C5F]/20',
@@ -72,6 +73,7 @@ export const STORE_PRODUCTS: StoreProduct[] = [
       { name: 'Slate', hex: '#4a4f58' },
     ],
     material: '100% organic cotton, 240gsm',
+    fulfilment: 'shipped',
     featured: true,
     accent: 'from-[#F98324]/20 via-transparent to-[#5ED4FF]/20',
   },
@@ -94,6 +96,7 @@ export const STORE_PRODUCTS: StoreProduct[] = [
       { name: 'Deep Navy', hex: '#161c2b' },
     ],
     material: 'Organic cotton / recycled poly fleece, 420gsm',
+    fulfilment: 'shipped',
     featured: true,
     accent: 'from-[#D13C5F]/20 via-transparent to-[#7782A9]/25',
   },
@@ -115,6 +118,7 @@ export const STORE_PRODUCTS: StoreProduct[] = [
       { name: 'Rust', hex: '#8c4a2f' },
     ],
     material: 'Merino wool blend',
+    fulfilment: 'shipped',
     accent: 'from-[#7782A9]/25 via-transparent to-[#5ED4FF]/20',
   },
   {
@@ -134,6 +138,7 @@ export const STORE_PRODUCTS: StoreProduct[] = [
       { name: 'Black', hex: '#0d0d0f' },
     ],
     material: '16oz heavy canvas',
+    fulfilment: 'shipped',
     accent: 'from-[#F98324]/20 via-transparent to-[#7782A9]/20',
   },
   {
@@ -153,6 +158,7 @@ export const STORE_PRODUCTS: StoreProduct[] = [
       { name: 'Sand', hex: '#cfc0a8' },
     ],
     material: '18/8 stainless steel, BPA free',
+    fulfilment: 'shipped',
     accent: 'from-[#5ED4FF]/25 via-transparent to-[#F98324]/15',
   },
   {
@@ -172,6 +178,7 @@ export const STORE_PRODUCTS: StoreProduct[] = [
       { name: 'Bone', hex: '#e8e2d6' },
     ],
     material: 'Recycled board, cloth spine',
+    fulfilment: 'shipped',
     accent: 'from-[#7782A9]/25 via-transparent to-[#D13C5F]/15',
   },
   {
@@ -191,7 +198,99 @@ export const STORE_PRODUCTS: StoreProduct[] = [
       { name: 'Bone', hex: '#e8e2d6' },
     ],
     material: 'Combed cotton blend',
+    fulfilment: 'shipped',
     accent: 'from-[#D13C5F]/15 via-transparent to-[#5ED4FF]/20',
+  },
+  // --- Experience packs -------------------------------------------------
+  // Draft content: the names, inclusions and prices below are a working
+  // proposal written to match how the rest of the shop reads. Replace them
+  // with the experiences Secret Key actually delivers before this goes live.
+  {
+    slug: 'the-gift-of-time',
+    name: 'The Gift of Time',
+    category: 'experience',
+    shape: 'giftcard',
+    tagline: 'Ten hours of their week, handed back.',
+    description:
+      'Someone you love is drowning in admin. This gives them ten hours of Secret Key handling it: the bookings, the chasing, the paperwork, the errands that keep sliding to next week. They send one message and it gets done.',
+    backPhrase: 'Ten hours. Yours to spend on something better.',
+    frontMark: 'sk',
+    priceCents: 25000,
+    sizes: ['10 hours'],
+    colors: [{ name: 'Midnight', hex: '#101018' }],
+    material: 'Digital gift, redeemable in one block or across the year',
+    fulfilment: 'digital',
+    experience: {
+      includes: [
+        'Ten hours of Secret Key time, used however they choose',
+        'An onboarding call to learn how their week runs',
+        'A direct line for requests, answered the same day',
+        'A written handover of everything arranged',
+      ],
+      validityMonths: 12,
+      forWhom: 'The friend who says they have no time, and means it.',
+      deliveredAs: 'A card by email within minutes, ready to forward or print.',
+    },
+    badge: 'Most gifted',
+    featured: true,
+    accent: 'from-[#5ED4FF]/25 via-transparent to-[#7782A9]/25',
+  },
+  {
+    slug: 'the-unplanned-weekend',
+    name: 'The Unplanned Weekend',
+    category: 'experience',
+    shape: 'giftcard',
+    tagline: 'They show up. We did the rest.',
+    description:
+      'A weekend arranged end to end around what they enjoy: where to stay, where to eat, what to see, how to get there. They answer three questions and receive an itinerary they had to do nothing to earn.',
+    backPhrase: 'Show up. It is handled.',
+    frontMark: 'sk',
+    priceCents: 45000,
+    sizes: ['One weekend'],
+    colors: [{ name: 'Midnight', hex: '#101018' }],
+    material: 'Digital gift. Planning included; stays and travel billed separately',
+    fulfilment: 'digital',
+    experience: {
+      includes: [
+        'A planning call to learn what they actually enjoy',
+        'Stays, tables and transport researched and booked',
+        'An itinerary with everything confirmed, hour by hour',
+        'Someone reachable through the whole weekend',
+      ],
+      validityMonths: 12,
+      forWhom: 'The couple who keep postponing the trip they talk about.',
+      deliveredAs: 'A card by email within minutes, ready to forward or print.',
+    },
+    featured: true,
+    accent: 'from-[#F98324]/20 via-transparent to-[#D13C5F]/20',
+  },
+  {
+    slug: 'the-table',
+    name: 'The Table',
+    category: 'experience',
+    shape: 'giftcard',
+    tagline: 'An evening they could not have booked.',
+    description:
+      'Dinner somewhere worth crossing a city for, arranged for two. We take the date and the taste, find the table, handle the booking and the details around it, and tell them where to be.',
+    backPhrase: 'A table, an evening, and nothing to arrange.',
+    frontMark: 'sk',
+    priceCents: 18000,
+    sizes: ['Table for two'],
+    colors: [{ name: 'Midnight', hex: '#101018' }],
+    material: 'Digital gift. Booking included; the meal billed separately',
+    fulfilment: 'digital',
+    experience: {
+      includes: [
+        'A table for two, chosen around their taste and the date',
+        'The booking made and confirmed on their behalf',
+        'A note to the restaurant so the evening lands right',
+        'Transport arranged if they want it',
+      ],
+      validityMonths: 9,
+      forWhom: 'The person who has everything and enjoys a good evening.',
+      deliveredAs: 'A card by email within minutes, ready to forward or print.',
+    },
+    accent: 'from-[#D13C5F]/20 via-transparent to-[#F98324]/15',
   },
 ];
 
@@ -211,4 +310,10 @@ export const CATEGORY_LABELS: Record<StoreProduct['category'], string> = {
   headwear: 'Headwear',
   apparel: 'Apparel',
   everyday: 'Everyday',
+  experience: 'Experiences',
 };
+
+/** Experience packs arrive by email, so a basket of them skips shipping. */
+export function getExperienceProducts(): StoreProduct[] {
+  return STORE_PRODUCTS.filter((product) => product.category === 'experience');
+}

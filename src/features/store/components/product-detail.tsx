@@ -38,6 +38,9 @@ export function ProductDetail({ product }: { product: StoreProduct }) {
   }, [product]);
 
   const colorHex = product.colors.find((option) => option.name === color)?.hex;
+  const isExperience = product.category === 'experience';
+  const hasColorChoice = product.colors.length > 1;
+  const hasSizeChoice = product.sizes.length > 1;
 
   function handleAddToCart({ goToCart }: { goToCart?: boolean } = {}) {
     addItem({ slug: product.slug, size, color, quantity });
@@ -54,7 +57,7 @@ export function ProductDetail({ product }: { product: StoreProduct }) {
     <div className='grid gap-8 lg:grid-cols-2 lg:gap-12'>
       <div className='flex flex-col gap-3'>
         <MerchPreview product={product} view={view} colorHex={colorHex} />
-        <div className='flex gap-2'>
+        <div className={cn('flex gap-2', isExperience && 'hidden')}>
           {(['back', 'front'] as const).map((option) => (
             <button
               key={option}
@@ -90,10 +93,28 @@ export function ProductDetail({ product }: { product: StoreProduct }) {
 
         <blockquote className='rounded-lg border border-zinc-800 bg-black p-4 font-alt text-sm leading-relaxed text-neutral-200'>
           &ldquo;{product.backPhrase}&rdquo;
-          <footer className='pt-2 text-xs uppercase tracking-widest text-neutral-500'>Printed on the back</footer>
+          <footer className='pt-2 text-xs uppercase tracking-widest text-neutral-500'>
+            {isExperience ? 'Written on the card' : 'Printed on the back'}
+          </footer>
         </blockquote>
 
-        <div className='flex flex-col gap-3'>
+        {product.experience && (
+          <div className='flex flex-col gap-3 rounded-lg border border-zinc-800 bg-black p-5'>
+            <h2 className='font-alt text-sm font-semibold uppercase tracking-widest text-neutral-400'>
+              What is included
+            </h2>
+            <ul className='flex flex-col gap-2'>
+              {product.experience.includes.map((line) => (
+                <li key={line} className='flex gap-3 text-sm text-neutral-300'>
+                  <span aria-hidden className='mt-2 h-1 w-1 flex-shrink-0 rounded-full bg-neutral-500' />
+                  <span>{line}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+
+        <div className={cn('flex flex-col gap-3', !hasColorChoice && 'hidden')}>
           <span className='text-xs uppercase tracking-widest text-neutral-500'>Colour: {color}</span>
           <div className='flex gap-2'>
             {product.colors.map((option) => (
@@ -113,7 +134,7 @@ export function ProductDetail({ product }: { product: StoreProduct }) {
           </div>
         </div>
 
-        <div className='flex flex-col gap-3'>
+        <div className={cn('flex flex-col gap-3', !hasSizeChoice && 'hidden')}>
           <span className='text-xs uppercase tracking-widest text-neutral-500'>Size</span>
           <div className='flex flex-wrap gap-2'>
             {product.sizes.map((option) => (
@@ -158,7 +179,7 @@ export function ProductDetail({ product }: { product: StoreProduct }) {
             </button>
           </div>
           <Button variant='sexy' className='flex-1 sm:flex-none' onClick={() => handleAddToCart()}>
-            Add to bag
+            {isExperience ? 'Add gift to bag' : 'Add to bag'}
           </Button>
           <Button variant='outline' onClick={() => handleAddToCart({ goToCart: true })}>
             Buy now
@@ -174,14 +195,33 @@ export function ProductDetail({ product }: { product: StoreProduct }) {
             <dt className='w-28 flex-shrink-0 text-neutral-500'>Material</dt>
             <dd>{product.material}</dd>
           </div>
-          <div className='flex gap-2'>
-            <dt className='w-28 flex-shrink-0 text-neutral-500'>Front</dt>
-            <dd>Discreet tone-on-tone {product.frontMark} mark</dd>
-          </div>
-          <div className='flex gap-2'>
-            <dt className='w-28 flex-shrink-0 text-neutral-500'>Shipping</dt>
-            <dd>Free standard shipping over {formatPrice(FREE_SHIPPING_THRESHOLD_CENTS)}. 30-day returns.</dd>
-          </div>
+          {product.experience ? (
+            <>
+              <div className='flex gap-2'>
+                <dt className='w-28 flex-shrink-0 text-neutral-500'>Suits</dt>
+                <dd>{product.experience.forWhom}</dd>
+              </div>
+              <div className='flex gap-2'>
+                <dt className='w-28 flex-shrink-0 text-neutral-500'>Arrives</dt>
+                <dd>{product.experience.deliveredAs}</dd>
+              </div>
+              <div className='flex gap-2'>
+                <dt className='w-28 flex-shrink-0 text-neutral-500'>Valid for</dt>
+                <dd>{product.experience.validityMonths} months from the day it is bought.</dd>
+              </div>
+            </>
+          ) : (
+            <>
+              <div className='flex gap-2'>
+                <dt className='w-28 flex-shrink-0 text-neutral-500'>Front</dt>
+                <dd>Discreet tone-on-tone {product.frontMark} mark</dd>
+              </div>
+              <div className='flex gap-2'>
+                <dt className='w-28 flex-shrink-0 text-neutral-500'>Shipping</dt>
+                <dd>Free standard shipping over {formatPrice(FREE_SHIPPING_THRESHOLD_CENTS)}. 30-day returns.</dd>
+              </div>
+            </>
+          )}
         </dl>
       </div>
     </div>

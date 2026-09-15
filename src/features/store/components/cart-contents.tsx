@@ -11,7 +11,12 @@ import { createStoreCheckoutAction } from '../actions/create-store-checkout-acti
 import { FREE_SHIPPING_THRESHOLD_CENTS } from '../catalog';
 import type { ResolvedCartItem } from '../types';
 import { formatPrice } from '../utils/format-price';
-import { MAX_QUANTITY_PER_LINE, qualifiesForFreeShipping } from '../utils/resolve-cart';
+import {
+  cartNeedsShipping,
+  getShippableSubtotalCents,
+  MAX_QUANTITY_PER_LINE,
+  qualifiesForFreeShipping,
+} from '../utils/resolve-cart';
 
 import { useCart } from './cart-provider';
 import { MerchPreview } from './merch-preview';
@@ -65,7 +70,8 @@ export function CartContents() {
     );
   }
 
-  const remainingForFreeShipping = FREE_SHIPPING_THRESHOLD_CENTS - subtotalCents;
+  const needsShipping = cartNeedsShipping(items);
+  const remainingForFreeShipping = FREE_SHIPPING_THRESHOLD_CENTS - getShippableSubtotalCents(items);
 
   return (
     <div className='grid gap-8 lg:grid-cols-[1fr_360px]'>
@@ -87,7 +93,7 @@ export function CartContents() {
                 {item.product.name}
               </Link>
               <span className='text-sm text-neutral-500'>
-                {item.color} / {item.size}
+                {item.product.category === 'experience' ? item.size : `${item.color} / ${item.size}`}
               </span>
               <div className='mt-auto flex items-center gap-3 pt-2'>
                 <div className='flex items-center rounded-md border border-zinc-800'>
@@ -133,12 +139,23 @@ export function CartContents() {
           <span className='text-white'>{formatPrice(subtotalCents)}</span>
         </div>
         <div className='flex justify-between text-sm text-neutral-400'>
-          <span>Shipping</span>
-          <span>{qualifiesForFreeShipping(subtotalCents) ? 'Free' : 'Calculated at checkout'}</span>
+          <span>{needsShipping ? 'Shipping' : 'Delivery'}</span>
+          <span>
+            {!needsShipping
+              ? 'By email'
+              : qualifiesForFreeShipping(getShippableSubtotalCents(items))
+              ? 'Free'
+              : 'Calculated at checkout'}
+          </span>
         </div>
-        {remainingForFreeShipping > 0 && (
+        {needsShipping && remainingForFreeShipping > 0 && (
           <p className='rounded-md border border-zinc-800 p-3 text-xs text-neutral-400'>
             Add {formatPrice(remainingForFreeShipping)} more for free standard shipping.
+          </p>
+        )}
+        {!needsShipping && (
+          <p className='rounded-md border border-zinc-800 p-3 text-xs text-neutral-400'>
+            Gift cards arrive by email within minutes, ready to forward or print.
           </p>
         )}
         <Button variant='sexy' className='w-full' disabled={isCheckingOut} onClick={handleCheckout}>
