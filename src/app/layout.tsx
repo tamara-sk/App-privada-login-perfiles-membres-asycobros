@@ -10,7 +10,7 @@ import { CartProvider } from '@/features/store/components/cart-provider';
 import { AnalyticsProvider } from '@/libs/analytics/analytics-provider';
 import { ConsentBanner } from '@/libs/analytics/consent-banner';
 import { consentBootstrapScript } from '@/libs/analytics/consent-script';
-import { constructMetadata, siteConfig } from '@/libs/seo/metadata';
+import { companyConfig, constructMetadata, siteConfig } from '@/libs/seo/metadata';
 import { cn } from '@/utils/cn';
 import { getURL } from '@/utils/get-url';
 import { Analytics } from '@vercel/analytics/react';
@@ -52,6 +52,17 @@ const organizationJsonLd = {
   logo: getURL('logo.png'),
   description: siteConfig.description,
   slogan: siteConfig.tagline,
+  legalName: companyConfig.legalName,
+  taxID: companyConfig.taxId,
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: companyConfig.address.street,
+    postalCode: companyConfig.address.postalCode,
+    addressLocality: companyConfig.address.city,
+    addressRegion: companyConfig.address.region,
+    addressCountry: companyConfig.address.country,
+  },
+  email: companyConfig.supportEmail,
 };
 
 export default function RootLayout({ children }: PropsWithChildren) {

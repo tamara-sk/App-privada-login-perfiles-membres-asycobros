@@ -28,8 +28,16 @@ export const siteConfig = {
  */
 export const companyConfig = {
   legalName: 'The Secret Key Labs S.L.',
-  registeredAddress: 'UPDATE_THIS_WITH_YOUR_REGISTERED_ADDRESS',
-  taxId: 'UPDATE_THIS_WITH_YOUR_VAT_NUMBER',
+  registeredAddress: 'Camí Vora Riu Solades 1771, 12540 Vila-real, Castellón, Spain',
+  /** Structured form of the address above, for the Organization schema. */
+  address: {
+    street: 'Camí Vora Riu Solades 1771',
+    postalCode: '12540',
+    city: 'Vila-real',
+    region: 'Castellón',
+    country: 'ES',
+  },
+  taxId: 'B25909565',
   privacyEmail: 'legal@secretkey.vip',
   supportEmail: 'hello@secretkey.vip',
   /** Lead supervisory authority for data protection complaints. */

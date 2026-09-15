@@ -90,8 +90,8 @@ export default function PrivacyPage() {
       <Section title='Who is responsible for your data'>
         <p>
           {companyConfig.legalName} (&ldquo;{siteConfig.name}&rdquo;, &ldquo;we&rdquo;) is the data controller for the
-          personal data described here. Registered at {companyConfig.registeredAddress}, tax identification{' '}
-          {companyConfig.taxId}.
+          personal data described here. Registered at {companyConfig.registeredAddress}, Spanish tax identification
+          number (NIF) {companyConfig.taxId}.
         </p>
         <p>
           Questions, requests or complaints:{' '}
