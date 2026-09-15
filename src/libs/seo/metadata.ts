@@ -27,7 +27,7 @@ export const siteConfig = {
  * updates every page that references them.
  */
 export const companyConfig = {
-  legalName: 'UPDATE_THIS_WITH_YOUR_LEGAL_ENTITY_NAME',
+  legalName: 'The Secret Key Labs S.L.',
   registeredAddress: 'UPDATE_THIS_WITH_YOUR_REGISTERED_ADDRESS',
   taxId: 'UPDATE_THIS_WITH_YOUR_VAT_NUMBER',
   privacyEmail: 'UPDATE_THIS_WITH_YOUR_PRIVACY_EMAIL',

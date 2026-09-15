@@ -14,6 +14,8 @@ export const analyticsConfig = {
   metaPixelId: process.env.NEXT_PUBLIC_META_PIXEL_ID,
   /** Google Ads conversion id, e.g. `AW-XXXXXXXXX`. */
   googleAdsId: process.env.NEXT_PUBLIC_GOOGLE_ADS_ID,
+  /** Microsoft Clarity project id: heatmaps, scroll maps and session recordings. */
+  clarityProjectId: process.env.NEXT_PUBLIC_CLARITY_PROJECT_ID,
 } as const;
 
 /** Name of the cookie/localStorage key holding the visitor's consent choice. */
@@ -22,4 +24,7 @@ export const CONSENT_STORAGE_KEY = 'sk-consent-v1';
 export type ConsentChoice = 'granted' | 'denied';
 
 export const isAnalyticsEnabled =
-  Boolean(analyticsConfig.gtmId) || Boolean(analyticsConfig.gaMeasurementId) || Boolean(analyticsConfig.metaPixelId);
+  Boolean(analyticsConfig.gtmId) ||
+  Boolean(analyticsConfig.gaMeasurementId) ||
+  Boolean(analyticsConfig.metaPixelId) ||
+  Boolean(analyticsConfig.clarityProjectId);

@@ -27,6 +27,11 @@ const PROCESSORS = [
   { name: 'Vercel', role: 'Hosting and infrastructure logs', location: 'EU / US' },
   { name: 'Google (Tag Manager, Analytics, Ads)', role: 'Website measurement, with your consent', location: 'EU / US' },
   { name: 'Meta', role: 'Campaign measurement, with your consent', location: 'EU / US' },
+  {
+    name: 'Microsoft Clarity',
+    role: 'Heatmaps and anonymised session replay, with your consent',
+    location: 'EU / US',
+  },
 ];
 
 const COOKIES = [
@@ -57,6 +62,13 @@ const COOKIES = [
   {
     name: 'Meta pixel',
     purpose: 'Measures whether our campaigns bring the right people here.',
+    basis: 'Consent',
+    retention: 'Up to 13 months',
+  },
+  {
+    name: 'Microsoft Clarity',
+    purpose:
+      'Draws heatmaps and anonymised replays of how pages are used, so we can make the useful parts easier to reach. Typing and personal details are masked before they leave your browser.',
     basis: 'Consent',
     retention: 'Up to 13 months',
   },

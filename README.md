@@ -153,12 +153,17 @@ Tags are wired in `src/libs/analytics` and configured entirely through environme
 | `NEXT_PUBLIC_GA_MEASUREMENT_ID` | GA4. Only injected directly when there is no GTM container, to avoid double counting. |
 | `NEXT_PUBLIC_META_PIXEL_ID` | Meta pixel for Instagram/Facebook campaigns. |
 | `NEXT_PUBLIC_GOOGLE_ADS_ID` | Google Ads conversion linker. |
+| `NEXT_PUBLIC_CLARITY_PROJECT_ID` | Microsoft Clarity: heatmaps, scroll maps and session replay. Free, unlimited traffic. |
 
 What is already instrumented, using the GA4 recommended e-commerce schema (so GTM's built-in tags work with no extra mapping):
 
 `page_view` on every client-side navigation, `view_item_list`, `view_item`, `add_to_cart`, `remove_from_cart`, `view_cart`, `begin_checkout`, and `purchase` on the confirmation page (deduplicated per order id, because people refresh). Membership events (`sign_up`, `login`, `select_plan`, `cta_click`) are available in `src/libs/analytics/events.ts`.
 
-Consent Mode v2 is set to denied by default in `<head>` before any tag loads, and the banner in `consent-banner.tsx` updates it. This is what keeps EU traffic compliant and the numbers defensible.
+Scroll depth is reported at 25/50/75/100% per page (`scroll_depth`), which is what tells you where readers stop.
+
+Consent Mode v2 is set to denied by default in `<head>` before any tag loads, and the banner in `consent-banner.tsx` updates it. This is what keeps EU traffic compliant and the numbers defensible. The Google tags run under Consent Mode and hold back storage themselves; Clarity and the Meta pixel wait for an explicit yes before they load at all.
+
+**Setting up heatmaps:** create a free project at [clarity.microsoft.com](https://clarity.microsoft.com), put the project id in `NEXT_PUBLIC_CLARITY_PROJECT_ID`, and in the Clarity project settings enable cookie consent so it honours the banner. Within a day you get click maps, scroll maps and session replays, plus rage clicks and dead clicks. Link the Clarity project to GA4 from Clarity's settings to filter recordings by GA4 segment.
 
 **Setting up GTM:** create a container at [tagmanager.google.com](https://tagmanager.google.com), put the `GTM-XXXXXXX` id in `NEXT_PUBLIC_GTM_ID`, then inside GTM add a GA4 Configuration tag on *All Pages* and GA4 Event tags triggered by the custom events listed above. Use *Preview* mode to confirm events fire before publishing the container.
 

@@ -6,9 +6,16 @@ import Script from 'next/script';
 
 import { analyticsConfig } from './config';
 import { trackPageView } from './events';
+import { ScrollDepthTracker } from './scroll-depth-tracker';
+import { useConsent } from './use-consent';
 
 export function AnalyticsProvider() {
-  const { gtmId, gaMeasurementId, metaPixelId, googleAdsId } = analyticsConfig;
+  const { gtmId, gaMeasurementId, metaPixelId, googleAdsId, clarityProjectId } = analyticsConfig;
+
+  // Google tags run under Consent Mode, so they can load straight away and hold
+  // back storage themselves. Session recording and the Meta pixel work
+  // differently: they wait here until the visitor has said yes.
+  const hasConsent = useConsent() === 'granted';
 
   return (
     <>
@@ -50,7 +57,7 @@ ${googleAdsId ? `gtag('config', '${googleAdsId}');` : ''}`}
         </>
       )}
 
-      {metaPixelId && (
+      {metaPixelId && hasConsent && (
         <Script id='sk-meta-pixel' strategy='afterInteractive'>
           {`!function(f,b,e,v,n,t,s)
 {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -65,9 +72,21 @@ fbq('track', 'PageView');`}
         </Script>
       )}
 
+      {clarityProjectId && hasConsent && (
+        <Script id='sk-clarity' strategy='afterInteractive'>
+          {`(function(c,l,a,r,i,t,y){
+c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+})(window, document, "clarity", "script", "${clarityProjectId}");
+window.clarity('consent');`}
+        </Script>
+      )}
+
       <Suspense fallback={null}>
         <PageViewTracker />
       </Suspense>
+      <ScrollDepthTracker />
     </>
   );
 }

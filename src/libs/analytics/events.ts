@@ -161,3 +161,8 @@ export function trackSelectPlan({
 export function trackCtaClick({ label, location }: { label: string; location: string }) {
   pushToDataLayer({ event: 'cta_click', cta_label: label, cta_location: location });
 }
+
+/** How far down a page someone read. Pairs with the Clarity scroll maps. */
+export function trackScrollDepth({ percent, path }: { percent: number; path: string }) {
+  pushToDataLayer({ event: 'scroll_depth', scroll_percent: percent, page_path: path });
+}

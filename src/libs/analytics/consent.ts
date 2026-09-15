@@ -43,4 +43,17 @@ export function setConsent(choice: ConsentChoice) {
       analytics_storage: choice,
     },
   ]);
+
+  // Tells the tags that wait for permission - Clarity, Meta - to start now.
+  window.dispatchEvent(new CustomEvent(CONSENT_EVENT));
+}
+
+/** Fired on the window whenever the visitor makes or changes a consent choice. */
+export const CONSENT_EVENT = 'sk-consent-change';
+
+/** Calls back with the current choice each time it changes. Returns an unsubscribe. */
+export function subscribeToConsent(listener: (choice: ConsentChoice | null) => void) {
+  const handler = () => listener(readConsent());
+  window.addEventListener(CONSENT_EVENT, handler);
+  return () => window.removeEventListener(CONSENT_EVENT, handler);
 }

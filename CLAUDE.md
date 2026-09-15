@@ -59,7 +59,11 @@ deployed on Vercel.
   to the grid, the product page, the sitemap and the structured data.
 - **Prices are re-read on the server at checkout**, so the browser never dictates what a
   customer is charged. Keep it that way.
-- **Analytics ids are optional env vars.** A missing id skips that script; nothing breaks.
+- **Analytics ids are optional env vars.** A missing id skips that script; everything else
+  keeps working. Google tags run under Consent Mode; Clarity (heatmaps, session replay) and
+  the Meta pixel load only once consent is granted.
+- **Brand voice for tools outside this repo** (GoHighLevel, agencies, freelancers) lives in
+  `docs/brand-voice.md`, ready to paste.
 - **Consent is denied by default** and can be withdrawn on `/privacy`. Both the banner and
   that control go through `src/libs/analytics/consent.ts`.
 - **Legal entity details** are placeholders in `companyConfig` (`src/libs/seo/metadata.ts`)

@@ -5,7 +5,7 @@ import Link from 'next/link';
 
 import { Button } from '@/components/ui/button';
 
-import { type ConsentChoice,isAnalyticsEnabled } from './config';
+import { type ConsentChoice, isAnalyticsEnabled } from './config';
 import { readConsent, setConsent } from './consent';
 
 /**
