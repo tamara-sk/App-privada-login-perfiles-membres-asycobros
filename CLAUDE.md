@@ -40,6 +40,29 @@ access or strengthening relationships. Anything else is out.
 5. Experiences create memories
 6. Community creates leverage
 
+## Payments — decided, and not what the code does yet
+
+Secret Key charges through the **BBVA virtual POS, on Redsys**. Not Stripe.
+
+The code in this repository still uses Stripe, for both the membership subscriptions and
+the shop checkout. It was written before this decision and has to be replaced. Treat every
+Stripe path as provisional.
+
+What Redsys means in practice:
+
+- It is a redirect gateway. The site posts a signed form to the bank (merchant code,
+  terminal, order number, amount, currency), the customer pays on the bank's page, and the
+  bank calls back a notification URL. Request and response are signed, so the secret key
+  the bank issues never leaves the server.
+- **Recurring charges need "pago por referencia"**, which BBVA has to enable on the
+  merchant account. The first payment returns a reference token; later charges reuse it.
+  The billing cycle then lives in our code, rather than in the gateway the way Stripe
+  handles subscriptions. Memberships need their own scheduler and dunning.
+- Order numbers have a fixed format the bank validates, and each one can be used once.
+
+Confirm the specifics with BBVA before building: which Redsys environment, whether pago
+por referencia is enabled, and the exact terminal and currency setup.
+
 ## Codebase
 
 Next.js 15 (App Router) · React 19 · TypeScript · Tailwind · Supabase · Stripe · Resend,

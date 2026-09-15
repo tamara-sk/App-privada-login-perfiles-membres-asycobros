@@ -2,28 +2,45 @@
 
 `kumkum020704/secret-key-app` is the repository that ships. This branch,
 `claude/funny-cannon-t9g3gh` on `tamara-sk/App-privada-login-perfiles-membres-asycobros`,
-holds 13 commits that need to travel there.
+holds the work that needs to reach it.
 
-Read this first if you are the session doing the port. It says what exists, what depends
-on what, and which decisions are still open.
+## Read this before anything else
 
-## Getting the code across
+**This is an adaptation, not a transfer.** An earlier version of this document assumed the
+production repository was the same Next.js starter and described a mechanical patch. It is
+not. `secret-key-app` is a pnpm monorepo: an Expo / React Native app in
+`artifacts/mobile`, an Express API in `artifacts/api-server`, Postgres with Drizzle, and
+Vite with wouter on the web side. There is no Next.js anywhere in it.
 
-If the production app is the same Next.js starter, apply the patch:
+Everything here is written in App Router conventions — file-based routes, `robots.ts` and
+`sitemap.ts`, Route Handlers, server actions, `next/og`, `next.config.js`. None of it
+applies as written. Each piece has to be rebuilt against the monorepo's own stack, as a
+new package alongside `artifacts/mobile` and `artifacts/api-server`.
+
+What travels intact is the **content and the decisions**: the catalog, the phrases, the
+prices, the tier structure, the brand voice, the legal entity, the privacy copy, and the
+rules about what must never regress. What has to be rewritten is every line of framework
+code.
+
+**Payments have changed too.** Secret Key charges through the BBVA virtual POS on Redsys,
+not Stripe. Everything below that mentions Stripe Checkout describes what this repository
+currently does, not what production should do. See the payments section in `CLAUDE.md`.
+
+Kumkum works on `feature/tiered-membership`, not `main`.
+
+## What the pieces do
+
+## Reading the source
 
 ```bash
 git remote add web https://github.com/tamara-sk/App-privada-login-perfiles-membres-asycobros.git
 git fetch web claude/funny-cannon-t9g3gh
-git log --oneline web/claude/funny-cannon-t9g3gh   # 13 commits, oldest last
 ```
 
-Then either cherry-pick the commits in order, or apply `secret-key-web-work.patch`
-(60 source files, binaries excluded) with `git am`.
+Read it as a reference implementation. Rebuild area by area in the order below; each area
+stands on its own except where noted.
 
-If the production app has a different structure, port area by area in the order below.
-Each area stands on its own except where noted.
-
-## What is here, in porting order
+## The areas, in the order to rebuild them
 
 ### 1. Foundations — port first, everything else imports them
 
