@@ -21,6 +21,23 @@ export const siteConfig = {
 } as const;
 
 /**
+ * Legal and contact details used by the privacy policy and the about page.
+ *
+ * These are the only places the legal entity is named, so filling them in once
+ * updates every page that references them.
+ */
+export const companyConfig = {
+  legalName: 'UPDATE_THIS_WITH_YOUR_LEGAL_ENTITY_NAME',
+  registeredAddress: 'UPDATE_THIS_WITH_YOUR_REGISTERED_ADDRESS',
+  taxId: 'UPDATE_THIS_WITH_YOUR_VAT_NUMBER',
+  privacyEmail: 'UPDATE_THIS_WITH_YOUR_PRIVACY_EMAIL',
+  supportEmail: 'UPDATE_THIS_WITH_YOUR_SUPPORT_EMAIL',
+  /** Lead supervisory authority for data protection complaints. */
+  supervisoryAuthority: 'the Spanish Data Protection Agency (AEPD, aepd.es)',
+  policyLastUpdated: '15 September 2026',
+} as const;
+
+/**
  * Single source of truth for page metadata: title template, canonical URL,
  * Open Graph and Twitter cards. Every page should build its metadata here so
  * social previews and canonicals can never drift apart.

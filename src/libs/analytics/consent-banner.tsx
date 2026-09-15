@@ -5,30 +5,8 @@ import Link from 'next/link';
 
 import { Button } from '@/components/ui/button';
 
-import { CONSENT_STORAGE_KEY, type ConsentChoice, isAnalyticsEnabled } from './config';
-import { pushToDataLayer } from './events';
-
-function updateGoogleConsent(choice: ConsentChoice) {
-  pushToDataLayer({
-    event: 'consent_update',
-    consent_choice: choice,
-  });
-
-  // Consent Mode reads positional gtag arguments, not a named event object.
-  if (typeof window !== 'undefined') {
-    window.dataLayer = window.dataLayer ?? [];
-    (window.dataLayer as unknown as unknown[]).push([
-      'consent',
-      'update',
-      {
-        ad_storage: choice,
-        ad_user_data: choice,
-        ad_personalization: choice,
-        analytics_storage: choice,
-      },
-    ]);
-  }
-}
+import { type ConsentChoice,isAnalyticsEnabled } from './config';
+import { readConsent, setConsent } from './consent';
 
 /**
  * Minimal, on-brand consent banner wired to Google Consent Mode v2.
@@ -40,23 +18,11 @@ export function ConsentBanner() {
 
   useEffect(() => {
     if (!isAnalyticsEnabled) return;
-
-    try {
-      const stored = window.localStorage.getItem(CONSENT_STORAGE_KEY);
-      if (stored !== 'granted' && stored !== 'denied') setIsVisible(true);
-    } catch (error) {
-      // Storage blocked (private mode, hardened browser): stay silent rather than nagging.
-    }
+    if (readConsent() === null) setIsVisible(true);
   }, []);
 
   function handleChoice(choice: ConsentChoice) {
-    try {
-      window.localStorage.setItem(CONSENT_STORAGE_KEY, choice);
-    } catch (error) {
-      // Ignore storage failures - the choice still applies to this session.
-    }
-
-    updateGoogleConsent(choice);
+    setConsent(choice);
     setIsVisible(false);
   }
 
@@ -71,9 +37,9 @@ export function ConsentBanner() {
     >
       <div className='flex flex-col gap-4 rounded-lg border border-zinc-800 bg-black/95 p-4 shadow-xl backdrop-blur sm:flex-row sm:items-center sm:justify-between'>
         <p className='text-sm text-neutral-300'>
-          We use cookies to understand what saves members the most time.{' '}
+          We use cookies to understand what saves members the most time. You can change your mind at any time on our{' '}
           <Link href='/privacy' className='underline underline-offset-4 hover:text-white'>
-            Privacy policy
+            privacy page
           </Link>
           .
         </p>
