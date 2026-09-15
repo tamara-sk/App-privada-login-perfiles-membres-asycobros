@@ -41,8 +41,8 @@ export function PricingCard({
     return product.prices.find((price) => price.interval === billingInterval);
   }, [billingInterval, price, product.prices]);
 
-  const monthPrice = product.prices.find((price) => price.interval === 'month')?.unit_amount;
-  const yearPrice = product.prices.find((price) => price.interval === 'year')?.unit_amount;
+  const monthPrice = product.prices.find((price) => price.interval === 'month');
+  const yearPrice = product.prices.find((price) => price.interval === 'year');
   const isBillingIntervalYearly = billingInterval === 'year';
   const metadata = productMetadataSchema.parse(product.metadata);
   const buttonVariantMap = {
@@ -63,9 +63,9 @@ export function PricingCard({
           <div className='flex justify-center gap-0.5 text-zinc-400'>
             <span className='font-semibold'>
               {yearPrice && isBillingIntervalYearly
-                ? '$' + yearPrice / 100
+                ? formatAmount(yearPrice)
                 : monthPrice
-                ? '$' + monthPrice / 100
+                ? formatAmount(monthPrice)
                 : 'Custom'}
             </span>
             <span>{yearPrice && isBillingIntervalYearly ? '/year' : monthPrice ? '/month' : null}</span>
@@ -75,12 +75,22 @@ export function PricingCard({
         {!Boolean(price) && product.prices.length > 1 && <PricingSwitch onChange={handleBillingIntervalChange} />}
 
         <div className='m-auto flex w-fit flex-1 flex-col gap-2 px-8 py-4'>
-          {metadata.generatedImages === 'enterprise' && <CheckItem text={`Unlimited banner images`} />}
-          {metadata.generatedImages !== 'enterprise' && (
-            <CheckItem text={`Generate ${metadata.generatedImages} banner images`} />
-          )}
-          {<CheckItem text={`${metadata.imageEditor} image editing features`} />}
-          {<CheckItem text={`${metadata.supportLevel} support`} />}
+          <CheckItem
+            text={
+              metadata.hoursIncluded === 'unlimited'
+                ? 'Secret Key time without a ceiling'
+                : `${metadata.hoursIncluded} hours of Secret Key time a month`
+            }
+          />
+          <CheckItem text={`${metadata.responseTime} on every request`} />
+          <CheckItem text={`${metadata.accessLevel} access to tables, rooms and seats`} />
+          <CheckItem
+            text={
+              metadata.guestPasses === 'unlimited'
+                ? 'Guest passes for the people you bring'
+                : `${metadata.guestPasses} guest passes a year`
+            }
+          />
         </div>
 
         {createCheckoutAction && (
@@ -104,6 +114,15 @@ export function PricingCard({
       </div>
     </WithSexyBorder>
   );
+}
+
+/** Renders a Stripe amount in the currency the price was created in. */
+function formatAmount(price: Price) {
+  return new Intl.NumberFormat('en-IE', {
+    style: 'currency',
+    currency: (price.currency ?? 'eur').toUpperCase(),
+    maximumFractionDigits: 0,
+  }).format((price.unit_amount ?? 0) / 100);
 }
 
 function CheckItem({ text }: { text: string }) {

@@ -1,7 +1,6 @@
 <p align="center">
   <h1 align="center">next-supabase-stripe-starter</h1>
   <p align="center">
-    <a href="https://twitter.com/KolbySisk"><img src="/delete-me/github-banner.png" /></a>
   </p>
 </p>
 
@@ -61,7 +60,6 @@ Bootstrap your SaaS with a modern tech stack built to move quick. Follow the gui
 1. Click Deploy
 1. While you wait, clone your new repo and open it in your code editor. Then create a file named `.env.local`. Copy and pase the contents of `.env.local.example` into this file and add the correct values. They should be the same values you added in above.
 
-![Vercel env config](/delete-me/deplyoment-env.png)
 
 ### 5. Stripe Webhook
 
@@ -95,7 +93,6 @@ Now we're going to run the initial [Supabase Migration](https://supabase.com/doc
 ### 8. Last steps
 
 1. Do a `Search All` in your code editor for `UPDATE_THIS` and update all instances with the relevant value (**except for .env.local.example!**)
-1. Delete the `delete-me` dir
 
 ### 9. Check it out!
 

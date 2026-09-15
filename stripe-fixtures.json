@@ -4,106 +4,96 @@
   },
   "fixtures": [
     {
-      "name": "basic",
+      "name": "key",
       "path": "/v1/products",
       "method": "post",
       "params": {
-        "name": "Basic",
-        "description": "Perfect product for small businesses.",
+        "name": "Key",
+        "description": "Five hours a month of your week, handed back.",
         "metadata": {
           "price_card_variant": "basic",
-          "generated_images": 10,
-          "image_editor": "basic",
-          "support_level": "email"
+          "hours_included": 5,
+          "response_time": "Same day",
+          "access_level": "standard",
+          "guest_passes": 2
         }
       }
     },
     {
-      "name": "price_basic_month",
+      "name": "price_key_month",
       "path": "/v1/prices",
       "method": "post",
       "params": {
-        "product": "${basic:id}",
-        "currency": "usd",
+        "product": "${key:id}",
+        "currency": "eur",
         "billing_scheme": "per_unit",
-        "unit_amount": 500,
-        "recurring": {
-          "interval": "month",
-          "interval_count": 1
-        }
+        "unit_amount": 19000,
+        "recurring": { "interval": "month", "interval_count": 1 }
       }
     },
     {
-      "name": "price_basic_year",
+      "name": "price_key_year",
       "path": "/v1/prices",
       "method": "post",
       "params": {
-        "product": "${basic:id}",
-        "currency": "usd",
+        "product": "${key:id}",
+        "currency": "eur",
         "billing_scheme": "per_unit",
-        "unit_amount": 5000,
-        "recurring": {
-          "interval": "year",
-          "interval_count": 1
-        }
+        "unit_amount": 190000,
+        "recurring": { "interval": "year", "interval_count": 1 }
       }
     },
     {
-      "name": "pro",
+      "name": "master_key",
       "path": "/v1/products",
       "method": "post",
       "params": {
-        "name": "Pro",
-        "description": "Perfect product for growing or large businesses.",
+        "name": "Master Key",
+        "description": "Fifteen hours a month, answered within the hour.",
         "metadata": {
           "price_card_variant": "pro",
-          "generated_images": 100,
-          "image_editor": "pro",
-          "support_level": "live"
+          "hours_included": 15,
+          "response_time": "Within the hour",
+          "access_level": "priority",
+          "guest_passes": 6
         }
       }
     },
     {
-      "name": "price_pro_month",
+      "name": "price_master_key_month",
       "path": "/v1/prices",
       "method": "post",
       "params": {
-        "product": "${pro:id}",
-        "currency": "usd",
+        "product": "${master_key:id}",
+        "currency": "eur",
         "billing_scheme": "per_unit",
-        "unit_amount": 1000,
-        "recurring": {
-          "interval": "month",
-          "interval_count": 1
-        }
+        "unit_amount": 49000,
+        "recurring": { "interval": "month", "interval_count": 1 }
       }
     },
     {
-      "name": "price_pro_year",
+      "name": "price_master_key_year",
       "path": "/v1/prices",
       "method": "post",
       "params": {
-        "product": "${pro:id}",
-        "currency": "usd",
+        "product": "${master_key:id}",
+        "currency": "eur",
         "billing_scheme": "per_unit",
-        "unit_amount": 10000,
-        "recurring": {
-          "interval": "year",
-          "interval_count": 1
-        }
+        "unit_amount": 490000,
+        "recurring": { "interval": "year", "interval_count": 1 }
       }
     },
     {
-      "name": "enterprise",
+      "name": "private_key",
       "path": "/v1/products",
       "method": "post",
       "params": {
-        "name": "Enterprise",
-        "description": "Perfect product for enterprises.",
+        "name": "Private Key",
+        "description": "A team that knows your life, and access built around it.",
         "metadata": {
           "price_card_variant": "enterprise",
-          "image_editor": "pro",
-          "support_level": "live"
+          "response_time": "A dedicated line, always open",
+          "access_level": "bespoke"
         }
       }
     }
