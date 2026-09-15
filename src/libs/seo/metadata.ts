@@ -30,8 +30,8 @@ export const companyConfig = {
   legalName: 'The Secret Key Labs S.L.',
   registeredAddress: 'UPDATE_THIS_WITH_YOUR_REGISTERED_ADDRESS',
   taxId: 'UPDATE_THIS_WITH_YOUR_VAT_NUMBER',
-  privacyEmail: 'UPDATE_THIS_WITH_YOUR_PRIVACY_EMAIL',
-  supportEmail: 'UPDATE_THIS_WITH_YOUR_SUPPORT_EMAIL',
+  privacyEmail: 'legal@secretkey.vip',
+  supportEmail: 'hello@secretkey.vip',
   /** Lead supervisory authority for data protection complaints. */
   supervisoryAuthority: 'the Spanish Data Protection Agency (AEPD, aepd.es)',
   policyLastUpdated: '15 September 2026',
