@@ -83,7 +83,7 @@ export const STORE_PRODUCTS: StoreProduct[] = [
     tagline: 'For the hours you decided to keep.',
     description:
       'Heavyweight brushed-back fleece with a double-layer hood, kangaroo pocket and tonal drawcords. Sized to sit generously - the kind of thing that outlives three phone upgrades.',
-    backPhrase: 'Buy back your time. Nobody else is selling it.',
+    backPhrase: 'Buy back your time. Spend it well.',
     frontMark: 'sk',
     priceCents: 9500,
     compareAtCents: 11000,

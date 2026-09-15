@@ -65,9 +65,12 @@ export default async function StorePage({ searchParams }: { searchParams: Promis
       </section>
 
       <section className='grid gap-4 rounded-lg border border-zinc-800 bg-black p-6 sm:grid-cols-3'>
-        <Benefit title='Made to outlast trends' body='Heavy fabrics, tonal prints, no season codes. Buy once.' />
+        <Benefit
+          title='Made to outlast trends'
+          body='Heavy fabrics, tonal prints, one long life. Buy once, wear for years.'
+        />
         <Benefit title='Free shipping over 90 euro' body='Tracked delivery across Europe, the UK and North America.' />
-        <Benefit title='30-day returns' body='Wrong size, wrong mood, no argument. Send it back.' />
+        <Benefit title='30-day returns' body='Wrong size, wrong mood - send it back within 30 days and we sort it.' />
       </section>
     </div>
   );

@@ -30,8 +30,8 @@ function HeroSection() {
           </div>
           <h1>Turn money into time.</h1>
           <p className='max-w-lg text-lg text-neutral-300'>
-            Secret Key gives back the hours your life keeps taking: the booking, the chasing, the waiting. What you do
-            with them is the interesting part.
+            Secret Key hands back the hours your week spends on booking, chasing and waiting. What you do with them is
+            the interesting part.
           </p>
           <div className='flex flex-wrap items-center gap-3'>
             <Button asChild variant='sexy'>
@@ -69,7 +69,7 @@ function PillarsSection() {
     },
     {
       title: 'A community that compounds',
-      body: 'Members who share what works. The network is the part you cannot buy anywhere else.',
+      body: 'Members who share what works. The network grows richer with every introduction.',
     },
   ];
 

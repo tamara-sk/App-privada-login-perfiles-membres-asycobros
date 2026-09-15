@@ -8,36 +8,48 @@ import { companyConfig, constructMetadata, siteConfig } from '@/libs/seo/metadat
 
 export const metadata: Metadata = constructMetadata({
   title: 'About us',
-  description: `${siteConfig.name} is a time optimization and extraordinary access ecosystem. What we do, what we refuse to be, and how membership works.`,
+  description: `${siteConfig.name} is a time optimization and extraordinary access ecosystem. What we do, how we work, and how membership works.`,
   path: '/about-us',
 });
 
 const PRINCIPLES = [
-  { title: 'Time is the ultimate luxury', body: 'Everything else can be bought back. An afternoon cannot.' },
-  { title: 'Access beats ownership', body: 'The table, the room, the boat. Use it, do not store it.' },
-  { title: 'Simplicity scales', body: 'One request, one answer. Complexity is a tax we refuse to pass on.' },
+  {
+    title: 'Time is the ultimate luxury',
+    body: 'Everything else can be bought back. An afternoon is spent once, so spend it well.',
+  },
+  { title: 'Access beats ownership', body: 'The table, the room, the boat. Use it, enjoy it, pass it on.' },
+  { title: 'Simplicity scales', body: 'One request, one answer. Simple is what makes it repeatable.' },
   { title: 'Trust compounds', body: 'We are told things in confidence. That is the whole business.' },
-  { title: 'Experiences create memories', body: 'Nobody remembers the errand. Everybody remembers the evening.' },
+  { title: 'Experiences create memories', body: 'The evening is what stays. We build for the evening.' },
   { title: 'Community creates leverage', body: 'The members are the best part of the membership.' },
 ];
 
-const NOT_THIS = [
-  { label: 'Not a concierge', body: 'A concierge waits to be asked. We remove the asking.' },
-  { label: 'Not a luxury club', body: 'The membership card is not the point. The hours it returns are.' },
-  { label: 'Not a travel agency', body: 'Travel is one of the things we handle, not the reason we exist.' },
-  { label: 'Not a networking group', body: 'The community is a consequence of the standard, not the product.' },
+const HOW_WE_WORK = [
+  { label: 'We anticipate', body: 'We learn how your week runs and handle the next thing before it lands on you.' },
+  {
+    label: 'We measure in hours',
+    body: 'Every membership is judged on the time it hands back, and what you do with it.',
+  },
+  {
+    label: 'We take it all the way',
+    body: 'Travel, tables, logistics, the long errands. Handed over once, carried to done.',
+  },
+  {
+    label: 'We keep the standard high',
+    body: 'The standard is what gathers the members, and the members are the best part.',
+  },
 ];
 
 const STEPS = [
   {
     step: '01',
     title: 'Tell us what is eating your week',
-    body: 'The bookings, the chasing, the admin, the things you keep postponing.',
+    body: 'The bookings, the chasing, the admin, the standing errands worth handing over.',
   },
   {
     step: '02',
     title: 'We take it off your hands',
-    body: 'One request, one answer, handled end to end. No project management from you.',
+    body: 'One request, one answer, carried end to end. You stay out of the logistics.',
   },
   {
     step: '03',
@@ -55,13 +67,13 @@ export default function AboutUsPage() {
         <span className='text-xs uppercase tracking-[0.3em] text-neutral-500'>About us</span>
         <h1>We are in the time business.</h1>
         <p className='text-lg text-neutral-300'>
-          Everyone says they want more of it, and then spends it on hold, in queues, in three-message threads about a
-          reservation. Secret Key exists to take that back: a time optimization and extraordinary access ecosystem for
-          people who would rather be present than busy.
+          Time is the one thing that gains value the moment you get it back. Secret Key is a time optimization and
+          extraordinary access ecosystem for people who choose presence: we take the booking, the chasing and the
+          arranging, and hand back the hours.
         </p>
         <p className='text-neutral-400'>
-          We do not measure ourselves in revenue. We measure ourselves in minutes saved and minutes enjoyed — the hours
-          our members got back, and what those hours turned into.
+          We measure ourselves in minutes saved and minutes enjoyed — the hours our members get back, and what those
+          hours become.
         </p>
       </header>
 
@@ -77,13 +89,11 @@ export default function AboutUsPage() {
 
       <section className='flex flex-col gap-6'>
         <div className='flex flex-col gap-2'>
-          <h2 className='font-alt text-3xl font-bold text-white'>What we are not.</h2>
-          <p className='max-w-2xl text-neutral-400'>
-            Saying it out loud keeps us honest, and saves you a conversation.
-          </p>
+          <h2 className='font-alt text-3xl font-bold text-white'>What makes it work.</h2>
+          <p className='max-w-2xl text-neutral-400'>Four habits that turn a membership into hours you can feel.</p>
         </div>
         <div className='grid gap-4 sm:grid-cols-2'>
-          {NOT_THIS.map((item) => (
+          {HOW_WE_WORK.map((item) => (
             <div key={item.label} className='flex flex-col gap-1 rounded-lg border border-zinc-800 bg-black p-6'>
               <h3 className='font-alt text-base font-semibold text-white'>{item.label}</h3>
               <p className='text-sm text-neutral-400'>{item.body}</p>
@@ -96,7 +106,7 @@ export default function AboutUsPage() {
         <div className='flex flex-col gap-2'>
           <h2 className='font-alt text-3xl font-bold text-white'>What we believe.</h2>
           <p className='max-w-2xl text-neutral-400'>
-            Six principles. Every decision we make has to survive them, including the ones that would make us money.
+            Six principles. Every decision we make has to earn its place against them.
           </p>
         </div>
         <ul className='grid gap-4 sm:grid-cols-2 lg:grid-cols-3'>

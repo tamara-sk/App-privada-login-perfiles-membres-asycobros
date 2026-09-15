@@ -69,8 +69,8 @@ export default function PrivacyPage() {
         <span className='text-xs uppercase tracking-[0.3em] text-neutral-500'>Privacy</span>
         <h1>Your data, in plain language.</h1>
         <p className='text-lg text-neutral-400'>
-          We are in the business of giving people their time back, so we will not waste yours here. This is what we
-          collect, why, and how to make us stop.
+          We are in the business of giving people their time back, so we will keep this brief: here is what we collect,
+          why we collect it, and how to change your mind at any moment.
         </p>
         <p className='text-sm text-neutral-500'>Last updated: {companyConfig.policyLastUpdated}</p>
       </header>
@@ -99,8 +99,8 @@ export default function PrivacyPage() {
           </li>
           <li>
             <strong className='text-neutral-200'>Membership and billing</strong> — your plan, its status and your
-            payment history. Card numbers are handled by Stripe and never reach our servers. Legal basis: contract and
-            our legal obligation to keep accounting records.
+            payment history. Card details are handled end to end by Stripe. Legal basis: contract and our legal
+            obligation to keep accounting records.
           </li>
           <li>
             <strong className='text-neutral-200'>Orders from the shop</strong> — what you bought, your delivery address
@@ -126,9 +126,9 @@ export default function PrivacyPage() {
 
       <Section title='Cookies and measurement'>
         <p>
-          Analytics and marketing cookies are switched <strong className='text-neutral-200'>off by default</strong>. We
-          use Google Consent Mode, which means no measurement cookie is set until you accept, and declining costs you
-          nothing: the site works the same either way.
+          Analytics and marketing cookies stay <strong className='text-neutral-200'>off until you say yes</strong>. We
+          use Google Consent Mode, so measurement waits for your permission — and the site works exactly the same
+          whichever you choose.
         </p>
         <div className='overflow-x-auto'>
           <table className='w-full min-w-[560px] border-collapse text-sm'>
@@ -157,8 +157,9 @@ export default function PrivacyPage() {
 
       <Section title='Who else sees it'>
         <p>
-          We do not sell your personal data. We share it only with the providers that make the service run, each under a
-          data processing agreement and only for the purpose listed:
+          Your data is yours. We share it only with the providers that make the service run, each under a data
+          processing agreement and only for the purpose listed. Selling member data has no place in a business built on
+          trust:
         </p>
         <div className='overflow-x-auto'>
           <table className='w-full min-w-[480px] border-collapse text-sm'>
@@ -190,7 +191,7 @@ export default function PrivacyPage() {
         <p>
           Account and membership data for as long as you are a member, and for six years after that where tax and
           accounting law requires it. Order records for the same period. Support correspondence for three years.
-          Analytics data for up to fourteen months. Anything we no longer need is deleted or anonymised.
+          Analytics data for up to fourteen months. Once data has served its purpose, we delete or anonymise it.
         </p>
       </Section>
 
@@ -199,7 +200,7 @@ export default function PrivacyPage() {
         <ul className='flex list-disc flex-col gap-2 pl-5'>
           <li>give you a copy of the data we hold about you, or send it to another provider;</li>
           <li>correct anything that is wrong;</li>
-          <li>delete your data, where we have no obligation to keep it;</li>
+          <li>delete your data, where the law allows us to let it go;</li>
           <li>restrict or object to how we use it, including profiling for marketing;</li>
           <li>withdraw your consent at any time — the cookie control above does exactly that.</li>
         </ul>
@@ -208,16 +209,13 @@ export default function PrivacyPage() {
           <a className='underline underline-offset-4 hover:text-white' href={`mailto:${companyConfig.privacyEmail}`}>
             {companyConfig.privacyEmail}
           </a>{' '}
-          and we will answer within one month. If you are not satisfied with our answer, you can complain to{' '}
-          {companyConfig.supervisoryAuthority}.
+          and we will answer within one month. You are always free to raise a concern directly with{' '}
+          {companyConfig.supervisoryAuthority} as well.
         </p>
       </Section>
 
       <Section title='Children'>
-        <p>
-          Secret Key is for adults. We do not knowingly collect data from anyone under 18, and we delete it if we find
-          that we have.
-        </p>
+        <p>Secret Key is for adults, 18 and over. If we learn that we hold data from someone younger, we delete it.</p>
       </Section>
 
       <Section title='Changes'>
