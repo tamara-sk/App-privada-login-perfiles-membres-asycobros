@@ -105,3 +105,43 @@
     @apply to-neutral-400;
   }
 }
+
+@layer components {
+  /* Tipografía para los documentos legales (LSSI 34/2002, RGPD, condiciones de contratación). */
+  .legal-prose {
+    @apply flex flex-col text-neutral-300;
+  }
+  .legal-prose h2 {
+    @apply mb-3 mt-10 font-alt text-xl font-semibold text-white lg:text-2xl;
+  }
+  .legal-prose h3 {
+    @apply mb-2 mt-6 font-alt text-base font-semibold text-neutral-100 lg:text-lg;
+  }
+  .legal-prose p {
+    @apply mb-4 leading-relaxed;
+  }
+  .legal-prose ul {
+    @apply mb-4 flex list-disc flex-col gap-2 pl-6 leading-relaxed;
+  }
+  .legal-prose ol {
+    @apply mb-4 flex list-decimal flex-col gap-2 pl-6 leading-relaxed;
+  }
+  .legal-prose a {
+    @apply text-cyan-400 underline underline-offset-4 hover:text-cyan-300;
+  }
+  .legal-prose strong {
+    @apply font-semibold text-neutral-100;
+  }
+  .legal-prose table {
+    @apply mb-4 w-full border-collapse overflow-hidden text-sm;
+  }
+  .legal-prose th {
+    @apply border border-zinc-800 bg-black px-3 py-2 text-left font-semibold text-neutral-100;
+  }
+  .legal-prose td {
+    @apply border border-zinc-800 px-3 py-2 align-top;
+  }
+  .legal-prose > :first-child {
+    @apply mt-0;
+  }
+}

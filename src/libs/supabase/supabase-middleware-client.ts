@@ -45,9 +45,13 @@ export async function updateSession(request: NextRequest) {
     data: { user },
   } = await supabase.auth.getUser();
 
-  // Add route guards here
+  // Add route guards here.
+  // IMPORTANTE: las rutas de `publicLegalRoutes` (aviso legal, condiciones,
+  // cancelación, devoluciones, envíos, privacidad, cookies, seguridad y contacto)
+  // deben quedar SIEMPRE fuera de cualquier guard: el art. 10 de la Ley 34/2002
+  // exige que sean accesibles de forma permanente, directa y gratuita.
   // const guardedRoutes = ['/dashboard'];
-  // if (!user && guardedRoutes.includes(request.nextUrl.pathname)) {
+  // if (!user && !isPublicLegalRoute(request.nextUrl.pathname) && guardedRoutes.includes(request.nextUrl.pathname)) {
   //   // no user, potentially respond by redirecting the user to the login page
   //   const url = request.nextUrl.clone();
   //   url.pathname = '/login';
