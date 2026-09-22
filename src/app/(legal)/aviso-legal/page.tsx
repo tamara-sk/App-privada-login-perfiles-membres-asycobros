@@ -40,7 +40,7 @@ export default function AvisoLegalPage() {
       <p>
         El presente aviso legal regula el acceso y el uso del sitio web y de la aplicación privada de {brand.name} (en
         adelante, el «Sitio»), a través de los cuales {company.tradeName} ofrece un ecosistema de optimización del
-        tiempo y acceso a experiencias para sus miembros.
+        tiempo y acceso a experiencias para el Círculo.
       </p>
       <p>
         La navegación por el Sitio atribuye la condición de usuario e implica la aceptación plena de este aviso legal,
@@ -59,7 +59,7 @@ export default function AvisoLegalPage() {
         </li>
         <li>
           No realizar actuaciones que puedan dañar, sobrecargar o impedir el normal funcionamiento del Sitio, ni
-          intentar acceder a áreas restringidas o a datos de otros miembros.
+          intentar acceder a áreas restringidas o a datos de otros usuarios.
         </li>
         <li>No introducir ni difundir contenidos ilícitos, difamatorios, discriminatorios o que infrinjan derechos de terceros.</li>
       </ul>

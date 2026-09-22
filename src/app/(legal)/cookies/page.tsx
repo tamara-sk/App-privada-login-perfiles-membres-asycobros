@@ -49,7 +49,7 @@ export default function CookiesPage() {
           <tr>
             <td>sb-access-token</td>
             <td>Propia (gestor de autenticación)</td>
-            <td>Mantener la sesión del miembro iniciada de forma segura</td>
+            <td>Mantener la sesión del usuario iniciada de forma segura</td>
             <td>1 hora</td>
           </tr>
           <tr>

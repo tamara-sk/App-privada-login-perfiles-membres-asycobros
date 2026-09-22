@@ -18,7 +18,7 @@ export default function ContactoPage() {
       title='Contacto'
       intro='Medios para establecer una comunicación directa y efectiva con nosotros, conforme al artículo 10.1 a) de la Ley 34/2002.'
     >
-      <h2>1. Atención al miembro</h2>
+      <h2>1. Atención al Círculo</h2>
       <LegalDataTable
         rows={[
           { label: 'Titular', value: company.legalName },

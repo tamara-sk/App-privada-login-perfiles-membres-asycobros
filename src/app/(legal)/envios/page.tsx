@@ -43,7 +43,7 @@ export default function EnviosPage() {
       <h2>3. Entrega de experiencias y reservas</h2>
       <p>
         Cada reserva confirmada genera un justificante electrónico (bono, entrada o confirmación) que se envía por
-        correo electrónico y queda disponible en el área privada del miembro, habitualmente de forma inmediata y, en
+        correo electrónico y queda disponible en el área privada del usuario, habitualmente de forma inmediata y, en
         todo caso, <strong>antes de la fecha de la experiencia</strong>.
       </p>
       <p>
@@ -54,7 +54,7 @@ export default function EnviosPage() {
 
       <h2>4. Envío de elementos físicos</h2>
       <p>
-        Cuando un servicio incluya la entrega de algún elemento físico (tarjeta de miembro, obsequio de bienvenida,
+        Cuando un servicio incluya la entrega de algún elemento físico (tarjeta del Círculo, obsequio de bienvenida,
         material asociado a una experiencia), aplican las siguientes condiciones:
       </p>
       <table>
@@ -106,9 +106,9 @@ export default function EnviosPage() {
 
       <h2>6. Dirección de entrega</h2>
       <p>
-        El miembro es responsable de la exactitud de la dirección facilitada. Si una entrega resulta fallida por datos
+        El usuario es responsable de la exactitud de la dirección facilitada. Si una entrega resulta fallida por datos
         incorrectos o por ausencia reiterada, {company.tradeName} contactará para acordar un nuevo envío; los costes de
-        una segunda expedición por causa imputable al miembro podrán repercutirse, informándolo previamente.
+        una segunda expedición por causa imputable al usuario podrán repercutirse, informándolo previamente.
       </p>
 
       <h2>7. Devoluciones</h2>

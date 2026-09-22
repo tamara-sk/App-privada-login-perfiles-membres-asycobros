@@ -74,10 +74,10 @@ export default function SeguridadPage() {
       </ol>
 
       <h2>6. Seguridad de tu cuenta</h2>
-      <p>Para proteger tu cuenta de miembro aplicamos las siguientes medidas:</p>
+      <p>Para proteger tu cuenta aplicamos las siguientes medidas:</p>
       <ul>
         <li>Acceso mediante credenciales personales, con contraseñas almacenadas siempre cifradas.</li>
-        <li>Control de acceso por perfiles, de modo que cada miembro solo accede a su propia información.</li>
+        <li>Control de acceso por perfiles, de modo que cada usuario solo accede a su propia información.</li>
         <li>Registro de accesos y de operaciones relevantes.</li>
         <li>Copias de seguridad periódicas y proveedores de infraestructura con garantías contractuales.</li>
       </ul>

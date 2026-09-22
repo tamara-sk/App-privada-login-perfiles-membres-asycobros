@@ -42,7 +42,7 @@ export const legalConfig = {
     },
     /** Correo electrónico de contacto directo y efectivo (art. 10.1 a). */
     email: 'hello@secretkey.vip',
-    /** Teléfono de atención al miembro. */
+    /** Teléfono de atención al Círculo. */
     phone: '[COMPLETAR: teléfono de atención]',
     /** Datos registrales (art. 10.1 b). */
     registry: {
@@ -89,7 +89,7 @@ export const legalConfig = {
    * Encargados del tratamiento (art. 28 RGPD) que se publican en /privacidad.
    *
    * MANTENER SINCRONIZADO CON LA REALIDAD: si se añade, se quita o se cambia un
-   * proveedor que trata datos de miembros, hay que actualizar esta lista y firmar
+   * proveedor que trata datos del Círculo, hay que actualizar esta lista y firmar
    * (o rescindir) el contrato de encargo correspondiente.
    */
   processors: [
@@ -101,7 +101,7 @@ export const legalConfig = {
     },
     {
       name: 'Supabase Inc.',
-      role: 'Base de datos de miembros y autenticación',
+      role: 'Base de datos del Círculo y autenticación',
       location: 'Región del proyecto (recomendado: Unión Europea)',
       guarantee: 'Cláusulas contractuales tipo si la región está fuera del EEE',
     },

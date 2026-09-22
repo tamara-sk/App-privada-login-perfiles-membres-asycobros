@@ -30,8 +30,8 @@ function HeroSection() {
           </div>
           <h1>Convierte dinero en tiempo.</h1>
           <p className='max-w-lg text-lg text-neutral-300'>
-            {legalConfig.brand.name} es un ecosistema de optimización del tiempo y acceso extraordinario. Nos ocupamos
-            de lo que te resta horas y te abrimos puertas que no están en ningún buscador.
+            {legalConfig.brand.name} es un ecosistema de optimización del tiempo, acceso extraordinario y bienestar.
+            Nos ocupamos de lo que te resta horas y te abrimos puertas que están fuera de los buscadores.
           </p>
           <Button asChild variant='sexy'>
             <Link href='/signup'>Solicitar acceso</Link>
@@ -68,13 +68,13 @@ const pillars = [
     icon: IoSparklesOutline,
     title: 'Experiencias que recuerdas',
     description:
-      'Cada propuesta está diseñada para crear memoria, no para llenar el calendario. Menos planes, mejores planes.',
+      'Cada propuesta está diseñada para crear memoria. Pocos planes, elegidos con criterio, en lugares que se cuidan.',
   },
   {
     icon: IoCalendarOutline,
-    title: 'Una comunidad, no una lista',
+    title: 'El Círculo',
     description:
-      'Miembros que comparten criterio y tiempo. Los encuentros son reducidos y la confianza es la moneda de cambio.',
+      'Personas que comparten criterio y tiempo. Los encuentros son reducidos y la confianza es la moneda de cambio.',
   },
 ];
 
@@ -84,8 +84,12 @@ function PillarsSection() {
       <div className='flex flex-col gap-4'>
         <h2 className='font-alt text-3xl font-bold text-white lg:text-4xl'>El tiempo es el lujo definitivo.</h2>
         <p className='max-w-2xl text-lg text-neutral-300'>
-          Una membresía que se mide en horas devueltas. Nos ocupamos de la gestión, las reservas y los detalles, y tú
+          Un ecosistema que se mide en horas devueltas. Nos ocupamos de la gestión, las reservas y los detalles, y tú
           decides en qué se convierte ese tiempo.
+        </p>
+        <p className='max-w-2xl text-lg text-neutral-300'>
+          Se apoya en el <strong className='text-neutral-100'>Tri Hita Karana</strong>, la filosofía balinesa de las
+          tres causas del bienestar: armonía con el propósito, entre las personas y con el lugar.
         </p>
       </div>
       <div className='grid grid-cols-1 gap-6 sm:grid-cols-2'>

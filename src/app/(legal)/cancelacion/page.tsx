@@ -36,7 +36,7 @@ export default function CancelacionPage() {
       <h2>3. Cancelación de la membresía</h2>
       <h3>3.1. Cómo cancelar</h3>
       <p>
-        El miembro puede cancelar la renovación en cualquier momento, sin penalización y sin necesidad de justificar el
+        El usuario puede cancelar la renovación en cualquier momento, sin penalización y sin necesidad de justificar el
         motivo, por cualquiera de estas vías:
       </p>
       <ul>
@@ -47,7 +47,7 @@ export default function CancelacionPage() {
 
       <h3>3.2. Efectos</h3>
       <p>
-        La cancelación impide la renovación siguiente, pero el miembro conserva el acceso a todos los servicios hasta el
+        La cancelación impide la renovación siguiente, pero el usuario conserva el acceso a todos los servicios hasta el
         final del periodo ya abonado. No se practican devoluciones proporcionales del periodo en curso, salvo en los
         supuestos de desistimiento o de incumplimiento descritos en{' '}
         <Link href='/devoluciones'>devoluciones y reembolsos</Link>.
@@ -92,7 +92,7 @@ export default function CancelacionPage() {
 
       <h2>5. Cancelación por parte de Secret Key</h2>
       <p>
-        Si {company.tradeName} o el proveedor tuvieran que cancelar una experiencia, se comunicará al miembro con la
+        Si {company.tradeName} o el proveedor tuvieran que cancelar una experiencia, se comunicará al usuario con la
         mayor antelación posible y podrá elegir entre:
       </p>
       <ul>

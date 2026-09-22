@@ -78,7 +78,7 @@ export default function PrivacidadPage() {
         </thead>
         <tbody>
           <tr>
-            <td>Gestionar el alta, la cuenta de miembro y el acceso a la plataforma</td>
+            <td>Gestionar el alta, la cuenta y el acceso a la plataforma</td>
             <td>Ejecución del contrato (art. 6.1.b RGPD)</td>
             <td>Mientras la cuenta esté activa</td>
           </tr>

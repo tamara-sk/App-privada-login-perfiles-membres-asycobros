@@ -27,8 +27,22 @@ Vigila: `no`, `nunca`, `nadie`, `sin`, `tampoco`, `jamás`. Cada una es un aviso
 reescribir, tanto en copy de marketing como en páginas legales: la precisión de una política
 de privacidad se mantiene eligiendo frases afirmativas, no renunciando a la regla.
 
-**3. Posicionamiento.** Secret Key es un **ecosistema de optimización del tiempo y acceso
-extraordinario**. La estrella polar son los minutos ahorrados y los minutos disfrutados.
+**3. Posicionamiento.** Secret Key es un **ecosistema de optimización del tiempo, acceso
+extraordinario y bienestar**, fundado sobre el **Tri Hita Karana**. La estrella polar son los
+minutos ahorrados y los minutos disfrutados.
+
+El **Tri Hita Karana** es la filosofía balinesa de las tres causas del bienestar, y es la
+estructura sobre la que se apoya el ecosistema:
+
+| Pilar | Qué significa | Cómo vive en Secret Key |
+| --- | --- | --- |
+| **Parahyangan** | Armonía con lo sagrado y con el propósito | La vida intencional: el tiempo recuperado se dedica a lo que de verdad importa |
+| **Pawongan** | Armonía entre las personas | El Círculo: confianza, contribución y encuentros reducidos |
+| **Palemahan** | Armonía con la naturaleza y el lugar | Las experiencias y los destinos, con respeto por el entorno y por quien lo habita |
+
+Es una tradición viva del hinduismo balinés, no un recurso estético. Se nombra con respeto y
+se atribuye a Bali; conviene evitar apropiarla como si fuera un método propio, y cuidar
+especialmente los textos del capítulo de Bali.
 
 **4. Tono.** Calmado, seguro, sobrio. Frases cortas. Cálido, generoso, humano.
 
@@ -43,7 +57,8 @@ Key, en cualquier idioma y en cualquier soporte.
 | club, private members club, luxury club | **Secret Key**, o **Secret Circle** para el nivel interno |
 | membresía de miembros | la entrada al Círculo |
 
-- **Secret Circle** es el nombre del nivel interno, por invitación.
+- **Secret Circle** es el nombre del nivel interno, por invitación. Es el **único** nombre:
+  «Inner Circle» queda derogado y se sobrescribe allí donde aparezca, sin excepción.
 - A las personas que forman parte nos referimos como **The Circle** / **el Círculo**, nunca
   como miembros.
 - Revisa también los textos legales: ahí «miembro» se sustituye igualmente, salvo cuando la

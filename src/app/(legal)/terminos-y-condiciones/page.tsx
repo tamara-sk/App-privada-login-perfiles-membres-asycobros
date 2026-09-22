@@ -32,22 +32,22 @@ export default function TerminosPage() {
         español.
       </p>
 
-      <h2>3. Capacidad y condición de miembro</h2>
+      <h2>3. Capacidad y acceso al Círculo</h2>
       <p>
         Para contratar es necesario ser mayor de edad y tener capacidad legal suficiente. El alta requiere crear una
         cuenta con una dirección de correo electrónico válida y facilitar datos veraces y actualizados. Las credenciales
-        son personales e intransferibles, y el miembro es responsable de su custodia.
+        son personales e intransferibles, y el usuario es responsable de su custodia.
       </p>
       <p>
         {company.tradeName} podrá denegar o revocar el acceso cuando exista incumplimiento de estas condiciones, impago,
-        uso fraudulento o conducta que perjudique a otros miembros o a los proveedores de experiencias.
+        uso fraudulento o conducta que perjudique a otros usuarios o a los proveedores de experiencias.
       </p>
 
       <h2>4. Proceso de contratación</h2>
       <p>Conforme a los artículos 27 y 28 de la LSSI-CE, el procedimiento es el siguiente:</p>
       <ol>
         <li>Selección del plan de membresía o de la experiencia y revisión de su descripción y precio.</li>
-        <li>Identificación o registro como miembro.</li>
+        <li>Identificación o registro.</li>
         <li>
           Revisión del pedido, aceptación expresa de estas condiciones y de la{' '}
           <Link href='/privacidad'>política de privacidad</Link>, y confirmación del pedido mediante un botón que indica
@@ -62,7 +62,7 @@ export default function TerminosPage() {
       </ol>
       <p>
         Antes de confirmar, el usuario puede revisar y modificar los datos introducidos o cancelar el proceso. El
-        documento electrónico de formalización queda archivado y el miembro puede solicitar copia en {company.email}.
+        documento electrónico de formalización queda archivado y el usuario puede solicitar copia en {company.email}.
       </p>
 
       <h2>5. Precios, impuestos y facturación</h2>
@@ -74,7 +74,7 @@ export default function TerminosPage() {
       <p>
         {company.tradeName} puede modificar sus precios en cualquier momento, pero el precio aplicable es siempre el
         vigente al confirmar el pedido. En las membresías con renovación automática, cualquier cambio de precio se
-        comunica con al menos 30 días de antelación a la fecha de renovación, pudiendo el miembro cancelar antes de que
+        comunica con al menos 30 días de antelación a la fecha de renovación, pudiendo el usuario cancelar antes de que
         surta efecto.
       </p>
       <p>La factura se emite en formato electrónico y se envía al correo asociado a la cuenta.</p>
@@ -101,7 +101,7 @@ export default function TerminosPage() {
         iguales, salvo cancelación previa. Antes de cada renovación se remite un recordatorio con la fecha y el importe.
       </p>
       <p>
-        El miembro puede desactivar la renovación en cualquier momento desde su área privada o escribiendo a{' '}
+        El usuario puede desactivar la renovación en cualquier momento desde su área privada o escribiendo a{' '}
         {company.email}, con los efectos descritos en <Link href='/cancelacion'>cancelación de pedidos</Link>.
       </p>
 
@@ -114,7 +114,7 @@ export default function TerminosPage() {
       <p>
         Si una experiencia no pudiera prestarse por causa imputable a {company.tradeName} o al proveedor,{' '}
         {company.tradeName} ofrecerá una alternativa equivalente o el reembolso íntegro del importe, a elección del
-        miembro, conforme a <Link href='/devoluciones'>devoluciones y reembolsos</Link>. Los plazos de entrega y
+        usuario, conforme a <Link href='/devoluciones'>devoluciones y reembolsos</Link>. Los plazos de entrega y
         activación se detallan en <Link href='/envios'>entrega y envíos</Link>.
       </p>
 
@@ -126,18 +126,18 @@ export default function TerminosPage() {
         <Link href='/cancelacion'>cancelación de pedidos</Link>, que forman parte integrante de estas condiciones.
       </p>
 
-      <h2>10. Obligaciones del miembro</h2>
+      <h2>10. Obligaciones del usuario</h2>
       <ul>
         <li>Utilizar los servicios de forma personal; la membresía no es transferible salvo autorización expresa.</li>
         <li>Respetar las normas de cada experiencia, del proveedor y del espacio en el que se desarrolle.</li>
         <li>Comunicar con antelación cualquier imposibilidad de asistir a una reserva confirmada.</li>
-        <li>Mantener un trato respetuoso con el resto de miembros, proveedores y el equipo de {brand.name}.</li>
+        <li>Mantener un trato respetuoso con el resto del Círculo, los proveedores y el equipo de {brand.name}.</li>
       </ul>
 
       <h2>11. Responsabilidad</h2>
       <p>
         {company.tradeName} responde de la correcta prestación de los servicios contratados conforme a la normativa de
-        consumo. No responde de los daños derivados de un uso indebido de los servicios por el miembro, del
+        consumo. No responde de los daños derivados de un uso indebido de los servicios por el usuario, del
         incumplimiento de las normas de una experiencia, ni de acontecimientos de fuerza mayor.
       </p>
       <p>
@@ -148,7 +148,7 @@ export default function TerminosPage() {
       <h2>12. Modificación de las condiciones</h2>
       <p>
         {company.tradeName} puede modificar estas condiciones por motivos legales, técnicos o de negocio. Las
-        modificaciones se comunican con al menos 30 días de antelación a los miembros con contrato en vigor, que podrán
+        modificaciones se comunican con al menos 30 días de antelación a los usuarios con contrato en vigor, que podrán
         resolver el contrato sin penalización si no las aceptan. A los pedidos ya confirmados se les aplican las
         condiciones vigentes en el momento de la contratación.
       </p>

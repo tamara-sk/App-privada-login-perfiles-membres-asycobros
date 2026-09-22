@@ -9,7 +9,7 @@ export default function robots(): MetadataRoute.Robots {
     rules: {
       userAgent: '*',
       allow: '/',
-      // El área privada de miembros no debe indexarse; los textos legales sí.
+      // El área privada del Círculo queda fuera del índice; los textos legales sí se indexan.
       disallow: ['/account', '/login', '/signup', '/manage-subscription'],
     },
     sitemap: `${baseUrl}/sitemap.xml`,

@@ -73,7 +73,7 @@ export const legalDocuments: LegalDocument[] = [
   {
     href: '/contacto',
     title: 'Contacto',
-    description: 'Canal de atención al miembro y vía de reclamación, incluida la plataforma europea de ODR.',
+    description: 'Canal de atención al Círculo y vía de reclamación, incluida la plataforma europea de ODR.',
     covers: 'Comunicación directa y efectiva (art. 10.1 a LSSI)',
   },
 ];
