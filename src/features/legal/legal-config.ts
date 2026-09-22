@@ -85,6 +85,40 @@ export const legalConfig = {
     methods: ['Visa', 'Mastercard', 'American Express'],
   },
 
+  /**
+   * Encargados del tratamiento (art. 28 RGPD) que se publican en /privacidad.
+   *
+   * MANTENER SINCRONIZADO CON LA REALIDAD: si se añade, se quita o se cambia un
+   * proveedor que trata datos de miembros, hay que actualizar esta lista y firmar
+   * (o rescindir) el contrato de encargo correspondiente.
+   */
+  processors: [
+    {
+      name: 'Vercel Inc.',
+      role: 'Alojamiento y despliegue del sitio y de la aplicación',
+      location: 'Estados Unidos (con red de distribución global)',
+      guarantee: 'Cláusulas contractuales tipo de la Comisión Europea',
+    },
+    {
+      name: 'Supabase Inc.',
+      role: 'Base de datos de miembros y autenticación',
+      location: 'Región del proyecto (recomendado: Unión Europea)',
+      guarantee: 'Cláusulas contractuales tipo si la región está fuera del EEE',
+    },
+    {
+      name: 'Resend (Plus Five Five, Inc.)',
+      role: 'Envío de correo transaccional (confirmaciones, facturas, avisos)',
+      location: 'Estados Unidos',
+      guarantee: 'Cláusulas contractuales tipo de la Comisión Europea',
+    },
+    {
+      name: 'HighLevel Inc. (GoHighLevel)',
+      role: 'CRM, seguimiento de solicitudes de acceso y automatización de comunicaciones',
+      location: 'Estados Unidos',
+      guarantee: 'Cláusulas contractuales tipo de la Comisión Europea',
+    },
+  ] as ReadonlyArray<{ name: string; role: string; location: string; guarantee: string }>,
+
   /** Fecha de última actualización de los textos legales (formato ISO). */
   lastUpdated: '2026-09-16',
 } as const;

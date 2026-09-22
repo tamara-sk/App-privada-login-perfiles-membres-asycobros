@@ -32,19 +32,19 @@ export default async function AccountPage() {
 
   return (
     <section className='rounded-lg bg-black px-4 py-16'>
-      <h1 className='mb-8 text-center'>Account</h1>
+      <h1 className='mb-8 text-center'>Mi cuenta</h1>
 
       <div className='flex flex-col gap-4'>
         <Card
-          title='Your Plan'
+          title='Tu membresía'
           footer={
             subscription ? (
               <Button size='sm' variant='secondary' asChild>
-                <Link href='/manage-subscription'>Manage your subscription</Link>
+                <Link href='/manage-subscription'>Gestionar mi membresía</Link>
               </Button>
             ) : (
               <Button size='sm' variant='secondary' asChild>
-                <Link href='/pricing'>Start a subscription</Link>
+                <Link href='/pricing'>Ver planes</Link>
               </Button>
             )
           }
@@ -52,7 +52,7 @@ export default async function AccountPage() {
           {userProduct && userPrice ? (
             <PricingCard product={userProduct} price={userPrice} />
           ) : (
-            <p>You don&apos;t have an active subscription</p>
+            <p>Todavía no tienes una membresía activa.</p>
           )}
         </Card>
       </div>

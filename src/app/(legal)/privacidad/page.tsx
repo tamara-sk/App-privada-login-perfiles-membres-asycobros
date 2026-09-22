@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 };
 
 export default function PrivacidadPage() {
-  const { company, dataProtection, payments } = legalConfig;
+  const { company, dataProtection, payments, processors } = legalConfig;
   const privacyEmail = dataProtection.privacyEmail;
 
   return (
@@ -131,13 +131,6 @@ export default function PrivacidadPage() {
           {payments.ipsp ? `, así como ${payments.ipsp.legalName} como proveedor de servicios de pago` : ''}.
         </li>
         <li>
-          <strong>Proveedores de alojamiento e infraestructura</strong> de la aplicación y de la base de datos.
-        </li>
-        <li>
-          <strong>Proveedores de correo electrónico transaccional</strong>, para enviarte confirmaciones, facturas y
-          avisos.
-        </li>
-        <li>
           <strong>Proveedores de las experiencias</strong> (restaurantes, hoteles, organizadores, servicios de
           asistencia): reciben únicamente los datos imprescindibles para prestar la experiencia que has reservado.
         </li>
@@ -145,6 +138,29 @@ export default function PrivacidadPage() {
           <strong>Asesoría fiscal y contable</strong> y, en su caso, asesoría jurídica.
         </li>
       </ul>
+      <p>
+        Los proveedores tecnológicos que intervienen en la prestación del servicio son los siguientes:
+      </p>
+      <table>
+        <thead>
+          <tr>
+            <th>Proveedor</th>
+            <th>Función</th>
+            <th>Ubicación</th>
+            <th>Garantía de la transferencia</th>
+          </tr>
+        </thead>
+        <tbody>
+          {processors.map((processor) => (
+            <tr key={processor.name}>
+              <td>{processor.name}</td>
+              <td>{processor.role}</td>
+              <td>{processor.location}</td>
+              <td>{processor.guarantee}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
       <p>
         Algunos proveedores pueden estar ubicados fuera del Espacio Económico Europeo. En ese caso, las transferencias
         internacionales se amparan en una decisión de adecuación de la Comisión Europea o en cláusulas contractuales

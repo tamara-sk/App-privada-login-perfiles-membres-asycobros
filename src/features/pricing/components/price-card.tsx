@@ -7,6 +7,7 @@ import { IoCheckmark } from 'react-icons/io5';
 import { SexyBoarder } from '@/components/sexy-boarder';
 import { Button } from '@/components/ui/button';
 import { Tabs, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import { formatPrice } from '@/utils/format-price';
 
 import { PriceCardVariant, productMetadataSchema } from '../models/product-metadata';
 import { BillingInterval, Price, ProductWithPrices } from '../types';
@@ -63,24 +64,21 @@ export function PricingCard({
           <div className='flex justify-center gap-0.5 text-zinc-400'>
             <span className='font-semibold'>
               {yearPrice && isBillingIntervalYearly
-                ? '$' + yearPrice / 100
+                ? formatPrice(yearPrice, currentPrice?.currency ?? null)
                 : monthPrice
-                ? '$' + monthPrice / 100
-                : 'Custom'}
+                ? formatPrice(monthPrice, currentPrice?.currency ?? null)
+                : 'A medida'}
             </span>
-            <span>{yearPrice && isBillingIntervalYearly ? '/year' : monthPrice ? '/month' : null}</span>
+            <span>{yearPrice && isBillingIntervalYearly ? '/año' : monthPrice ? '/mes' : null}</span>
           </div>
         </div>
 
         {!Boolean(price) && product.prices.length > 1 && <PricingSwitch onChange={handleBillingIntervalChange} />}
 
         <div className='m-auto flex w-fit flex-1 flex-col gap-2 px-8 py-4'>
-          {metadata.generatedImages === 'enterprise' && <CheckItem text={`Unlimited banner images`} />}
-          {metadata.generatedImages !== 'enterprise' && (
-            <CheckItem text={`Generate ${metadata.generatedImages} banner images`} />
-          )}
-          {<CheckItem text={`${metadata.imageEditor} image editing features`} />}
-          {<CheckItem text={`${metadata.supportLevel} support`} />}
+          {metadata.features.map((feature) => (
+            <CheckItem key={feature} text={feature} />
+          ))}
         </div>
 
         {createCheckoutAction && (
@@ -91,12 +89,12 @@ export function PricingCard({
                 className='w-full'
                 onClick={() => createCheckoutAction({ price: currentPrice })}
               >
-                Get Started
+                Solicitar acceso
               </Button>
             )}
             {!currentPrice && (
               <Button variant={buttonVariantMap[metadata.priceCardVariant]} className='w-full' asChild>
-                <Link href='/contact'>Contact Us</Link>
+                <Link href='/contacto'>Hablemos</Link>
               </Button>
             )}
           </div>
@@ -139,8 +137,8 @@ function PricingSwitch({ onChange }: { onChange: (value: BillingInterval) => voi
       onValueChange={(newBillingInterval) => onChange(newBillingInterval as BillingInterval)}
     >
       <TabsList className='m-auto'>
-        <TabsTrigger value='month'>Monthly</TabsTrigger>
-        <TabsTrigger value='year'>Yearly</TabsTrigger>
+        <TabsTrigger value='month'>Mensual</TabsTrigger>
+        <TabsTrigger value='year'>Anual</TabsTrigger>
       </TabsList>
     </Tabs>
   );

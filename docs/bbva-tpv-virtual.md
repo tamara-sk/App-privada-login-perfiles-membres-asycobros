@@ -68,17 +68,27 @@ intermedio). La respuesta cambia el alta, así que hay que decidirlo antes de co
 > la respuesta a BBVA es la opción B. Si el TPV de BBVA va a sustituir a Stripe, hay que planificar la
 > migración a Redsys antes de cobrar en producción.
 
-## 5. Antes de responder a BBVA
+## 5. Documentación relacionada
+
+- [`../CLAUDE.md`](../CLAUDE.md) — contexto y reglas del proyecto.
+- [`despliegue-vercel.md`](despliegue-vercel.md) — dominio, HTTPS, variables de entorno y la
+  comprobación en ventana de incógnito antes de escribir a BBVA. **Ojo con la protección de
+  despliegue de Vercel: si está activa, BBVA no puede ver los textos legales.**
+- [`integracion-ghl.md`](integracion-ghl.md) — GoHighLevel como CRM, y por qué la membresía **no**
+  debe cobrarse desde GHL: cambiaría la respuesta sobre el IPSP.
+- [`respuesta-bbva-tpv-virtual.md`](respuesta-bbva-tpv-virtual.md) — borrador del correo.
+
+## 6. Antes de responder a BBVA
 
 - [ ] Completar `legal-config.ts` y verificar con `npm run legal:check`.
 - [ ] Decidir A o B en la pregunta del IPSP.
-- [ ] Desplegar en el dominio definitivo con HTTPS válido.
+- [ ] Desplegar en el dominio definitivo con HTTPS válido y sin protección de despliegue activa.
 - [ ] Comprobar que las URLs abren en ventana de incógnito, sin sesión iniciada.
 - [ ] Revisar los plazos de cancelación de `/cancelacion` y los de envío de `/envios`: llevan valores
       razonables por defecto, pero deben coincidir con la operativa real de Secret Key.
 - [ ] Enviar la respuesta (borrador en `docs/respuesta-bbva-tpv-virtual.md`) a ALTATPVVIRTUAL@BBVA.COM.
 
-## 6. Revisión jurídica
+## 7. Revisión jurídica
 
 Los textos están redactados conforme a la Ley 34/2002 (LSSI-CE), el Real Decreto Legislativo 1/2007
 (consumidores y usuarios), el Reglamento (UE) 2016/679 (RGPD) y la Ley Orgánica 3/2018 (LOPDGDD).
