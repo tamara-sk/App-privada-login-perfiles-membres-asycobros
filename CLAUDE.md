@@ -32,6 +32,23 @@ extraordinario**. La estrella polar son los minutos ahorrados y los minutos disf
 
 **4. Tono.** Calmado, seguro, sobrio. Frases cortas. Cálido, generoso, humano.
 
+## Terminología — innegociable
+
+Las palabras **«miembro»/«member»** y **«club»** quedan eliminadas del vocabulario de Secret
+Key, en cualquier idioma y en cualquier soporte.
+
+| Se elimina | Se usa |
+| --- | --- |
+| miembro, miembros, member, members | **The Circle** · **el Círculo** |
+| club, private members club, luxury club | **Secret Key**, o **Secret Circle** para el nivel interno |
+| membresía de miembros | la entrada al Círculo |
+
+- **Secret Circle** es el nombre del nivel interno, por invitación.
+- A las personas que forman parte nos referimos como **The Circle** / **el Círculo**, nunca
+  como miembros.
+- Revisa también los textos legales: ahí «miembro» se sustituye igualmente, salvo cuando la
+  norma exija un término jurídico concreto como «consumidor» o «usuario».
+
 ## Pagos — decidido: Redsys
 
 Secret Key cobra por el **TPV Virtual de BBVA, sobre Redsys**. La decisión está tomada.

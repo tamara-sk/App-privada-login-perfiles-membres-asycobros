@@ -21,27 +21,27 @@ export const legalConfig = {
   brand: {
     name: 'Secret Key',
     tagline: 'Ecosistema de optimización del tiempo y acceso extraordinario',
-    siteUrl: process.env.NEXT_PUBLIC_SITE_URL ?? 'https://secretkey.es',
+    siteUrl: process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.secretkey.vip',
   },
 
   /** Art. 10.1 a), b) y c) LSSI-CE — titular del sitio. */
   company: {
     /** Denominación social completa, con la forma societaria (S.L., S.A., ...). */
-    legalName: '[COMPLETAR: denominación social, p. ej. SECRET KEY EXPERIENCES, S.L.]',
+    legalName: 'The Secret Key Labs, S.L.',
     /** Nombre comercial, si difiere de la denominación social. */
     tradeName: 'Secret Key',
     /** NIF / CIF de la sociedad (art. 10.1 c). */
-    taxId: '[COMPLETAR: NIF/CIF, p. ej. B-12345678]',
+    taxId: 'B25909565',
     /** Domicilio social o establecimiento permanente en España (art. 10.1 a). */
     address: {
-      street: '[COMPLETAR: calle y número]',
-      postalCode: '[COMPLETAR: código postal]',
-      city: '[COMPLETAR: municipio]',
-      province: '[COMPLETAR: provincia]',
+      street: 'Camí Vora Riu Solades 1771',
+      postalCode: '12540',
+      city: 'Vila-real',
+      province: 'Castellón',
       country: 'España',
     },
     /** Correo electrónico de contacto directo y efectivo (art. 10.1 a). */
-    email: '[COMPLETAR: correo electrónico de contacto, p. ej. hola@secretkey.es]',
+    email: 'hello@secretkey.vip',
     /** Teléfono de atención al miembro. */
     phone: '[COMPLETAR: teléfono de atención]',
     /** Datos registrales (art. 10.1 b). */
@@ -58,7 +58,7 @@ export const legalConfig = {
   /** Protección de datos (RGPD / LOPDGDD). */
   dataProtection: {
     /** Correo del responsable o, si se ha designado, del Delegado de Protección de Datos. */
-    privacyEmail: '[COMPLETAR: correo para ejercicio de derechos, p. ej. privacidad@secretkey.es]',
+    privacyEmail: 'legal@secretkey.vip',
     /** Delegado de Protección de Datos: null si no se ha designado (no siempre es obligatorio). */
     dpo: null as null | { name: string; email: string },
     supervisoryAuthority: {
