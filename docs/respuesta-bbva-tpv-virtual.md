@@ -1,7 +1,8 @@
 # Borrador de respuesta a BBVA (ALTATPVVIRTUAL@BBVA.COM)
 
-> Antes de enviar: sustituye todo lo que va entre `«...»`, elige la variante A o B del punto 3
-> (IPSP) y borra la que no corresponda. Responde al mismo correo, no a buzones personales.
+> Antes de enviar: sustituye todo lo que va entre `«...»`. El punto 3 ya está resuelto —
+> Secret Key cobra directamente por Redsys, sin IPSP. Responde al mismo correo, no a buzones
+> personales.
 
 **Asunto:** RE: Alta TPV Virtual — «DENOMINACIÓN SOCIAL» («NIF») — información Ley 34/2002
 
@@ -50,22 +51,17 @@ del consentimiento son igual de accesibles que la aceptación.
 
 **3. Integración con IPSP**
 
-> **VARIANTE A — si NO se usa un proveedor de servicios de pago intermedio. Borra la variante B.**
+Os confirmamos que la integración se realizará **directamente contra el TPV Virtual de BBVA, sobre
+la plataforma Redsys, sin proveedor de servicios de pago intermedio**.
 
-Os confirmamos que **no vamos a integrar ningún IPSP**: los cobros se realizarán directamente contra
-el TPV Virtual de BBVA, a través de la plataforma Redsys, sin intermediarios en la operativa de pago.
+Aprovechamos para consultaros dos puntos de configuración del comercio:
 
-> **VARIANTE B — si SÍ se usa un IPSP. Borra la variante A.**
+- La membresía se cobra de forma recurrente, por lo que necesitaríamos tener habilitado el
+  **pago por referencia** en el comercio.
+- Confirmadnos el **entorno de Redsys**, el número de terminal y la moneda con los que debemos
+  configurar la integración.
 
-Os informamos de que **sí vamos a integrar un proveedor de servicios de pago (IPSP)**, con los
-siguientes datos, para que podáis tramitar el alta del TPV Virtual de la forma correcta:
-
-- Denominación del IPSP: «NOMBRE COMERCIAL»
-- Denominación social: «DENOMINACIÓN SOCIAL DEL IPSP»
-- Función en la operativa: «p. ej. pasarela de pago / agregador / gestión de suscripciones recurrentes»
-
-Quedamos a vuestra disposición para facilitar cualquier documentación adicional que necesitéis
-(contrato con el IPSP, esquema de la integración técnica o entorno de pruebas).
+Quedamos a vuestra disposición para facilitar cualquier documentación adicional que necesitéis.
 
 **4. Naturaleza del servicio**
 

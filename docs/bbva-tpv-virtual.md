@@ -51,22 +51,19 @@ El comando falla mientras quede algún marcador `[COMPLETAR: ...]` y enumera los
 6. Correo para el ejercicio de derechos en materia de protección de datos.
 7. `brand.siteUrl`: el dominio definitivo (BBVA debe poder abrir las URLs desde fuera).
 
-## 4. Pregunta de BBVA sobre el IPSP
+## 4. Pregunta de BBVA sobre el IPSP — decidido: sin IPSP
 
-BBVA pregunta expresamente si se va a integrar con un **IPSP** (proveedor de servicios de pago
-intermedio). La respuesta cambia el alta, así que hay que decidirlo antes de contestar:
+**Secret Key cobra por el TPV Virtual de BBVA, sobre Redsys.** La decisión está tomada: no hay
+proveedor de servicios de pago intermedio. A BBVA se le responde la **variante A** del borrador:
+cobro directo contra el TPV, sin intermediarios en la operativa de pago.
 
-- **Opción A — cobro directo contra el TPV Virtual de BBVA (sin IPSP).** Se integra Redsys directamente.
-  En `legal-config.ts`, `payments.ipsp` se deja en `null`.
-- **Opción B — cobro a través de un IPSP** (Stripe, Adyen, PayPal, un agregador...). Hay que
-  comunicárselo a BBVA con su denominación social, y rellenar `payments.ipsp` en `legal-config.ts`; los
-  textos legales lo reflejan automáticamente en `/aviso-legal`, `/terminos-y-condiciones`,
-  `/seguridad-de-pago` y `/privacidad`.
+En `legal-config.ts`, `payments.ipsp` queda en `null`, que es lo que ya refleja el código.
 
-> **Atención:** el proyecto integra hoy **Stripe** (`src/libs/stripe`, `src/app/api/webhooks`,
-> `src/features/pricing`). Stripe es un IPSP. Si se mantiene esa integración junto al TPV de BBVA,
-> la respuesta a BBVA es la opción B. Si el TPV de BBVA va a sustituir a Stripe, hay que planificar la
-> migración a Redsys antes de cobrar en producción.
+> **Pendiente de migración.** El repositorio todavía integra Stripe (`src/libs/stripe`,
+> `src/app/api/webhooks`, `src/features/pricing`). Es anterior a la decisión y hay que
+> sustituirlo por Redsys antes de cobrar en producción. Los detalles de qué implica Redsys
+> (pasarela por redirección, firma, «pago por referencia» para los cobros recurrentes) están en
+> `CLAUDE.md`.
 
 ## 5. Documentación relacionada
 
@@ -81,7 +78,7 @@ intermedio). La respuesta cambia el alta, así que hay que decidirlo antes de co
 ## 6. Antes de responder a BBVA
 
 - [ ] Completar `legal-config.ts` y verificar con `npm run legal:check`.
-- [ ] Decidir A o B en la pregunta del IPSP.
+- [x] Decidido: sin IPSP, cobro directo por Redsys. Se responde la variante A.
 - [ ] Desplegar en el dominio definitivo con HTTPS válido y sin protección de despliegue activa.
 - [ ] Comprobar que las URLs abren en ventana de incógnito, sin sesión iniciada.
 - [ ] Revisar los plazos de cancelación de `/cancelacion` y los de envío de `/envios`: llevan valores

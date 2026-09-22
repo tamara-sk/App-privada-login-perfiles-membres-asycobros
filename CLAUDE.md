@@ -1,99 +1,131 @@
 # Secret Key — App privada de miembros
 
-Plataforma privada de membresía de Secret Key: login, perfiles de miembros, cobro de cuotas
-y acceso a experiencias.
+> **Antes de tocar nada, lee esto.** Esta rama (`claude/bbva-ley-34-2002-compliance-qak9nb`)
+> salió de `main`, que está obsoleto. El trabajo vivo está en
+> `claude/funny-cannon-t9g3gh`, que ya trae páginas legales, banner de consentimiento,
+> datos de la sociedad, tiendas, analítica y el acuerdo de marca. **Parte de esa rama, no de
+> `main`**, y lee su `CLAUDE.md`, su `docs/brand-voice.md` y su `docs/port-to-production.md`.
 
-> **Posicionamiento.** Secret Key no es un concierge, ni un club de lujo, ni una agencia de viajes:
-> es un **ecosistema de optimización del tiempo y acceso extraordinario**. Todo el copy de la
-> aplicación debe reforzar eso. La misión es convertir dinero en tiempo.
+## Voz de marca — innegociable
 
-## Stack
+**1. Nunca definir Secret Key por lo que no es.** Nada de «no somos un concierge», «no es
+una agencia de viajes» ni secciones de «lo que no somos», en ninguna página, correo,
+descripción de producto, anuncio, presentación o publicación. Di lo que Secret Key **es** y
+deja que el contraste lo haga el lector.
 
-| Capa | Tecnología | Notas |
-| --- | --- | --- |
-| Framework | Next.js 15 (App Router, React 19) | `export const dynamic = 'force-dynamic'` en el layout raíz |
-| Estilos | Tailwind CSS + shadcn/ui | Tema oscuro, fuentes Montserrat / Montserrat Alternates |
-| Base de datos y auth | Supabase | Cliente de servidor, de navegador y de middleware en `src/libs/supabase` |
-| Pagos | Stripe (hoy) → TPV Virtual BBVA/Redsys (decisión pendiente) | Ver `docs/bbva-tpv-virtual.md` |
-| Correo transaccional | Resend + React Email | Plantillas en `src/features/emails` |
-| CRM y automatización | GoHighLevel (GHL) | Ver `docs/integracion-ghl.md` |
-| Alojamiento | Vercel | Ver `docs/despliegue-vercel.md` |
+**2. Lenguaje afirmativo siempre.** Reescribe en positivo toda frase construida sobre una
+negación.
 
-Gestor de paquetes: **bun** (`bun.lockb`). `npm run` funciona igual para los scripts.
+| En lugar de | Escribe |
+| --- | --- |
+| «No te hacemos perder el tiempo» | «Te devolvemos tu tiempo» |
+| «No es un club de lujo» | «Una membresía que se mide en horas devueltas» |
+| «Nadie recuerda el recado» | «Lo que queda es la velada» |
+| «No vendemos tus datos» | «Tus datos son tuyos» |
+
+Vigila: `no`, `nunca`, `nadie`, `sin`, `tampoco`, `jamás`. Cada una es un aviso para
+reescribir, tanto en copy de marketing como en páginas legales: la precisión de una política
+de privacidad se mantiene eligiendo frases afirmativas, no renunciando a la regla.
+
+**3. Posicionamiento.** Secret Key es un **ecosistema de optimización del tiempo y acceso
+extraordinario**. La estrella polar son los minutos ahorrados y los minutos disfrutados.
+
+**4. Tono.** Calmado, seguro, sobrio. Frases cortas. Cálido, generoso, humano.
+
+## Pagos — decidido: Redsys
+
+Secret Key cobra por el **TPV Virtual de BBVA, sobre Redsys**. La decisión está tomada.
+
+El código de este repositorio todavía usa **Stripe**, tanto para las suscripciones como para
+la tienda. Es anterior a esa decisión y hay que sustituirlo: trata toda ruta de Stripe como
+provisional.
+
+Lo que implica Redsys en la práctica:
+
+- Es una pasarela por redirección. El sitio envía a la entidad un formulario firmado
+  (código de comercio, terminal, número de pedido, importe, moneda), el cliente paga en la
+  página del banco y el banco llama a una URL de notificación. Petición y respuesta van
+  firmadas, así que la clave secreta jamás sale del servidor.
+- Los **cobros recurrentes requieren «pago por referencia»**, que BBVA debe habilitar en el
+  comercio. El primer pago devuelve una referencia y los siguientes la reutilizan. El ciclo
+  de facturación pasa a vivir en nuestro código, con su propio planificador y su gestión de
+  impagos.
+- El número de pedido tiene un formato fijo que el banco valida, y cada uno se usa una vez.
+
+Confirmar con BBVA: entorno de Redsys, si el pago por referencia está habilitado y la
+configuración exacta de terminal y moneda.
+
+## Despliegue — dos codebases en un mismo proyecto de Vercel
+
+El proyecto de Vercel `secret-key-site` sirve **secretkey.vip** desde **otro codebase**: una
+SPA de Vite desplegada por CLI desde una máquina local. **Este repositorio de Next.js no es
+la web pública.**
+
+Ese mismo proyecto de Vercel está además enlazado por git a este repositorio, así que cada
+push de aquí lanza una previsualización de esta app Next.js dentro de un proyecto
+configurado para Vite.
+
+Hasta que se separen en dos proyectos distintos:
+
+- `vercel.json` (en `claude/funny-cannon-t9g3gh`) desactiva los despliegues de git para
+  `main`, de modo que un merge aquí jamás publique esta app sobre secretkey.vip.
+- Las previsualizaciones construyen **sin variables de entorno**, porque los clientes de SDK
+  se crean de forma diferida (`src/utils/create-lazy-client.ts`). Mantenlo así: un cliente
+  que lea sus credenciales al importarse tumba el build entero cuando Next recopila los
+  datos de página. Esta rama carece de ese patrón, y por eso su build falla con
+  `Reference to undefined env var: STRIPE_SECRET_KEY`.
 
 ## Comandos
 
 ```bash
-bun install           # instalar dependencias
-npm run dev           # desarrollo (turbopack)
-npm run build         # build de producción
-npm run lint          # eslint (incluye orden de imports: usa --fix)
-npm run legal:check   # falla si quedan datos legales sin completar
-npx tsc --noEmit      # typecheck
-npm run email:dev     # previsualizar plantillas de correo (puerto 3001)
-npm run migration:up  # aplicar migraciones de Supabase y regenerar tipos
-```
-
-Antes de dar por terminado un cambio: `npx tsc --noEmit`, `npm run lint` y `npm run build`.
-
-## Estructura
-
-```
-src/app/(auth)        login, signup, callback de OAuth
-src/app/(account)     área privada del miembro, gestión de la suscripción
-src/app/(legal)       textos legales públicos (LSSI) — ver más abajo
-src/features/account  controladores de sesión, usuario y suscripción
-src/features/legal    configuración legal, documentos y banner de cookies
-src/features/pricing  planes, tarjetas de precio y checkout
-src/libs              clientes de Supabase, Stripe y Resend
+bun install
+npm run dev
+npx tsc --noEmit        # tipos
+npx next lint           # eslint, incluye orden de imports
+npx next build          # la comprobación de verdad
+npm run legal:check     # falla si quedan datos legales sin completar
 ```
 
 ## Reglas del proyecto
 
 ### 1. Las rutas legales son públicas, siempre
 
-El artículo 10 de la **Ley 34/2002 (LSSI-CE)** exige que la información del prestador sea accesible
-de forma permanente, fácil, directa y gratuita. Aunque el resto de la aplicación sea privada,
-las rutas de `publicLegalRoutes` (`src/features/legal/legal-documents.ts`) **nunca** pueden quedar
-detrás de un guard de autenticación. Hay un recordatorio en
-`src/libs/supabase/supabase-middleware-client.ts`, donde se añadirían los guards.
+El artículo 10 de la **Ley 34/2002 (LSSI-CE)** exige que la información del prestador sea
+accesible de forma permanente, fácil, directa y gratuita. Aunque el resto de la aplicación
+sea privada, las rutas de `publicLegalRoutes` (`src/features/legal/legal-documents.ts`)
+quedan siempre fuera de cualquier guard de autenticación.
 
 ### 2. Los datos identificativos viven en un único sitio
 
-`src/features/legal/legal-config.ts` es la fuente de verdad de la denominación social, el NIF, el
-domicilio, los datos registrales, los contactos, los medios de pago y los encargados del tratamiento.
-No dupliques ninguno de esos datos en las páginas: impórtalos de ahí.
+En esta rama, `src/features/legal/legal-config.ts`. En `claude/funny-cannon-t9g3gh` ese
+papel lo cumple `companyConfig` (`src/libs/seo/metadata.ts`), que **ya tiene el domicilio y
+el NIF**. Al reconciliar las dos ramas hay que quedarse con uno solo de los dos.
 
-`npm run legal:check` falla mientras queden marcadores `[COMPLETAR: ...]`.
+### 3. Los encargados del tratamiento deben reflejar la realidad
 
-### 3. La lista de encargados del tratamiento debe reflejar la realidad
+`legalConfig.processors` se publica tal cual en `/privacidad`. Si cambia un proveedor que
+trata datos de miembros (alojamiento, base de datos, correo, CRM, pagos), actualiza la lista
+y firma o rescinde el contrato de encargo.
 
-`legalConfig.processors` se publica tal cual en `/privacidad`. Si se añade, se cambia o se retira un
-proveedor que trata datos de miembros (alojamiento, base de datos, correo, CRM, pagos), hay que
-actualizar esa lista **y** firmar o rescindir el contrato de encargo correspondiente.
+### 4. Enlaces que existen
 
-### 4. Nada de enlaces a rutas que no existen
-
-El starter enlazaba a `/terms`, `/privacy`, `/contact` y `/about-us`, que daban 404. Un enlace roto en
-el flujo de registro o de pago es un defecto legal, no un detalle estético. Las rutas reales son
-`/terminos-y-condiciones`, `/privacidad`, `/contacto` y `/legal`.
+Las rutas legales de esta rama son `/legal`, `/aviso-legal`, `/terminos-y-condiciones`,
+`/cancelacion`, `/devoluciones`, `/envios`, `/seguridad-de-pago`, `/privacidad`, `/cookies`
+y `/contacto`. En `claude/funny-cannon-t9g3gh` existen además `/privacy` y `/about-us`.
 
 ### 5. Idioma y moneda
 
-Interfaz y textos legales **en español**. Los importes se formatean con `formatPrice`
-(`src/utils/format-price.ts`), en **euros** y con formato español.
-
-### 6. Los beneficios de cada plan se editan en Stripe
-
-`price_card_variant` controla el estilo de la tarjeta (`basic` | `pro` | `enterprise`) y `features` es
-una lista separada por `|` en los metadatos del producto de Stripe. Cambiar los beneficios de un plan
-no debería requerir tocar código. Plantilla de ejemplo en `stripe-fixtures.json`.
+Interfaz y textos legales en español. Importes en euros con `formatPrice`
+(`src/utils/format-price.ts`).
 
 ## Contexto abierto
 
-- **Alta del TPV Virtual de BBVA** en curso. Requisitos, checklist y borrador de respuesta en
-  `docs/bbva-tpv-virtual.md` y `docs/respuesta-bbva-tpv-virtual.md`.
-- **Decisión pendiente:** cobrar directamente con Redsys (sin IPSP) o mantener Stripe, que **es** un
-  IPSP y hay que declarar a BBVA.
-- **Datos pendientes:** los 15 marcadores de `legal-config.ts` (nota simple del Registro Mercantil,
-  CIF, domicilio, correos y teléfono).
+- **Alta del TPV Virtual de BBVA** en curso: `docs/bbva-tpv-virtual.md` y
+  `docs/respuesta-bbva-tpv-virtual.md`. La respuesta sobre el IPSP es la **variante A**:
+  cobro directo contra Redsys, sin proveedor intermedio.
+- **Duplicidad por resolver:** esta rama y `claude/funny-cannon-t9g3gh` implementan por
+  separado páginas legales, banner de cookies y datos de la sociedad. Hay que reconciliarlas
+  antes de fusionar nada.
+- **Datos pendientes:** los marcadores de `legal-config.ts` (nota simple del Registro
+  Mercantil, CIF, domicilio, correos y teléfono). Parte de esto ya está en `companyConfig`
+  de la otra rama.

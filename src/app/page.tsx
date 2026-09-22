@@ -84,8 +84,8 @@ function PillarsSection() {
       <div className='flex flex-col gap-4'>
         <h2 className='font-alt text-3xl font-bold text-white lg:text-4xl'>El tiempo es el lujo definitivo.</h2>
         <p className='max-w-2xl text-lg text-neutral-300'>
-          No somos un concierge, ni un club, ni una agencia de viajes. Somos la infraestructura que devuelve tiempo a
-          quien ya no puede comprarlo de otra forma.
+          Una membresía que se mide en horas devueltas. Nos ocupamos de la gestión, las reservas y los detalles, y tú
+          decides en qué se convierte ese tiempo.
         </p>
       </div>
       <div className='grid grid-cols-1 gap-6 sm:grid-cols-2'>
