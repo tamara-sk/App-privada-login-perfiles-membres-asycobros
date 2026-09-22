@@ -46,7 +46,7 @@ export const legalConfig = {
     phone: '[COMPLETAR: teléfono de atención]',
     /** Datos registrales (art. 10.1 b). */
     registry: {
-      name: '[COMPLETAR: Registro Mercantil de ___]',
+      name: 'Registro Mercantil de Castellón',
       volume: '[COMPLETAR: tomo]',
       book: '[COMPLETAR: libro, si aplica]',
       folio: '[COMPLETAR: folio]',

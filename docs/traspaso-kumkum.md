@@ -12,17 +12,20 @@ cerrar el alta del TPV Virtual. Copia y pega desde aquí.
 | Domicilio social | Camí Vora Riu Solades 1771, 12540 Vila-real, Castellón, España |
 | Correo de contacto | hello@secretkey.vip |
 | Correo de protección de datos | legal@secretkey.vip |
-| Teléfono de atención | ⚠️ **PENDIENTE** |
-| Registro Mercantil | ⚠️ **PENDIENTE** |
-| Tomo / folio / hoja / inscripción | ⚠️ **PENDIENTE** |
+| Registro Mercantil | **Castellón** (confirmado) |
+| Escritura de constitución | 16/12/2025, protocolo 1779, notario JCHB |
+| Teléfono de atención | ⚠️ **PENDIENTE** — decisión de Tamara |
+| Tomo / folio / hoja / inscripción | ⚠️ **PENDIENTE** — están en el PDF citado abajo |
 
-Los dos bloques pendientes salen de un solo documento: la **nota simple del Registro
-Mercantil**. Trae el registro, el tomo, el folio, la hoja y la inscripción de una vez.
+Los cuatro datos registrales que faltan están en las **últimas páginas** de la escritura de
+constitución, en las certificaciones de inscripción y liquidación:
 
-> **Comprobación:** el NIF empieza por `B25`, y el `25` corresponde a Lleida, mientras que el
-> domicilio está en Castellón. Puede ser perfectamente correcto, pero conviene confirmar en la
-> nota simple **en qué Registro Mercantil está inscrita** la sociedad, porque ese es el dato
-> que exige el art. 10.1 b) y el que hay que publicar.
+> Fichero: `01592 012629 Esc 2025 12 16 1779 JCHB Constitucion sociedad.pdf`
+> Correo: «Fwd: Copia Constitución», de FISTEKA (cbs@fisteka.es), 27/08/2026.
+
+El Registro Mercantil es el de **Castellón**, ya confirmado: es la copia que lleva el sello
+«INSCRITO EN EL REGISTRO MERCANTIL DE CASTELLÓN». El prefijo `B25` del NIF, pese a
+corresponder a la serie de Lleida, no contradice la inscripción en Castellón.
 
 ## 2. URLs que deben existir y ser públicas
 
