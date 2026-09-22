@@ -1,4 +1,4 @@
-# Secret Key — App privada de miembros
+# Secret Key — App privada del Círculo
 
 > **Antes de tocar nada, lee esto.** Esta rama (`claude/bbva-ley-34-2002-compliance-qak9nb`)
 > salió de `main`, que está obsoleto. El trabajo vivo está en
@@ -19,7 +19,7 @@ negación.
 | En lugar de | Escribe |
 | --- | --- |
 | «No te hacemos perder el tiempo» | «Te devolvemos tu tiempo» |
-| «No es un club de lujo» | «Una membresía que se mide en horas devueltas» |
+| «No es un club de lujo» | «Un ecosistema que se mide en horas devueltas» |
 | «Nadie recuerda el recado» | «Lo que queda es la velada» |
 | «No vendemos tus datos» | «Tus datos son tuyos» |
 
@@ -136,7 +136,7 @@ el NIF**. Al reconciliar las dos ramas hay que quedarse con uno solo de los dos.
 ### 3. Los encargados del tratamiento deben reflejar la realidad
 
 `legalConfig.processors` se publica tal cual en `/privacidad`. Si cambia un proveedor que
-trata datos de miembros (alojamiento, base de datos, correo, CRM, pagos), actualiza la lista
+trata datos del Círculo (alojamiento, base de datos, correo, CRM, pagos), actualiza la lista
 y firma o rescinde el contrato de encargo.
 
 ### 4. Enlaces que existen
@@ -158,6 +158,10 @@ Interfaz y textos legales en español. Importes en euros con `formatPrice`
 - **Duplicidad por resolver:** esta rama y `claude/funny-cannon-t9g3gh` implementan por
   separado páginas legales, banner de cookies y datos de la sociedad. Hay que reconciliarlas
   antes de fusionar nada.
-- **Datos pendientes:** los marcadores de `legal-config.ts` (nota simple del Registro
-  Mercantil, CIF, domicilio, correos y teléfono). Parte de esto ya está en `companyConfig`
-  de la otra rama.
+- **Datos pendientes:** quedan 6 marcadores en `legal-config.ts`. Denominación social, NIF,
+  domicilio, correos y Registro Mercantil (Castellón) ya están puestos. Faltan el tomo, el
+  libro, el folio, la hoja y la inscripción —están en las últimas páginas de la escritura de
+  constitución del 16/12/2025, protocolo 1779— y el teléfono de atención.
+- **El TPV está firmado y en vigor** desde el 14/09/2026 (contrato de comercio virtual). Lo
+  que falta son los 3 parámetros de conexión de Redsys, que BBVA aún no ha entregado: la
+  información del art. 10 publicada es la condición para que los suelten.
