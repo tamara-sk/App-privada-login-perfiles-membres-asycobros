@@ -1,3 +1,7 @@
+> **Nota:** Stripe queda eliminado de esta rama. El cobro va por el TPV Virtual de BBVA
+> sobre Redsys, descrito en `CLAUDE.md`. Lo que sigue mencionando Stripe describe la
+> plantilla original y ya no refleja el código.
+
 # Porting this work into the production app
 
 `kumkum020704/secret-key-app` is the repository that ships. This branch,

@@ -1,5 +1,9 @@
 <p align="center">
   <h1 align="center">next-supabase-stripe-starter</h1>
+
+> **Nota:** Stripe queda eliminado de esta rama. El cobro va por el TPV Virtual de BBVA
+> sobre Redsys, descrito en `CLAUDE.md`. Lo que sigue mencionando Stripe describe la
+> plantilla original y ya no refleja el código.
   <p align="center">
   </p>
 </p>

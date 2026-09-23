@@ -40,13 +40,28 @@ access or strengthening relationships. Anything else is out.
 5. Experiences create memories
 6. Community creates leverage
 
-## Payments — decided, and not what the code does yet
+## Payments — Redsys, and that is what the code does
 
-Secret Key charges through the **BBVA virtual POS, on Redsys**. Not Stripe.
+Secret Key charges through the **BBVA virtual POS, on Redsys**. Stripe is gone from this
+branch: the dependency, the webhook, the customer portal, the product sync and the fixtures.
 
-The code in this repository still uses Stripe, for both the membership subscriptions and
-the shop checkout. It was written before this decision and has to be replaced. Treat every
-Stripe path as provisional.
+| Piece | Where |
+| --- | --- |
+| Signature and redirect form | `src/libs/redsys/` |
+| Plan prices, the single source | `src/features/membership/plans.ts` |
+| Entry to the Circle: start | `startPaymentAction` → `/pago/[pedido]` |
+| Shop: address and shipping | `/store/checkout` → `/store/pago/[pedido]` |
+| Confirmation for both | `/api/redsys/notificacion` |
+| Data | `payments`, `memberships`, `orders` |
+
+Merchant code **370662108**. Terminal, signing key and environment live in `REDSYS_*`
+environment variables, read when used, so the build still runs without credentials. The
+signing key **never** goes in git.
+
+Because Redsys charges a signed amount and nothing more, the shop collects the address and
+the shipping choice on **our own** `/store/checkout` page before handing over to the bank.
+Prices are always re-read from the catalog on the server, so a tampered cart changes
+nothing.
 
 What Redsys means in practice:
 
@@ -56,8 +71,8 @@ What Redsys means in practice:
   the bank issues never leaves the server.
 - **Recurring charges need "pago por referencia"**, which BBVA has to enable on the
   merchant account. The first payment returns a reference token; later charges reuse it.
-  The billing cycle then lives in our code, rather than in the gateway the way Stripe
-  handles subscriptions. Memberships need their own scheduler and dunning.
+  The billing cycle then lives in our code rather than in the gateway, so renewals need
+  their own scheduler and dunning. Renewal is manual for now, from `/account`.
 - Order numbers have a fixed format the bank validates, and each one can be used once.
 
 Confirm the specifics with BBVA before building: which Redsys environment, whether pago
@@ -65,17 +80,17 @@ por referencia is enabled, and the exact terminal and currency setup.
 
 ## Codebase
 
-Next.js 15 (App Router) · React 19 · TypeScript · Tailwind · Supabase · Stripe · Resend,
+Next.js 15 (App Router) · React 19 · TypeScript · Tailwind · Supabase · Redsys · Resend,
 deployed on Vercel.
 
 | Area | Where |
 | --- | --- |
-| Membership pricing & checkout | `src/features/pricing` |
-| Accounts, sessions, subscriptions | `src/features/account` |
+| Entry to the Circle: plans & payment | `src/features/membership` |
+| Accounts and sessions | `src/features/account` |
 | Shop: catalog, cart, checkout, orders | `src/features/store` |
 | Tracking, consent, dataLayer events | `src/libs/analytics` |
 | Metadata, brand copy, legal entity details | `src/libs/seo/metadata.ts` |
-| Stripe webhook (subscriptions + orders) | `src/app/api/webhooks/route.ts` |
+| Redsys notification (entries + orders) | `src/app/api/redsys/notificacion/route.ts` |
 | Database migrations | `supabase/migrations` |
 
 - **Shop products** live in `src/features/store/catalog.ts`. Adding an object there adds it
@@ -107,7 +122,7 @@ Until the two are separated into their own Vercel projects:
   SDK clients are constructed lazily (`src/utils/create-lazy-client.ts`). Keep it that
   way: a client that reads its credentials at import time will take the whole build down
   when Next collects page data.
-- A project that actually runs this app needs the Supabase, Stripe and Resend variables
+- A project that actually runs this app needs the Supabase, Redsys and Resend variables
   set for both Preview and Production.
 
 ### Before pushing

@@ -6,7 +6,7 @@ export const MAX_QUANTITY_PER_LINE = 10;
 /**
  * Re-reads every cart line against the catalog. The browser sends slugs and
  * quantities only - names, prices and variants are always resolved here, so a
- * tampered localStorage cart cannot change what Stripe charges.
+ * tampered localStorage cart cannot change what the bank charges.
  */
 export function resolveCart(items: CartItem[]): ResolvedCartItem[] {
   const resolved: ResolvedCartItem[] = [];

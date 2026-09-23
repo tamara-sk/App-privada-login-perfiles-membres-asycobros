@@ -1,20 +1,20 @@
 import { redirect } from 'next/navigation';
 
 import { getSession } from '@/features/account/controllers/get-session';
-import { getSubscription } from '@/features/account/controllers/get-subscription';
+import { getMembership } from '@/features/membership/controllers/get-membership';
 
 import { signInWithEmail, signInWithOAuth } from '../auth-actions';
 import { AuthUI } from '../auth-ui';
 
 export default async function LoginPage() {
   const session = await getSession();
-  const subscription = await getSubscription();
+  const membership = await getMembership();
 
-  if (session && subscription) {
+  if (session && membership) {
     redirect('/account');
   }
 
-  if (session && !subscription) {
+  if (session && !membership) {
     redirect('/pricing');
   }
 
