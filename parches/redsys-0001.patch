@@ -1,0 +1,3561 @@
+From 9547766de641ecea5b1cbdf6ce6bee25fa8e609a Mon Sep 17 00:00:00 2001
+From: Claude <noreply@anthropic.com>
+Date: Wed, 23 Sep 2026 14:12:50 +0200
+Subject: [PATCH 1/2] Sustituir Stripe por Redsys (TPV Virtual de BBVA)
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+Secret Key cobra por el TPV Virtual de BBVA sobre Redsys; Stripe era un resto
+de la plantilla y hacía fallar las previsualizaciones con
+`Reference to undefined env var: STRIPE_SECRET_KEY`.
+
+- Fuera Stripe: dependencias, webhook, portal de cliente, sincronización de
+  productos y precios, y `stripe-fixtures.json`.
+- `src/libs/redsys`: firma HMAC_SHA256_V1 (3DES + HMAC-SHA256), formulario de
+  pago por redirección y validación de la notificación. La firma coincide con
+  la de una implementación de referencia independiente (python-redsys).
+- Entradas al Círculo en `plans.ts` como única fuente de precios: Key 0 €,
+  Secret Key 99 €/año, Máster Key 390 €/año. El importe se relee en el servidor.
+- `/pago/[pedido]` envía al banco; `/api/redsys/notificacion` confirma el cobro,
+  comprueba importe y firma, y abre o prolonga la entrada un año.
+- Migración: tablas `payments` y `memberships`; se retiran las de Stripe.
+- Configuración por variables `REDSYS_*`, leídas al usarse: el build sigue sin
+  necesitar credenciales. Número de comercio 370662108.
+
+Verificado: tsc, lint y `next build` sin variables de entorno.
+
+Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01FyrZFdU3Dnb8A5a2DqGJpo
+---
+ .env.local.example                            |  14 +-
+ CLAUDE.md                                     |  36 ++-
+ README.md                                     |  33 ++-
+ bun.lockb                                     | Bin 293564 -> 292428 bytes
+ docs/despliegue-vercel.md                     |  23 +-
+ docs/integracion-ghl.md                       |   6 +-
+ package.json                                  |   3 -
+ src/app/(account)/account/page.tsx            |  48 ++--
+ .../(account)/manage-subscription/route.ts    |  34 ---
+ src/app/(auth)/auth/callback/route.ts         |  13 +-
+ src/app/(auth)/login/page.tsx                 |   8 +-
+ src/app/(auth)/signup/page.tsx                |   8 +-
+ src/app/api/redsys/notificacion/route.ts      | 133 ++++++++++
+ src/app/api/webhooks/route.ts                 |  77 ------
+ src/app/page.tsx                              |   2 +-
+ src/app/pago/[pedido]/page.tsx                |  53 ++++
+ src/app/pago/resultado/page.tsx               |  28 +++
+ src/app/pricing/page.tsx                      |   2 +-
+ src/app/robots.ts                             |   2 +-
+ .../account/controllers/get-customer-id.ts    |  15 --
+ .../controllers/get-or-create-customer.ts     |  35 ---
+ .../controllers/upsert-user-subscription.ts   |  85 -------
+ .../actions/start-payment-action.ts           |  44 ++++
+ .../membership/components/plan-card.tsx       |  56 +++++
+ .../components/pricing-section.tsx            |  17 +-
+ .../components/redsys-redirect-form.tsx       |  27 ++
+ .../controllers/get-membership.ts}            |  10 +-
+ src/features/membership/plans.ts              |  63 +++++
+ .../pricing/actions/create-checkout-action.ts |  55 -----
+ .../pricing/components/price-card.tsx         | 145 -----------
+ .../pricing/controllers/get-products.ts       |  19 --
+ .../pricing/controllers/upsert-price.ts       |  30 ---
+ .../pricing/controllers/upsert-product.ts     |  25 --
+ .../pricing/models/product-metadata.ts        |  29 ---
+ src/features/pricing/types.ts                 |   9 -
+ src/libs/redsys/config.ts                     |  50 ++++
+ src/libs/redsys/payment.ts                    | 150 +++++++++++
+ src/libs/redsys/signature.ts                  |  60 +++++
+ src/libs/stripe/stripe-admin.ts               |  18 --
+ src/libs/supabase/types.ts                    | 233 ++++++------------
+ src/utils/create-lazy-client.ts               |   2 +-
+ src/utils/format-price.ts                     |   2 +-
+ stripe-fixtures.json                          | 106 --------
+ .../20260923120000_redsys_payments.sql        |  75 ++++++
+ 44 files changed, 942 insertions(+), 941 deletions(-)
+ delete mode 100644 src/app/(account)/manage-subscription/route.ts
+ create mode 100644 src/app/api/redsys/notificacion/route.ts
+ delete mode 100644 src/app/api/webhooks/route.ts
+ create mode 100644 src/app/pago/[pedido]/page.tsx
+ create mode 100644 src/app/pago/resultado/page.tsx
+ delete mode 100644 src/features/account/controllers/get-customer-id.ts
+ delete mode 100644 src/features/account/controllers/get-or-create-customer.ts
+ delete mode 100644 src/features/account/controllers/upsert-user-subscription.ts
+ create mode 100644 src/features/membership/actions/start-payment-action.ts
+ create mode 100644 src/features/membership/components/plan-card.tsx
+ rename src/features/{pricing => membership}/components/pricing-section.tsx (63%)
+ create mode 100644 src/features/membership/components/redsys-redirect-form.tsx
+ rename src/features/{account/controllers/get-subscription.ts => membership/controllers/get-membership.ts} (51%)
+ create mode 100644 src/features/membership/plans.ts
+ delete mode 100644 src/features/pricing/actions/create-checkout-action.ts
+ delete mode 100644 src/features/pricing/components/price-card.tsx
+ delete mode 100644 src/features/pricing/controllers/get-products.ts
+ delete mode 100644 src/features/pricing/controllers/upsert-price.ts
+ delete mode 100644 src/features/pricing/controllers/upsert-product.ts
+ delete mode 100644 src/features/pricing/models/product-metadata.ts
+ delete mode 100644 src/features/pricing/types.ts
+ create mode 100644 src/libs/redsys/config.ts
+ create mode 100644 src/libs/redsys/payment.ts
+ create mode 100644 src/libs/redsys/signature.ts
+ delete mode 100644 src/libs/stripe/stripe-admin.ts
+ delete mode 100644 stripe-fixtures.json
+ create mode 100644 supabase/migrations/20260923120000_redsys_payments.sql
+
+diff --git a/.env.local.example b/.env.local.example
+index 6782b56..69e22e7 100644
+--- a/.env.local.example
++++ b/.env.local.example
+@@ -4,10 +4,16 @@ NEXT_PUBLIC_SUPABASE_ANON_KEY=UPDATE_THIS_wITH_YOUR_SUPABASE_ANON_KEY
+ SUPABASE_SERVICE_ROLE_KEY=UPDATE_THIS_wITH_YOUR_SUPABASE_SUPABASE_SERVICE_ROLE_KEY
+ SUPABASE_DB_PASSWORD=UPDATE_THIS_wITH_YOUR_SUPABASE_SUPABASE_DB_PASSWORD
+ 
+-# Update these with your Stripe credentials from https://dashboard.stripe.com/apikeys
+-NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY=UPDATE_THIS_wITH_YOUR_STRIPE_PK
+-STRIPE_SECRET_KEY=UPDATE_THIS_wITH_YOUR_STRIPE_SK
+-STRIPE_WEBHOOK_SECRET=UPDATE_THIS_wITH_YOUR_STRIPE_WHSEC
++# TPV Virtual de BBVA (Redsys). La clave de firma es secreta: solo en Vercel, jamás en git.
++REDSYS_MERCHANT_CODE=370662108
++REDSYS_TERMINAL=1
++REDSYS_SECRET_KEY=PEGA_AQUI_LA_CLAVE_SHA256_DE_BBVA
++# test = pruebas en sis-t.redsys.es · live = cobros reales
++REDSYS_ENV=test
++# 978 = EUR
++REDSYS_CURRENCY=978
++# true solo cuando BBVA confirme que el pago por referencia está activado
++REDSYS_PAGO_REFERENCIA=false
+ 
+ # Update this with your resend.com credentials from https://resend.com/api-keys
+ RESEND_API_KEY=re_test_1234
+diff --git a/CLAUDE.md b/CLAUDE.md
+index 20c931f..c5633c7 100644
+--- a/CLAUDE.md
++++ b/CLAUDE.md
+@@ -87,9 +87,28 @@ escritura, que es una hoja distinta del sello de presentación del 07/01/2026.
+ 
+ Secret Key cobra por el **TPV Virtual de BBVA, sobre Redsys**. La decisión está tomada.
+ 
+-El código de este repositorio todavía usa **Stripe**, tanto para las suscripciones como para
+-la tienda. Es anterior a esa decisión y hay que sustituirlo: trata toda ruta de Stripe como
+-provisional.
++En esta rama **Stripe ya está eliminado**. El cobro de las entradas al Círculo va por Redsys:
++
++| Pieza | Dónde |
++| --- | --- |
++| Firma y formulario | `src/libs/redsys/` (verificada contra una implementación de referencia) |
++| Precios | `src/features/membership/plans.ts`, la única fuente; se releen en el servidor |
++| Inicio del pago | `startPaymentAction` → `/pago/[pedido]`, que envía el formulario al banco |
++| Confirmación | `/api/redsys/notificacion`: única fuente de verdad del cobro |
++| Datos | tablas `payments` y `memberships` (migración `20260923120000_redsys_payments.sql`) |
++
++- Número de comercio: **370662108**. Terminal, clave de firma y entorno van en variables de
++  entorno (`REDSYS_*`, ver `.env.local.example`). La clave de firma **jamás** en git.
++- La vuelta del navegador a `/pago/resultado` solo informa; el cobro lo confirma la
++  notificación firmada, que además comprueba que el importe coincide con el registrado.
++- La renovación es manual («Renovar un año más» en `/account`). `REDSYS_PAGO_REFERENCIA=true`
++  pide ya la referencia al banco y la guarda, para automatizar la renovación cuando BBVA active
++  el pago por referencia.
++- La tienda de `claude/funny-cannon-t9g3gh` sigue con Stripe Checkout: al reconciliar ramas
++  hay que pasarla a este mismo módulo.
++- **Referencia, no producción.** La app que cobra de verdad es la de Kumkum
++  (`kumkum020704/secret-key-app`), que ya integra Redsys. Este módulo sirve de referencia y de
++  cobro para la web; evita mantener dos lógicas de precios distintas.
+ 
+ Lo que implica Redsys en la práctica:
+ 
+@@ -103,8 +122,7 @@ Lo que implica Redsys en la práctica:
+   impagos.
+ - El número de pedido tiene un formato fijo que el banco valida, y cada uno se usa una vez.
+ 
+-Confirmar con BBVA: entorno de Redsys, si el pago por referencia está habilitado y la
+-configuración exacta de terminal y moneda.
++Confirmar con BBVA: si el pago por referencia está habilitado.
+ 
+ ## Despliegue — dos codebases en un mismo proyecto de Vercel
+ 
+@@ -123,8 +141,7 @@ Hasta que se separen en dos proyectos distintos:
+ - Las previsualizaciones construyen **sin variables de entorno**, porque los clientes de SDK
+   se crean de forma diferida (`src/utils/create-lazy-client.ts`). Mantenlo así: un cliente
+   que lea sus credenciales al importarse tumba el build entero cuando Next recopila los
+-  datos de página. Esta rama carece de ese patrón, y por eso su build falla con
+-  `Reference to undefined env var: STRIPE_SECRET_KEY`.
++  datos de página. Redsys lee su configuración al usarse, por la misma razón.
+ 
+ ## Comandos
+ 
+@@ -181,6 +198,5 @@ Interfaz y textos legales en español. Importes en euros con `formatPrice`
+   domicilio, correos y Registro Mercantil (Castellón) ya están puestos. Faltan el tomo, el
+   libro, el folio, la hoja y la inscripción —están en las últimas páginas de la escritura de
+   constitución del 16/12/2025, protocolo 1779— y el teléfono de atención.
+-- **El TPV está firmado y en vigor** desde el 14/09/2026 (contrato de comercio virtual). Lo
+-  que falta son los 3 parámetros de conexión de Redsys, que BBVA aún no ha entregado: la
+-  información del art. 10 publicada es la condición para que los suelten.
++- **El TPV está firmado y en vigor** desde el 14/09/2026 (contrato de comercio virtual), y BBVA
++  ya entregó los parámetros de conexión de Redsys (número de comercio 370662108).
+diff --git a/README.md b/README.md
+index dd29859..f5e2f39 100644
+--- a/README.md
++++ b/README.md
+@@ -11,7 +11,7 @@ memorables, ampliar el acceso o reforzar la relación con los miembros.
+ 
+ - **Next.js 15** (App Router, React 19) + **TypeScript**
+ - **Supabase** — base de datos y autenticación
+-- **Stripe** — suscripciones y checkout *(pendiente de decisión: ver el apartado de pagos)*
++- **Redsys** — TPV Virtual de BBVA, cobro directo
+ - **Resend + React Email** — correo transaccional
+ - **Tailwind CSS + shadcn/ui** — interfaz
+ - **Vercel** — alojamiento
+@@ -63,24 +63,33 @@ aplicación sea privada.
+ 
+ ## Pagos
+ 
+-Actualmente el cobro se realiza con **Stripe**. Está en curso el alta del **TPV Virtual de BBVA**
+-(Redsys), y queda por decidir si se mantiene Stripe —que es un IPSP y hay que declarar a BBVA— o se
+-cobra directamente contra Redsys.
++El cobro se realiza directamente contra el **TPV Virtual de BBVA, sobre Redsys**, sin proveedor
++intermedio. Stripe queda fuera del proyecto.
++
++| Pieza | Dónde |
++| --- | --- |
++| Firma HMAC-SHA256 y formulario de pago | `src/libs/redsys/` |
++| Precios de las entradas (única fuente) | `src/features/membership/plans.ts` |
++| Inicio del pago | `src/features/membership/actions/start-payment-action.ts` → `/pago/[pedido]` |
++| Confirmación del banco | `src/app/api/redsys/notificacion/route.ts` |
++| Tablas `payments` y `memberships` | `supabase/migrations/20260923120000_redsys_payments.sql` |
++
++Variables de entorno: ver [`docs/despliegue-vercel.md`](docs/despliegue-vercel.md).
+ 
+ Contexto, checklist y borrador de respuesta a BBVA:
+ [`docs/bbva-tpv-virtual.md`](docs/bbva-tpv-virtual.md) y
+ [`docs/respuesta-bbva-tpv-virtual.md`](docs/respuesta-bbva-tpv-virtual.md).
+ 
+-## Planes de membresía
+-
+-Los beneficios de cada plan se editan **desde Stripe**, no desde el código. En los metadatos de cada
+-producto:
++## Entradas al Círculo
+ 
+-- `price_card_variant`: `basic` | `pro` | `enterprise` (controla el estilo de la tarjeta)
+-- `features`: beneficios separados por `|`, por ejemplo
+-  `Acceso a la plataforma privada|Concierge por email|Cancelación flexible`
++| Entrada | Slug | Precio | Descuento | Llavecitas por cada 10 € |
++| --- | --- | --- | --- | --- |
++| Key | `member_key` | 0 € | — | 3 |
++| Secret Key | `member_secret_key` | 99 €/año | 10 % | 4 |
++| Máster Key | `member_master_key` | 390 €/año | 20 % | 5 |
+ 
+-Plantilla de ejemplo en [`stripe-fixtures.json`](stripe-fixtures.json).
++Se editan en `src/features/membership/plans.ts`. Cada pago cubre un año; renovar el mismo plan
++antes de que venza suma el año nuevo al final del actual.
+ 
+ ## Documentación
+ 
+diff --git a/bun.lockb b/bun.lockb
+index a1211e6ec1af7622dd1933dd60b81d1e1c594cce..2539c201080b9bd844239e9ff7f4f539037dd6b4 100755
+GIT binary patch
+delta 56344
+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
+F@_$E)yDtC$
+
+delta 57873
+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
+VvyS%^gg8-6;m=fU*{3W@{tqHhcd-Bf
+
+diff --git a/docs/despliegue-vercel.md b/docs/despliegue-vercel.md
+index 7cd9482..a28e5b8 100644
+--- a/docs/despliegue-vercel.md
++++ b/docs/despliegue-vercel.md
+@@ -27,9 +27,12 @@ Configúralas en Vercel → Project → Settings → Environment Variables, para
+ | `NEXT_PUBLIC_SUPABASE_ANON_KEY` | Supabase → Project Settings → API |
+ | `SUPABASE_SERVICE_ROLE_KEY` | Supabase → Project Settings → API (**secreta**, solo servidor) |
+ | `SUPABASE_DB_PASSWORD` | Supabase → Project Settings → Database |
+-| `NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY` | Stripe → Developers → API keys |
+-| `STRIPE_SECRET_KEY` | Stripe → Developers → API keys (**secreta**) |
+-| `STRIPE_WEBHOOK_SECRET` | Stripe → Developers → Webhooks, tras crear el endpoint |
++| `REDSYS_MERCHANT_CODE` | Número de comercio de BBVA: `370662108` |
++| `REDSYS_TERMINAL` | Número de terminal que da BBVA (normalmente `1`) |
++| `REDSYS_SECRET_KEY` | Clave de firma SHA-256 que da BBVA (**secreta**, solo servidor) |
++| `REDSYS_ENV` | `test` para pruebas, `live` para cobros reales |
++| `REDSYS_CURRENCY` | `978` (euros). Opcional |
++| `REDSYS_PAGO_REFERENCIA` | `true` solo cuando BBVA active el pago por referencia. Opcional |
+ | `RESEND_API_KEY` | Resend → API Keys |
+ | `NEXT_PUBLIC_SITE_URL` | El dominio definitivo, con `https://` y sin barra final |
+ 
+@@ -41,15 +44,15 @@ Quedan dos marcadores en `package.json` que son identificadores de Supabase, no
+ rellenan al enlazar el proyecto: `UPDATE_THIS_WITH_YOUR_SUPABASE_PROJECT_ID` en los scripts
+ `generate-types` y `supabase:link`.
+ 
+-## 3. Webhook de Stripe
++## 3. Notificación de Redsys
+ 
+-El endpoint está en `/api/webhooks` (`src/app/api/webhooks/route.ts`) y sincroniza productos, precios
+-y suscripciones con Supabase. Tras el primer despliegue:
++Redsys confirma cada cobro llamando a `https://TU-DOMINIO/api/redsys/notificacion`
++(`src/app/api/redsys/notificacion/route.ts`). La app envía esa URL en cada pago, así que en el
++módulo de administración de Redsys no hay nada que configurar. Solo hace falta que la URL sea
++pública: **sin protección de despliegue de Vercel** en el entorno que cobra.
+ 
+-1. Stripe → Developers → Webhooks → Add endpoint → `https://TU-DOMINIO/api/webhooks`.
+-2. Copia el *signing secret* en `STRIPE_WEBHOOK_SECRET` y vuelve a desplegar.
+-
+-En local: `npm run stripe:listen`.
++Para probar, deja `REDSYS_ENV=test` y usa la clave de pruebas y las tarjetas de prueba que da BBVA.
++Pasa a `live` solo cuando una compra de prueba complete el circuito entero.
+ 
+ ## 4. Dominio
+ 
+diff --git a/docs/integracion-ghl.md b/docs/integracion-ghl.md
+index 497dbe0..3ed8506 100644
+--- a/docs/integracion-ghl.md
++++ b/docs/integracion-ghl.md
+@@ -16,7 +16,7 @@ La regla que evita duplicar sistemas y datos:
+ | Seguimiento comercial del lead hasta que se convierte en miembro | **GHL** |
+ | Campañas de email y SMS, secuencias, recordatorios comerciales | **GHL** |
+ | Identidad del miembro, login y perfil | **App (Supabase)** |
+-| Cobro de la membresía y facturación | **App (Stripe / TPV BBVA)** |
++| Cobro de la entrada al Círculo y facturación | **App (TPV BBVA, Redsys)** |
+ | Correo transaccional (confirmación de pedido, factura, acceso) | **App (Resend)** |
+ | Reservas de experiencias y su histórico | **App** |
+ 
+@@ -38,8 +38,8 @@ trabajo:
+    Añade complejidad operativa y puntos de fallo; solo merece la pena si el equipo trabaja el día a
+    día dentro de GHL.
+ 
+-**Recomendación: opción 2.** El punto natural de enganche es el webhook de Stripe que ya existe en
+-`src/app/api/webhooks/route.ts`, donde se procesan los eventos de suscripción: ahí se sabe cuándo un
++**Recomendación: opción 2.** El punto natural de enganche es la notificación de Redsys en
++`src/app/api/redsys/notificacion/route.ts`, donde se confirma cada pago: ahí se sabe cuándo un
+ miembro se da de alta, renueva o cancela.
+ 
+ **[Por confirmar]** qué opción está montada hoy, si hay ya un webhook de GHL en uso y con qué campos.
+diff --git a/package.json b/package.json
+index 13614db..295c1fb 100644
+--- a/package.json
++++ b/package.json
+@@ -11,7 +11,6 @@
+     "email:build": "email build",
+     "email:dev": "email dev --dir ./src/features/emails --port 3001",
+     "email:export": "email export",
+-    "stripe:listen": "stripe listen --forward-to=localhost:3000/api/webhooks --project-name=secret-key",
+     "generate-types": "npx supabase gen types typescript --project-id UPDATE_THIS_WITH_YOUR_SUPABASE_PROJECT_ID --schema public > src/libs/supabase/types.ts",
+     "supabase:link": "env-cmd -f ./.env.local supabase link --project-ref UPDATE_THIS_WITH_YOUR_SUPABASE_PROJECT_ID",
+     "migration:new": "supabase migration new",
+@@ -28,7 +27,6 @@
+     "@radix-ui/react-toast": "^1.2.4",
+     "@react-email/components": "^0.0.32",
+     "@react-email/tailwind": "^2.0.7",
+-    "@stripe/stripe-js": "^2.4.0",
+     "@supabase/ssr": "^0.5.2",
+     "@supabase/supabase-js": "^2.47.12",
+     "@vercel/analytics": "^1.4.1",
+@@ -42,7 +40,6 @@
+     "react-dom": "19.0.0",
+     "react-icons": "^5.4.0",
+     "resend": "^4.1.1",
+-    "stripe": "^14.25.0",
+     "tailwind-merge": "^2.6.0",
+     "tailwindcss": "^3.4.17",
+     "tailwindcss-animate": "^1.0.7",
+diff --git a/src/app/(account)/account/page.tsx b/src/app/(account)/account/page.tsx
+index fa8764d..e665a69 100644
+--- a/src/app/(account)/account/page.tsx
++++ b/src/app/(account)/account/page.tsx
+@@ -4,31 +4,22 @@ import { redirect } from 'next/navigation';
+ 
+ import { Button } from '@/components/ui/button';
+ import { getSession } from '@/features/account/controllers/get-session';
+-import { getSubscription } from '@/features/account/controllers/get-subscription';
+-import { PricingCard } from '@/features/pricing/components/price-card';
+-import { getProducts } from '@/features/pricing/controllers/get-products';
+-import { Price, ProductWithPrices } from '@/features/pricing/types';
++import { startPaymentAction } from '@/features/membership/actions/start-payment-action';
++import { PlanCard } from '@/features/membership/components/plan-card';
++import { getMembership } from '@/features/membership/controllers/get-membership';
++import { getPlan } from '@/features/membership/plans';
+ 
+ export default async function AccountPage() {
+-  const [session, subscription, products] = await Promise.all([getSession(), getSubscription(), getProducts()]);
++  const [session, membership] = await Promise.all([getSession(), getMembership()]);
+ 
+   if (!session) {
+     redirect('/login');
+   }
+ 
+-  let userProduct: ProductWithPrices | undefined;
+-  let userPrice: Price | undefined;
+-
+-  if (subscription) {
+-    for (const product of products) {
+-      for (const price of product.prices) {
+-        if (price.id === subscription.price_id) {
+-          userProduct = product;
+-          userPrice = price;
+-        }
+-      }
+-    }
+-  }
++  const plan = membership ? getPlan(membership.plan) : undefined;
++  const validUntil = membership
++    ? new Intl.DateTimeFormat('es-ES', { dateStyle: 'long' }).format(new Date(membership.current_period_end))
++    : null;
+ 
+   return (
+     <section className='rounded-lg bg-black px-4 py-16'>
+@@ -36,12 +27,14 @@ export default async function AccountPage() {
+ 
+       <div className='flex flex-col gap-4'>
+         <Card
+-          title='Tu membresía'
++          title='Tu entrada al Círculo'
+           footer={
+-            subscription ? (
+-              <Button size='sm' variant='secondary' asChild>
+-                <Link href='/manage-subscription'>Gestionar mi membresía</Link>
+-              </Button>
++            plan ? (
++              <form action={startPaymentAction.bind(null, plan.slug)}>
++                <Button size='sm' variant='secondary' type='submit'>
++                  Renovar un año más
++                </Button>
++              </form>
+             ) : (
+               <Button size='sm' variant='secondary' asChild>
+                 <Link href='/pricing'>Ver planes</Link>
+@@ -49,10 +42,13 @@ export default async function AccountPage() {
+             )
+           }
+         >
+-          {userProduct && userPrice ? (
+-            <PricingCard product={userProduct} price={userPrice} />
++          {plan ? (
++            <div className='flex flex-col gap-4'>
++              <p className='text-zinc-400'>Vigente hasta el {validUntil}.</p>
++              <PlanCard plan={plan} showAction={false} />
++            </div>
+           ) : (
+-            <p>Todavía no tienes una membresía activa.</p>
++            <p>Elige tu entrada al Círculo para empezar.</p>
+           )}
+         </Card>
+       </div>
+diff --git a/src/app/(account)/manage-subscription/route.ts b/src/app/(account)/manage-subscription/route.ts
+deleted file mode 100644
+index a673717..0000000
+--- a/src/app/(account)/manage-subscription/route.ts
++++ /dev/null
+@@ -1,34 +0,0 @@
+-import { redirect } from 'next/navigation';
+-
+-import { getCustomerId } from '@/features/account/controllers/get-customer-id';
+-import { getSession } from '@/features/account/controllers/get-session';
+-import { stripeAdmin } from '@/libs/stripe/stripe-admin';
+-import { getURL } from '@/utils/get-url';
+-
+-export const dynamic = 'force-dynamic';
+-
+-export async function GET() {
+-  // 1. Get the user from session
+-  const session = await getSession();
+-
+-  if (!session || !session.user.id) {
+-    throw Error('Could not get userId');
+-  }
+-
+-  // 2. Retrieve or create the customer in Stripe
+-  const customer = await getCustomerId({
+-    userId: session.user.id,
+-  });
+-
+-  if (!customer) {
+-    throw Error('Could not get customer');
+-  }
+-
+-  // 3. Create portal link and redirect user
+-  const { url } = await stripeAdmin.billingPortal.sessions.create({
+-    customer,
+-    return_url: `${getURL()}/account`,
+-  });
+-
+-  redirect(url);
+-}
+diff --git a/src/app/(auth)/auth/callback/route.ts b/src/app/(auth)/auth/callback/route.ts
+index dbd5210..11ae953 100644
+--- a/src/app/(auth)/auth/callback/route.ts
++++ b/src/app/(auth)/auth/callback/route.ts
+@@ -24,14 +24,15 @@ export async function GET(request: NextRequest) {
+       return NextResponse.redirect(`${siteUrl}/login`);
+     }
+ 
+-    // Check if user is subscribed, if not redirect to pricing page
+-    const { data: userSubscription } = await supabase
+-      .from('subscriptions')
+-      .select('*, prices(*, products(*))')
+-      .in('status', ['trialing', 'active'])
++    // Sin entrada vigente, la persona elige una en /pricing.
++    const { data: membership } = await supabase
++      .from('memberships')
++      .select('user_id')
++      .eq('status', 'active')
++      .gt('current_period_end', new Date().toISOString())
+       .maybeSingle();
+ 
+-    if (!userSubscription) {
++    if (!membership) {
+       return NextResponse.redirect(`${siteUrl}/pricing`);
+     } else {
+       return NextResponse.redirect(`${siteUrl}`);
+diff --git a/src/app/(auth)/login/page.tsx b/src/app/(auth)/login/page.tsx
+index 33b8a1f..f9ef437 100644
+--- a/src/app/(auth)/login/page.tsx
++++ b/src/app/(auth)/login/page.tsx
+@@ -1,20 +1,20 @@
+ import { redirect } from 'next/navigation';
+ 
+ import { getSession } from '@/features/account/controllers/get-session';
+-import { getSubscription } from '@/features/account/controllers/get-subscription';
++import { getMembership } from '@/features/membership/controllers/get-membership';
+ 
+ import { signInWithEmail, signInWithOAuth } from '../auth-actions';
+ import { AuthUI } from '../auth-ui';
+ 
+ export default async function LoginPage() {
+   const session = await getSession();
+-  const subscription = await getSubscription();
++  const membership = await getMembership();
+ 
+-  if (session && subscription) {
++  if (session && membership) {
+     redirect('/account');
+   }
+ 
+-  if (session && !subscription) {
++  if (session && !membership) {
+     redirect('/pricing');
+   }
+ 
+diff --git a/src/app/(auth)/signup/page.tsx b/src/app/(auth)/signup/page.tsx
+index 6ab4066..ed4775f 100644
+--- a/src/app/(auth)/signup/page.tsx
++++ b/src/app/(auth)/signup/page.tsx
+@@ -1,20 +1,20 @@
+ import { redirect } from 'next/navigation';
+ 
+ import { getSession } from '@/features/account/controllers/get-session';
+-import { getSubscription } from '@/features/account/controllers/get-subscription';
++import { getMembership } from '@/features/membership/controllers/get-membership';
+ 
+ import { signInWithEmail, signInWithOAuth } from '../auth-actions';
+ import { AuthUI } from '../auth-ui';
+ 
+ export default async function SignUp() {
+   const session = await getSession();
+-  const subscription = await getSubscription();
++  const membership = await getMembership();
+ 
+-  if (session && subscription) {
++  if (session && membership) {
+     redirect('/account');
+   }
+ 
+-  if (session && !subscription) {
++  if (session && !membership) {
+     redirect('/pricing');
+   }
+ 
+diff --git a/src/app/api/redsys/notificacion/route.ts b/src/app/api/redsys/notificacion/route.ts
+new file mode 100644
+index 0000000..42067e3
+--- /dev/null
++++ b/src/app/api/redsys/notificacion/route.ts
+@@ -0,0 +1,133 @@
++import { isAuthorised, parseNotification } from '@/libs/redsys/payment';
++import { supabaseAdminClient } from '@/libs/supabase/supabase-admin';
++
++/**
++ * Notificación servidor a servidor de Redsys (DS_MERCHANT_MERCHANTURL).
++ *
++ * Es la única fuente de verdad del cobro: la vuelta del navegador a URLOK se puede
++ * falsificar, esta firma no. Se responde 200 a toda notificación con firma válida, para
++ * que el banco la dé por entregada; una firma inválida recibe 400.
++ */
++export async function POST(request: Request) {
++  const form = await request.formData();
++
++  const notification = parseNotification({
++    Ds_SignatureVersion: form.get('Ds_SignatureVersion')?.toString(),
++    Ds_MerchantParameters: form.get('Ds_MerchantParameters')?.toString(),
++    Ds_Signature: form.get('Ds_Signature')?.toString(),
++  });
++
++  if (!notification) {
++    return new Response('Firma inválida', { status: 400 });
++  }
++
++  const order = notification.Ds_Order;
++
++  const { data: payment, error } = await supabaseAdminClient
++    .from('payments')
++    .select('*')
++    .eq('order', order)
++    .maybeSingle();
++
++  if (error || !payment) {
++    console.error('Redsys: pedido desconocido', order, error);
++    return new Response('OK');
++  }
++
++  // Idempotente: Redsys puede reenviar la misma notificación.
++  if (payment.status !== 'pending') {
++    return new Response('OK');
++  }
++
++  const amountMatches = Number(notification.Ds_Amount) === payment.amount;
++  const paid = isAuthorised(notification.Ds_Response) && amountMatches;
++
++  if (isAuthorised(notification.Ds_Response) && !amountMatches) {
++    console.error('Redsys: importe distinto del registrado', order, notification.Ds_Amount, payment.amount);
++  }
++
++  const now = new Date();
++
++  const { error: updateError } = await supabaseAdminClient
++    .from('payments')
++    .update({
++      status: paid ? 'paid' : 'failed',
++      response_code: notification.Ds_Response,
++      authorisation_code: notification.Ds_AuthorisationCode ?? null,
++      redsys_identifier: notification.Ds_Merchant_Identifier ?? null,
++      redsys_cof_txnid: notification.Ds_Merchant_Cof_Txnid ?? null,
++      raw_notification: notification,
++      updated_at: now.toISOString(),
++    })
++    .eq('id', payment.id)
++    .eq('status', 'pending');
++
++  if (updateError) {
++    console.error(updateError);
++    return new Response('Error', { status: 500 });
++  }
++
++  if (paid) {
++    await activateMembership({
++      userId: payment.user_id,
++      plan: payment.plan,
++      paymentId: payment.id,
++      identifier: notification.Ds_Merchant_Identifier,
++      cofTxnid: notification.Ds_Merchant_Cof_Txnid,
++      now,
++    });
++  }
++
++  return new Response('OK');
++}
++
++/**
++ * Abre o prolonga la entrada un año. Si la persona renueva el mismo plan antes de que
++ * venza, el año nuevo empieza al terminar el actual; un cambio de plan empieza hoy.
++ */
++async function activateMembership({
++  userId,
++  plan,
++  paymentId,
++  identifier,
++  cofTxnid,
++  now,
++}: {
++  userId: string;
++  plan: string;
++  paymentId: string;
++  identifier?: string;
++  cofTxnid?: string;
++  now: Date;
++}) {
++  const { data: current } = await supabaseAdminClient
++    .from('memberships')
++    .select('*')
++    .eq('user_id', userId)
++    .maybeSingle();
++
++  const currentEnd = current ? new Date(current.current_period_end) : null;
++  const extendsCurrent =
++    current?.status === 'active' && current.plan === plan && currentEnd !== null && currentEnd > now;
++
++  const start = extendsCurrent ? currentEnd! : now;
++  const end = new Date(start);
++  end.setFullYear(end.getFullYear() + 1);
++
++  const { error } = await supabaseAdminClient.from('memberships').upsert({
++    user_id: userId,
++    plan,
++    status: 'active',
++    current_period_start: extendsCurrent ? current!.current_period_start : start.toISOString(),
++    current_period_end: end.toISOString(),
++    cancel_at_period_end: false,
++    redsys_identifier: identifier ?? current?.redsys_identifier ?? null,
++    redsys_cof_txnid: cofTxnid ?? current?.redsys_cof_txnid ?? null,
++    last_payment_id: paymentId,
++    updated_at: now.toISOString(),
++  });
++
++  if (error) {
++    console.error('Redsys: pago confirmado sin poder activar la entrada', userId, paymentId, error);
++  }
++}
+diff --git a/src/app/api/webhooks/route.ts b/src/app/api/webhooks/route.ts
+deleted file mode 100644
+index 934730a..0000000
+--- a/src/app/api/webhooks/route.ts
++++ /dev/null
+@@ -1,77 +0,0 @@
+-import Stripe from 'stripe';
+-
+-import { upsertUserSubscription } from '@/features/account/controllers/upsert-user-subscription';
+-import { upsertPrice } from '@/features/pricing/controllers/upsert-price';
+-import { upsertProduct } from '@/features/pricing/controllers/upsert-product';
+-import { stripeAdmin } from '@/libs/stripe/stripe-admin';
+-import { getEnvVar } from '@/utils/get-env-var';
+-
+-const relevantEvents = new Set([
+-  'product.created',
+-  'product.updated',
+-  'price.created',
+-  'price.updated',
+-  'checkout.session.completed',
+-  'customer.subscription.created',
+-  'customer.subscription.updated',
+-  'customer.subscription.deleted',
+-]);
+-
+-export async function POST(req: Request) {
+-  const body = await req.text();
+-  const sig = req.headers.get('stripe-signature') as string;
+-  const webhookSecret = getEnvVar(process.env.STRIPE_WEBHOOK_SECRET, 'STRIPE_WEBHOOK_SECRET');
+-  let event: Stripe.Event;
+-
+-  try {
+-    if (!sig || !webhookSecret) return;
+-    event = stripeAdmin.webhooks.constructEvent(body, sig, webhookSecret);
+-  } catch (error) {
+-    return Response.json(`Webhook Error: ${(error as any).message}`, { status: 400 });
+-  }
+-
+-  if (relevantEvents.has(event.type)) {
+-    try {
+-      switch (event.type) {
+-        case 'product.created':
+-        case 'product.updated':
+-          await upsertProduct(event.data.object as Stripe.Product);
+-          break;
+-        case 'price.created':
+-        case 'price.updated':
+-          await upsertPrice(event.data.object as Stripe.Price);
+-          break;
+-        case 'customer.subscription.created':
+-        case 'customer.subscription.updated':
+-        case 'customer.subscription.deleted':
+-          const subscription = event.data.object as Stripe.Subscription;
+-          await upsertUserSubscription({
+-            subscriptionId: subscription.id,
+-            customerId: subscription.customer as string,
+-            isCreateAction: false,
+-          });
+-          break;
+-        case 'checkout.session.completed':
+-          const checkoutSession = event.data.object as Stripe.Checkout.Session;
+-
+-          if (checkoutSession.mode === 'subscription') {
+-            const subscriptionId = checkoutSession.subscription;
+-            await upsertUserSubscription({
+-              subscriptionId: subscriptionId as string,
+-              customerId: checkoutSession.customer as string,
+-              isCreateAction: true,
+-            });
+-          }
+-          break;
+-        default:
+-          throw new Error('Unhandled relevant event!');
+-      }
+-    } catch (error) {
+-      console.error(error);
+-      return Response.json('Webhook handler failed. View your nextjs function logs.', {
+-        status: 400,
+-      });
+-    }
+-  }
+-  return Response.json({ received: true });
+-}
+diff --git a/src/app/page.tsx b/src/app/page.tsx
+index 1ad4f0e..300051e 100644
+--- a/src/app/page.tsx
++++ b/src/app/page.tsx
+@@ -5,7 +5,7 @@ import { IoCalendarOutline, IoKeyOutline, IoSparklesOutline, IoTimeOutline } fro
+ import { Container } from '@/components/container';
+ import { Button } from '@/components/ui/button';
+ import { legalConfig } from '@/features/legal/legal-config';
+-import { PricingSection } from '@/features/pricing/components/pricing-section';
++import { PricingSection } from '@/features/membership/components/pricing-section';
+ 
+ export default async function HomePage() {
+   return (
+diff --git a/src/app/pago/[pedido]/page.tsx b/src/app/pago/[pedido]/page.tsx
+new file mode 100644
+index 0000000..8525a9f
+--- /dev/null
++++ b/src/app/pago/[pedido]/page.tsx
+@@ -0,0 +1,53 @@
++import { notFound, redirect } from 'next/navigation';
++
++import { getSession } from '@/features/account/controllers/get-session';
++import { RedsysRedirectForm } from '@/features/membership/components/redsys-redirect-form';
++import { getPlan } from '@/features/membership/plans';
++import { buildRedirectPayment } from '@/libs/redsys/payment';
++import { supabaseAdminClient } from '@/libs/supabase/supabase-admin';
++import { getURL } from '@/utils/get-url';
++
++export const dynamic = 'force-dynamic';
++
++export default async function PaymentRedirectPage({ params }: { params: Promise<{ pedido: string }> }) {
++  const { pedido } = await params;
++  const session = await getSession();
++
++  if (!session?.user) {
++    redirect('/login');
++  }
++
++  const { data: payment } = await supabaseAdminClient
++    .from('payments')
++    .select('*')
++    .eq('order', pedido)
++    .eq('user_id', session.user.id)
++    .maybeSingle();
++
++  if (!payment) {
++    notFound();
++  }
++
++  if (payment.status !== 'pending') {
++    redirect(`/pago/resultado?estado=${payment.status === 'paid' ? 'ok' : 'ko'}`);
++  }
++
++  const plan = getPlan(payment.plan);
++
++  const form = buildRedirectPayment({
++    order: payment.order,
++    amount: payment.amount,
++    description: `Secret Key - Entrada ${plan?.name ?? payment.plan} - 1 año`,
++    notificationUrl: getURL('/api/redsys/notificacion'),
++    okUrl: getURL('/pago/resultado?estado=ok'),
++    koUrl: getURL('/pago/resultado?estado=ko'),
++    holderName: session.user.user_metadata?.full_name,
++  });
++
++  return (
++    <section className='m-auto flex max-w-lg flex-col items-center gap-4 py-24 text-center'>
++      <h1 className='text-2xl font-semibold'>Un momento</h1>
++      <RedsysRedirectForm form={form} />
++    </section>
++  );
++}
+diff --git a/src/app/pago/resultado/page.tsx b/src/app/pago/resultado/page.tsx
+new file mode 100644
+index 0000000..45845e5
+--- /dev/null
++++ b/src/app/pago/resultado/page.tsx
+@@ -0,0 +1,28 @@
++import Link from 'next/link';
++
++import { Button } from '@/components/ui/button';
++
++/**
++ * Página a la que vuelve la persona desde Redsys. Solo informa: quien confirma el pago
++ * es la notificación firmada que el banco envía a `/api/redsys/notificacion`.
++ */
++export default async function PaymentResultPage({ searchParams }: { searchParams: Promise<{ estado?: string }> }) {
++  const { estado } = await searchParams;
++  const isOk = estado === 'ok';
++
++  return (
++    <section className='m-auto flex max-w-lg flex-col items-center gap-6 py-24 text-center'>
++      <h1 className='text-3xl font-semibold'>
++        {isOk ? 'Te damos la bienvenida al Círculo' : 'El pago quedó pendiente'}
++      </h1>
++      <p className='text-zinc-400'>
++        {isOk
++          ? 'Tu pago está confirmado. En unos segundos verás tu entrada activa en tu cuenta.'
++          : 'El banco devolvió el pago sin completarlo. Puedes intentarlo de nuevo cuando quieras.'}
++      </p>
++      <Button variant='sexy' asChild>
++        <Link href={isOk ? '/account' : '/pricing'}>{isOk ? 'Ir a mi cuenta' : 'Volver a los planes'}</Link>
++      </Button>
++    </section>
++  );
++}
+diff --git a/src/app/pricing/page.tsx b/src/app/pricing/page.tsx
+index dfcf07b..0d08579 100644
+--- a/src/app/pricing/page.tsx
++++ b/src/app/pricing/page.tsx
+@@ -1,4 +1,4 @@
+-import { PricingSection } from '@/features/pricing/components/pricing-section';
++import { PricingSection } from '@/features/membership/components/pricing-section';
+ 
+ export default async function PricingPage() {
+   return <PricingSection isPricingPage />;
+diff --git a/src/app/robots.ts b/src/app/robots.ts
+index 80d0922..d542221 100644
+--- a/src/app/robots.ts
++++ b/src/app/robots.ts
+@@ -10,7 +10,7 @@ export default function robots(): MetadataRoute.Robots {
+       userAgent: '*',
+       allow: '/',
+       // El área privada del Círculo queda fuera del índice; los textos legales sí se indexan.
+-      disallow: ['/account', '/login', '/signup', '/manage-subscription'],
++      disallow: ['/account', '/login', '/signup', '/pago'],
+     },
+     sitemap: `${baseUrl}/sitemap.xml`,
+   };
+diff --git a/src/features/account/controllers/get-customer-id.ts b/src/features/account/controllers/get-customer-id.ts
+deleted file mode 100644
+index 9dd5515..0000000
+--- a/src/features/account/controllers/get-customer-id.ts
++++ /dev/null
+@@ -1,15 +0,0 @@
+-import { supabaseAdminClient } from '@/libs/supabase/supabase-admin';
+-
+-export async function getCustomerId({ userId }: { userId: string }) {
+-  const { data, error } = await supabaseAdminClient
+-    .from('customers')
+-    .select('stripe_customer_id')
+-    .eq('id', userId)
+-    .single();
+-
+-  if (error) {
+-    throw new Error('Error fetching stripe_customer_id');
+-  }
+-
+-  return data.stripe_customer_id;
+-}
+diff --git a/src/features/account/controllers/get-or-create-customer.ts b/src/features/account/controllers/get-or-create-customer.ts
+deleted file mode 100644
+index 58d1f2a..0000000
+--- a/src/features/account/controllers/get-or-create-customer.ts
++++ /dev/null
+@@ -1,35 +0,0 @@
+-import { stripeAdmin } from '@/libs/stripe/stripe-admin';
+-import { supabaseAdminClient } from '@/libs/supabase/supabase-admin';
+-
+-export async function getOrCreateCustomer({ userId, email }: { userId: string; email: string }) {
+-  const { data, error } = await supabaseAdminClient
+-    .from('customers')
+-    .select('stripe_customer_id')
+-    .eq('id', userId)
+-    .single();
+-
+-  if (error || !data?.stripe_customer_id) {
+-    // No customer record found, let's create one.
+-    const customerData = {
+-      email,
+-      metadata: {
+-        userId,
+-      },
+-    } as const;
+-
+-    const customer = await stripeAdmin.customers.create(customerData);
+-
+-    // Insert the customer ID into our Supabase mapping table.
+-    const { error: supabaseError } = await supabaseAdminClient
+-      .from('customers')
+-      .insert([{ id: userId, stripe_customer_id: customer.id }]);
+-
+-    if (supabaseError) {
+-      throw supabaseError;
+-    }
+-
+-    return customer.id;
+-  }
+-
+-  return data.stripe_customer_id;
+-}
+diff --git a/src/features/account/controllers/upsert-user-subscription.ts b/src/features/account/controllers/upsert-user-subscription.ts
+deleted file mode 100644
+index 0b3e784..0000000
+--- a/src/features/account/controllers/upsert-user-subscription.ts
++++ /dev/null
+@@ -1,85 +0,0 @@
+-import Stripe from 'stripe';
+-
+-import { stripeAdmin } from '@/libs/stripe/stripe-admin';
+-import { supabaseAdminClient } from '@/libs/supabase/supabase-admin';
+-import type { Database } from '@/libs/supabase/types';
+-import { toDateTime } from '@/utils/to-date-time';
+-import { AddressParam } from '@stripe/stripe-js';
+-
+-export async function upsertUserSubscription({
+-  subscriptionId,
+-  customerId,
+-  isCreateAction,
+-}: {
+-  subscriptionId: string;
+-  customerId: string;
+-  isCreateAction?: boolean;
+-}) {
+-  // Get customer's userId from mapping table.
+-  const { data: customerData, error: noCustomerError } = await supabaseAdminClient
+-    .from('customers')
+-    .select('id')
+-    .eq('stripe_customer_id', customerId)
+-    .single();
+-  if (noCustomerError) throw noCustomerError;
+-
+-  const { id: userId } = customerData!;
+-
+-  const subscription = await stripeAdmin.subscriptions.retrieve(subscriptionId, {
+-    expand: ['default_payment_method'],
+-  });
+-
+-  // Upsert the latest status of the subscription object.
+-  const subscriptionData: Database['public']['Tables']['subscriptions']['Insert'] = {
+-    id: subscription.id,
+-    user_id: userId,
+-    metadata: subscription.metadata,
+-    status: subscription.status,
+-    price_id: subscription.items.data[0].price.id,
+-    cancel_at_period_end: subscription.cancel_at_period_end,
+-    cancel_at: subscription.cancel_at ? toDateTime(subscription.cancel_at).toISOString() : null,
+-    canceled_at: subscription.canceled_at ? toDateTime(subscription.canceled_at).toISOString() : null,
+-    current_period_start: toDateTime(subscription.current_period_start).toISOString(),
+-    current_period_end: toDateTime(subscription.current_period_end).toISOString(),
+-    created: toDateTime(subscription.created).toISOString(),
+-    ended_at: subscription.ended_at ? toDateTime(subscription.ended_at).toISOString() : null,
+-    trial_start: subscription.trial_start ? toDateTime(subscription.trial_start).toISOString() : null,
+-    trial_end: subscription.trial_end ? toDateTime(subscription.trial_end).toISOString() : null,
+-  };
+-
+-  const { error } = await supabaseAdminClient.from('subscriptions').upsert([subscriptionData]);
+-  if (error) {
+-    throw error;
+-  }
+-  console.info(`Inserted/updated subscription [${subscription.id}] for user [${userId}]`);
+-
+-  // For a new subscription copy the billing details to the customer object.
+-  // NOTE: This is a costly operation and should happen at the very end.
+-  if (isCreateAction && subscription.default_payment_method && userId) {
+-    await copyBillingDetailsToCustomer(userId, subscription.default_payment_method as Stripe.PaymentMethod);
+-  }
+-}
+-
+-const copyBillingDetailsToCustomer = async (userId: string, paymentMethod: Stripe.PaymentMethod) => {
+-  const customer = paymentMethod.customer;
+-  if (typeof customer !== 'string') {
+-    throw new Error('Customer id not found');
+-  }
+-
+-  const { name, phone, address } = paymentMethod.billing_details;
+-  if (!name || !phone || !address) return;
+-
+-  await stripeAdmin.customers.update(customer, { name, phone, address: address as AddressParam });
+-
+-  const { error } = await supabaseAdminClient
+-    .from('users')
+-    .update({
+-      billing_address: { ...address },
+-      payment_method: { ...paymentMethod[paymentMethod.type] },
+-    })
+-    .eq('id', userId);
+-
+-  if (error) {
+-    throw error;
+-  }
+-};
+diff --git a/src/features/membership/actions/start-payment-action.ts b/src/features/membership/actions/start-payment-action.ts
+new file mode 100644
+index 0000000..7ab4d2f
+--- /dev/null
++++ b/src/features/membership/actions/start-payment-action.ts
+@@ -0,0 +1,44 @@
++'use server';
++
++import { redirect } from 'next/navigation';
++
++import { getSession } from '@/features/account/controllers/get-session';
++import { createOrderNumber } from '@/libs/redsys/payment';
++import { supabaseAdminClient } from '@/libs/supabase/supabase-admin';
++
++import { getPlan, isPaidPlan } from '../plans';
++
++/**
++ * Registra el pago como pendiente y lleva a la persona a la página que la envía a Redsys.
++ * El importe sale de `plans.ts`, nunca del navegador.
++ */
++export async function startPaymentAction(planSlug: string) {
++  const session = await getSession();
++
++  if (!session?.user) {
++    redirect('/signup');
++  }
++
++  const plan = getPlan(planSlug);
++
++  if (!plan || !isPaidPlan(plan)) {
++    redirect('/account');
++  }
++
++  const order = createOrderNumber();
++
++  const { error } = await supabaseAdminClient.from('payments').insert({
++    user_id: session.user.id,
++    order,
++    plan: plan.slug,
++    amount: plan.annualAmount,
++    currency: process.env.REDSYS_CURRENCY || '978',
++  });
++
++  if (error) {
++    console.error(error);
++    throw new Error('No se pudo iniciar el pago.');
++  }
++
++  redirect(`/pago/${order}`);
++}
+diff --git a/src/features/membership/components/plan-card.tsx b/src/features/membership/components/plan-card.tsx
+new file mode 100644
+index 0000000..dc8e45f
+--- /dev/null
++++ b/src/features/membership/components/plan-card.tsx
+@@ -0,0 +1,56 @@
++import Link from 'next/link';
++import { IoCheckmark } from 'react-icons/io5';
++
++import { SexyBoarder } from '@/components/sexy-boarder';
++import { Button } from '@/components/ui/button';
++import { formatPrice } from '@/utils/format-price';
++
++import { startPaymentAction } from '../actions/start-payment-action';
++import { isPaidPlan, Plan, planFeatures } from '../plans';
++
++export function PlanCard({ plan, showAction = true }: { plan: Plan; showAction?: boolean }) {
++  const card = (
++    <div className='flex h-full w-full flex-col rounded-md border border-zinc-800 bg-black p-4 lg:p-8'>
++      <div className='p-4'>
++        <div className='mb-1 text-center font-alt text-xl font-bold'>{plan.name}</div>
++        <div className='flex justify-center gap-0.5 text-zinc-400'>
++          <span className='font-semibold'>{formatPrice(plan.annualAmount, 'eur')}</span>
++          {isPaidPlan(plan) && <span>/año</span>}
++        </div>
++      </div>
++
++      <div className='m-auto flex w-fit flex-1 flex-col gap-2 px-8 py-4'>
++        {planFeatures(plan).map((feature) => (
++          <div key={feature} className='flex items-center gap-2'>
++            <IoCheckmark className='my-auto flex-shrink-0 text-slate-500' />
++            <p className='text-sm font-medium text-white first-letter:capitalize'>{feature}</p>
++          </div>
++        ))}
++      </div>
++
++      {showAction && (
++        <div className='py-4'>
++          {isPaidPlan(plan) ? (
++            <form action={startPaymentAction.bind(null, plan.slug)}>
++              <Button type='submit' variant={plan.highlighted ? 'sexy' : 'default'} className='w-full'>
++                Solicitar acceso
++              </Button>
++            </form>
++          ) : (
++            <Button variant='default' className='w-full' asChild>
++              <Link href='/signup'>Solicitar acceso</Link>
++            </Button>
++          )}
++        </div>
++      )}
++    </div>
++  );
++
++  return plan.highlighted ? (
++    <SexyBoarder className='w-full flex-1' offset={100}>
++      {card}
++    </SexyBoarder>
++  ) : (
++    <div className='w-full flex-1'>{card}</div>
++  );
++}
+diff --git a/src/features/pricing/components/pricing-section.tsx b/src/features/membership/components/pricing-section.tsx
+similarity index 63%
+rename from src/features/pricing/components/pricing-section.tsx
+rename to src/features/membership/components/pricing-section.tsx
+index 3216f59..76927b4 100644
+--- a/src/features/pricing/components/pricing-section.tsx
++++ b/src/features/membership/components/pricing-section.tsx
+@@ -1,28 +1,25 @@
+ import Image from 'next/image';
+ 
+-import { PricingCard } from '@/features/pricing/components/price-card';
+-import { getProducts } from '@/features/pricing/controllers/get-products';
++import { PLANS } from '../plans';
+ 
+-import { createCheckoutAction } from '../actions/create-checkout-action';
++import { PlanCard } from './plan-card';
+ 
+ export async function PricingSection({ isPricingPage }: { isPricingPage?: boolean }) {
+-  const products = await getProducts();
+-
+   const HeadingLevel = isPricingPage ? 'h1' : 'h2';
+ 
+   return (
+     <section className='relative rounded-lg bg-black py-8'>
+       <div className='relative z-10 m-auto flex max-w-[1200px] flex-col items-center gap-8 px-4 pt-8 lg:pt-[140px]'>
+         <HeadingLevel className='max-w-4xl bg-gradient-to-br from-white to-neutral-200 bg-clip-text text-center text-4xl font-bold text-transparent lg:text-6xl'>
+-          Planes de membresía
++          La entrada al Círculo
+         </HeadingLevel>
+         <p className='text-center text-xl'>
+-          Elige el ritmo al que quieres recuperar tu tiempo. Puedes cambiar de plan cuando quieras.
++          Elige el ritmo al que quieres recuperar tu tiempo. Cada entrada dura un año.
+         </p>
+         <div className='flex w-full flex-col items-center justify-center gap-2 lg:flex-row lg:gap-8'>
+-          {products.map((product) => {
+-            return <PricingCard key={product.id} product={product} createCheckoutAction={createCheckoutAction} />;
+-          })}
++          {PLANS.map((plan) => (
++            <PlanCard key={plan.slug} plan={plan} />
++          ))}
+         </div>
+       </div>
+       <Image
+diff --git a/src/features/membership/components/redsys-redirect-form.tsx b/src/features/membership/components/redsys-redirect-form.tsx
+new file mode 100644
+index 0000000..2bc412d
+--- /dev/null
++++ b/src/features/membership/components/redsys-redirect-form.tsx
+@@ -0,0 +1,27 @@
++'use client';
++
++import { useEffect, useRef } from 'react';
++
++import { Button } from '@/components/ui/button';
++import type { RedirectPaymentForm } from '@/libs/redsys/payment';
++
++/** Envía el formulario firmado a Redsys en cuanto carga la página. */
++export function RedsysRedirectForm({ form }: { form: RedirectPaymentForm }) {
++  const ref = useRef<HTMLFormElement>(null);
++
++  useEffect(() => {
++    ref.current?.submit();
++  }, []);
++
++  return (
++    <form ref={ref} action={form.action} method='POST' className='flex flex-col items-center gap-6'>
++      {Object.entries(form.fields).map(([name, value]) => (
++        <input key={name} type='hidden' name={name} value={value} />
++      ))}
++      <p className='text-zinc-400'>Te llevamos a la pasarela segura de BBVA…</p>
++      <Button type='submit' variant='sexy'>
++        Continuar al pago
++      </Button>
++    </form>
++  );
++}
+diff --git a/src/features/account/controllers/get-subscription.ts b/src/features/membership/controllers/get-membership.ts
+similarity index 51%
+rename from src/features/account/controllers/get-subscription.ts
+rename to src/features/membership/controllers/get-membership.ts
+index fbafd33..7ed1c76 100644
+--- a/src/features/account/controllers/get-subscription.ts
++++ b/src/features/membership/controllers/get-membership.ts
+@@ -1,12 +1,14 @@
+ import { createSupabaseServerClient } from '@/libs/supabase/supabase-server-client';
+ 
+-export async function getSubscription() {
++/** Entrada al Círculo de la persona con sesión iniciada, si tiene una vigente. */
++export async function getMembership() {
+   const supabase = await createSupabaseServerClient();
+ 
+   const { data, error } = await supabase
+-    .from('subscriptions')
+-    .select('*, prices(*, products(*))')
+-    .in('status', ['trialing', 'active'])
++    .from('memberships')
++    .select('*')
++    .eq('status', 'active')
++    .gt('current_period_end', new Date().toISOString())
+     .maybeSingle();
+ 
+   if (error) {
+diff --git a/src/features/membership/plans.ts b/src/features/membership/plans.ts
+new file mode 100644
+index 0000000..aa26455
+--- /dev/null
++++ b/src/features/membership/plans.ts
+@@ -0,0 +1,63 @@
++/**
++ * Las tres entradas al Círculo. Decididas: no se tratan como una decisión abierta.
++ *
++ * Esta es la única fuente de precios. El navegador solo envía el `slug`; el importe se
++ * vuelve a leer aquí, en el servidor, antes de firmar el pago. Mantenlo así.
++ *
++ * Los `slug` son los que figuran en datos y facturas: nunca «Key» a secas en un cargo.
++ */
++
++export type PlanSlug = 'member_key' | 'member_secret_key' | 'member_master_key';
++
++export type Plan = {
++  slug: PlanSlug;
++  name: string;
++  /** Importe anual en céntimos. 0 = entrada sin coste. */
++  annualAmount: number;
++  /** Descuento en porcentaje. */
++  discount: number;
++  /** Llavecitas ganadas por cada 10 € gastados. */
++  llavecitasPer10Eur: number;
++  highlighted?: boolean;
++};
++
++export const PLANS: readonly Plan[] = [
++  {
++    slug: 'member_key',
++    name: 'Key',
++    annualAmount: 0,
++    discount: 0,
++    llavecitasPer10Eur: 3,
++  },
++  {
++    slug: 'member_secret_key',
++    name: 'Secret Key',
++    annualAmount: 9900,
++    discount: 10,
++    llavecitasPer10Eur: 4,
++    highlighted: true,
++  },
++  {
++    slug: 'member_master_key',
++    name: 'Máster Key',
++    annualAmount: 39000,
++    discount: 20,
++    llavecitasPer10Eur: 5,
++  },
++] as const;
++
++export function getPlan(slug: string): Plan | undefined {
++  return PLANS.find((plan) => plan.slug === slug);
++}
++
++export function isPaidPlan(plan: Plan): boolean {
++  return plan.annualAmount > 0;
++}
++
++export function planFeatures(plan: Plan): string[] {
++  return [
++    'Acceso a la app y al calendario de experiencias',
++    ...(plan.discount > 0 ? [`${plan.discount} % de descuento`] : []),
++    `${plan.llavecitasPer10Eur} Llavecitas por cada 10 €`,
++  ];
++}
+diff --git a/src/features/pricing/actions/create-checkout-action.ts b/src/features/pricing/actions/create-checkout-action.ts
+deleted file mode 100644
+index f8e7712..0000000
+--- a/src/features/pricing/actions/create-checkout-action.ts
++++ /dev/null
+@@ -1,55 +0,0 @@
+-'use server';
+-
+-import { redirect } from 'next/navigation';
+-
+-import { getOrCreateCustomer } from '@/features/account/controllers/get-or-create-customer';
+-import { getSession } from '@/features/account/controllers/get-session';
+-import { Price } from '@/features/pricing/types';
+-import { stripeAdmin } from '@/libs/stripe/stripe-admin';
+-import { getURL } from '@/utils/get-url';
+-
+-export async function createCheckoutAction({ price }: { price: Price }) {
+-  // 1. Get the user from session
+-  const session = await getSession();
+-
+-  if (!session?.user) {
+-    return redirect(`${getURL()}/signup`);
+-  }
+-
+-  if (!session.user.email) {
+-    throw Error('Could not get email');
+-  }
+-
+-  // 2. Retrieve or create the customer in Stripe
+-  const customer = await getOrCreateCustomer({
+-    userId: session.user.id,
+-    email: session.user.email,
+-  });
+-
+-  // 3. Create a checkout session in Stripe
+-  const checkoutSession = await stripeAdmin.checkout.sessions.create({
+-    payment_method_types: ['card'],
+-    billing_address_collection: 'required',
+-    customer,
+-    customer_update: {
+-      address: 'auto',
+-    },
+-    line_items: [
+-      {
+-        price: price.id,
+-        quantity: 1,
+-      },
+-    ],
+-    mode: price.type === 'recurring' ? 'subscription' : 'payment',
+-    allow_promotion_codes: true,
+-    success_url: `${getURL()}/account`,
+-    cancel_url: `${getURL()}/`,
+-  });
+-
+-  if (!checkoutSession || !checkoutSession.url) {
+-    throw Error('checkoutSession is not defined');
+-  }
+-
+-  // 4. Redirect to checkout url
+-  redirect(checkoutSession.url);
+-}
+diff --git a/src/features/pricing/components/price-card.tsx b/src/features/pricing/components/price-card.tsx
+deleted file mode 100644
+index eae11f1..0000000
+--- a/src/features/pricing/components/price-card.tsx
++++ /dev/null
+@@ -1,145 +0,0 @@
+-'use client';
+-
+-import { useMemo, useState } from 'react';
+-import Link from 'next/link';
+-import { IoCheckmark } from 'react-icons/io5';
+-
+-import { SexyBoarder } from '@/components/sexy-boarder';
+-import { Button } from '@/components/ui/button';
+-import { Tabs, TabsList, TabsTrigger } from '@/components/ui/tabs';
+-import { formatPrice } from '@/utils/format-price';
+-
+-import { PriceCardVariant, productMetadataSchema } from '../models/product-metadata';
+-import { BillingInterval, Price, ProductWithPrices } from '../types';
+-
+-export function PricingCard({
+-  product,
+-  price,
+-  createCheckoutAction,
+-}: {
+-  product: ProductWithPrices;
+-  price?: Price;
+-  createCheckoutAction?: ({ price }: { price: Price }) => void;
+-}) {
+-  const [billingInterval, setBillingInterval] = useState<BillingInterval>(
+-    price ? (price.interval as BillingInterval) : 'month'
+-  );
+-
+-  // Determine the price to render
+-  const currentPrice = useMemo(() => {
+-    // If price is passed in we use that one. This is used on the account page when showing the user their current subscription.
+-    if (price) return price;
+-
+-    // If no price provided we need to find the right one to render for the product.
+-    // First check if the product has a price - in the case of our enterprise product, no price is included.
+-    // We'll return null and handle that case when rendering.
+-    if (product.prices.length === 0) return null;
+-
+-    // Next determine if the product is a one time purchase - in these cases it will only have a single price.
+-    if (product.prices.length === 1) return product.prices[0];
+-
+-    // Lastly we can assume the product is a subscription one with a month and year price, so we get the price according to the select billingInterval
+-    return product.prices.find((price) => price.interval === billingInterval);
+-  }, [billingInterval, price, product.prices]);
+-
+-  const monthPrice = product.prices.find((price) => price.interval === 'month')?.unit_amount;
+-  const yearPrice = product.prices.find((price) => price.interval === 'year')?.unit_amount;
+-  const isBillingIntervalYearly = billingInterval === 'year';
+-  const metadata = productMetadataSchema.parse(product.metadata);
+-  const buttonVariantMap = {
+-    basic: 'default',
+-    pro: 'sexy',
+-    enterprise: 'orange',
+-  } as const;
+-
+-  function handleBillingIntervalChange(billingInterval: BillingInterval) {
+-    setBillingInterval(billingInterval);
+-  }
+-
+-  return (
+-    <WithSexyBorder variant={metadata.priceCardVariant} className='w-full flex-1'>
+-      <div className='flex w-full flex-col rounded-md border border-zinc-800 bg-black p-4 lg:p-8'>
+-        <div className='p-4'>
+-          <div className='mb-1 text-center font-alt text-xl font-bold'>{product.name}</div>
+-          <div className='flex justify-center gap-0.5 text-zinc-400'>
+-            <span className='font-semibold'>
+-              {yearPrice && isBillingIntervalYearly
+-                ? formatPrice(yearPrice, currentPrice?.currency ?? null)
+-                : monthPrice
+-                ? formatPrice(monthPrice, currentPrice?.currency ?? null)
+-                : 'A medida'}
+-            </span>
+-            <span>{yearPrice && isBillingIntervalYearly ? '/año' : monthPrice ? '/mes' : null}</span>
+-          </div>
+-        </div>
+-
+-        {!Boolean(price) && product.prices.length > 1 && <PricingSwitch onChange={handleBillingIntervalChange} />}
+-
+-        <div className='m-auto flex w-fit flex-1 flex-col gap-2 px-8 py-4'>
+-          {metadata.features.map((feature) => (
+-            <CheckItem key={feature} text={feature} />
+-          ))}
+-        </div>
+-
+-        {createCheckoutAction && (
+-          <div className='py-4'>
+-            {currentPrice && (
+-              <Button
+-                variant={buttonVariantMap[metadata.priceCardVariant]}
+-                className='w-full'
+-                onClick={() => createCheckoutAction({ price: currentPrice })}
+-              >
+-                Solicitar acceso
+-              </Button>
+-            )}
+-            {!currentPrice && (
+-              <Button variant={buttonVariantMap[metadata.priceCardVariant]} className='w-full' asChild>
+-                <Link href='/contacto'>Hablemos</Link>
+-              </Button>
+-            )}
+-          </div>
+-        )}
+-      </div>
+-    </WithSexyBorder>
+-  );
+-}
+-
+-function CheckItem({ text }: { text: string }) {
+-  return (
+-    <div className='flex items-center gap-2'>
+-      <IoCheckmark className='my-auto flex-shrink-0 text-slate-500' />
+-      <p className='text-sm font-medium text-white first-letter:capitalize'>{text}</p>
+-    </div>
+-  );
+-}
+-
+-export function WithSexyBorder({
+-  variant,
+-  className,
+-  children,
+-}: React.ButtonHTMLAttributes<HTMLButtonElement> & { variant: PriceCardVariant }) {
+-  if (variant === 'pro') {
+-    return (
+-      <SexyBoarder className={className} offset={100}>
+-        {children}
+-      </SexyBoarder>
+-    );
+-  } else {
+-    return <div className={className}>{children}</div>;
+-  }
+-}
+-
+-function PricingSwitch({ onChange }: { onChange: (value: BillingInterval) => void }) {
+-  return (
+-    <Tabs
+-      defaultValue='month'
+-      className='flex items-center'
+-      onValueChange={(newBillingInterval) => onChange(newBillingInterval as BillingInterval)}
+-    >
+-      <TabsList className='m-auto'>
+-        <TabsTrigger value='month'>Mensual</TabsTrigger>
+-        <TabsTrigger value='year'>Anual</TabsTrigger>
+-      </TabsList>
+-    </Tabs>
+-  );
+-}
+diff --git a/src/features/pricing/controllers/get-products.ts b/src/features/pricing/controllers/get-products.ts
+deleted file mode 100644
+index 3208764..0000000
+--- a/src/features/pricing/controllers/get-products.ts
++++ /dev/null
+@@ -1,19 +0,0 @@
+-import { createSupabaseServerClient } from '@/libs/supabase/supabase-server-client';
+-
+-export async function getProducts() {
+-  const supabase = await createSupabaseServerClient();
+-
+-  const { data, error } = await supabase
+-    .from('products')
+-    .select('*, prices(*)')
+-    .eq('active', true)
+-    .eq('prices.active', true)
+-    .order('metadata->index')
+-    .order('unit_amount', { referencedTable: 'prices' });
+-
+-  if (error) {
+-    console.error(error.message);
+-  }
+-
+-  return data ?? [];
+-}
+diff --git a/src/features/pricing/controllers/upsert-price.ts b/src/features/pricing/controllers/upsert-price.ts
+deleted file mode 100644
+index 3b636c6..0000000
+--- a/src/features/pricing/controllers/upsert-price.ts
++++ /dev/null
+@@ -1,30 +0,0 @@
+-import Stripe from 'stripe';
+-
+-import { supabaseAdminClient } from '@/libs/supabase/supabase-admin';
+-import type { Database } from '@/libs/supabase/types';
+-
+-type Price = Database['public']['Tables']['prices']['Row'];
+-
+-export async function upsertPrice(price: Stripe.Price) {
+-  const priceData: Price = {
+-    id: price.id,
+-    product_id: typeof price.product === 'string' ? price.product : '',
+-    active: price.active,
+-    currency: price.currency,
+-    description: price.nickname ?? null,
+-    type: price.type,
+-    unit_amount: price.unit_amount ?? null,
+-    interval: price.recurring?.interval ?? null,
+-    interval_count: price.recurring?.interval_count ?? null,
+-    trial_period_days: price.recurring?.trial_period_days ?? null,
+-    metadata: price.metadata,
+-  };
+-
+-  const { error } = await supabaseAdminClient.from('prices').upsert([priceData]);
+-
+-  if (error) {
+-    throw error;
+-  } else {
+-    console.info(`Price inserted/updated: ${price.id}`);
+-  }
+-}
+diff --git a/src/features/pricing/controllers/upsert-product.ts b/src/features/pricing/controllers/upsert-product.ts
+deleted file mode 100644
+index 5f3a955..0000000
+--- a/src/features/pricing/controllers/upsert-product.ts
++++ /dev/null
+@@ -1,25 +0,0 @@
+-import Stripe from 'stripe';
+-
+-import { supabaseAdminClient } from '@/libs/supabase/supabase-admin';
+-import type { Database } from '@/libs/supabase/types';
+-
+-type Product = Database['public']['Tables']['products']['Row'];
+-
+-export async function upsertProduct(product: Stripe.Product) {
+-  const productData: Product = {
+-    id: product.id,
+-    active: product.active,
+-    name: product.name,
+-    description: product.description ?? null,
+-    image: product.images?.[0] ?? null,
+-    metadata: product.metadata,
+-  };
+-
+-  const { error } = await supabaseAdminClient.from('products').upsert([productData]);
+-
+-  if (error) {
+-    throw error;
+-  } else {
+-    console.info(`Product inserted/updated: ${product.id}`);
+-  }
+-}
+diff --git a/src/features/pricing/models/product-metadata.ts b/src/features/pricing/models/product-metadata.ts
+deleted file mode 100644
+index 5ab8b4d..0000000
+--- a/src/features/pricing/models/product-metadata.ts
++++ /dev/null
+@@ -1,29 +0,0 @@
+-import z from 'zod';
+-
+-export const priceCardVariantSchema = z.enum(['basic', 'pro', 'enterprise']);
+-
+-/**
+- * Metadatos configurados en cada producto de Stripe.
+- *
+- * `features` es una lista de beneficios separados por `|`, de forma que los
+- * planes de membresía se editan desde Stripe sin tocar el código. Ejemplo:
+- *
+- *   features: "Acceso a la comunidad|2 experiencias al trimestre|Concierge por email"
+- */
+-export const productMetadataSchema = z
+-  .object({
+-    price_card_variant: priceCardVariantSchema,
+-    features: z.string().optional(),
+-  })
+-  .transform((data) => ({
+-    priceCardVariant: data.price_card_variant,
+-    features: data.features
+-      ? data.features
+-          .split('|')
+-          .map((feature) => feature.trim())
+-          .filter(Boolean)
+-      : [],
+-  }));
+-
+-export type ProductMetadata = z.infer<typeof productMetadataSchema>;
+-export type PriceCardVariant = z.infer<typeof priceCardVariantSchema>;
+diff --git a/src/features/pricing/types.ts b/src/features/pricing/types.ts
+deleted file mode 100644
+index b9020a3..0000000
+--- a/src/features/pricing/types.ts
++++ /dev/null
+@@ -1,9 +0,0 @@
+-import { Database } from '@/libs/supabase/types';
+-
+-export type BillingInterval = 'year' | 'month';
+-export type Subscription = Database['public']['Tables']['subscriptions']['Row'];
+-export type Product = Database['public']['Tables']['products']['Row'];
+-export type Price = Database['public']['Tables']['prices']['Row'];
+-export type ProductWithPrices = Product & { prices: Price[] };
+-export type PriceWithProduct = Price & { products: Product | null };
+-export type SubscriptionWithProduct = Subscription & { prices: PriceWithProduct | null };
+diff --git a/src/libs/redsys/config.ts b/src/libs/redsys/config.ts
+new file mode 100644
+index 0000000..cc46687
+--- /dev/null
++++ b/src/libs/redsys/config.ts
+@@ -0,0 +1,50 @@
++import { getEnvVar } from '@/utils/get-env-var';
++
++/**
++ * Configuración del TPV Virtual de BBVA sobre Redsys.
++ *
++ * Todo se lee de variables de entorno y en el momento de usarse, nunca al importar el
++ * módulo: así el build de Next funciona sin credenciales (ver `create-lazy-client.ts`).
++ *
++ * | Variable                | Qué es                                                    |
++ * | ----------------------- | --------------------------------------------------------- |
++ * | `REDSYS_MERCHANT_CODE`  | Número de comercio (FUC) que asigna BBVA. 9 dígitos.      |
++ * | `REDSYS_TERMINAL`       | Número de terminal. Suele ser `1`.                        |
++ * | `REDSYS_SECRET_KEY`     | Clave de firma SHA-256, en Base64. **Secreta.**           |
++ * | `REDSYS_ENV`            | `test` (sis-t, por defecto) o `live` (cobros reales).     |
++ * | `REDSYS_CURRENCY`       | Código ISO 4217 numérico. `978` = EUR, por defecto.       |
++ * | `REDSYS_PAGO_REFERENCIA`| `true` solo cuando BBVA haya activado el pago por referencia. |
++ */
++
++export type RedsysEnvironment = 'test' | 'live';
++
++const PAYMENT_URLS: Record<RedsysEnvironment, string> = {
++  test: 'https://sis-t.redsys.es:25443/sis/realizarPago',
++  live: 'https://sis.redsys.es/sis/realizarPago',
++};
++
++export const REDSYS_SIGNATURE_VERSION = 'HMAC_SHA256_V1';
++
++export function getRedsysEnvironment(): RedsysEnvironment {
++  return process.env.REDSYS_ENV === 'live' ? 'live' : 'test';
++}
++
++export function getRedsysConfig() {
++  const environment = getRedsysEnvironment();
++
++  return {
++    environment,
++    merchantCode: getEnvVar(process.env.REDSYS_MERCHANT_CODE, 'REDSYS_MERCHANT_CODE'),
++    terminal: process.env.REDSYS_TERMINAL || '1',
++    secretKey: getEnvVar(process.env.REDSYS_SECRET_KEY, 'REDSYS_SECRET_KEY'),
++    currency: process.env.REDSYS_CURRENCY || '978',
++    paymentUrl: PAYMENT_URLS[environment],
++    /** Pide a Redsys una referencia de pago reutilizable. Requiere que BBVA lo active. */
++    requestPaymentReference: process.env.REDSYS_PAGO_REFERENCIA === 'true',
++  };
++}
++
++/** Indica si las credenciales mínimas están configuradas, sin lanzar error. */
++export function isRedsysConfigured(): boolean {
++  return Boolean(process.env.REDSYS_MERCHANT_CODE && process.env.REDSYS_SECRET_KEY);
++}
+diff --git a/src/libs/redsys/payment.ts b/src/libs/redsys/payment.ts
+new file mode 100644
+index 0000000..b960edf
+--- /dev/null
++++ b/src/libs/redsys/payment.ts
+@@ -0,0 +1,150 @@
++import { randomInt } from 'node:crypto';
++
++import { getRedsysConfig, REDSYS_SIGNATURE_VERSION } from './config';
++import { createSignature, decodeMerchantParameters, encodeMerchantParameters, verifySignature } from './signature';
++
++/**
++ * Número de pedido de Redsys: 12 caracteres, los 4 primeros numéricos, y cada uno se usa
++ * una sola vez. Se forma con la fecha (AAMMDD) y 6 dígitos aleatorios; la columna `order`
++ * es única en la base de datos, así que una colisión falla de forma visible.
++ */
++export function createOrderNumber(date = new Date()): string {
++  const yymmdd = date.toISOString().slice(2, 10).replace(/-/g, '');
++  const random = randomInt(0, 1_000_000).toString().padStart(6, '0');
++  return `${yymmdd}${random}`;
++}
++
++export type RedirectPaymentInput = {
++  order: string;
++  /** Importe en céntimos. */
++  amount: number;
++  /** Texto que ve el cliente en la página del banco. Máximo 125 caracteres. */
++  description: string;
++  /** URL a la que Redsys notifica el resultado, servidor a servidor. */
++  notificationUrl: string;
++  /** URL a la que vuelve el cliente si el pago sale bien. */
++  okUrl: string;
++  /** URL a la que vuelve el cliente si el pago sale mal o lo cancela. */
++  koUrl: string;
++  /** Nombre del titular, opcional. */
++  holderName?: string;
++};
++
++export type RedirectPaymentForm = {
++  action: string;
++  fields: {
++    Ds_SignatureVersion: string;
++    Ds_MerchantParameters: string;
++    Ds_Signature: string;
++  };
++};
++
++/** Redsys muestra mal tildes y símbolos en algunos navegadores: se envía texto plano. */
++function toPlainText(value: string): string {
++  return value
++    .normalize('NFD')
++    .replace(/[\u0300-\u036f]/g, '')
++    .replace(/[^\x20-\x7E]/g, '-');
++}
++
++/**
++ * Construye el formulario firmado que el navegador envía a Redsys.
++ * El cliente paga en la página del banco; el resultado llega por la notificación.
++ */
++export function buildRedirectPayment(input: RedirectPaymentInput): RedirectPaymentForm {
++  const config = getRedsysConfig();
++
++  const params: Record<string, string> = {
++    DS_MERCHANT_AMOUNT: String(input.amount),
++    DS_MERCHANT_ORDER: input.order,
++    DS_MERCHANT_MERCHANTCODE: config.merchantCode,
++    DS_MERCHANT_CURRENCY: config.currency,
++    DS_MERCHANT_TRANSACTIONTYPE: '0',
++    DS_MERCHANT_TERMINAL: config.terminal,
++    DS_MERCHANT_MERCHANTURL: input.notificationUrl,
++    DS_MERCHANT_URLOK: input.okUrl,
++    DS_MERCHANT_URLKO: input.koUrl,
++    DS_MERCHANT_PRODUCTDESCRIPTION: toPlainText(input.description).slice(0, 125),
++    DS_MERCHANT_MERCHANTNAME: 'Secret Key',
++    DS_MERCHANT_CONSUMERLANGUAGE: '001',
++  };
++
++  if (input.holderName) {
++    params.DS_MERCHANT_TITULAR = toPlainText(input.holderName).slice(0, 60);
++  }
++
++  if (config.requestPaymentReference) {
++    // Primer pago de una serie (COF): Redsys devuelve una referencia para renovar.
++    params.DS_MERCHANT_IDENTIFIER = 'REQUIRED';
++    params.DS_MERCHANT_COF_INI = 'S';
++    params.DS_MERCHANT_COF_TYPE = 'R';
++  }
++
++  const merchantParameters = encodeMerchantParameters(params);
++
++  return {
++    action: config.paymentUrl,
++    fields: {
++      Ds_SignatureVersion: REDSYS_SIGNATURE_VERSION,
++      Ds_MerchantParameters: merchantParameters,
++      Ds_Signature: createSignature(config.secretKey, input.order, merchantParameters),
++    },
++  };
++}
++
++/** Parámetros que Redsys envía en la notificación. Todos llegan como texto. */
++export type RedsysNotification = {
++  Ds_Order: string;
++  Ds_Amount: string;
++  Ds_Currency: string;
++  Ds_Response: string;
++  Ds_AuthorisationCode?: string;
++  Ds_MerchantCode: string;
++  Ds_Terminal: string;
++  Ds_Date?: string;
++  Ds_Hour?: string;
++  Ds_Card_Brand?: string;
++  Ds_Card_Country?: string;
++  Ds_Merchant_Identifier?: string;
++  Ds_Merchant_Cof_Txnid?: string;
++  Ds_ExpiryDate?: string;
++  [key: string]: string | undefined;
++};
++
++/**
++ * Valida y decodifica una notificación de Redsys.
++ * Devuelve `null` si la firma no cuadra: esa petición no viene del banco.
++ */
++export function parseNotification(body: {
++  Ds_SignatureVersion?: string | null;
++  Ds_MerchantParameters?: string | null;
++  Ds_Signature?: string | null;
++}): RedsysNotification | null {
++  if (!body.Ds_MerchantParameters || !body.Ds_Signature) return null;
++  if (body.Ds_SignatureVersion && body.Ds_SignatureVersion !== REDSYS_SIGNATURE_VERSION) return null;
++
++  const config = getRedsysConfig();
++
++  let params: RedsysNotification;
++  try {
++    params = decodeMerchantParameters<RedsysNotification>(body.Ds_MerchantParameters);
++  } catch {
++    return null;
++  }
++
++  const order = params.Ds_Order;
++  if (!order) return null;
++
++  const isValid = verifySignature(config.secretKey, order, body.Ds_MerchantParameters, body.Ds_Signature);
++  if (!isValid) return null;
++
++  if (params.Ds_MerchantCode !== config.merchantCode) return null;
++
++  return params;
++}
++
++/** Redsys considera autorizada una operación con `Ds_Response` entre 0000 y 0099. */
++export function isAuthorised(dsResponse: string | undefined): boolean {
++  const code = Number.parseInt(dsResponse ?? '', 10);
++  return Number.isInteger(code) && code >= 0 && code <= 99;
++}
+diff --git a/src/libs/redsys/signature.ts b/src/libs/redsys/signature.ts
+new file mode 100644
+index 0000000..86c96ac
+--- /dev/null
++++ b/src/libs/redsys/signature.ts
+@@ -0,0 +1,60 @@
++import { createCipheriv, createHmac, timingSafeEqual } from 'node:crypto';
++
++/**
++ * Firma HMAC_SHA256_V1 de Redsys.
++ *
++ * 1. Se deriva una clave por operación cifrando el número de pedido con 3DES-CBC
++ *    (IV de ceros, relleno con ceros hasta múltiplo de 8) usando la clave del comercio.
++ * 2. La firma es el HMAC-SHA256 de `Ds_MerchantParameters` (ya en Base64) con esa clave.
++ *
++ * Así, la clave secreta jamás viaja: solo la firma.
++ */
++
++function deriveOrderKey(secretKeyBase64: string, order: string): Buffer {
++  const key = Buffer.from(secretKeyBase64, 'base64');
++  const iv = Buffer.alloc(8, 0);
++
++  const orderBytes = Buffer.from(order, 'utf8');
++  const paddedLength = Math.ceil(orderBytes.length / 8) * 8;
++  const padded = Buffer.alloc(paddedLength, 0);
++  orderBytes.copy(padded);
++
++  const cipher = createCipheriv('des-ede3-cbc', key, iv);
++  cipher.setAutoPadding(false);
++
++  return Buffer.concat([cipher.update(padded), cipher.final()]);
++}
++
++export function encodeMerchantParameters(params: Record<string, string>): string {
++  return Buffer.from(JSON.stringify(params), 'utf8').toString('base64');
++}
++
++export function decodeMerchantParameters<T = Record<string, string>>(merchantParameters: string): T {
++  const normalized = merchantParameters.replace(/-/g, '+').replace(/_/g, '/');
++  return JSON.parse(Buffer.from(normalized, 'base64').toString('utf8')) as T;
++}
++
++export function createSignature(secretKeyBase64: string, order: string, merchantParameters: string): string {
++  const orderKey = deriveOrderKey(secretKeyBase64, order);
++  return createHmac('sha256', orderKey).update(merchantParameters).digest('base64');
++}
++
++/**
++ * Comprueba la firma de una respuesta del banco (notificación o REST).
++ *
++ * Redsys devuelve la firma en Base64 «URL safe» (`-` y `_`), así que se normalizan ambas
++ * antes de comparar, y la comparación es en tiempo constante.
++ */
++export function verifySignature(
++  secretKeyBase64: string,
++  order: string,
++  merchantParameters: string,
++  receivedSignature: string
++): boolean {
++  const toStandard = (value: string) => value.replace(/-/g, '+').replace(/_/g, '/');
++
++  const expected = Buffer.from(toStandard(createSignature(secretKeyBase64, order, merchantParameters)));
++  const received = Buffer.from(toStandard(receivedSignature));
++
++  return expected.length === received.length && timingSafeEqual(expected, received);
++}
+diff --git a/src/libs/stripe/stripe-admin.ts b/src/libs/stripe/stripe-admin.ts
+deleted file mode 100644
+index 26cd726..0000000
+--- a/src/libs/stripe/stripe-admin.ts
++++ /dev/null
+@@ -1,18 +0,0 @@
+-import Stripe from 'stripe';
+-
+-import { createLazyClient } from '@/utils/create-lazy-client';
+-import { getEnvVar } from '@/utils/get-env-var';
+-
+-export const stripeAdmin = createLazyClient(
+-  () =>
+-    new Stripe(getEnvVar(process.env.STRIPE_SECRET_KEY, 'STRIPE_SECRET_KEY'), {
+-      // https://github.com/stripe/stripe-node#configuration
+-      apiVersion: '2023-10-16',
+-      // Register this as an official Stripe plugin.
+-      // https://stripe.com/docs/building-plugins#setappinfo
+-      appInfo: {
+-        name: 'Secret Key',
+-        version: '0.1.0',
+-      },
+-    })
+-);
+diff --git a/src/libs/supabase/types.ts b/src/libs/supabase/types.ts
+index 3013f5c..4c08995 100644
+--- a/src/libs/supabase/types.ts
++++ b/src/libs/supabase/types.ts
+@@ -3,174 +3,103 @@ export type Json = string | number | boolean | null | { [key: string]: Json | un
+ export interface Database {
+   public: {
+     Tables: {
+-      customers: {
++      memberships: {
+         Row: {
+-          id: string;
+-          stripe_customer_id: string | null;
+-        };
+-        Insert: {
+-          id: string;
+-          stripe_customer_id?: string | null;
+-        };
+-        Update: {
+-          id?: string;
+-          stripe_customer_id?: string | null;
+-        };
+-        Relationships: [
+-          {
+-            foreignKeyName: 'customers_id_fkey';
+-            columns: ['id'];
+-            isOneToOne: true;
+-            referencedRelation: 'users';
+-            referencedColumns: ['id'];
+-          }
+-        ];
+-      };
+-      prices: {
+-        Row: {
+-          active: boolean | null;
+-          currency: string | null;
+-          description: string | null;
+-          id: string;
+-          interval: Database['public']['Enums']['pricing_plan_interval'] | null;
+-          interval_count: number | null;
+-          metadata: Json | null;
+-          product_id: string | null;
+-          trial_period_days: number | null;
+-          type: Database['public']['Enums']['pricing_type'] | null;
+-          unit_amount: number | null;
++          cancel_at_period_end: boolean;
++          current_period_end: string;
++          current_period_start: string;
++          last_payment_id: string | null;
++          plan: string;
++          redsys_cof_txnid: string | null;
++          redsys_identifier: string | null;
++          status: Database['public']['Enums']['membership_status'];
++          updated_at: string;
++          user_id: string;
+         };
+         Insert: {
+-          active?: boolean | null;
+-          currency?: string | null;
+-          description?: string | null;
+-          id: string;
+-          interval?: Database['public']['Enums']['pricing_plan_interval'] | null;
+-          interval_count?: number | null;
+-          metadata?: Json | null;
+-          product_id?: string | null;
+-          trial_period_days?: number | null;
+-          type?: Database['public']['Enums']['pricing_type'] | null;
+-          unit_amount?: number | null;
++          cancel_at_period_end?: boolean;
++          current_period_end: string;
++          current_period_start: string;
++          last_payment_id?: string | null;
++          plan: string;
++          redsys_cof_txnid?: string | null;
++          redsys_identifier?: string | null;
++          status?: Database['public']['Enums']['membership_status'];
++          updated_at?: string;
++          user_id: string;
+         };
+         Update: {
+-          active?: boolean | null;
+-          currency?: string | null;
+-          description?: string | null;
+-          id?: string;
+-          interval?: Database['public']['Enums']['pricing_plan_interval'] | null;
+-          interval_count?: number | null;
+-          metadata?: Json | null;
+-          product_id?: string | null;
+-          trial_period_days?: number | null;
+-          type?: Database['public']['Enums']['pricing_type'] | null;
+-          unit_amount?: number | null;
++          cancel_at_period_end?: boolean;
++          current_period_end?: string;
++          current_period_start?: string;
++          last_payment_id?: string | null;
++          plan?: string;
++          redsys_cof_txnid?: string | null;
++          redsys_identifier?: string | null;
++          status?: Database['public']['Enums']['membership_status'];
++          updated_at?: string;
++          user_id?: string;
+         };
+         Relationships: [
+           {
+-            foreignKeyName: 'prices_product_id_fkey';
+-            columns: ['product_id'];
++            foreignKeyName: 'memberships_last_payment_id_fkey';
++            columns: ['last_payment_id'];
+             isOneToOne: false;
+-            referencedRelation: 'products';
++            referencedRelation: 'payments';
+             referencedColumns: ['id'];
+           }
+         ];
+       };
+-      products: {
++      payments: {
+         Row: {
+-          active: boolean | null;
+-          description: string | null;
++          amount: number;
++          authorisation_code: string | null;
++          created_at: string;
++          currency: string;
+           id: string;
+-          image: string | null;
+-          metadata: Json | null;
+-          name: string | null;
+-        };
+-        Insert: {
+-          active?: boolean | null;
+-          description?: string | null;
+-          id: string;
+-          image?: string | null;
+-          metadata?: Json | null;
+-          name?: string | null;
+-        };
+-        Update: {
+-          active?: boolean | null;
+-          description?: string | null;
+-          id?: string;
+-          image?: string | null;
+-          metadata?: Json | null;
+-          name?: string | null;
+-        };
+-        Relationships: [];
+-      };
+-      subscriptions: {
+-        Row: {
+-          cancel_at: string | null;
+-          cancel_at_period_end: boolean | null;
+-          canceled_at: string | null;
+-          created: string;
+-          current_period_end: string;
+-          current_period_start: string;
+-          ended_at: string | null;
+-          id: string;
+-          metadata: Json | null;
+-          price_id: string | null;
+-          quantity: number | null;
+-          status: Database['public']['Enums']['subscription_status'] | null;
+-          trial_end: string | null;
+-          trial_start: string | null;
++          order: string;
++          plan: string;
++          raw_notification: Json | null;
++          redsys_cof_txnid: string | null;
++          redsys_identifier: string | null;
++          response_code: string | null;
++          status: Database['public']['Enums']['payment_status'];
++          updated_at: string;
+           user_id: string;
+         };
+         Insert: {
+-          cancel_at?: string | null;
+-          cancel_at_period_end?: boolean | null;
+-          canceled_at?: string | null;
+-          created?: string;
+-          current_period_end?: string;
+-          current_period_start?: string;
+-          ended_at?: string | null;
+-          id: string;
+-          metadata?: Json | null;
+-          price_id?: string | null;
+-          quantity?: number | null;
+-          status?: Database['public']['Enums']['subscription_status'] | null;
+-          trial_end?: string | null;
+-          trial_start?: string | null;
++          amount: number;
++          authorisation_code?: string | null;
++          created_at?: string;
++          currency?: string;
++          id?: string;
++          order: string;
++          plan: string;
++          raw_notification?: Json | null;
++          redsys_cof_txnid?: string | null;
++          redsys_identifier?: string | null;
++          response_code?: string | null;
++          status?: Database['public']['Enums']['payment_status'];
++          updated_at?: string;
+           user_id: string;
+         };
+         Update: {
+-          cancel_at?: string | null;
+-          cancel_at_period_end?: boolean | null;
+-          canceled_at?: string | null;
+-          created?: string;
+-          current_period_end?: string;
+-          current_period_start?: string;
+-          ended_at?: string | null;
++          amount?: number;
++          authorisation_code?: string | null;
++          created_at?: string;
++          currency?: string;
+           id?: string;
+-          metadata?: Json | null;
+-          price_id?: string | null;
+-          quantity?: number | null;
+-          status?: Database['public']['Enums']['subscription_status'] | null;
+-          trial_end?: string | null;
+-          trial_start?: string | null;
++          order?: string;
++          plan?: string;
++          raw_notification?: Json | null;
++          redsys_cof_txnid?: string | null;
++          redsys_identifier?: string | null;
++          response_code?: string | null;
++          status?: Database['public']['Enums']['payment_status'];
++          updated_at?: string;
+           user_id?: string;
+         };
+-        Relationships: [
+-          {
+-            foreignKeyName: 'subscriptions_price_id_fkey';
+-            columns: ['price_id'];
+-            isOneToOne: false;
+-            referencedRelation: 'prices';
+-            referencedColumns: ['id'];
+-          },
+-          {
+-            foreignKeyName: 'subscriptions_user_id_fkey';
+-            columns: ['user_id'];
+-            isOneToOne: false;
+-            referencedRelation: 'users';
+-            referencedColumns: ['id'];
+-          }
+-        ];
++        Relationships: [];
+       };
+       users: {
+         Row: {
+@@ -178,21 +107,18 @@ export interface Database {
+           billing_address: Json | null;
+           full_name: string | null;
+           id: string;
+-          payment_method: Json | null;
+         };
+         Insert: {
+           avatar_url?: string | null;
+           billing_address?: Json | null;
+           full_name?: string | null;
+           id: string;
+-          payment_method?: Json | null;
+         };
+         Update: {
+           avatar_url?: string | null;
+           billing_address?: Json | null;
+           full_name?: string | null;
+           id?: string;
+-          payment_method?: Json | null;
+         };
+         Relationships: [
+           {
+@@ -212,17 +138,8 @@ export interface Database {
+       [_ in never]: never;
+     };
+     Enums: {
+-      pricing_plan_interval: 'day' | 'week' | 'month' | 'year';
+-      pricing_type: 'one_time' | 'recurring';
+-      subscription_status:
+-        | 'trialing'
+-        | 'active'
+-        | 'canceled'
+-        | 'incomplete'
+-        | 'incomplete_expired'
+-        | 'past_due'
+-        | 'unpaid'
+-        | 'paused';
++      membership_status: 'active' | 'expired' | 'canceled';
++      payment_status: 'pending' | 'paid' | 'failed';
+     };
+     CompositeTypes: {
+       [_ in never]: never;
+diff --git a/src/utils/create-lazy-client.ts b/src/utils/create-lazy-client.ts
+index 95fee97..fe3f587 100644
+--- a/src/utils/create-lazy-client.ts
++++ b/src/utils/create-lazy-client.ts
+@@ -1,7 +1,7 @@
+ /**
+  * Defers construction of an SDK client until something actually uses it.
+  *
+- * Stripe, Supabase and Resend all read their credentials while the module is
++ * Supabase and Resend both read their credentials while the module is
+  * being imported. Next evaluates every server module when it collects page
+  * data, so one missing key turns an ordinary build into a hard failure - which
+  * is how a preview deployment with no environment variables dies at
+diff --git a/src/utils/format-price.ts b/src/utils/format-price.ts
+index 79bb771..e46a545 100644
+--- a/src/utils/format-price.ts
++++ b/src/utils/format-price.ts
+@@ -1,5 +1,5 @@
+ /**
+- * Formatea un importe de Stripe (en la unidad mínima: céntimos) en la moneda indicada.
++ * Formatea un importe en la unidad mínima (céntimos) en la moneda indicada.
+  *
+  * Secret Key factura en euros a través del TPV Virtual, por lo que la moneda por
+  * defecto es EUR y el formato, el español.
+diff --git a/stripe-fixtures.json b/stripe-fixtures.json
+deleted file mode 100644
+index e4e9d62..0000000
+--- a/stripe-fixtures.json
++++ /dev/null
+@@ -1,106 +0,0 @@
+-{
+-  "_meta": {
+-    "template_version": 0
+-  },
+-  "fixtures": [
+-    {
+-      "name": "esencial",
+-      "path": "/v1/products",
+-      "method": "post",
+-      "params": {
+-        "name": "Esencial",
+-        "description": "La puerta de entrada al ecosistema Secret Key.",
+-        "metadata": {
+-          "price_card_variant": "basic",
+-          "features": "Acceso a la plataforma privada|Agenda de experiencias del trimestre|Concierge por email|Cancelación flexible"
+-        }
+-      }
+-    },
+-    {
+-      "name": "price_esencial_month",
+-      "path": "/v1/prices",
+-      "method": "post",
+-      "params": {
+-        "product": "${esencial:id}",
+-        "currency": "eur",
+-        "billing_scheme": "per_unit",
+-        "unit_amount": 9900,
+-        "recurring": {
+-          "interval": "month",
+-          "interval_count": 1
+-        }
+-      }
+-    },
+-    {
+-      "name": "price_esencial_year",
+-      "path": "/v1/prices",
+-      "method": "post",
+-      "params": {
+-        "product": "${esencial:id}",
+-        "currency": "eur",
+-        "billing_scheme": "per_unit",
+-        "unit_amount": 99000,
+-        "recurring": {
+-          "interval": "year",
+-          "interval_count": 1
+-        }
+-      }
+-    },
+-    {
+-      "name": "signature",
+-      "path": "/v1/products",
+-      "method": "post",
+-      "params": {
+-        "name": "Signature",
+-        "description": "Para quien quiere recuperar horas cada semana.",
+-        "metadata": {
+-          "price_card_variant": "pro",
+-          "features": "Todo lo del plan Esencial|Concierge prioritario|Acceso anticipado a experiencias|Reservas gestionadas por nosotros|Invitación a encuentros privados"
+-        }
+-      }
+-    },
+-    {
+-      "name": "price_signature_month",
+-      "path": "/v1/prices",
+-      "method": "post",
+-      "params": {
+-        "product": "${signature:id}",
+-        "currency": "eur",
+-        "billing_scheme": "per_unit",
+-        "unit_amount": 29900,
+-        "recurring": {
+-          "interval": "month",
+-          "interval_count": 1
+-        }
+-      }
+-    },
+-    {
+-      "name": "price_signature_year",
+-      "path": "/v1/prices",
+-      "method": "post",
+-      "params": {
+-        "product": "${signature:id}",
+-        "currency": "eur",
+-        "billing_scheme": "per_unit",
+-        "unit_amount": 299000,
+-        "recurring": {
+-          "interval": "year",
+-          "interval_count": 1
+-        }
+-      }
+-    },
+-    {
+-      "name": "private",
+-      "path": "/v1/products",
+-      "method": "post",
+-      "params": {
+-        "name": "Private",
+-        "description": "Membresía a medida, por invitación.",
+-        "metadata": {
+-          "price_card_variant": "enterprise",
+-          "features": "Todo lo del plan Signature|Equipo dedicado|Experiencias diseñadas a medida|Disponibilidad 24/7"
+-        }
+-      }
+-    }
+-  ]
+-}
+diff --git a/supabase/migrations/20260923120000_redsys_payments.sql b/supabase/migrations/20260923120000_redsys_payments.sql
+new file mode 100644
+index 0000000..a2b9215
+--- /dev/null
++++ b/supabase/migrations/20260923120000_redsys_payments.sql
+@@ -0,0 +1,75 @@
++/**
++ * PAGOS CON REDSYS (TPV Virtual de BBVA)
++ *
++ * Sustituye el modelo de Stripe de la plantilla (customers, products, prices,
++ * subscriptions). Los precios viven en el código (`src/features/membership/plans.ts`) y
++ * el banco solo confirma cobros, así que basta con dos tablas: los pagos y la entrada
++ * vigente de cada persona.
++ */
++
++drop publication if exists supabase_realtime;
++
++drop table if exists subscriptions;
++drop table if exists prices;
++drop table if exists products;
++drop table if exists customers;
++drop type if exists subscription_status;
++drop type if exists pricing_plan_interval;
++drop type if exists pricing_type;
++
++alter table users drop column if exists payment_method;
++
++/**
++ * PAYMENTS
++ * Un registro por número de pedido enviado a Redsys. Se crea en `pending` antes de
++ * redirigir al banco y solo la notificación firmada lo pasa a `paid` o `failed`.
++ */
++create type payment_status as enum ('pending', 'paid', 'failed');
++
++create table payments (
++  id uuid primary key default gen_random_uuid(),
++  user_id uuid references auth.users not null,
++  -- Número de pedido de Redsys. Único: el banco rechaza pedidos repetidos.
++  "order" text not null unique check (char_length("order") between 4 and 12),
++  -- Slug del plan pagado, p. ej. member_secret_key.
++  plan text not null,
++  -- Importe en céntimos, fijado por el servidor.
++  amount integer not null check (amount > 0),
++  currency text not null default '978',
++  status payment_status not null default 'pending',
++  -- Código de respuesta del banco (Ds_Response) y de autorización.
++  response_code text,
++  authorisation_code text,
++  -- Referencia para cobros posteriores (pago por referencia), si el banco la devuelve.
++  redsys_identifier text,
++  redsys_cof_txnid text,
++  -- Notificación completa, para auditoría.
++  raw_notification jsonb,
++  created_at timestamp with time zone default timezone('utc'::text, now()) not null,
++  updated_at timestamp with time zone default timezone('utc'::text, now()) not null
++);
++alter table payments enable row level security;
++create policy "Can view own payments." on payments for select using (auth.uid() = user_id);
++
++/**
++ * MEMBERSHIPS
++ * La entrada al Círculo vigente de cada persona. Una fila por persona.
++ */
++create type membership_status as enum ('active', 'expired', 'canceled');
++
++create table memberships (
++  user_id uuid references auth.users not null primary key,
++  plan text not null,
++  status membership_status not null default 'active',
++  current_period_start timestamp with time zone not null,
++  current_period_end timestamp with time zone not null,
++  -- La persona pidió que la entrada termine al final del periodo actual.
++  cancel_at_period_end boolean not null default false,
++  -- Referencia de Redsys para renovar sin volver a pedir la tarjeta.
++  redsys_identifier text,
++  redsys_cof_txnid text,
++  last_payment_id uuid references payments,
++  updated_at timestamp with time zone default timezone('utc'::text, now()) not null
++);
++alter table memberships enable row level security;
++create policy "Can view own membership." on memberships for select using (auth.uid() = user_id);
+-- 
+2.43.0
+

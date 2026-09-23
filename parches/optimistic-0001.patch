@@ -1,0 +1,110 @@
+From b820d37e57e75f4de7ad99c994353a1b60d08baf Mon Sep 17 00:00:00 2001
+From: Claude <noreply@anthropic.com>
+Date: Wed, 23 Sep 2026 14:32:05 +0200
+Subject: [PATCH] Servir la app sin variables de Supabase en las
+ previsualizaciones
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+El preview compilaba, pero cada petición fallaba con 500
+MIDDLEWARE_INVOCATION_FAILED: el middleware creaba el cliente de Supabase y las
+variables no existen en las previsualizaciones de Vercel. Sin ellas, la app se
+muestra como visitante anónimo y las páginas abren.
+
+Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01FyrZFdU3Dnb8A5a2DqGJpo
+---
+ src/features/account/controllers/get-session.ts      |  3 +++
+ src/features/account/controllers/get-subscription.ts |  3 +++
+ src/features/account/controllers/get-user.ts         |  3 +++
+ src/libs/supabase/is-supabase-configured.ts          | 11 +++++++++++
+ src/libs/supabase/supabase-middleware-client.ts      |  5 +++++
+ 5 files changed, 25 insertions(+)
+ create mode 100644 src/libs/supabase/is-supabase-configured.ts
+
+diff --git a/src/features/account/controllers/get-session.ts b/src/features/account/controllers/get-session.ts
+index 389dcd7..ebe2705 100644
+--- a/src/features/account/controllers/get-session.ts
++++ b/src/features/account/controllers/get-session.ts
+@@ -1,6 +1,9 @@
++import { isSupabaseConfigured } from '@/libs/supabase/is-supabase-configured';
+ import { createSupabaseServerClient } from '@/libs/supabase/supabase-server-client';
+ 
+ export async function getSession() {
++  if (!isSupabaseConfigured()) return null;
++
+   const supabase = await createSupabaseServerClient();
+ 
+   const { data, error } = await supabase.auth.getSession();
+diff --git a/src/features/account/controllers/get-subscription.ts b/src/features/account/controllers/get-subscription.ts
+index fbafd33..c91e55c 100644
+--- a/src/features/account/controllers/get-subscription.ts
++++ b/src/features/account/controllers/get-subscription.ts
+@@ -1,6 +1,9 @@
++import { isSupabaseConfigured } from '@/libs/supabase/is-supabase-configured';
+ import { createSupabaseServerClient } from '@/libs/supabase/supabase-server-client';
+ 
+ export async function getSubscription() {
++  if (!isSupabaseConfigured()) return null;
++
+   const supabase = await createSupabaseServerClient();
+ 
+   const { data, error } = await supabase
+diff --git a/src/features/account/controllers/get-user.ts b/src/features/account/controllers/get-user.ts
+index db4478c..38f3794 100644
+--- a/src/features/account/controllers/get-user.ts
++++ b/src/features/account/controllers/get-user.ts
+@@ -1,6 +1,9 @@
++import { isSupabaseConfigured } from '@/libs/supabase/is-supabase-configured';
+ import { createSupabaseServerClient } from '@/libs/supabase/supabase-server-client';
+ 
+ export async function getUser() {
++  if (!isSupabaseConfigured()) return null;
++
+   const supabase = await createSupabaseServerClient();
+ 
+   const { data, error } = await supabase.from('users').select('*').single();
+diff --git a/src/libs/supabase/is-supabase-configured.ts b/src/libs/supabase/is-supabase-configured.ts
+new file mode 100644
+index 0000000..fe84ce3
+--- /dev/null
++++ b/src/libs/supabase/is-supabase-configured.ts
+@@ -0,0 +1,11 @@
++/**
++ * Indica si las credenciales públicas de Supabase están configuradas.
++ *
++ * Las previsualizaciones de Vercel de este repo se construyen y se sirven sin variables de
++ * entorno. Sin esta comprobación, el middleware falla en cada petición
++ * (`MIDDLEWARE_INVOCATION_FAILED`) y ninguna página abre, ni siquiera las legales, que
++ * deben ser accesibles siempre. Sin Supabase, la app se muestra como visitante anónimo.
++ */
++export function isSupabaseConfigured(): boolean {
++  return Boolean(process.env.NEXT_PUBLIC_SUPABASE_URL && process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY);
++}
+diff --git a/src/libs/supabase/supabase-middleware-client.ts b/src/libs/supabase/supabase-middleware-client.ts
+index 741f549..4ad3956 100644
+--- a/src/libs/supabase/supabase-middleware-client.ts
++++ b/src/libs/supabase/supabase-middleware-client.ts
+@@ -2,6 +2,7 @@
+ 
+ import { type NextRequest,NextResponse } from 'next/server';
+ 
++import { isSupabaseConfigured } from '@/libs/supabase/is-supabase-configured';
+ import { getEnvVar } from '@/utils/get-env-var';
+ import { createServerClient } from '@supabase/ssr';
+ 
+@@ -10,6 +11,10 @@ export async function updateSession(request: NextRequest) {
+     request,
+   });
+ 
++  if (!isSupabaseConfigured()) {
++    return supabaseResponse;
++  }
++
+   const supabase = createServerClient(
+     getEnvVar(process.env.NEXT_PUBLIC_SUPABASE_URL, 'NEXT_PUBLIC_SUPABASE_URL'),
+     getEnvVar(process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY, 'NEXT_PUBLIC_SUPABASE_ANON_KEY'),
+-- 
+2.43.0
+
