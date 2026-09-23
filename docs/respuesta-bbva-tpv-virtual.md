@@ -21,12 +21,13 @@ sin necesidad de registro ni de iniciar sesión.
 - Domicilio social: Camino Vora Riu Solades 1176, 12540 Vila-real, Castellón, España
 - Correo electrónico de contacto: legal@secretkey.vip
 - Teléfono de atención: +34 614 59 44 06
-- Datos registrales: inscrita en el Registro Mercantil de Castellón. Sociedad de
-  responsabilidad limitada, de duración indefinida, con fecha de comienzo de operaciones el
-  16 de diciembre de 2025
+- Datos registrales: inscrita en el Registro Mercantil de Castellón, hoja CS-50580, folio
+  electrónico, inscripción 1. Identificador único europeo (EUID) ES12011.000207496. Sociedad
+  de responsabilidad limitada, de duración indefinida, con fecha de comienzo de operaciones
+  el 16 de diciembre de 2025
 - NIF: B25909565
 
-Esta información está publicada en: «https://DOMINIO»/aviso-legal
+Esta información está publicada en: https://www.secretkey.vip/aviso-legal
 
 **2. Términos y condiciones**
 
@@ -35,16 +36,16 @@ documentos:
 
 | Documento | URL |
 | --- | --- |
-| Índice de información legal | «https://DOMINIO»/legal |
-| Aviso legal (art. 10 LSSI) | «https://DOMINIO»/aviso-legal |
-| Términos y condiciones de contratación | «https://DOMINIO»/terminos-y-condiciones |
-| Cancelación de pedidos | «https://DOMINIO»/cancelacion |
-| Devolución y reembolso | «https://DOMINIO»/devoluciones |
-| Envíos y entrega | «https://DOMINIO»/envios |
-| Seguridad y protección al comprador | «https://DOMINIO»/seguridad-de-pago |
-| Privacidad y protección de datos | «https://DOMINIO»/privacidad |
-| Política de cookies | «https://DOMINIO»/cookies |
-| Contacto | «https://DOMINIO»/contacto |
+| Índice de información legal | https://www.secretkey.vip/legal |
+| Aviso legal (art. 10 LSSI) | https://www.secretkey.vip/aviso-legal |
+| Términos y condiciones de contratación | https://www.secretkey.vip/terminos-y-condiciones |
+| Cancelación de pedidos | https://www.secretkey.vip/cancelacion |
+| Devolución y reembolso | https://www.secretkey.vip/devoluciones |
+| Envíos y entrega | https://www.secretkey.vip/envios |
+| Seguridad y protección al comprador | https://www.secretkey.vip/seguridad-de-pago |
+| Privacidad y protección de datos | https://www.secretkey.vip/privacidad |
+| Política de cookies | https://www.secretkey.vip/cookies |
+| Contacto | https://www.secretkey.vip/contacto |
 
 El sitio cuenta además con banner de consentimiento de cookies conforme al artículo 22.2 de la LSSI:
 las cookies no necesarias no se cargan hasta que el usuario las acepta, y el rechazo y la revocación
@@ -57,8 +58,8 @@ la plataforma Redsys, sin proveedor de servicios de pago intermedio**.
 
 Aprovechamos para consultaros dos puntos de configuración del comercio:
 
-- La membresía se cobra de forma recurrente, por lo que necesitaríamos tener habilitado el
-  **pago por referencia** en el comercio.
+- La entrada anual se cobra de forma recurrente, por lo que necesitaríamos tener habilitado
+  el **pago por referencia** en el comercio (número de comercio 370662108).
 - Confirmadnos el **entorno de Redsys**, el número de terminal y la moneda con los que debemos
   configurar la integración.
 
@@ -66,8 +67,8 @@ Quedamos a vuestra disposición para facilitar cualquier documentación adiciona
 
 **4. Naturaleza del servicio**
 
-THE SECRET KEY LABS, S.L. opera una plataforma privada de membresía que da acceso a servicios y
-experiencias. La entrega es fundamentalmente electrónica: el acceso se activa de forma inmediata tras
+THE SECRET KEY LABS, S.L. opera una plataforma privada de acceso por suscripción anual a
+servicios y experiencias. La entrega es fundamentalmente electrónica: el acceso se activa de forma inmediata tras
 la confirmación del pago, y las condiciones de entrega y de envío de cualquier elemento físico están
 detalladas en la URL indicada más arriba.
 

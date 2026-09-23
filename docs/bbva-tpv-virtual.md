@@ -71,7 +71,7 @@ En `legal-config.ts`, `payments.ipsp` queda en `null`, que es lo que ya refleja 
 - [`despliegue-vercel.md`](despliegue-vercel.md) — dominio, HTTPS, variables de entorno y la
   comprobación en ventana de incógnito antes de escribir a BBVA. **Ojo con la protección de
   despliegue de Vercel: si está activa, BBVA no puede ver los textos legales.**
-- [`integracion-ghl.md`](integracion-ghl.md) — GoHighLevel como CRM, y por qué la membresía **no**
+- [`integracion-ghl.md`](integracion-ghl.md) — GoHighLevel como CRM, y por qué la entrada al Círculo **se gestiona aparte** y
   debe cobrarse desde GHL: cambiaría la respuesta sobre el IPSP.
 - [`respuesta-bbva-tpv-virtual.md`](respuesta-bbva-tpv-virtual.md) — borrador del correo.
 

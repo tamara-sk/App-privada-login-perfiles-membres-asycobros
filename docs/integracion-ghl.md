@@ -13,9 +13,9 @@ La regla que evita duplicar sistemas y datos:
 | Responsabilidad | Sistema |
 | --- | --- |
 | Captación, funnels, formularios de solicitud de acceso | **GHL** |
-| Seguimiento comercial del lead hasta que se convierte en miembro | **GHL** |
+| Seguimiento comercial del lead hasta que entra en el Círculo | **GHL** |
 | Campañas de email y SMS, secuencias, recordatorios comerciales | **GHL** |
-| Identidad del miembro, login y perfil | **App (Supabase)** |
+| Identidad de la persona, login y perfil | **App (Supabase)** |
 | Cobro de la entrada al Círculo y facturación | **App (TPV BBVA, Redsys)** |
 | Correo transaccional (confirmación de pedido, factura, acceso) | **App (Resend)** |
 | Reservas de experiencias y su histórico | **App** |
@@ -26,7 +26,7 @@ poder acreditarse ante BBVA y ante el consumidor.
 
 ## 2. Punto de unión
 
-El momento en el que un lead de GHL se convierte en miembro de la app. Opciones, de menos a más
+El momento en el que un lead de GHL entra en el Círculo dentro de la app. Opciones, de menos a más
 trabajo:
 
 1. **Enlace simple.** GHL envía al lead a `/signup` con su email. Sin integración técnica; el lead
@@ -40,7 +40,7 @@ trabajo:
 
 **Recomendación: opción 2.** El punto natural de enganche es la notificación de Redsys en
 `src/app/api/redsys/notificacion/route.ts`, donde se confirma cada pago: ahí se sabe cuándo un
-miembro se da de alta, renueva o cancela.
+alguien entra, renueva o cancela.
 
 **[Por confirmar]** qué opción está montada hoy, si hay ya un webhook de GHL en uso y con qué campos.
 
@@ -57,17 +57,17 @@ Esto no es opcional, y conecta con el expediente de BBVA:
   IP y texto aceptado).
 - **Baja en un clic.** Toda comunicación comercial debe incluir un medio sencillo y gratuito de
   oponerse. Las secuencias de GHL tienen que llevarlo.
-- **Derechos RGPD.** Si un miembro ejerce supresión o portabilidad, hay que atenderlo **también en
+- **Derechos RGPD.** Si alguien del Círculo ejerce supresión o portabilidad, hay que atenderlo **también en
   GHL**, no solo en la base de datos de la app. Conviene tener escrito el procedimiento.
 - **Enlace a la política de privacidad** en todos los formularios de GHL, apuntando a
-  `https://TU-DOMINIO/privacidad`.
+  `https://www.secretkey.vip/privacidad`.
 
 **[Por confirmar]** si los formularios actuales de GHL recogen el consentimiento por separado y
 enlazan la política de privacidad.
 
 ## 4. Riesgo a vigilar: no cobrar desde GHL
 
-GHL permite cobrar con sus propias integraciones de pago. **No debe usarse para la membresía.**
+GHL permite cobrar con sus propias integraciones de pago. **El cobro de la entrada al Círculo va por Redsys.**
 Motivos:
 
 - El alta que se está tramitando con BBVA es para el TPV Virtual de **este** sitio. Un cobro que sale
@@ -77,7 +77,7 @@ Motivos:
 - Las condiciones de contratación, la factura y el justificante deben salir del mismo sistema que
   gestiona la relación contractual.
 
-**[Por confirmar]** que no hay ningún flujo de pago activo en GHL para la membresía.
+**[Por confirmar]** que el cobro de la entrada al Círculo vive por completo en Redsys, y que GHL queda al margen.
 
 ## 5. Datos que la app enviaría a GHL
 
@@ -88,11 +88,11 @@ RGPD):
 | --- | --- |
 | Email | Identificar el contacto en GHL |
 | Nombre | Personalizar la comunicación |
-| Estado de la membresía | Mover de etapa (alta, activa, cancelada) |
+| Estado de la entrada al Círculo | Mover de etapa (alta, activa, cancelada) |
 | Plan contratado | Segmentar secuencias |
 | Fecha de alta o renovación | Disparar recordatorios |
 
-**Nunca** se envían a GHL datos de pago, datos de tarjeta ni información sensible que un miembro haya
+**Nunca** se envían a GHL datos de pago, datos de tarjeta ni información sensible que alguien del Círculo haya
 facilitado para una experiencia (alergias, salud, necesidades específicas).
 
 ## 6. Siguientes pasos

@@ -46,7 +46,7 @@ rellenan al enlazar el proyecto: `UPDATE_THIS_WITH_YOUR_SUPABASE_PROJECT_ID` en 
 
 ## 3. Notificación de Redsys
 
-Redsys confirma cada cobro llamando a `https://TU-DOMINIO/api/redsys/notificacion`
+Redsys confirma cada cobro llamando a `https://www.secretkey.vip/api/redsys/notificacion`
 (`src/app/api/redsys/notificacion/route.ts`). La app envía esa URL en cada pago, así que en el
 módulo de administración de Redsys no hay nada que configurar. Solo hace falta que la URL sea
 pública: **sin protección de despliegue de Vercel** en el entorno que cobra.
@@ -66,18 +66,18 @@ Pasa a `live` solo cuando una compra de prueba complete el circuito entero.
 Abre una **ventana de incógnito** (sin sesión) y verifica que cargan:
 
 ```
-https://TU-DOMINIO/legal
-https://TU-DOMINIO/aviso-legal
-https://TU-DOMINIO/terminos-y-condiciones
-https://TU-DOMINIO/cancelacion
-https://TU-DOMINIO/devoluciones
-https://TU-DOMINIO/envios
-https://TU-DOMINIO/seguridad-de-pago
-https://TU-DOMINIO/privacidad
-https://TU-DOMINIO/cookies
-https://TU-DOMINIO/contacto
-https://TU-DOMINIO/sitemap.xml
-https://TU-DOMINIO/robots.txt
+https://www.secretkey.vip/legal
+https://www.secretkey.vip/aviso-legal
+https://www.secretkey.vip/terminos-y-condiciones
+https://www.secretkey.vip/cancelacion
+https://www.secretkey.vip/devoluciones
+https://www.secretkey.vip/envios
+https://www.secretkey.vip/seguridad-de-pago
+https://www.secretkey.vip/privacidad
+https://www.secretkey.vip/cookies
+https://www.secretkey.vip/contacto
+https://www.secretkey.vip/sitemap.xml
+https://www.secretkey.vip/robots.txt
 ```
 
 Y que en `/aviso-legal` **no** aparece ningún `[COMPLETAR: ...]`. Antes de desplegar:
@@ -91,5 +91,5 @@ tratamiento de datos (DPA), que Vercel ofrece desde el panel de la cuenta.
 
 Para la base de datos, lo más sencillo desde el punto de vista de cumplimiento es alojar el proyecto
 de **Supabase en una región de la Unión Europea** (por ejemplo Frankfurt): evita la transferencia
-internacional de los datos de miembros. Conviene confirmar la región del proyecto actual y, si está
+internacional de los datos del Círculo. Conviene confirmar la región del proyecto actual y, si está
 fuera del EEE, ajustar la línea correspondiente de `legalConfig.processors`.
