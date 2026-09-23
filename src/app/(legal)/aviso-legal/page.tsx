@@ -36,7 +36,14 @@ export default function AvisoLegalPage() {
         {company.tradeName}. Puedes escribirnos también desde la página de <Link href='/contacto'>contacto</Link>.
       </p>
 
-      <h2>2. Objeto y ámbito de aplicación</h2>
+      <h2>2. Objeto social</h2>
+      <p>{company.corporatePurpose}</p>
+      <p>
+        {company.legalName} es una {company.legalForm.toLowerCase()}, con fecha de comienzo de operaciones el{' '}
+        {company.operationsSince}.
+      </p>
+
+      <h2>3. Objeto y ámbito de aplicación</h2>
       <p>
         El presente aviso legal regula el acceso y el uso del sitio web y de la aplicación privada de {brand.name} (en
         adelante, el «Sitio»), a través de los cuales {company.tradeName} ofrece un ecosistema de optimización del
@@ -49,7 +56,7 @@ export default function AvisoLegalPage() {
         <Link href='/terminos-y-condiciones'>términos y condiciones</Link>.
       </p>
 
-      <h2>3. Condiciones de uso del Sitio</h2>
+      <h2>4. Condiciones de uso del Sitio</h2>
       <p>El usuario se compromete a:</p>
       <ul>
         <li>Utilizar el Sitio conforme a la ley, a este aviso legal, a la buena fe y al orden público.</li>
@@ -68,7 +75,7 @@ export default function AvisoLegalPage() {
         sin perjuicio de las acciones legales que correspondan.
       </p>
 
-      <h2>4. Propiedad intelectual e industrial</h2>
+      <h2>5. Propiedad intelectual e industrial</h2>
       <p>
         Todos los contenidos del Sitio —textos, fotografías, gráficos, imágenes, marcas, logotipos, diseño, código
         fuente, bases de datos y selección o presentación de contenidos— son titularidad de {company.tradeName} o de
@@ -80,7 +87,7 @@ export default function AvisoLegalPage() {
         usuario ningún derecho sobre dichos contenidos.
       </p>
 
-      <h2>5. Responsabilidad</h2>
+      <h2>6. Responsabilidad</h2>
       <p>
         {company.tradeName} adopta medidas técnicas y organizativas razonables para que el Sitio funcione de forma
         continuada y segura, pero no puede garantizar la ausencia total de interrupciones, errores o de elementos
@@ -92,7 +99,7 @@ export default function AvisoLegalPage() {
         políticas, que el usuario debe consultar de forma independiente.
       </p>
 
-      <h2>6. Medios de pago</h2>
+      <h2>7. Medios de pago</h2>
       <p>
         Los pagos se procesan a través del TPV Virtual de {legalConfig.payments.acquirer}, con la plataforma{' '}
         {legalConfig.payments.gateway}.
@@ -102,14 +109,14 @@ export default function AvisoLegalPage() {
         Puedes consultar el detalle en <Link href='/seguridad-de-pago'>seguridad y protección al comprador</Link>.
       </p>
 
-      <h2>7. Protección de datos</h2>
+      <h2>8. Protección de datos</h2>
       <p>
         El tratamiento de los datos personales de los usuarios se describe en la{' '}
         <Link href='/privacidad'>política de privacidad</Link>, elaborada conforme al Reglamento (UE) 2016/679 (RGPD) y
         a la Ley Orgánica 3/2018, de 5 de diciembre (LOPDGDD).
       </p>
 
-      <h2>8. Comunicaciones comerciales</h2>
+      <h2>9. Comunicaciones comerciales</h2>
       <p>
         Conforme a los artículos 20 y 21 de la LSSI-CE, {company.tradeName} solo remite comunicaciones comerciales por
         vía electrónica cuando el destinatario lo ha solicitado o autorizado expresamente, o cuando existe una relación
@@ -117,7 +124,7 @@ export default function AvisoLegalPage() {
         como tal e incluye un medio sencillo y gratuito para oponerse a recibirla.
       </p>
 
-      <h2>9. Legislación aplicable y jurisdicción</h2>
+      <h2>10. Legislación aplicable y jurisdicción</h2>
       <p>
         Este aviso legal se rige por la legislación española. Para la resolución de cualquier controversia, las partes
         se someten a los juzgados y tribunales que resulten competentes conforme a derecho; cuando el usuario tenga la
@@ -132,7 +139,7 @@ export default function AvisoLegalPage() {
         .
       </p>
 
-      <h2>10. Modificaciones</h2>
+      <h2>11. Modificaciones</h2>
       <p>
         {company.tradeName} se reserva el derecho de modificar este aviso legal para adaptarlo a novedades legislativas
         o a cambios en el Sitio. La versión vigente es siempre la publicada en esta página, con indicación de su fecha

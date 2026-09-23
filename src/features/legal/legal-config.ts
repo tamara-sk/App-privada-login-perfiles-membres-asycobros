@@ -30,6 +30,16 @@ export const legalConfig = {
     legalName: 'The Secret Key Labs, S.L.',
     /** Nombre comercial, si difiere de la denominación social. */
     tradeName: 'Secret Key',
+    /** Forma social, según el Registro Mercantil. */
+    legalForm: 'Sociedad de responsabilidad limitada, de duración indefinida',
+    /** Fecha de comienzo de operaciones inscrita. */
+    operationsSince: '16 de diciembre de 2025',
+    /**
+     * Objeto social inscrito, literal del listado de actos inscritos del Registro Mercantil
+     * de Castellón. Coincide con el que ya publica el aviso legal de secretkey.vip.
+     */
+    corporatePurpose:
+      'La organización, gestión, promoción, producción y desarrollo integral de ferias, exposiciones, congresos, convenciones, conferencias, seminarios, presentaciones y eventos corporativos, culturales, comerciales o promocionales de cualquier naturaleza, así como la prestación de servicios auxiliares.',
     /** NIF / CIF de la sociedad (art. 10.1 c). */
     taxId: 'B25909565',
     /** Domicilio social o establecimiento permanente en España (art. 10.1 a). */
