@@ -15,7 +15,7 @@ cerrar el alta del TPV Virtual. Copia y pega desde aquí.
 | Registro Mercantil | **Castellón** (confirmado) |
 | Escritura de constitución | 16/12/2025, protocolo 1779, notario JCHB |
 | Teléfono de atención | ⚠️ **PENDIENTE** — decisión de Tamara |
-| Tomo / folio / hoja / inscripción | ⚠️ **PENDIENTE** — están en el PDF citado abajo |
+| Tomo / folio / hoja / inscripción | No constan en la documentación disponible. Ver nota abajo |
 
 Los cuatro datos registrales que faltan están en las **últimas páginas** de la escritura de
 constitución, en las certificaciones de inscripción y liquidación:

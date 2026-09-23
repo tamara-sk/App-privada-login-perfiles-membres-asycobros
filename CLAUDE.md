@@ -80,8 +80,16 @@ publicado en secretkey.vip. La variante «Camí Vora Riu Solades 1771» que circ
 código era errónea: mismos dígitos, orden cambiado. Es el dato que BBVA contrasta contra la
 escritura, así que no debe volver a bailar.
 
-Pendientes: tomo, folio, hoja (CS-…) e inscripción. Están en la nota de inscripción de la
-escritura, que es una hoja distinta del sello de presentación del 07/01/2026.
+**El tomo, el folio, la hoja (CS-…) y la inscripción no están en la documentación
+disponible.** Se han revisado la escritura de constitución, el listado de actos inscritos
+(entrada 1/2026/72) y la correspondencia entera: los documentos llevan el sello del asiento
+de presentación, cuyos campos «T.» y «F.» van sin rellenar. **No hay que volver a pedírselos
+a Tamara.**
+
+El art. 10.1 b) queda cubierto con `registry.statement`, la misma redacción que publica el
+aviso legal de secretkey.vip y que respalda el listado de actos inscritos. Para publicar la
+referencia completa basta con rellenar `registry.reference` con los datos de una nota simple
+del Registro Mercantil de Castellón, y el texto cambia solo.
 
 ## Pagos — decidido: Redsys
 

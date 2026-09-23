@@ -62,15 +62,26 @@ export const legalConfig = {
      * secretkey.vip. Es una redacción defendible; los números la completan cuando lleguen.
      */
     registry: {
-      /** Redacción que se publica mientras faltan los números. */
+      name: 'Registro Mercantil de Castellón',
+      /**
+       * Redacción que acredita la inscripción a efectos del art. 10.1 b) LSSI. Es la misma
+       * que publica el aviso legal de secretkey.vip, y está respaldada por el listado de
+       * actos inscritos del Registro Mercantil de Castellón (entrada 1/2026/72).
+       */
       statement:
         'Inscrita en el Registro Mercantil de Castellón. Sociedad de responsabilidad limitada, de duración indefinida, con fecha de comienzo de operaciones el 16 de diciembre de 2025.',
-      name: 'Registro Mercantil de Castellón',
-      volume: '[COMPLETAR: tomo]',
-      book: '[COMPLETAR: libro, si aplica]',
-      folio: '[COMPLETAR: folio]',
-      sheet: '[COMPLETAR: hoja]',
-      entry: '[COMPLETAR: inscripción]',
+      /**
+       * Referencia completa (tomo, folio, hoja CS-… e inscripción).
+       *
+       * NO está en la documentación disponible: ni en la escritura de constitución, ni en el
+       * listado de actos inscritos, ni en ningún correo. Esos documentos llevan el sello del
+       * asiento de presentación, cuyos campos «T.» y «F.» van sin rellenar.
+       *
+       * Obtenerla requiere una nota simple del Registro Mercantil de Castellón (unos 3 € en
+       * registradores.org). Es una mejora del texto, y el art. 10.1 b) queda cubierto sin
+       * ella: basta con rellenar este objeto para que la referencia se publique sola.
+       */
+      reference: null as null | { volume: string; folio: string; sheet: string; entry: string },
     },
   },
 
@@ -153,17 +164,15 @@ export function formatAddress(): string {
 /**
  * Datos registrales en una sola línea (art. 10.1 b LSSI).
  *
- * Devuelve la referencia completa en cuanto el tomo, el folio, la hoja y la inscripción
- * están disponibles; hasta entonces, la redacción de `statement`.
+ * Publica la referencia completa en cuanto `registry.reference` deja de ser null; hasta
+ * entonces, la redacción de `registry.statement`, que ya acredita la inscripción.
  */
 export function formatRegistry(): string {
-  const { name, statement, volume, book, folio, sheet, entry } = legalConfig.company.registry;
-  if ([volume, folio, sheet, entry].some(isPending)) return statement;
+  const { name, statement, reference } = legalConfig.company.registry;
+  if (!reference) return statement;
 
-  const parts = [`tomo ${volume}`];
-  if (!isPending(book)) parts.push(`libro ${book}`);
-  parts.push(`folio ${folio}`, `hoja ${sheet}`, `inscripción ${entry}`);
-  return `Inscrita en el ${name}, ${parts.join(', ')}.`;
+  const { volume, folio, sheet, entry } = reference;
+  return `Inscrita en el ${name}, tomo ${volume}, folio ${folio}, hoja ${sheet}, inscripción ${entry}.`;
 }
 
 /** Fecha de actualización en formato legible en español. */
