@@ -12,8 +12,8 @@ import { toast } from '@/components/ui/use-toast';
 import { ActionResponse } from '@/types/action-response';
 
 const titleMap = {
-  login: 'Login to UPDATE_THIS_WITH_YOUR_APP_DISPLAY_NAME',
-  signup: 'Join UPDATE_THIS_WITH_YOUR_APP_DISPLAY_NAME and start generating banners for free',
+  login: 'Accede a tu cuenta de Secret Key',
+  signup: 'Solicita tu acceso a Secret Key',
 } as const;
 
 export function AuthUI({
@@ -38,11 +38,11 @@ export function AuthUI({
     if (response?.error) {
       toast({
         variant: 'destructive',
-        description: 'An error occurred while authenticating. Please try again.',
+        description: 'No hemos podido completar la autenticación. Vuelve a intentarlo.',
       });
     } else {
       toast({
-        description: `To continue, click the link in the email sent to: ${email}`,
+        description: `Para continuar, pulsa el enlace que hemos enviado a: ${email}`,
       });
     }
 
@@ -57,7 +57,7 @@ export function AuthUI({
     if (response?.error) {
       toast({
         variant: 'destructive',
-        description: 'An error occurred while authenticating. Please try again.',
+        description: 'No hemos podido completar la autenticación. Vuelve a intentarlo.',
       });
       setPending(false);
     }
@@ -76,7 +76,7 @@ export function AuthUI({
           disabled={pending}
         >
           <IoLogoGoogle size={20} />
-          Continue with Google
+          Continuar con Google
         </button>
         <button
           className='flex items-center justify-center gap-2 rounded-md bg-fuchsia-500 py-4 font-medium text-black transition-all hover:bg-fuchsia-400 disabled:bg-neutral-700'
@@ -84,7 +84,7 @@ export function AuthUI({
           disabled={pending}
         >
           <IoLogoGithub size={20} />
-          Continue with GitHub
+          Continuar con GitHub
         </button>
 
         <Collapsible open={emailFormOpen} onOpenChange={setEmailFormOpen}>
@@ -93,7 +93,7 @@ export function AuthUI({
               className='text-neutral6 flex w-full items-center justify-center gap-2 rounded-md bg-zinc-900 py-4 font-medium transition-all hover:bg-zinc-800 disabled:bg-neutral-700 disabled:text-black'
               disabled={pending}
             >
-              Continue with Email
+              Continuar con correo electrónico
             </button>
           </CollapsibleTrigger>
           <CollapsibleContent>
@@ -102,16 +102,16 @@ export function AuthUI({
                 <Input
                   type='email'
                   name='email'
-                  placeholder='Enter your email'
-                  aria-label='Enter your email'
+                  placeholder='Tu correo electrónico'
+                  aria-label='Tu correo electrónico'
                   autoFocus
                 />
                 <div className='mt-4 flex justify-end gap-2'>
                   <Button type='button' onClick={() => setEmailFormOpen(false)}>
-                    Cancel
+                    Cancelar
                   </Button>
                   <Button variant='secondary' type='submit'>
-                    Submit
+                    Enviar
                   </Button>
                 </div>
               </form>
@@ -121,13 +121,13 @@ export function AuthUI({
       </div>
       {mode === 'signup' && (
         <span className='text-neutral5 m-auto max-w-sm text-sm'>
-          By clicking continue, you agree to our{' '}
-          <Link href='/terms' className='underline'>
-            Terms of Service
+          Al continuar, aceptas nuestros{' '}
+          <Link href='/terminos-y-condiciones' className='underline'>
+            términos y condiciones
           </Link>{' '}
-          and{' '}
-          <Link href='/privacy' className='underline'>
-            Privacy Policy
+          y nuestra{' '}
+          <Link href='/privacidad' className='underline'>
+            política de privacidad
           </Link>
           .
         </span>
