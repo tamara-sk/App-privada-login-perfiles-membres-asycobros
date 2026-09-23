@@ -124,7 +124,7 @@ export const legalConfig = {
     /**
      * Proveedor de servicios de pago (IPSP) intermedio, si se utiliza uno.
      * Déjalo a null si el cobro se realiza directamente contra el TPV Virtual de BBVA.
-     * Si se usa un IPSP (Stripe, Adyen, PayPal, Redsys vía agregador...), indícalo aquí
+     * Si se usa un IPSP (un agregador que se interponga entre el sitio y BBVA), indícalo aquí
      * Y comunícaselo a BBVA: lo piden expresamente para tramitar el alta correctamente.
      */
     ipsp: null as null | { name: string; legalName: string; role: string },
