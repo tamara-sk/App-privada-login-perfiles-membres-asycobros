@@ -27,9 +27,12 @@ Configúralas en Vercel → Project → Settings → Environment Variables, para
 | `NEXT_PUBLIC_SUPABASE_ANON_KEY` | Supabase → Project Settings → API |
 | `SUPABASE_SERVICE_ROLE_KEY` | Supabase → Project Settings → API (**secreta**, solo servidor) |
 | `SUPABASE_DB_PASSWORD` | Supabase → Project Settings → Database |
-| `NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY` | Stripe → Developers → API keys |
-| `STRIPE_SECRET_KEY` | Stripe → Developers → API keys (**secreta**) |
-| `STRIPE_WEBHOOK_SECRET` | Stripe → Developers → Webhooks, tras crear el endpoint |
+| `REDSYS_MERCHANT_CODE` | Número de comercio de BBVA: `370662108` |
+| `REDSYS_TERMINAL` | Número de terminal que da BBVA (normalmente `1`) |
+| `REDSYS_SECRET_KEY` | Clave de firma SHA-256 que da BBVA (**secreta**, solo servidor) |
+| `REDSYS_ENV` | `test` para pruebas, `live` para cobros reales |
+| `REDSYS_CURRENCY` | `978` (euros). Opcional |
+| `REDSYS_PAGO_REFERENCIA` | `true` solo cuando BBVA active el pago por referencia. Opcional |
 | `RESEND_API_KEY` | Resend → API Keys |
 | `NEXT_PUBLIC_SITE_URL` | El dominio definitivo, con `https://` y sin barra final |
 
@@ -41,15 +44,15 @@ Quedan dos marcadores en `package.json` que son identificadores de Supabase, no 
 rellenan al enlazar el proyecto: `UPDATE_THIS_WITH_YOUR_SUPABASE_PROJECT_ID` en los scripts
 `generate-types` y `supabase:link`.
 
-## 3. Webhook de Stripe
+## 3. Notificación de Redsys
 
-El endpoint está en `/api/webhooks` (`src/app/api/webhooks/route.ts`) y sincroniza productos, precios
-y suscripciones con Supabase. Tras el primer despliegue:
+Redsys confirma cada cobro llamando a `https://TU-DOMINIO/api/redsys/notificacion`
+(`src/app/api/redsys/notificacion/route.ts`). La app envía esa URL en cada pago, así que en el
+módulo de administración de Redsys no hay nada que configurar. Solo hace falta que la URL sea
+pública: **sin protección de despliegue de Vercel** en el entorno que cobra.
 
-1. Stripe → Developers → Webhooks → Add endpoint → `https://TU-DOMINIO/api/webhooks`.
-2. Copia el *signing secret* en `STRIPE_WEBHOOK_SECRET` y vuelve a desplegar.
-
-En local: `npm run stripe:listen`.
+Para probar, deja `REDSYS_ENV=test` y usa la clave de pruebas y las tarjetas de prueba que da BBVA.
+Pasa a `live` solo cuando una compra de prueba complete el circuito entero.
 
 ## 4. Dominio
 

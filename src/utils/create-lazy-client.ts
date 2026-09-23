@@ -1,7 +1,7 @@
 /**
  * Defers construction of an SDK client until something actually uses it.
  *
- * Stripe, Supabase and Resend all read their credentials while the module is
+ * Supabase and Resend both read their credentials while the module is
  * being imported. Next evaluates every server module when it collects page
  * data, so one missing key turns an ordinary build into a hard failure - which
  * is how a preview deployment with no environment variables dies at

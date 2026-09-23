@@ -5,7 +5,7 @@ import { IoCalendarOutline, IoKeyOutline, IoSparklesOutline, IoTimeOutline } fro
 import { Container } from '@/components/container';
 import { Button } from '@/components/ui/button';
 import { legalConfig } from '@/features/legal/legal-config';
-import { PricingSection } from '@/features/pricing/components/pricing-section';
+import { PricingSection } from '@/features/membership/components/pricing-section';
 
 export default async function HomePage() {
   return (

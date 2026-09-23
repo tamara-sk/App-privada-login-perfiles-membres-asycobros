@@ -2,6 +2,7 @@
 
 import { type NextRequest,NextResponse } from 'next/server';
 
+import { isSupabaseConfigured } from '@/libs/supabase/is-supabase-configured';
 import { getEnvVar } from '@/utils/get-env-var';
 import { createServerClient } from '@supabase/ssr';
 
@@ -9,6 +10,10 @@ export async function updateSession(request: NextRequest) {
   let supabaseResponse = NextResponse.next({
     request,
   });
+
+  if (!isSupabaseConfigured()) {
+    return supabaseResponse;
+  }
 
   const supabase = createServerClient(
     getEnvVar(process.env.NEXT_PUBLIC_SUPABASE_URL, 'NEXT_PUBLIC_SUPABASE_URL'),

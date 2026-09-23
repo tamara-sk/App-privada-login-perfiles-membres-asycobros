@@ -3,174 +3,103 @@ export type Json = string | number | boolean | null | { [key: string]: Json | un
 export interface Database {
   public: {
     Tables: {
-      customers: {
+      memberships: {
         Row: {
-          id: string;
-          stripe_customer_id: string | null;
-        };
-        Insert: {
-          id: string;
-          stripe_customer_id?: string | null;
-        };
-        Update: {
-          id?: string;
-          stripe_customer_id?: string | null;
-        };
-        Relationships: [
-          {
-            foreignKeyName: 'customers_id_fkey';
-            columns: ['id'];
-            isOneToOne: true;
-            referencedRelation: 'users';
-            referencedColumns: ['id'];
-          }
-        ];
-      };
-      prices: {
-        Row: {
-          active: boolean | null;
-          currency: string | null;
-          description: string | null;
-          id: string;
-          interval: Database['public']['Enums']['pricing_plan_interval'] | null;
-          interval_count: number | null;
-          metadata: Json | null;
-          product_id: string | null;
-          trial_period_days: number | null;
-          type: Database['public']['Enums']['pricing_type'] | null;
-          unit_amount: number | null;
-        };
-        Insert: {
-          active?: boolean | null;
-          currency?: string | null;
-          description?: string | null;
-          id: string;
-          interval?: Database['public']['Enums']['pricing_plan_interval'] | null;
-          interval_count?: number | null;
-          metadata?: Json | null;
-          product_id?: string | null;
-          trial_period_days?: number | null;
-          type?: Database['public']['Enums']['pricing_type'] | null;
-          unit_amount?: number | null;
-        };
-        Update: {
-          active?: boolean | null;
-          currency?: string | null;
-          description?: string | null;
-          id?: string;
-          interval?: Database['public']['Enums']['pricing_plan_interval'] | null;
-          interval_count?: number | null;
-          metadata?: Json | null;
-          product_id?: string | null;
-          trial_period_days?: number | null;
-          type?: Database['public']['Enums']['pricing_type'] | null;
-          unit_amount?: number | null;
-        };
-        Relationships: [
-          {
-            foreignKeyName: 'prices_product_id_fkey';
-            columns: ['product_id'];
-            isOneToOne: false;
-            referencedRelation: 'products';
-            referencedColumns: ['id'];
-          }
-        ];
-      };
-      products: {
-        Row: {
-          active: boolean | null;
-          description: string | null;
-          id: string;
-          image: string | null;
-          metadata: Json | null;
-          name: string | null;
-        };
-        Insert: {
-          active?: boolean | null;
-          description?: string | null;
-          id: string;
-          image?: string | null;
-          metadata?: Json | null;
-          name?: string | null;
-        };
-        Update: {
-          active?: boolean | null;
-          description?: string | null;
-          id?: string;
-          image?: string | null;
-          metadata?: Json | null;
-          name?: string | null;
-        };
-        Relationships: [];
-      };
-      subscriptions: {
-        Row: {
-          cancel_at: string | null;
-          cancel_at_period_end: boolean | null;
-          canceled_at: string | null;
-          created: string;
+          cancel_at_period_end: boolean;
           current_period_end: string;
           current_period_start: string;
-          ended_at: string | null;
-          id: string;
-          metadata: Json | null;
-          price_id: string | null;
-          quantity: number | null;
-          status: Database['public']['Enums']['subscription_status'] | null;
-          trial_end: string | null;
-          trial_start: string | null;
+          last_payment_id: string | null;
+          plan: string;
+          redsys_cof_txnid: string | null;
+          redsys_identifier: string | null;
+          status: Database['public']['Enums']['membership_status'];
+          updated_at: string;
           user_id: string;
         };
         Insert: {
-          cancel_at?: string | null;
-          cancel_at_period_end?: boolean | null;
-          canceled_at?: string | null;
-          created?: string;
-          current_period_end?: string;
-          current_period_start?: string;
-          ended_at?: string | null;
-          id: string;
-          metadata?: Json | null;
-          price_id?: string | null;
-          quantity?: number | null;
-          status?: Database['public']['Enums']['subscription_status'] | null;
-          trial_end?: string | null;
-          trial_start?: string | null;
+          cancel_at_period_end?: boolean;
+          current_period_end: string;
+          current_period_start: string;
+          last_payment_id?: string | null;
+          plan: string;
+          redsys_cof_txnid?: string | null;
+          redsys_identifier?: string | null;
+          status?: Database['public']['Enums']['membership_status'];
+          updated_at?: string;
           user_id: string;
         };
         Update: {
-          cancel_at?: string | null;
-          cancel_at_period_end?: boolean | null;
-          canceled_at?: string | null;
-          created?: string;
+          cancel_at_period_end?: boolean;
           current_period_end?: string;
           current_period_start?: string;
-          ended_at?: string | null;
-          id?: string;
-          metadata?: Json | null;
-          price_id?: string | null;
-          quantity?: number | null;
-          status?: Database['public']['Enums']['subscription_status'] | null;
-          trial_end?: string | null;
-          trial_start?: string | null;
+          last_payment_id?: string | null;
+          plan?: string;
+          redsys_cof_txnid?: string | null;
+          redsys_identifier?: string | null;
+          status?: Database['public']['Enums']['membership_status'];
+          updated_at?: string;
           user_id?: string;
         };
         Relationships: [
           {
-            foreignKeyName: 'subscriptions_price_id_fkey';
-            columns: ['price_id'];
+            foreignKeyName: 'memberships_last_payment_id_fkey';
+            columns: ['last_payment_id'];
             isOneToOne: false;
-            referencedRelation: 'prices';
-            referencedColumns: ['id'];
-          },
-          {
-            foreignKeyName: 'subscriptions_user_id_fkey';
-            columns: ['user_id'];
-            isOneToOne: false;
-            referencedRelation: 'users';
+            referencedRelation: 'payments';
             referencedColumns: ['id'];
           }
         ];
+      };
+      payments: {
+        Row: {
+          amount: number;
+          authorisation_code: string | null;
+          created_at: string;
+          currency: string;
+          id: string;
+          order: string;
+          plan: string;
+          raw_notification: Json | null;
+          redsys_cof_txnid: string | null;
+          redsys_identifier: string | null;
+          response_code: string | null;
+          status: Database['public']['Enums']['payment_status'];
+          updated_at: string;
+          user_id: string;
+        };
+        Insert: {
+          amount: number;
+          authorisation_code?: string | null;
+          created_at?: string;
+          currency?: string;
+          id?: string;
+          order: string;
+          plan: string;
+          raw_notification?: Json | null;
+          redsys_cof_txnid?: string | null;
+          redsys_identifier?: string | null;
+          response_code?: string | null;
+          status?: Database['public']['Enums']['payment_status'];
+          updated_at?: string;
+          user_id: string;
+        };
+        Update: {
+          amount?: number;
+          authorisation_code?: string | null;
+          created_at?: string;
+          currency?: string;
+          id?: string;
+          order?: string;
+          plan?: string;
+          raw_notification?: Json | null;
+          redsys_cof_txnid?: string | null;
+          redsys_identifier?: string | null;
+          response_code?: string | null;
+          status?: Database['public']['Enums']['payment_status'];
+          updated_at?: string;
+          user_id?: string;
+        };
+        Relationships: [];
       };
       users: {
         Row: {
@@ -178,21 +107,18 @@ export interface Database {
           billing_address: Json | null;
           full_name: string | null;
           id: string;
-          payment_method: Json | null;
         };
         Insert: {
           avatar_url?: string | null;
           billing_address?: Json | null;
           full_name?: string | null;
           id: string;
-          payment_method?: Json | null;
         };
         Update: {
           avatar_url?: string | null;
           billing_address?: Json | null;
           full_name?: string | null;
           id?: string;
-          payment_method?: Json | null;
         };
         Relationships: [
           {
@@ -212,17 +138,8 @@ export interface Database {
       [_ in never]: never;
     };
     Enums: {
-      pricing_plan_interval: 'day' | 'week' | 'month' | 'year';
-      pricing_type: 'one_time' | 'recurring';
-      subscription_status:
-        | 'trialing'
-        | 'active'
-        | 'canceled'
-        | 'incomplete'
-        | 'incomplete_expired'
-        | 'past_due'
-        | 'unpaid'
-        | 'paused';
+      membership_status: 'active' | 'expired' | 'canceled';
+      payment_status: 'pending' | 'paid' | 'failed';
     };
     CompositeTypes: {
       [_ in never]: never;

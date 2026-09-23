@@ -108,9 +108,28 @@ que circulaba, y ya está literal en `legalConfig.company.corporatePurpose`.
 
 Secret Key cobra por el **TPV Virtual de BBVA, sobre Redsys**. La decisión está tomada.
 
-El código de este repositorio todavía usa **Stripe**, tanto para las suscripciones como para
-la tienda. Es anterior a esa decisión y hay que sustituirlo: trata toda ruta de Stripe como
-provisional.
+En esta rama **Stripe ya está eliminado**. El cobro de las entradas al Círculo va por Redsys:
+
+| Pieza | Dónde |
+| --- | --- |
+| Firma y formulario | `src/libs/redsys/` (verificada contra una implementación de referencia) |
+| Precios | `src/features/membership/plans.ts`, la única fuente; se releen en el servidor |
+| Inicio del pago | `startPaymentAction` → `/pago/[pedido]`, que envía el formulario al banco |
+| Confirmación | `/api/redsys/notificacion`: única fuente de verdad del cobro |
+| Datos | tablas `payments` y `memberships` (migración `20260923120000_redsys_payments.sql`) |
+
+- Número de comercio: **370662108**. Terminal, clave de firma y entorno van en variables de
+  entorno (`REDSYS_*`, ver `.env.local.example`). La clave de firma **jamás** en git.
+- La vuelta del navegador a `/pago/resultado` solo informa; el cobro lo confirma la
+  notificación firmada, que además comprueba que el importe coincide con el registrado.
+- La renovación es manual («Renovar un año más» en `/account`). `REDSYS_PAGO_REFERENCIA=true`
+  pide ya la referencia al banco y la guarda, para automatizar la renovación cuando BBVA active
+  el pago por referencia.
+- La tienda de `claude/funny-cannon-t9g3gh` sigue con Stripe Checkout: al reconciliar ramas
+  hay que pasarla a este mismo módulo.
+- **Referencia, no producción.** La app que cobra de verdad es la de Kumkum
+  (`kumkum020704/secret-key-app`), que ya integra Redsys. Este módulo sirve de referencia y de
+  cobro para la web; evita mantener dos lógicas de precios distintas.
 
 Lo que implica Redsys en la práctica:
 
@@ -124,8 +143,7 @@ Lo que implica Redsys en la práctica:
   impagos.
 - El número de pedido tiene un formato fijo que el banco valida, y cada uno se usa una vez.
 
-Confirmar con BBVA: entorno de Redsys, si el pago por referencia está habilitado y la
-configuración exacta de terminal y moneda.
+Confirmar con BBVA: si el pago por referencia está habilitado.
 
 ## Despliegue — dos codebases en un mismo proyecto de Vercel
 
@@ -144,8 +162,7 @@ Hasta que se separen en dos proyectos distintos:
 - Las previsualizaciones construyen **sin variables de entorno**, porque los clientes de SDK
   se crean de forma diferida (`src/utils/create-lazy-client.ts`). Mantenlo así: un cliente
   que lea sus credenciales al importarse tumba el build entero cuando Next recopila los
-  datos de página. Esta rama carece de ese patrón, y por eso su build falla con
-  `Reference to undefined env var: STRIPE_SECRET_KEY`.
+  datos de página. Redsys lee su configuración al usarse, por la misma razón.
 
 ## Comandos
 

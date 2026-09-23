@@ -11,7 +11,7 @@ memorables, ampliar el acceso o reforzar la relación con los miembros.
 
 - **Next.js 15** (App Router, React 19) + **TypeScript**
 - **Supabase** — base de datos y autenticación
-- **Stripe** — suscripciones y checkout *(pendiente de decisión: ver el apartado de pagos)*
+- **Redsys** — TPV Virtual de BBVA, cobro directo
 - **Resend + React Email** — correo transaccional
 - **Tailwind CSS + shadcn/ui** — interfaz
 - **Vercel** — alojamiento
@@ -63,24 +63,33 @@ aplicación sea privada.
 
 ## Pagos
 
-Actualmente el cobro se realiza con **Stripe**. Está en curso el alta del **TPV Virtual de BBVA**
-(Redsys), y queda por decidir si se mantiene Stripe —que es un IPSP y hay que declarar a BBVA— o se
-cobra directamente contra Redsys.
+El cobro se realiza directamente contra el **TPV Virtual de BBVA, sobre Redsys**, sin proveedor
+intermedio. Stripe queda fuera del proyecto.
+
+| Pieza | Dónde |
+| --- | --- |
+| Firma HMAC-SHA256 y formulario de pago | `src/libs/redsys/` |
+| Precios de las entradas (única fuente) | `src/features/membership/plans.ts` |
+| Inicio del pago | `src/features/membership/actions/start-payment-action.ts` → `/pago/[pedido]` |
+| Confirmación del banco | `src/app/api/redsys/notificacion/route.ts` |
+| Tablas `payments` y `memberships` | `supabase/migrations/20260923120000_redsys_payments.sql` |
+
+Variables de entorno: ver [`docs/despliegue-vercel.md`](docs/despliegue-vercel.md).
 
 Contexto, checklist y borrador de respuesta a BBVA:
 [`docs/bbva-tpv-virtual.md`](docs/bbva-tpv-virtual.md) y
 [`docs/respuesta-bbva-tpv-virtual.md`](docs/respuesta-bbva-tpv-virtual.md).
 
-## Planes de membresía
+## Entradas al Círculo
 
-Los beneficios de cada plan se editan **desde Stripe**, no desde el código. En los metadatos de cada
-producto:
+| Entrada | Slug | Precio | Descuento | Llavecitas por cada 10 € |
+| --- | --- | --- | --- | --- |
+| Key | `member_key` | 0 € | — | 3 |
+| Secret Key | `member_secret_key` | 99 €/año | 10 % | 4 |
+| Máster Key | `member_master_key` | 390 €/año | 20 % | 5 |
 
-- `price_card_variant`: `basic` | `pro` | `enterprise` (controla el estilo de la tarjeta)
-- `features`: beneficios separados por `|`, por ejemplo
-  `Acceso a la plataforma privada|Concierge por email|Cancelación flexible`
-
-Plantilla de ejemplo en [`stripe-fixtures.json`](stripe-fixtures.json).
+Se editan en `src/features/membership/plans.ts`. Cada pago cubre un año; renovar el mismo plan
+antes de que venza suma el año nuevo al final del actual.
 
 ## Documentación
 

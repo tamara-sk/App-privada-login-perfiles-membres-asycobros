@@ -4,31 +4,22 @@ import { redirect } from 'next/navigation';
 
 import { Button } from '@/components/ui/button';
 import { getSession } from '@/features/account/controllers/get-session';
-import { getSubscription } from '@/features/account/controllers/get-subscription';
-import { PricingCard } from '@/features/pricing/components/price-card';
-import { getProducts } from '@/features/pricing/controllers/get-products';
-import { Price, ProductWithPrices } from '@/features/pricing/types';
+import { startPaymentAction } from '@/features/membership/actions/start-payment-action';
+import { PlanCard } from '@/features/membership/components/plan-card';
+import { getMembership } from '@/features/membership/controllers/get-membership';
+import { getPlan } from '@/features/membership/plans';
 
 export default async function AccountPage() {
-  const [session, subscription, products] = await Promise.all([getSession(), getSubscription(), getProducts()]);
+  const [session, membership] = await Promise.all([getSession(), getMembership()]);
 
   if (!session) {
     redirect('/login');
   }
 
-  let userProduct: ProductWithPrices | undefined;
-  let userPrice: Price | undefined;
-
-  if (subscription) {
-    for (const product of products) {
-      for (const price of product.prices) {
-        if (price.id === subscription.price_id) {
-          userProduct = product;
-          userPrice = price;
-        }
-      }
-    }
-  }
+  const plan = membership ? getPlan(membership.plan) : undefined;
+  const validUntil = membership
+    ? new Intl.DateTimeFormat('es-ES', { dateStyle: 'long' }).format(new Date(membership.current_period_end))
+    : null;
 
   return (
     <section className='rounded-lg bg-black px-4 py-16'>
@@ -36,12 +27,14 @@ export default async function AccountPage() {
 
       <div className='flex flex-col gap-4'>
         <Card
-          title='Tu membresía'
+          title='Tu entrada al Círculo'
           footer={
-            subscription ? (
-              <Button size='sm' variant='secondary' asChild>
-                <Link href='/manage-subscription'>Gestionar mi membresía</Link>
-              </Button>
+            plan ? (
+              <form action={startPaymentAction.bind(null, plan.slug)}>
+                <Button size='sm' variant='secondary' type='submit'>
+                  Renovar un año más
+                </Button>
+              </form>
             ) : (
               <Button size='sm' variant='secondary' asChild>
                 <Link href='/pricing'>Ver planes</Link>
@@ -49,10 +42,13 @@ export default async function AccountPage() {
             )
           }
         >
-          {userProduct && userPrice ? (
-            <PricingCard product={userProduct} price={userPrice} />
+          {plan ? (
+            <div className='flex flex-col gap-4'>
+              <p className='text-zinc-400'>Vigente hasta el {validUntil}.</p>
+              <PlanCard plan={plan} showAction={false} />
+            </div>
           ) : (
-            <p>Todavía no tienes una membresía activa.</p>
+            <p>Elige tu entrada al Círculo para empezar.</p>
           )}
         </Card>
       </div>

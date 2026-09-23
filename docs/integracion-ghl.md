@@ -16,7 +16,7 @@ La regla que evita duplicar sistemas y datos:
 | Seguimiento comercial del lead hasta que se convierte en miembro | **GHL** |
 | Campañas de email y SMS, secuencias, recordatorios comerciales | **GHL** |
 | Identidad del miembro, login y perfil | **App (Supabase)** |
-| Cobro de la membresía y facturación | **App (Stripe / TPV BBVA)** |
+| Cobro de la entrada al Círculo y facturación | **App (TPV BBVA, Redsys)** |
 | Correo transaccional (confirmación de pedido, factura, acceso) | **App (Resend)** |
 | Reservas de experiencias y su histórico | **App** |
 
@@ -38,8 +38,8 @@ trabajo:
    Añade complejidad operativa y puntos de fallo; solo merece la pena si el equipo trabaja el día a
    día dentro de GHL.
 
-**Recomendación: opción 2.** El punto natural de enganche es el webhook de Stripe que ya existe en
-`src/app/api/webhooks/route.ts`, donde se procesan los eventos de suscripción: ahí se sabe cuándo un
+**Recomendación: opción 2.** El punto natural de enganche es la notificación de Redsys en
+`src/app/api/redsys/notificacion/route.ts`, donde se confirma cada pago: ahí se sabe cuándo un
 miembro se da de alta, renueva o cancela.
 
 **[Por confirmar]** qué opción está montada hoy, si hay ya un webhook de GHL en uso y con qué campos.
