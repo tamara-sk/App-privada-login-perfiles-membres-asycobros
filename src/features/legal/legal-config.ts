@@ -43,7 +43,7 @@ export const legalConfig = {
     /** Correo electrónico de contacto directo y efectivo (art. 10.1 a). */
     email: 'hello@secretkey.vip',
     /** Teléfono de atención al Círculo. */
-    phone: '[COMPLETAR: teléfono de atención]',
+    phone: '+34 614 59 44 06',
     /** Datos registrales (art. 10.1 b). */
     registry: {
       name: 'Registro Mercantil de Castellón',
