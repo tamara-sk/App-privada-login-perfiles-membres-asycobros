@@ -39,7 +39,13 @@ export const legalConfig = {
      * de Castellón. Coincide con el que ya publica el aviso legal de secretkey.vip.
      */
     corporatePurpose:
-      'La organización, gestión, promoción, producción y desarrollo integral de ferias, exposiciones, congresos, convenciones, conferencias, seminarios, presentaciones y eventos corporativos, culturales, comerciales o promocionales de cualquier naturaleza, así como la prestación de servicios auxiliares.',
+      'La organización, gestión, promoción, producción y desarrollo integral de ferias, exposiciones, congresos, convenciones, conferencias, seminarios, presentaciones y eventos corporativos, culturales, comerciales, promocionales o de cualquier otra naturaleza; así como la prestación de servicios auxiliares y complementarios relacionados con dichos eventos, incluyendo el montaje de estands y estructuras, diseño expositivo, producción técnica y artística, servicios audiovisuales, logística, contratación de personal, alquiler de espacios y recintos, equipamiento, catering y servicios de hostelería. Asimismo, la prestación de servicios de consultoría, asesoramiento, marketing, comunicación, publicidad, identidad corporativa, diseño gráfico y digital, gestión de redes sociales y difusión digital o audiovisual, siempre vinculados al desarrollo de los eventos descritos. Como actividades complementarias y accesorias, la sociedad podrá también: 1. La gestión, intermediación, comercialización y asesoramiento en operaciones inmobiliarias, así como la compra, venta, arrendamiento —excluido el financiero—, permuta, administración y promoción de toda clase de bienes inmuebles, rústicos o urbanos, propios o de terceros. 2. El asesoramiento en gestión empresarial y de negocio especializado en empresas del sector de Telecomunicaciones, incluyendo consultoría estratégica, comercial, operativa, organizativa y de desarrollo corporativo.',
+    /** Códigos CNAE inscritos. */
+    cnae: ['8230', '6832', '7020'],
+    /** Capital social suscrito, en euros. */
+    shareCapital: 3000,
+    /** Órgano de administración inscrito. */
+    governingBody: 'Administrador único',
     /** NIF / CIF de la sociedad (art. 10.1 c). */
     taxId: 'B25909565',
     /** Domicilio social o establecimiento permanente en España (art. 10.1 a). */
@@ -57,31 +63,42 @@ export const legalConfig = {
     /**
      * Datos registrales (art. 10.1 b).
      *
-     * Mientras el tomo, el folio, la hoja y la inscripción sigan pendientes, se publica
-     * `statement`, que acredita la inscripción en los términos que ya usa el aviso legal de
-     * secretkey.vip. Es una redacción defendible; los números la completan cuando lleguen.
+     * Confirmados por la certificación registral expedida por la Registradora Mercantil de
+     * Castellón de la Plana el 22 de enero de 2026 (asiento 56 del Diario 2026).
      */
     registry: {
       name: 'Registro Mercantil de Castellón',
       /**
-       * Redacción que acredita la inscripción a efectos del art. 10.1 b) LSSI. Es la misma
-       * que publica el aviso legal de secretkey.vip, y está respaldada por el listado de
-       * actos inscritos del Registro Mercantil de Castellón (entrada 1/2026/72).
+       * Redacción de respaldo, por si alguna vez faltara la referencia. Es la que publica el
+       * aviso legal de secretkey.vip.
        */
       statement:
         'Inscrita en el Registro Mercantil de Castellón. Sociedad de responsabilidad limitada, de duración indefinida, con fecha de comienzo de operaciones el 16 de diciembre de 2025.',
       /**
-       * Referencia completa (tomo, folio, hoja CS-… e inscripción).
+       * Referencia registral.
        *
-       * NO está en la documentación disponible: ni en la escritura de constitución, ni en el
-       * listado de actos inscritos, ni en ningún correo. Esos documentos llevan el sello del
-       * asiento de presentación, cuyos campos «T.» y «F.» van sin rellenar.
-       *
-       * Obtenerla requiere una nota simple del Registro Mercantil de Castellón (unos 3 € en
-       * registradores.org). Es una mejora del texto, y el art. 10.1 b) queda cubierto sin
-       * ella: basta con rellenar este objeto para que la referencia se publique sola.
+       * El Registro Mercantil de Castellón lleva folio electrónico, de modo que la hoja y la
+       * inscripción identifican la sociedad y el tomo y el folio en papel quedan superados.
+       * Por eso `folio` vale 'electrónico': es el dato literal de la certificación, y es lo
+       * que corresponde publicar.
        */
-      reference: null as null | { volume: string; folio: string; sheet: string; entry: string },
+      reference: {
+        sheet: 'CS-50580',
+        folio: 'electrónico',
+        entry: '1',
+        /** Identificador único europeo (Reglamento UE 2015/884). */
+        euid: 'ES12011.000207496',
+        /** Identificador único registral. */
+        irus: '1000465501454',
+        registeredOn: '22 de enero de 2026',
+      } as null | {
+        sheet: string;
+        folio: string;
+        entry: string;
+        euid: string;
+        irus: string;
+        registeredOn: string;
+      },
     },
   },
 
@@ -171,8 +188,8 @@ export function formatRegistry(): string {
   const { name, statement, reference } = legalConfig.company.registry;
   if (!reference) return statement;
 
-  const { volume, folio, sheet, entry } = reference;
-  return `Inscrita en el ${name}, tomo ${volume}, folio ${folio}, hoja ${sheet}, inscripción ${entry}.`;
+  const { sheet, folio, entry } = reference;
+  return `Inscrita en el ${name}, hoja ${sheet}, folio ${folio}, inscripción ${entry}.`;
 }
 
 /** Fecha de actualización en formato legible en español. */

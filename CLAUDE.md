@@ -80,16 +80,29 @@ publicado en secretkey.vip. La variante «Camí Vora Riu Solades 1771» que circ
 código era errónea: mismos dígitos, orden cambiado. Es el dato que BBVA contrasta contra la
 escritura, así que no debe volver a bailar.
 
-**El tomo, el folio, la hoja (CS-…) y la inscripción no están en la documentación
-disponible.** Se han revisado la escritura de constitución, el listado de actos inscritos
-(entrada 1/2026/72) y la correspondencia entera: los documentos llevan el sello del asiento
-de presentación, cuyos campos «T.» y «F.» van sin rellenar. **No hay que volver a pedírselos
-a Tamara.**
+**Los datos de inscripción están confirmados** por la certificación registral que expidió la
+Registradora Mercantil de Castellón de la Plana el 22/01/2026 (asiento 56 del Diario 2026):
 
-El art. 10.1 b) queda cubierto con `registry.statement`, la misma redacción que publica el
-aviso legal de secretkey.vip y que respalda el listado de actos inscritos. Para publicar la
-referencia completa basta con rellenar `registry.reference` con los datos de una nota simple
-del Registro Mercantil de Castellón, y el texto cambia solo.
+| Campo | Valor |
+| --- | --- |
+| Hoja | **CS-50580** |
+| Folio | **electrónico** |
+| Inscripción | **1** |
+| EUID | ES12011.000207496 |
+| IRUS | 1000465501454 |
+| Fecha de inscripción | 22/01/2026 |
+| Capital social suscrito | 3.000,00 € |
+| Órgano de administración | Administrador único |
+| CNAE | 8230, 6832, 7020 |
+
+El Registro Mercantil de Castellón lleva **folio electrónico**, así que la hoja y la
+inscripción identifican la sociedad, y el tomo y el folio en papel quedan superados. Ahí
+estuvo la confusión durante días: se buscaba un tomo que este registro ya deja de emitir. El
+texto que se publica es «Inscrita en el Registro Mercantil de Castellón, hoja CS-50580, folio
+electrónico, inscripción 1.», y sale de `registry.reference` en `legal-config.ts`.
+
+La certificación trae además el **objeto social completo**, bastante más largo que el extracto
+que circulaba, y ya está literal en `legalConfig.company.corporatePurpose`.
 
 ## Pagos — decidido: Redsys
 
@@ -185,10 +198,9 @@ Interfaz y textos legales en español. Importes en euros con `formatPrice`
 - **Duplicidad por resolver:** esta rama y `claude/funny-cannon-t9g3gh` implementan por
   separado páginas legales, banner de cookies y datos de la sociedad. Hay que reconciliarlas
   antes de fusionar nada.
-- **Datos pendientes:** quedan 6 marcadores en `legal-config.ts`. Denominación social, NIF,
-  domicilio, correos y Registro Mercantil (Castellón) ya están puestos. Faltan el tomo, el
-  libro, el folio, la hoja y la inscripción —están en las últimas páginas de la escritura de
-  constitución del 16/12/2025, protocolo 1779— y el teléfono de atención.
+- **Datos legales: completos.** `npm run legal:check` pasa en verde. La certificación
+  registral del 22/01/2026 cerró lo último que faltaba: hoja CS-50580, folio electrónico,
+  inscripción 1.
 - **El TPV está firmado y en vigor** desde el 14/09/2026 (contrato de comercio virtual). Lo
   que falta son los 3 parámetros de conexión de Redsys, que BBVA aún no ha entregado: la
   información del art. 10 publicada es la condición para que los suelten.

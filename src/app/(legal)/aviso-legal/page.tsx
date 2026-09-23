@@ -28,6 +28,10 @@ export default function AvisoLegalPage() {
           { label: 'Correo electrónico', value: company.email },
           { label: 'Teléfono', value: company.phone },
           { label: 'Datos registrales', value: formatRegistry() },
+          ...(company.registry.reference
+            ? [{ label: 'Identificador único europeo (EUID)', value: company.registry.reference.euid }]
+            : []),
+          { label: 'Capital social', value: `${company.shareCapital.toLocaleString('es-ES')} euros` },
           { label: 'Sitio web', value: brand.siteUrl },
         ]}
       />
@@ -40,7 +44,8 @@ export default function AvisoLegalPage() {
       <p>{company.corporatePurpose}</p>
       <p>
         {company.legalName} es una {company.legalForm.toLowerCase()}, con fecha de comienzo de operaciones el{' '}
-        {company.operationsSince}.
+        {company.operationsSince}. Su órgano de administración es un {company.governingBody.toLowerCase()}. Las
+        actividades inscritas corresponden a los códigos CNAE {company.cnae.join(', ')}.
       </p>
 
       <h2>3. Objeto y ámbito de aplicación</h2>
