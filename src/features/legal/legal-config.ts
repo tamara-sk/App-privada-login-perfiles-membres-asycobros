@@ -34,7 +34,7 @@ export const legalConfig = {
     taxId: 'B25909565',
     /** Domicilio social o establecimiento permanente en España (art. 10.1 a). */
     address: {
-      street: 'Camí Vora Riu Solades 1771',
+      street: 'Camino Vora Riu Solades 1176',
       postalCode: '12540',
       city: 'Vila-real',
       province: 'Castellón',

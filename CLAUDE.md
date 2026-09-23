@@ -64,6 +64,25 @@ Key, en cualquier idioma y en cualquier soporte.
 - Revisa también los textos legales: ahí «miembro» se sustituye igualmente, salvo cuando la
   norma exija un término jurídico concreto como «consumidor» o «usuario».
 
+## Datos de la sociedad — confirmados
+
+| Campo | Valor |
+| --- | --- |
+| Denominación social | THE SECRET KEY LABS, S.L. |
+| NIF | B25909565 |
+| **Domicilio social** | **Camino Vora Riu Solades 1176, 12540 Vila-real, Castellón, España** |
+| Registro Mercantil | Castellón |
+| Escritura | 16/12/2025, protocolo 2025/1779 |
+| Teléfono de atención | +34 614 59 44 06 |
+
+El domicilio correcto es **1176**, confirmado por Tamara y coincidente con el aviso legal
+publicado en secretkey.vip. La variante «Camí Vora Riu Solades 1771» que circulaba en el
+código era errónea: mismos dígitos, orden cambiado. Es el dato que BBVA contrasta contra la
+escritura, así que no debe volver a bailar.
+
+Pendientes: tomo, folio, hoja (CS-…) e inscripción. Están en la nota de inscripción de la
+escritura, que es una hoja distinta del sello de presentación del 07/01/2026.
+
 ## Pagos — decidido: Redsys
 
 Secret Key cobra por el **TPV Virtual de BBVA, sobre Redsys**. La decisión está tomada.

@@ -9,7 +9,7 @@ cerrar el alta del TPV Virtual. Copia y pega desde aquí.
 | --- | --- |
 | Denominación social | **The Secret Key Labs, S.L.** |
 | NIF / CIF | **B25909565** |
-| Domicilio social | Camí Vora Riu Solades 1771, 12540 Vila-real, Castellón, España |
+| Domicilio social | Camino Vora Riu Solades 1176, 12540 Vila-real, Castellón, España |
 | Correo de contacto | hello@secretkey.vip |
 | Correo de protección de datos | legal@secretkey.vip |
 | Registro Mercantil | **Castellón** (confirmado) |
