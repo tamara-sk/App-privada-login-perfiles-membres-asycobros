@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 import { Container } from '@/components/container';
 import { Button } from '@/components/ui/button';
-import { PricingSection } from '@/features/pricing/components/pricing-section';
+import { PricingSection } from '@/features/membership/components/pricing-section';
 import { getFeaturedProducts } from '@/features/store/catalog';
 import { ProductCard } from '@/features/store/components/product-card';
 

@@ -9,7 +9,7 @@ import { companyConfig, constructMetadata, siteConfig } from '@/libs/seo/metadat
  * Privacy policy.
  *
  * It describes exactly what this codebase does today: Supabase for accounts,
- * Stripe for payments and shipping details, Resend for email, and the tags in
+ * Redsys and BBVA for payments, Resend for email, and the tags in
  * `src/libs/analytics`. Keep it in step with the code when those change - and
  * have a lawyer review it against the final entity details in `companyConfig`
  * before launch.
@@ -22,7 +22,16 @@ export const metadata: Metadata = constructMetadata({
 
 const PROCESSORS = [
   { name: 'Supabase', role: 'Accounts, authentication and our database', location: 'EU / US' },
-  { name: 'Stripe', role: 'Payments, subscriptions and shipping details', location: 'EU / US' },
+  {
+    name: 'Redsys Servicios de Procesamiento, S.L.',
+    role: 'Payment gateway for the BBVA Virtual POS',
+    location: 'Spain (EU)',
+  },
+  {
+    name: 'Banco Bilbao Vizcaya Argentaria, S.A. (BBVA)',
+    role: 'Acquiring bank for card payments',
+    location: 'Spain (EU)',
+  },
   { name: 'Resend', role: 'Transactional email', location: 'EU / US' },
   { name: 'Vercel', role: 'Hosting and infrastructure logs', location: 'EU / US' },
   { name: 'Google (Tag Manager, Analytics, Ads)', role: 'Website measurement, with your consent', location: 'EU / US' },
@@ -110,13 +119,13 @@ export default function PrivacyPage() {
             with you.
           </li>
           <li>
-            <strong className='text-neutral-200'>Membership and billing</strong> — your plan, its status and your
-            payment history. Card details are handled end to end by Stripe. Legal basis: contract and our legal
+            <strong className='text-neutral-200'>Your entry to the Circle, and billing</strong> — your plan, its status and your
+            payment history. Card details are handled end to end by Redsys and BBVA, and they stay with the bank. Legal basis: contract and our legal
             obligation to keep accounting records.
           </li>
           <li>
             <strong className='text-neutral-200'>Orders from the shop</strong> — what you bought, your delivery address
-            and your phone number, so the parcel arrives. Collected by Stripe Checkout and stored against your order.
+            and your phone number, so the parcel arrives. Collected on our checkout page and stored against your order; the card itself is entered on the bank&rsquo;s page.
             Legal basis: contract.
           </li>
           <li>

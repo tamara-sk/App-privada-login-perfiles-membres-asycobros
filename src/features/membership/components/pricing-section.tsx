@@ -1,28 +1,25 @@
 import Image from 'next/image';
 
-import { PricingCard } from '@/features/pricing/components/price-card';
-import { getProducts } from '@/features/pricing/controllers/get-products';
+import { PLANS } from '../plans';
 
-import { createCheckoutAction } from '../actions/create-checkout-action';
+import { PlanCard } from './plan-card';
 
 export async function PricingSection({ isPricingPage }: { isPricingPage?: boolean }) {
-  const products = await getProducts();
-
   const HeadingLevel = isPricingPage ? 'h1' : 'h2';
 
   return (
     <section className='relative rounded-lg bg-black py-8'>
       <div className='relative z-10 m-auto flex max-w-[1200px] flex-col items-center gap-8 px-4 pt-8 lg:pt-[140px]'>
         <HeadingLevel className='max-w-4xl bg-gradient-to-br from-white to-neutral-200 bg-clip-text text-center text-4xl font-bold text-transparent lg:text-6xl'>
-          Membership, measured in hours returned.
+          La entrada al Círculo
         </HeadingLevel>
         <p className='text-center text-xl'>
-          Pick the tier that matches how much of your week you would like back. Move between them whenever life changes.
+          Elige el ritmo al que quieres recuperar tu tiempo. Cada entrada dura un año.
         </p>
         <div className='flex w-full flex-col items-center justify-center gap-2 lg:flex-row lg:gap-8'>
-          {products.map((product) => {
-            return <PricingCard key={product.id} product={product} createCheckoutAction={createCheckoutAction} />;
-          })}
+          {PLANS.map((plan) => (
+            <PlanCard key={plan.slug} plan={plan} />
+          ))}
         </div>
       </div>
       <Image
