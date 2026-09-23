@@ -77,7 +77,10 @@ En `legal-config.ts`, `payments.ipsp` queda en `null`, que es lo que ya refleja 
 
 ## 6. Antes de responder a BBVA
 
-- [ ] Completar `legal-config.ts` y verificar con `npm run legal:check`.
+- [x] Datos identificativos completos. `npm run legal:check` pasa: la inscripción se acredita
+      con la redacción de `registry.statement`, conforme al art. 10.1 b).
+- [ ] Completar tomo, folio, hoja e inscripción cuando lleguen. **Mejoran el texto; no
+      impiden enviar el correo.**
 - [x] Decidido: sin IPSP, cobro directo por Redsys. Se responde la variante A.
 - [ ] Desplegar en el dominio definitivo con HTTPS válido y sin protección de despliegue activa.
 - [ ] Comprobar que las URLs abren en ventana de incógnito, sin sesión iniciada.

@@ -4,7 +4,7 @@
 > Secret Key cobra directamente por Redsys, sin IPSP. Responde al mismo correo, no a buzones
 > personales.
 
-**Asunto:** RE: Alta TPV Virtual — «DENOMINACIÓN SOCIAL» («NIF») — información Ley 34/2002
+**Asunto:** RE: Alta TPV Virtual — THE SECRET KEY LABS, S.L. (B25909565) — información Ley 34/2002
 
 ---
 
@@ -17,13 +17,14 @@ sin necesidad de registro ni de iniciar sesión.
 
 **1. Información general del prestador (art. 10.1)**
 
-- Denominación social: «DENOMINACIÓN SOCIAL, S.L.»
-- Domicilio social: «CALLE Y NÚMERO, CP, MUNICIPIO (PROVINCIA), España»
-- Correo electrónico de contacto: «CORREO»
-- Teléfono de atención: «TELÉFONO»
-- Datos registrales: inscrita en el Registro Mercantil de «PROVINCIA», tomo «TOMO», folio «FOLIO»,
-  hoja «HOJA», inscripción «INSCRIPCIÓN»
-- NIF: «NIF»
+- Denominación social: THE SECRET KEY LABS, S.L.
+- Domicilio social: Camino Vora Riu Solades 1176, 12540 Vila-real, Castellón, España
+- Correo electrónico de contacto: legal@secretkey.vip
+- Teléfono de atención: +34 614 59 44 06
+- Datos registrales: inscrita en el Registro Mercantil de Castellón. Sociedad de
+  responsabilidad limitada, de duración indefinida, con fecha de comienzo de operaciones el
+  16 de diciembre de 2025
+- NIF: B25909565
 
 Esta información está publicada en: «https://DOMINIO»/aviso-legal
 
@@ -65,7 +66,7 @@ Quedamos a vuestra disposición para facilitar cualquier documentación adiciona
 
 **4. Naturaleza del servicio**
 
-«DENOMINACIÓN SOCIAL» opera una plataforma privada de membresía que da acceso a servicios y
+THE SECRET KEY LABS, S.L. opera una plataforma privada de membresía que da acceso a servicios y
 experiencias. La entrega es fundamentalmente electrónica: el acceso se activa de forma inmediata tras
 la confirmación del pago, y las condiciones de entrega y de envío de cualquier elemento físico están
 detalladas en la URL indicada más arriba.
@@ -75,5 +76,5 @@ Quedamos a la espera de vuestras indicaciones para continuar con el alta.
 Un cordial saludo,
 
 «NOMBRE Y APELLIDOS»
-«CARGO» — «DENOMINACIÓN SOCIAL»
-«TELÉFONO» · «CORREO»
+«CARGO» — THE SECRET KEY LABS, S.L.
++34 614 59 44 06 · legal@secretkey.vip

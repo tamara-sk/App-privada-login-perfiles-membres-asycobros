@@ -44,8 +44,17 @@ export const legalConfig = {
     email: 'hello@secretkey.vip',
     /** Teléfono de atención al Círculo. */
     phone: '+34 614 59 44 06',
-    /** Datos registrales (art. 10.1 b). */
+    /**
+     * Datos registrales (art. 10.1 b).
+     *
+     * Mientras el tomo, el folio, la hoja y la inscripción sigan pendientes, se publica
+     * `statement`, que acredita la inscripción en los términos que ya usa el aviso legal de
+     * secretkey.vip. Es una redacción defendible; los números la completan cuando lleguen.
+     */
     registry: {
+      /** Redacción que se publica mientras faltan los números. */
+      statement:
+        'Inscrita en el Registro Mercantil de Castellón. Sociedad de responsabilidad limitada, de duración indefinida, con fecha de comienzo de operaciones el 16 de diciembre de 2025.',
       name: 'Registro Mercantil de Castellón',
       volume: '[COMPLETAR: tomo]',
       book: '[COMPLETAR: libro, si aplica]',
@@ -131,13 +140,20 @@ export function formatAddress(): string {
   return `${street}, ${postalCode} ${city} (${province}), ${country}`;
 }
 
-/** Datos registrales en una sola línea (art. 10.1 b LSSI). */
+/**
+ * Datos registrales en una sola línea (art. 10.1 b LSSI).
+ *
+ * Devuelve la referencia completa en cuanto el tomo, el folio, la hoja y la inscripción
+ * están disponibles; hasta entonces, la redacción de `statement`.
+ */
 export function formatRegistry(): string {
-  const { name, volume, book, folio, sheet, entry } = legalConfig.company.registry;
+  const { name, statement, volume, book, folio, sheet, entry } = legalConfig.company.registry;
+  if ([volume, folio, sheet, entry].some(isPending)) return statement;
+
   const parts = [`tomo ${volume}`];
-  if (!book.includes('si aplica')) parts.push(`libro ${book}`);
+  if (!isPending(book)) parts.push(`libro ${book}`);
   parts.push(`folio ${folio}`, `hoja ${sheet}`, `inscripción ${entry}`);
-  return `${name}, ${parts.join(', ')}`;
+  return `Inscrita en el ${name}, ${parts.join(', ')}.`;
 }
 
 /** Fecha de actualización en formato legible en español. */
