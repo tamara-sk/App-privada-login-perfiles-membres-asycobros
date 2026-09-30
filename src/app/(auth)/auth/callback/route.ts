@@ -14,28 +14,14 @@ export async function GET(request: NextRequest) {
 
   if (code) {
     const supabase = await createSupabaseServerClient();
-    await supabase.auth.exchangeCodeForSession(code);
+    const { error } = await supabase.auth.exchangeCodeForSession(code);
 
-    const {
-      data: { user },
-    } = await supabase.auth.getUser();
-
-    if (!user?.id) {
+    if (error) {
       return NextResponse.redirect(`${siteUrl}/login`);
     }
 
-    // Check if user is subscribed, if not redirect to pricing page
-    const { data: userSubscription } = await supabase
-      .from('subscriptions')
-      .select('*, prices(*, products(*))')
-      .in('status', ['trialing', 'active'])
-      .maybeSingle();
-
-    if (!userSubscription) {
-      return NextResponse.redirect(`${siteUrl}/pricing`);
-    } else {
-      return NextResponse.redirect(`${siteUrl}`);
-    }
+    // The middleware decides where the member lands: /account if approved, /apply otherwise.
+    return NextResponse.redirect(`${siteUrl}/account`);
   }
 
   return NextResponse.redirect(siteUrl);

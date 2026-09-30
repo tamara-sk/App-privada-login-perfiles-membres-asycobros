@@ -26,6 +26,25 @@ export interface Database {
           }
         ];
       };
+      membership_applications: {
+        Row: {
+          contribution: string;
+          created_at: string;
+          essence: string;
+          invited_by: string | null;
+          reviewed_at: string | null;
+          status: Database['public']['Enums']['application_status'];
+          user_id: string;
+        };
+        Insert: {
+          contribution: string;
+          essence: string;
+          invited_by?: string | null;
+          user_id: string;
+        };
+        Update: never;
+        Relationships: [];
+      };
       prices: {
         Row: {
           active: boolean | null;
@@ -212,6 +231,7 @@ export interface Database {
       [_ in never]: never;
     };
     Enums: {
+      application_status: 'pending' | 'approved' | 'rejected';
       pricing_plan_interval: 'day' | 'week' | 'month' | 'year';
       pricing_type: 'one_time' | 'recurring';
       subscription_status:

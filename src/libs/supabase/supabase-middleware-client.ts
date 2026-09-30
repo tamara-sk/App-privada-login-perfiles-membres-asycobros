@@ -2,8 +2,23 @@
 
 import { type NextRequest,NextResponse } from 'next/server';
 
+import { getApplicationStatus } from '@/libs/supabase/membership';
 import { getEnvVar } from '@/utils/get-env-var';
 import { createServerClient } from '@supabase/ssr';
+
+const memberRoutes = ['/account', '/manage-subscription'];
+
+// Redirects while keeping the refreshed auth cookies.
+function redirectTo(request: NextRequest, source: NextResponse, pathname: string) {
+  const url = request.nextUrl.clone();
+  url.pathname = pathname;
+  url.search = '';
+  const response = NextResponse.redirect(url);
+  for (const cookie of source.cookies.getAll()) {
+    response.cookies.set(cookie);
+  }
+  return response;
+}
 
 export async function updateSession(request: NextRequest) {
   let supabaseResponse = NextResponse.next({
@@ -45,14 +60,26 @@ export async function updateSession(request: NextRequest) {
     data: { user },
   } = await supabase.auth.getUser();
 
-  // Add route guards here
-  // const guardedRoutes = ['/dashboard'];
-  // if (!user && guardedRoutes.includes(request.nextUrl.pathname)) {
-  //   // no user, potentially respond by redirecting the user to the login page
-  //   const url = request.nextUrl.clone();
-  //   url.pathname = '/login';
-  //   return NextResponse.redirect(url);
-  // }
+  // Route guards. The private area requires a session and an approved application.
+  const { pathname } = request.nextUrl;
+  const needsMember = memberRoutes.some((route) => pathname === route || pathname.startsWith(`${route}/`));
+  const needsSession = needsMember || pathname === '/apply' || pathname.startsWith('/apply/');
+
+  if (needsSession) {
+    if (!user) {
+      return redirectTo(request, supabaseResponse, '/login');
+    }
+
+    const status = await getApplicationStatus(supabase, user.id);
+
+    if (needsMember && status !== 'approved') {
+      return redirectTo(request, supabaseResponse, '/apply');
+    }
+
+    if (!needsMember && status === 'approved') {
+      return redirectTo(request, supabaseResponse, '/account');
+    }
+  }
 
   // IMPORTANT: You *must* return the supabaseResponse object as it is.
   // If you're creating a new response object with NextResponse.next() make sure to:
