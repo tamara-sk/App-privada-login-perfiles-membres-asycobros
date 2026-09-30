@@ -17,3 +17,9 @@ Reglas de trabajo:
 - No cambiar nada fuera del alcance pedido.
 - Todo texto orientado al miembro pasa por revisión humana antes de publicarse.
 - Ante una duda de marca o de seguridad, preguntar antes de decidir.
+
+Pagos:
+- La pasarela de pago es Redsys, a través del TPV Virtual de BBVA.
+- Stripe no se usa y no se usará. El código de Stripe que queda en el repo
+  proviene de la plantilla inicial y está pendiente de retirarse. No lo
+  ampliar ni tomarlo como referencia de diseño.
