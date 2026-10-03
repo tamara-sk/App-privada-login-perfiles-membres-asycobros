@@ -1,5 +1,5 @@
 -- Secret Key — Web + App unified onboarding, AI evaluation and one-way GHL sync.
--- TARGET: Supabase project `secret-key-eu` (source of truth). NOT applied automatically.
+-- TARGET: Supabase project `secret-key-eu` (source of truth). Applied to production 2026-10-03 with owner approval (applied in pieces; see also *_000100 and *_000200).
 -- Principle: Web + App -> Supabase -> GHL. No GHL -> Supabase writes anywhere.
 
 -- 1) Config-driven levels/rewards (editable with SQL/dashboard, no app rebuild) ---------------
@@ -49,7 +49,7 @@ create table if not exists public.onboarding_responses (
 alter table public.onboarding_responses enable row level security;
 create policy "own responses select" on public.onboarding_responses for select using (auth.uid() = user_id);
 create policy "own responses insert" on public.onboarding_responses for insert with check (auth.uid() = user_id and completed_at is null);
-create policy "own responses update" on public.onboarding_responses for update using (auth.uid() = user_id and completed_at is null);
+create policy "own responses update" on public.onboarding_responses for update using (auth.uid() = user_id and completed_at is null) with check (auth.uid() = user_id and completed_at is null);
 -- Completion is stamped server-side (evaluate-onboarding); users cannot set completed_at.
 
 -- 4) AI evaluation result (written only by the edge function / service role) -------------------
@@ -101,10 +101,14 @@ create table if not exists public.ghl_contacts (
 alter table public.ghl_contacts enable row level security;
 
 create or replace function public.enqueue_event(p_type text, p_user uuid, p_key text, p_payload jsonb default '{}')
-returns void language sql security definer set search_path = public as $$
+returns void language plpgsql security definer set search_path = public as $$
+begin
   insert into public.event_outbox(event_type,user_id,dedupe_key,payload)
   values (p_type,p_user,p_key,coalesce(p_payload,'{}')) on conflict (dedupe_key) do nothing;
-$$;
+exception when others then
+  -- CRM sync must NEVER break signup, booking or payment flows.
+  raise warning 'enqueue_event failed: %', sqlerrm;
+end $$;
 revoke all on function public.enqueue_event(text,uuid,text,jsonb) from public, anon, authenticated;
 
 -- 6) Event triggers (only CRM-relevant events) -------------------------------------------------
@@ -140,50 +144,7 @@ end $$;
 drop trigger if exists evt_ai_profile on public.ai_evaluations;
 create trigger evt_ai_profile after insert on public.ai_evaluations for each row execute function public.trg_evt_ai_profile();
 
-create or replace function public.trg_evt_membership() returns trigger language plpgsql security definer set search_path = public as $$
-declare uid uuid;
-begin
-  select user_id into uid from public.profiles where id = new.profile_id;
-  if uid is not null then
-    perform public.enqueue_event('membership_created', uid, 'membership_created:'||new.id,
-      jsonb_build_object('tier', new.tier, 'valid_until', new.valid_until));
-  end if;
-  return new;
-end $$;
-drop trigger if exists evt_membership on public.memberships;
-create trigger evt_membership after insert on public.memberships for each row execute function public.trg_evt_membership();
-
-create or replace function public.trg_evt_reservation() returns trigger language plpgsql security definer set search_path = public as $$
-declare uid uuid;
-begin
-  select user_id into uid from public.profiles where id = new.profile_id;
-  if uid is null then return new; end if;
-  if tg_op = 'INSERT' then
-    perform public.enqueue_event('booking_created', uid, 'booking_created:'||new.id,
-      jsonb_build_object('reservation_id', new.id, 'experience_id', new.experience_id, 'starts_at', new.starts_at, 'amount_cents', new.amount_cents, 'currency', new.currency));
-  elsif new.cancelled_at is not null and old.cancelled_at is null then
-    perform public.enqueue_event('booking_cancelled', uid, 'booking_cancelled:'||new.id,
-      jsonb_build_object('reservation_id', new.id, 'reason', new.cancel_reason, 'refund_type', new.refund_type));
-  end if;
-  return new;
-end $$;
-drop trigger if exists evt_reservation on public.reservations;
-create trigger evt_reservation after insert or update on public.reservations for each row execute function public.trg_evt_reservation();
-
-create or replace function public.trg_evt_payment() returns trigger language plpgsql security definer set search_path = public as $$
-begin
-  if new.profile_id is null then return new; end if;
-  perform public.enqueue_event(
-    case when new.status in ('succeeded','paid','success') then 'payment_success' else 'payment_failed' end,
-    (select user_id from public.profiles where id = new.profile_id), 'payment:'||new.id,
-    jsonb_build_object('kind', new.kind, 'amount_cents', new.amount_cents, 'currency', new.currency, 'status', new.status));
-  perform public.enqueue_event('transaction_created',
-    (select user_id from public.profiles where id = new.profile_id), 'transaction:'||new.id,
-    jsonb_build_object('kind', new.kind, 'amount_cents', new.amount_cents, 'currency', new.currency));
-  return new;
-end $$;
-drop trigger if exists evt_payment on public.membership_payments;
-create trigger evt_payment after insert on public.membership_payments for each row execute function public.trg_evt_payment();
+-- (membership / booking / payment triggers: see 20261003000200_ghl_events_redsys.sql — Redsys + Bizum only)
 
 -- 7) Public, blurred-safe calendar for the web (no member-only fields leave the database) ------
 create or replace view public.public_experiences as

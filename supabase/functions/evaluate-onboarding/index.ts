@@ -4,7 +4,7 @@ import { createClient } from 'npm:@supabase/supabase-js@2';
 
 const MODEL = Deno.env.get('SK_EVAL_MODEL') ?? 'claude-sonnet-5-5';
 const PROMPT_VERSION = 'v1';
-const cors = { 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Headers': 'authorization, content-type' };
+const cors = { 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Headers': 'authorization, content-type, apikey, x-client-info' };
 const json = (b: unknown, s = 200) => new Response(JSON.stringify(b), { status: s, headers: { ...cors, 'Content-Type': 'application/json' } });
 
 const SYSTEM = `You evaluate applicants to Secret Key, a time-optimisation and extraordinary-access ecosystem
@@ -31,9 +31,11 @@ Deno.serve(async (req) => {
   const { data: qs } = await admin.from('onboarding_questions').select('key,min_chars');
   for (const q of qs ?? []) if ((r[q.key] ?? '').trim().length < q.min_chars) return json({ error: 'answer_too_short', key: q.key, min_chars: q.min_chars }, 422);
 
+  const apiKey = Deno.env.get('ANTHROPIC_API_KEY');
+  if (!apiKey) return json({ error: 'ai_not_configured' }, 503);
   const res = await fetch('https://api.anthropic.com/v1/messages', {
     method: 'POST',
-    headers: { 'x-api-key': Deno.env.get('ANTHROPIC_API_KEY')!, 'anthropic-version': '2023-06-01', 'content-type': 'application/json' },
+    headers: { 'x-api-key': apiKey, 'anthropic-version': '2023-06-01', 'content-type': 'application/json' },
     body: JSON.stringify({ model: MODEL, max_tokens: 800, system: SYSTEM, messages: [{ role: 'user',
       content: `<who_are_you>${r.who_are_you}</who_are_you>\n<bring_to_circle>${r.bring_to_circle}</bring_to_circle>\n<bring_to_environment>${r.bring_to_environment}</bring_to_environment>` }] }),
   });
@@ -57,6 +59,8 @@ Deno.serve(async (req) => {
   }).select().single();
   if (error) return json({ error: 'persist_failed' }, 500);
 
+  // Rewards (llavecita / Amazing Intro sigil) and auto-approval are decided in SQL, from config tables.
+  const { data: outcome } = await admin.rpc('apply_onboarding_outcome', { p_user: user.id, p_eval: ev.id });
   await admin.from('onboarding_responses').update({ completed_at: new Date().toISOString(), updated_at: new Date().toISOString() }).eq('user_id', user.id);
-  return json({ evaluation: ev, level, reward: level ? { title: level.reward_title, ...level.reward_payload } : null });
+  return json({ evaluation: ev, level, outcome });
 });
