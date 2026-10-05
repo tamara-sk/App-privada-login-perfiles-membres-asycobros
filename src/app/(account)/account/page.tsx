@@ -8,9 +8,17 @@ import { startPaymentAction } from '@/features/membership/actions/start-payment-
 import { PlanCard } from '@/features/membership/components/plan-card';
 import { getMembership } from '@/features/membership/controllers/get-membership';
 import { getPlan } from '@/features/membership/plans';
+import { getOrders } from '@/features/store/controllers/get-orders';
+import { formatPrice } from '@/features/store/utils/format-price';
+
+const ORDER_STATUS_LABELS: Record<string, string> = {
+  pending: 'Pendiente de pago',
+  paid: 'Pagado',
+  failed: 'Pago rechazado',
+};
 
 export default async function AccountPage() {
-  const [session, membership] = await Promise.all([getSession(), getMembership()]);
+  const [session, membership, orders] = await Promise.all([getSession(), getMembership(), getOrders()]);
 
   if (!session) {
     redirect('/login');
@@ -49,6 +57,41 @@ export default async function AccountPage() {
             </div>
           ) : (
             <p>Elige tu entrada al Círculo para empezar.</p>
+          )}
+        </Card>
+
+        <Card
+          title='Pedidos de la tienda'
+          footer={
+            <Button size='sm' variant='secondary' asChild>
+              <Link href='/store'>Ir a la tienda</Link>
+            </Button>
+          }
+        >
+          {orders.length === 0 ? (
+            <p>Tus pedidos aparecerán aquí.</p>
+          ) : (
+            <ul className='flex flex-col divide-y divide-zinc-800'>
+              {orders.map((order) => (
+                <li key={order.id} className='flex flex-wrap items-center justify-between gap-2 py-3 text-sm'>
+                  <div className='flex flex-col'>
+                    <span className='text-neutral-200'>
+                      {new Date(order.created).toLocaleDateString('es-ES', {
+                        day: 'numeric',
+                        month: 'short',
+                        year: 'numeric',
+                      })}
+                    </span>
+                    <span className='text-xs uppercase tracking-widest text-neutral-500'>
+                      {ORDER_STATUS_LABELS[order.status] ?? order.status}
+                    </span>
+                  </div>
+                  <span className='font-semibold text-white'>
+                    {formatPrice(order.amount_total, order.currency.toUpperCase())}
+                  </span>
+                </li>
+              ))}
+            </ul>
           )}
         </Card>
       </div>

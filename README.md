@@ -1,11 +1,11 @@
-# Secret Key — App privada de miembros
+# Secret Key — App privada del Círculo
 
-Plataforma privada de membresía de Secret Key: login, perfiles de miembros, cobro de cuotas y acceso
-a experiencias.
+Plataforma privada del Círculo: acceso, perfiles, entrada al Círculo, tienda y reserva de
+experiencias.
 
 Secret Key es un **ecosistema de optimización del tiempo y acceso extraordinario**. La misión es
 convertir dinero en tiempo, y todo lo que se construye aquí debe ahorrar tiempo, crear experiencias
-memorables, ampliar el acceso o reforzar la relación con los miembros.
+memorables, ampliar el acceso o reforzar la relación con el Círculo.
 
 ## Stack
 
@@ -63,8 +63,8 @@ aplicación sea privada.
 
 ## Pagos
 
-El cobro se realiza directamente contra el **TPV Virtual de BBVA, sobre Redsys**, sin proveedor
-intermedio. Stripe queda fuera del proyecto.
+El cobro se realiza directamente contra el **TPV Virtual de BBVA, sobre Redsys**, con Secret Key
+como comercio titular del contrato. Redsys es la única pasarela del proyecto.
 
 | Pieza | Dónde |
 | --- | --- |

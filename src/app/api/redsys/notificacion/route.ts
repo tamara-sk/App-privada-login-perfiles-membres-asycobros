@@ -1,3 +1,4 @@
+import { settleOrder } from '@/features/store/controllers/upsert-order';
 import { isAuthorised, parseNotification } from '@/libs/redsys/payment';
 import { supabaseAdminClient } from '@/libs/supabase/supabase-admin';
 
@@ -29,9 +30,15 @@ export async function POST(request: Request) {
     .eq('order', order)
     .maybeSingle();
 
-  if (error || !payment) {
-    console.error('Redsys: pedido desconocido', order, error);
-    return new Response('OK');
+  if (error) {
+    console.error('Redsys: error al buscar el pago', order, error);
+    return new Response('Error', { status: 500 });
+  }
+
+  // Un mismo número de pedido vale para una entrada al Círculo o para una compra en la
+  // tienda. Si falta en `payments`, le toca a `orders`.
+  if (!payment) {
+    return settleStoreOrder(order, notification);
   }
 
   // Idempotente: Redsys puede reenviar la misma notificación.
@@ -130,4 +137,43 @@ async function activateMembership({
   if (error) {
     console.error('Redsys: pago confirmado sin poder activar la entrada', userId, paymentId, error);
   }
+}
+
+/** Cierra una compra de la tienda. Mismo criterio que la entrada: importe y firma deben cuadrar. */
+async function settleStoreOrder(order: string, notification: ReturnType<typeof parseNotification> & object) {
+  const { data: storeOrder, error } = await supabaseAdminClient
+    .from('orders')
+    .select('id, amount_total, status')
+    .eq('id', order)
+    .maybeSingle();
+
+  if (error) {
+    console.error('Redsys: error al buscar el pedido', order, error);
+    return new Response('Error', { status: 500 });
+  }
+
+  if (!storeOrder) {
+    console.error('Redsys: pedido desconocido', order);
+    return new Response('OK');
+  }
+
+  if (storeOrder.status !== 'pending') {
+    return new Response('OK');
+  }
+
+  const amountMatches = Number(notification.Ds_Amount) === storeOrder.amount_total;
+  const paid = isAuthorised(notification.Ds_Response) && amountMatches;
+
+  if (isAuthorised(notification.Ds_Response) && !amountMatches) {
+    console.error('Redsys: importe distinto del registrado', order, notification.Ds_Amount, storeOrder.amount_total);
+  }
+
+  try {
+    await settleOrder({ orderId: storeOrder.id, paid, notification });
+  } catch (settleError) {
+    console.error('Redsys: cobro confirmado sin poder cerrar el pedido', order, settleError);
+    return new Response('Error', { status: 500 });
+  }
+
+  return new Response('OK');
 }

@@ -1,20 +1,13 @@
 import Image from 'next/image';
 import Link from 'next/link';
 
-import { legalConfig } from '@/features/legal/legal-config';
+import { siteConfig } from '@/libs/seo/metadata';
 
 export function Logo() {
   return (
     <Link href='/' className='flex w-fit items-center gap-2'>
-      <Image
-        src='/logo.png'
-        width={40}
-        height={40}
-        priority
-        quality={100}
-        alt={`Logotipo de ${legalConfig.brand.name}`}
-      />
-      <span className='font-alt text-xl text-white'>{legalConfig.brand.name}</span>
+      <Image src='/logo.png' width={40} height={40} priority quality={100} alt={`Logotipo de ${siteConfig.name}`} />
+      <span className='font-alt text-xl text-white'>{siteConfig.name}</span>
     </Link>
   );
 }

@@ -18,36 +18,32 @@ export const legalDocuments: LegalDocument[] = [
   {
     href: '/aviso-legal',
     title: 'Aviso legal',
-    description:
-      'Titular del sitio, domicilio, NIF, datos registrales y medios de contacto directo y efectivo.',
+    description: 'Titular del sitio, domicilio, NIF, datos registrales y medios de contacto directo y efectivo.',
     covers: 'Artículo 10 LSSI: información general del prestador de servicios',
   },
   {
     href: '/terminos-y-condiciones',
     title: 'Términos y condiciones',
-    description:
-      'Condiciones generales de contratación de la membresía y de las experiencias de Secret Key.',
+    description: 'Condiciones generales de contratación de la entrada al Círculo y de las experiencias de Secret Key.',
     covers: 'Condiciones generales de contratación',
   },
   {
     href: '/cancelacion',
     title: 'Cancelación de pedidos',
     description:
-      'Cómo cancelar una reserva, una experiencia o la renovación de la membresía, y qué plazos aplican.',
+      'Cómo cancelar una reserva, una experiencia o la renovación de la entrada al Círculo, y qué plazos aplican.',
     covers: 'Cancelación de pedidos',
   },
   {
     href: '/devoluciones',
     title: 'Devoluciones y reembolsos',
-    description:
-      'Derecho de desistimiento, supuestos de reembolso, plazos y medio de devolución del importe.',
+    description: 'Derecho de desistimiento, supuestos de reembolso, plazos y medio de devolución del importe.',
     covers: 'Devolución y reembolso',
   },
   {
     href: '/envios',
     title: 'Entrega y envíos',
-    description:
-      'Plazos de activación de los servicios digitales y condiciones de envío de cualquier elemento físico.',
+    description: 'Plazos de activación de los servicios digitales y condiciones de envío de cualquier elemento físico.',
     covers: 'Envíos',
   },
   {
@@ -60,8 +56,7 @@ export const legalDocuments: LegalDocument[] = [
   {
     href: '/privacidad',
     title: 'Política de privacidad',
-    description:
-      'Responsable, finalidades, base jurídica, destinatarios, plazos de conservación y derechos RGPD.',
+    description: 'Responsable, finalidades, base jurídica, destinatarios, plazos de conservación y derechos RGPD.',
     covers: 'Privacidad y protección de datos',
   },
   {

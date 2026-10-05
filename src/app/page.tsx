@@ -6,6 +6,8 @@ import { Container } from '@/components/container';
 import { Button } from '@/components/ui/button';
 import { legalConfig } from '@/features/legal/legal-config';
 import { PricingSection } from '@/features/membership/components/pricing-section';
+import { getFeaturedProducts } from '@/features/store/catalog';
+import { ProductCard } from '@/features/store/components/product-card';
 
 export default async function HomePage() {
   return (
@@ -13,6 +15,7 @@ export default async function HomePage() {
       <HeroSection />
       <PillarsSection />
       <HowItWorksSection />
+      <ShopSection />
       <PricingSection />
     </div>
   );
@@ -25,17 +28,22 @@ function HeroSection() {
         <div className='relative z-10 flex flex-col gap-5 lg:max-w-xl lg:pl-8'>
           <div className='w-fit rounded-full bg-gradient-to-r from-[#616571] via-[#7782A9] to-[#826674] px-4 py-1'>
             <span className='font-alt text-sm font-semibold text-black mix-blend-soft-light'>
-              Membresía privada · Solo por invitación
+              El Círculo · Solo por invitación
             </span>
           </div>
           <h1>Convierte dinero en tiempo.</h1>
           <p className='max-w-lg text-lg text-neutral-300'>
-            {legalConfig.brand.name} es un ecosistema de optimización del tiempo, acceso extraordinario y bienestar.
-            Nos ocupamos de lo que te resta horas y te abrimos puertas que están fuera de los buscadores.
+            {legalConfig.brand.name} es un ecosistema de optimización del tiempo, acceso extraordinario y bienestar. Nos
+            ocupamos de lo que te resta horas y te abrimos puertas que están fuera de los buscadores.
           </p>
-          <Button asChild variant='sexy'>
-            <Link href='/signup'>Solicitar acceso</Link>
-          </Button>
+          <div className='flex flex-wrap gap-3'>
+            <Button asChild variant='sexy'>
+              <Link href='/signup'>Solicitar acceso</Link>
+            </Button>
+            <Button asChild variant='outline'>
+              <Link href='/store'>Ver la tienda</Link>
+            </Button>
+          </div>
         </div>
       </Container>
       <Image
@@ -134,6 +142,36 @@ function HowItWorksSection() {
             <h3 className='font-alt text-xl font-semibold text-white'>{step.title}</h3>
             <p className='text-neutral-400'>{step.description}</p>
           </div>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+function ShopSection() {
+  const products = getFeaturedProducts().slice(0, 3);
+
+  return (
+    <section className='flex flex-col gap-8 px-4'>
+      <div className='flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between'>
+        <div className='flex flex-col gap-2'>
+          <span className='text-xs uppercase tracking-[0.3em] text-neutral-500'>La tienda</span>
+          <h2 className='font-alt text-3xl font-bold text-white lg:text-4xl'>Palabras que merece la pena llevar.</h2>
+          <p className='max-w-xl text-neutral-400'>
+            Discreto por delante. Generoso por detrás. Y para quien ya lo tiene todo,{' '}
+            <Link href='/store?category=experience' className='underline underline-offset-4 hover:text-white'>
+              regalos que devuelven tiempo
+            </Link>
+            .
+          </p>
+        </div>
+        <Button variant='outline' asChild>
+          <Link href='/store'>Ver todo el producto</Link>
+        </Button>
+      </div>
+      <div className='grid gap-4 sm:grid-cols-2 lg:grid-cols-3'>
+        {products.map((product) => (
+          <ProductCard key={product.slug} product={product} />
         ))}
       </div>
     </section>

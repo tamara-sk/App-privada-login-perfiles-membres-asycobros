@@ -1,9 +1,9 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 
-import { CookieSettingsButton } from '@/features/legal/components/cookie-consent';
 import { LegalDoc } from '@/features/legal/components/legal-doc';
 import { legalConfig } from '@/features/legal/legal-config';
+import { CookiePreferences } from '@/libs/analytics/cookie-preferences';
 
 export const metadata: Metadata = {
   title: 'Política de cookies | Secret Key',
@@ -59,7 +59,7 @@ export default function CookiesPage() {
             <td>Hasta 30 días</td>
           </tr>
           <tr>
-            <td>sk-cookie-consent</td>
+            <td>sk-consent-v1</td>
             <td>Propia</td>
             <td>
               Recordar tu decisión sobre las cookies (se almacena en el navegador mediante <em>localStorage</em>)
@@ -106,7 +106,7 @@ export default function CookiesPage() {
         decisión en cualquier momento:
       </p>
       <div className='my-4'>
-        <CookieSettingsButton />
+        <CookiePreferences />
       </div>
       <p>
         También puedes configurar o eliminar las cookies desde tu navegador. Ten en cuenta que bloquear las cookies
@@ -119,16 +119,16 @@ export default function CookiesPage() {
           </a>
         </li>
         <li>
-          <a
-            href='https://support.mozilla.org/es/kb/Borrar%20cookies'
-            target='_blank'
-            rel='noopener noreferrer'
-          >
+          <a href='https://support.mozilla.org/es/kb/Borrar%20cookies' target='_blank' rel='noopener noreferrer'>
             Mozilla Firefox
           </a>
         </li>
         <li>
-          <a href='https://support.apple.com/es-es/guide/safari/sfri11471/mac' target='_blank' rel='noopener noreferrer'>
+          <a
+            href='https://support.apple.com/es-es/guide/safari/sfri11471/mac'
+            target='_blank'
+            rel='noopener noreferrer'
+          >
             Safari
           </a>
         </li>

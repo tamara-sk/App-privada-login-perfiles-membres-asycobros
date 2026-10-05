@@ -3,6 +3,7 @@ import Link from 'next/link';
 
 import { LegalDoc } from '@/features/legal/components/legal-doc';
 import { formatAddress, legalConfig } from '@/features/legal/legal-config';
+import { CookiePreferences } from '@/libs/analytics/cookie-preferences';
 
 export const metadata: Metadata = {
   title: 'Política de privacidad | Secret Key',
@@ -51,8 +52,8 @@ export default function PrivacidadPage() {
           de perfil e historial de actividad dentro de la plataforma.
         </li>
         <li>
-          <strong>Datos de facturación y pago:</strong> datos fiscales, historial de pedidos, importe, fecha y
-          resultado de la operación y los últimos dígitos de la tarjeta.{' '}
+          <strong>Datos de facturación y pago:</strong> datos fiscales, historial de pedidos, importe, fecha y resultado
+          de la operación y los últimos dígitos de la tarjeta.{' '}
           <strong>No tratamos el número completo de la tarjeta ni el CVV</strong>, que se introducen directamente en el
           entorno seguro de la entidad financiera.
         </li>
@@ -138,9 +139,7 @@ export default function PrivacidadPage() {
           <strong>Asesoría fiscal y contable</strong> y, en su caso, asesoría jurídica.
         </li>
       </ul>
-      <p>
-        Los proveedores tecnológicos que intervienen en la prestación del servicio son los siguientes:
-      </p>
+      <p>Los proveedores tecnológicos que intervienen en la prestación del servicio son los siguientes:</p>
       <table>
         <thead>
           <tr>
@@ -224,20 +223,28 @@ export default function PrivacidadPage() {
 
       <h2>8. Decisiones automatizadas</h2>
       <p>
-        No se adoptan decisiones automatizadas con efectos jurídicos ni elaboración de perfiles con impacto
-        significativo. Los sistemas antifraude de la entidad financiera pueden rechazar una operación concreta; en tal
-        caso puedes solicitar la revisión humana escribiendo a {company.email}.
+        Las decisiones con efectos jurídicos sobre ti las toma siempre una persona, y la elaboración de perfiles con
+        impacto significativo queda fuera de este tratamiento. Los sistemas antifraude de la entidad financiera pueden
+        rechazar una operación concreta; en tal caso puedes solicitar la revisión humana escribiendo a {company.email}.
       </p>
 
       <h2>9. Medidas de seguridad</h2>
       <p>
         Aplicamos medidas técnicas y organizativas apropiadas al riesgo (cifrado en tránsito, control de accesos por
-        perfiles, copias de seguridad, registro de actividad y contratos de encargo con todos los proveedores),
-        conforme al artículo 32 del RGPD. Puedes consultar el detalle en{' '}
+        perfiles, copias de seguridad, registro de actividad y contratos de encargo con todos los proveedores), conforme
+        al artículo 32 del RGPD. Puedes consultar el detalle en{' '}
         <Link href='/seguridad-de-pago'>seguridad y protección al comprador</Link>.
       </p>
 
-      <h2>10. Cambios en esta política</h2>
+      <h2>10. Tu elección sobre las cookies</h2>
+      <p>
+        Las cookies que van más allá de las necesarias se cargan una vez las aceptas, y tu elección queda disponible
+        aquí para cambiarla cuando quieras. El detalle de cada cookie está en la{' '}
+        <Link href='/cookies'>política de cookies</Link>.
+      </p>
+      <CookiePreferences />
+
+      <h2>11. Cambios en esta política</h2>
       <p>
         Esta política puede actualizarse para adaptarse a cambios normativos o del servicio. Si los cambios son
         sustanciales, se te comunicarán por correo electrónico o mediante un aviso destacado en el Sitio.
