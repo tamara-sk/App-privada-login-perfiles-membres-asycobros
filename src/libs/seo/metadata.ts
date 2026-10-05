@@ -58,7 +58,7 @@ export const companyConfig = {
   governingBody: company.governingBody,
   operationsSince: company.operationsSince,
   privacyEmail: dataProtection.privacyEmail,
-  supportEmail: company.email,
+  supportEmail: company.supportEmail,
   phone: company.phone,
   /** Autoridad de control para reclamaciones de protección de datos. */
   supervisoryAuthority: `${dataProtection.supervisoryAuthority.name}, ${dataProtection.supervisoryAuthority.url}`,

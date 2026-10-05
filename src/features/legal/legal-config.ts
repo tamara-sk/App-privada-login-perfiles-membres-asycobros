@@ -56,8 +56,15 @@ export const legalConfig = {
       province: 'Castellón',
       country: 'España',
     },
-    /** Correo electrónico de contacto directo y efectivo (art. 10.1 a). */
-    email: 'hello@secretkey.vip',
+    /**
+     * Correo de contacto directo y efectivo (art. 10.1 a).
+     *
+     * Es el que publica el aviso legal de secretkey.vip y el que se comunicó a BBVA en el
+     * alta del TPV, así que conviene que los tres digan lo mismo.
+     */
+    email: 'legal@secretkey.vip',
+    /** Atención comercial y del Círculo, para lo que no es un trámite legal. */
+    supportEmail: 'hello@secretkey.vip',
     /** Teléfono de atención al Círculo. */
     phone: '+34 614 59 44 06',
     /**
@@ -104,8 +111,12 @@ export const legalConfig = {
 
   /** Protección de datos (RGPD / LOPDGDD). */
   dataProtection: {
-    /** Correo del responsable o, si se ha designado, del Delegado de Protección de Datos. */
-    privacyEmail: 'legal@secretkey.vip',
+    /**
+     * Correo del responsable o, si se ha designado, del Delegado de Protección de Datos.
+     *
+     * Coincide con el que publica la política de privacidad de secretkey.vip.
+     */
+    privacyEmail: 'privacy@secretkey.vip',
     /** Delegado de Protección de Datos: null si no se ha designado (no siempre es obligatorio). */
     dpo: null as null | { name: string; email: string },
     supervisoryAuthority: {
