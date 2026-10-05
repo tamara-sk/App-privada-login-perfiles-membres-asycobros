@@ -3,7 +3,7 @@ import Link from 'next/link';
 import type { PropsWithChildren } from 'react';
 
 import { CookiePreferences } from '@/libs/analytics/cookie-preferences';
-import { companyConfig, constructMetadata, siteConfig } from '@/libs/seo/metadata';
+import { companyConfig, constructMetadata, formatRegistry, siteConfig } from '@/libs/seo/metadata';
 
 /**
  * Privacy policy.
@@ -100,7 +100,8 @@ export default function PrivacyPage() {
         <p>
           {companyConfig.legalName} (&ldquo;{siteConfig.name}&rdquo;, &ldquo;we&rdquo;) is the data controller for the
           personal data described here. Registered at {companyConfig.registeredAddress}, Spanish tax identification
-          number (NIF) {companyConfig.taxId}.
+          number (NIF) {companyConfig.taxId}. {formatRegistry()} European Unique Identifier (EUID){' '}
+          {companyConfig.registry.euid}.
         </p>
         <p>
           Questions, requests or complaints:{' '}

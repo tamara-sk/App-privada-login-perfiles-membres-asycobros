@@ -27,23 +27,56 @@ export const siteConfig = {
  * updates every page that references them.
  */
 export const companyConfig = {
-  legalName: 'The Secret Key Labs S.L.',
-  registeredAddress: 'Camí Vora Riu Solades 1771, 12540 Vila-real, Castellón, Spain',
+  legalName: 'THE SECRET KEY LABS, S.L.',
+  registeredAddress: 'Camino Vora Riu Solades 1176, 12540 Vila-real, Castellón, Spain',
   /** Structured form of the address above, for the Organization schema. */
   address: {
-    street: 'Camí Vora Riu Solades 1771',
+    street: 'Camino Vora Riu Solades 1176',
     postalCode: '12540',
     city: 'Vila-real',
     region: 'Castellón',
     country: 'ES',
   },
   taxId: 'B25909565',
+  /**
+   * Companies-register details, required by article 10.1 b) of Spanish Law 34/2002.
+   *
+   * Confirmed by the registry certificate issued by the Registrar of Companies of
+   * Castellón de la Plana on 22 January 2026 (entry 56 of the 2026 Daybook).
+   *
+   * Castellón keeps an electronic folio, so the sheet and the entry identify the
+   * company and the paper volume and folio no longer apply. `folio` reads
+   * 'electronic' because that is the literal wording of the certificate.
+   */
+  registry: {
+    name: 'Registro Mercantil de Castellón',
+    sheet: 'CS-50580',
+    folio: 'electronic',
+    entry: '1',
+    /** European Unique Identifier (Regulation EU 2015/884). */
+    euid: 'ES12011.000207496',
+    registeredOn: '22 January 2026',
+  },
+  /** Subscribed share capital, in euros. */
+  shareCapital: 3000,
+  /** Registered activity codes. */
+  cnae: ['8230', '6832', '7020'],
+  /** Governing body on record. */
+  governingBody: 'Sole director',
+  /** Date operations began, as registered. */
+  operationsSince: '16 December 2025',
   privacyEmail: 'legal@secretkey.vip',
   supportEmail: 'hello@secretkey.vip',
   /** Lead supervisory authority for data protection complaints. */
   supervisoryAuthority: 'the Spanish Data Protection Agency (AEPD, aepd.es)',
   policyLastUpdated: '15 September 2026',
 } as const;
+
+/** The registry line as it should be published, per article 10.1 b) LSSI. */
+export function formatRegistry(): string {
+  const { name, sheet, folio, entry } = companyConfig.registry;
+  return `Registered at the ${name}, sheet ${sheet}, ${folio} folio, entry ${entry}.`;
+}
 
 /**
  * Single source of truth for page metadata: title template, canonical URL,
