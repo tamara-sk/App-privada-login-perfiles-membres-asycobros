@@ -2,12 +2,11 @@
 
 import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 
 import { Button } from '@/components/ui/button';
-import { useToast } from '@/components/ui/use-toast';
 import { trackBeginCheckout, trackViewCart } from '@/libs/analytics/events';
 
-import { createStoreCheckoutAction } from '../actions/create-store-checkout-action';
 import { FREE_SHIPPING_THRESHOLD_CENTS } from '../catalog';
 import type { ResolvedCartItem } from '../types';
 import { formatPrice } from '../utils/format-price';
@@ -24,7 +23,7 @@ import { MerchPreview } from './merch-preview';
 export function CartContents() {
   const { items, subtotalCents, itemCount, isHydrated, updateQuantity, removeItem } = useCart();
   const [isCheckingOut, setIsCheckingOut] = useState(false);
-  const { toast } = useToast();
+  const router = useRouter();
   const hasTrackedView = useRef(false);
 
   useEffect(() => {
@@ -37,22 +36,14 @@ export function CartContents() {
     });
   }, [isHydrated, items, subtotalCents]);
 
-  async function handleCheckout() {
+  function handleCheckout() {
     setIsCheckingOut(true);
 
     trackBeginCheckout({ items: items.map(toAnalyticsItem), value: subtotalCents / 100 });
 
-    const result = await createStoreCheckoutAction({
-      items: items.map(({ slug, size, color, quantity }) => ({ slug, size, color, quantity })),
-    });
-
-    if (result.url) {
-      window.location.href = result.url;
-      return;
-    }
-
-    setIsCheckingOut(false);
-    toast({ variant: 'destructive', description: result.error ?? 'Checkout is unavailable right now.' });
+    // Redsys cobra un importe firmado y ya está, así que la dirección y el envío se
+    // recogen en nuestra propia página antes de enviar a la pasarela del banco.
+    router.push('/store/checkout');
   }
 
   if (!isHydrated) {
@@ -161,7 +152,9 @@ export function CartContents() {
         <Button variant='sexy' className='w-full' disabled={isCheckingOut} onClick={handleCheckout}>
           {isCheckingOut ? 'Opening checkout...' : 'Checkout'}
         </Button>
-        <p className='text-center text-xs text-neutral-500'>Secure payment by Stripe. 30-day returns.</p>
+        <p className='text-center text-xs text-neutral-500'>
+          Secure payment through the BBVA Virtual POS. 30-day returns.
+        </p>
       </aside>
     </div>
   );

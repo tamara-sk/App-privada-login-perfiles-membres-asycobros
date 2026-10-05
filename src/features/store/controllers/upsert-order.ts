@@ -1,63 +1,30 @@
-import Stripe from 'stripe';
-
-import { stripeAdmin } from '@/libs/stripe/stripe-admin';
+import type { RedsysNotification } from '@/libs/redsys/payment';
 import { supabaseAdminClient } from '@/libs/supabase/supabase-admin';
 
 /**
- * Persists a completed shop checkout.
+ * Cierra un pedido de la tienda con lo que confirma Redsys.
  *
- * The Checkout Session id is the primary key, so Stripe replaying a webhook
- * simply overwrites the same row instead of duplicating the order.
+ * El pedido ya existe, con sus líneas y sus importes calculados en el servidor, así que
+ * aquí solo se marca el resultado. La actualización exige `status = 'pending'`, de modo que
+ * una notificación reenviada por el banco encuentra la fila ya cerrada y deja de aplicarse.
  */
-export async function upsertOrder(checkoutSession: Stripe.Checkout.Session) {
-  const session = await stripeAdmin.checkout.sessions.retrieve(checkoutSession.id, {
-    expand: ['line_items', 'line_items.data.price.product'],
-  });
-
-  const items = (session.line_items?.data ?? []).map((lineItem) => {
-    const product = lineItem.price?.product as Stripe.Product | undefined;
-
-    return {
-      slug: product?.metadata?.slug ?? null,
-      size: product?.metadata?.size ?? null,
-      color: product?.metadata?.color ?? null,
-      name: lineItem.description,
-      quantity: lineItem.quantity ?? 1,
-      unit_amount: lineItem.price?.unit_amount ?? 0,
-      amount_total: lineItem.amount_total ?? 0,
-    };
-  });
-
-  const userId = session.metadata?.user_id || (await getUserIdForCustomer(session.customer));
-
-  const { error } = await supabaseAdminClient.from('orders').upsert({
-    id: session.id,
-    user_id: userId,
-    payment_intent_id: typeof session.payment_intent === 'string' ? session.payment_intent : session.payment_intent?.id,
-    email: session.customer_details?.email ?? null,
-    status: 'paid',
-    currency: session.currency ?? 'eur',
-    amount_subtotal: session.amount_subtotal,
-    amount_shipping: session.shipping_cost?.amount_total ?? 0,
-    amount_total: session.amount_total ?? 0,
-    items,
-    shipping_details: (session.customer_details?.address
-      ? { name: session.customer_details.name, address: session.customer_details.address }
-      : null) as never,
-  });
+export async function settleOrder({
+  orderId,
+  paid,
+  notification,
+}: {
+  orderId: string;
+  paid: boolean;
+  notification: RedsysNotification;
+}) {
+  const { error } = await supabaseAdminClient
+    .from('orders')
+    .update({
+      status: paid ? 'paid' : 'failed',
+      payment_intent_id: notification.Ds_AuthorisationCode ?? null,
+    })
+    .eq('id', orderId)
+    .eq('status', 'pending');
 
   if (error) throw error;
-}
-
-async function getUserIdForCustomer(customer: Stripe.Checkout.Session['customer']) {
-  const customerId = typeof customer === 'string' ? customer : customer?.id;
-  if (!customerId) return null;
-
-  const { data } = await supabaseAdminClient
-    .from('customers')
-    .select('id')
-    .eq('stripe_customer_id', customerId)
-    .maybeSingle();
-
-  return data?.id ?? null;
 }

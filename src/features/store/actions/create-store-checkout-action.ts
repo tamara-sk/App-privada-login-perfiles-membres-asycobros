@@ -1,11 +1,13 @@
 'use server';
 
-import { getOrCreateCustomer } from '@/features/account/controllers/get-or-create-customer';
+import { redirect } from 'next/navigation';
+
 import { getSession } from '@/features/account/controllers/get-session';
-import { stripeAdmin } from '@/libs/stripe/stripe-admin';
-import { getURL } from '@/utils/get-url';
+import { createOrderNumber } from '@/libs/redsys/payment';
+import { supabaseAdminClient } from '@/libs/supabase/supabase-admin';
 
 import { STORE_CURRENCY } from '../catalog';
+import { isShippingCountry } from '../shipping-countries';
 import type { CartItem } from '../types';
 import {
   cartNeedsShipping,
@@ -15,118 +17,115 @@ import {
   resolveCart,
 } from '../utils/resolve-cart';
 
-/** Countries we ship to today. Extend as fulfilment coverage grows. */
-const SHIPPING_COUNTRIES = [
-  'ES',
-  'PT',
-  'FR',
-  'IT',
-  'DE',
-  'NL',
-  'BE',
-  'LU',
-  'IE',
-  'AT',
-  'DK',
-  'SE',
-  'FI',
-  'PL',
-  'CZ',
-  'GB',
-  'CH',
-  'US',
-  'CA',
-  'MX',
-  'AE',
-] as const;
+export type StoreCheckoutDetails = {
+  email: string;
+  name: string;
+  phone?: string;
+  shippingOptionId?: string;
+  line1?: string;
+  line2?: string;
+  city?: string;
+  postalCode?: string;
+  country?: string;
+};
 
-export type StoreCheckoutResult = { url: string; error?: never } | { url?: never; error: string };
+export type StoreCheckoutResult = { error: string };
 
-export async function createStoreCheckoutAction({ items }: { items: CartItem[] }): Promise<StoreCheckoutResult> {
-  // 1. Rebuild the basket from the catalog. Client input only contributes slugs,
-  //    variants and quantities - never prices.
+/**
+ * Registra el pedido como pendiente y lleva a la persona a la página que la envía a Redsys.
+ *
+ * Redsys es una pasarela por redirección: cobra un importe firmado y ya está. La dirección,
+ * el envío y las líneas del carrito se recogen y se calculan aquí, en el servidor. El
+ * navegador aporta slugs, tallas y cantidades; los precios salen siempre del catálogo.
+ */
+export async function createStoreCheckoutAction({
+  items,
+  details,
+}: {
+  items: CartItem[];
+  details: StoreCheckoutDetails;
+}): Promise<StoreCheckoutResult> {
   const resolvedItems = resolveCart(items);
 
   if (resolvedItems.length === 0) {
-    return { error: 'Your cart is empty.' };
+    return { error: 'Tu carrito está vacío.' };
+  }
+
+  const email = details.email?.trim();
+
+  if (!email || !email.includes('@')) {
+    return { error: 'Necesitamos un correo electrónico válido.' };
+  }
+
+  if (!details.name?.trim()) {
+    return { error: 'Necesitamos un nombre.' };
   }
 
   const subtotalCents = getCartSubtotalCents(resolvedItems);
-  // Experience packs are emailed, so an all-digital basket skips the address
-  // step entirely. A mixed basket still ships, priced on its physical part.
   const needsShipping = cartNeedsShipping(resolvedItems);
 
-  // 2. Attach the Stripe customer when the shopper is a signed-in member, so
-  //    merch orders and membership live under one customer record.
-  let customerId: string | undefined;
-  const session = await getSession();
+  let shippingCents = 0;
+  let shippingDetails: Record<string, unknown> | null = null;
 
-  if (session?.user?.email) {
-    try {
-      customerId = await getOrCreateCustomer({ userId: session.user.id, email: session.user.email });
-    } catch (error) {
-      console.error('Could not resolve Stripe customer for merch checkout', error);
+  if (needsShipping) {
+    const country = details.country?.trim().toUpperCase();
+
+    if (!country || !isShippingCountry(country)) {
+      return { error: 'Elige un país al que lleguemos hoy.' };
     }
-  }
 
-  try {
-    const checkoutSession = await stripeAdmin.checkout.sessions.create({
-      mode: 'payment',
-      payment_method_types: ['card'],
-      allow_promotion_codes: true,
-      billing_address_collection: 'required',
-      phone_number_collection: { enabled: true },
-      ...(customerId
-        ? { customer: customerId, customer_update: { address: 'auto', shipping: 'auto', name: 'auto' } }
-        : {}),
-      ...(needsShipping
-        ? {
-            shipping_address_collection: { allowed_countries: [...SHIPPING_COUNTRIES] },
-            shipping_options: getShippingOptions(getShippableSubtotalCents(resolvedItems)).map((option) => ({
-              shipping_rate_data: {
-                type: 'fixed_amount' as const,
-                fixed_amount: { amount: option.amountCents, currency: STORE_CURRENCY },
-                display_name: option.label,
-                delivery_estimate: {
-                  minimum: { unit: 'business_day' as const, value: option.minBusinessDays },
-                  maximum: { unit: 'business_day' as const, value: option.maxBusinessDays },
-                },
-              },
-            })),
-          }
-        : {}),
-      line_items: resolvedItems.map((item) => ({
-        quantity: item.quantity,
-        price_data: {
-          currency: STORE_CURRENCY,
-          unit_amount: item.product.priceCents,
-          product_data: {
-            name: `${item.product.name} - ${item.color} / ${item.size}`,
-            description: item.product.backPhrase,
-            metadata: { slug: item.slug, size: item.size, color: item.color },
-          },
-        },
-      })),
-      metadata: {
-        order_type: needsShipping ? 'merch' : 'experience',
-        user_id: session?.user?.id ?? '',
-        // Stripe caps metadata values at 500 characters, so keep this compact.
-        items: resolvedItems
-          .map((item) => `${item.slug}:${item.size}:${item.color}x${item.quantity}`)
-          .join('|')
-          .slice(0, 500),
+    if (!details.line1?.trim() || !details.city?.trim() || !details.postalCode?.trim()) {
+      return { error: 'Completa la dirección de envío.' };
+    }
+
+    const options = getShippingOptions(getShippableSubtotalCents(resolvedItems));
+    const option = options.find((candidate) => candidate.id === details.shippingOptionId) ?? options[0];
+
+    shippingCents = option.amountCents;
+    shippingDetails = {
+      name: details.name.trim(),
+      phone: details.phone?.trim() || null,
+      address: {
+        line1: details.line1.trim(),
+        line2: details.line2?.trim() || null,
+        city: details.city.trim(),
+        postal_code: details.postalCode.trim(),
+        country,
       },
-      success_url: `${getURL()}/store/success?session_id={CHECKOUT_SESSION_ID}`,
-      cancel_url: `${getURL()}/store/cart`,
-    });
-
-    if (!checkoutSession.url) {
-      return { error: 'Stripe did not return a checkout url.' };
-    }
-
-    return { url: checkoutSession.url };
-  } catch (error) {
-    console.error('Merch checkout failed', error);
-    return { error: 'We could not open checkout. Please try again.' };
+      shipping_option: { id: option.id, label: option.label, amount_cents: option.amountCents },
+    };
   }
+
+  const totalCents = subtotalCents + shippingCents;
+  const session = await getSession();
+  const order = createOrderNumber();
+
+  const { error } = await supabaseAdminClient.from('orders').insert({
+    id: order,
+    user_id: session?.user?.id ?? null,
+    email,
+    status: 'pending',
+    currency: STORE_CURRENCY,
+    amount_subtotal: subtotalCents,
+    amount_shipping: shippingCents,
+    amount_total: totalCents,
+    items: resolvedItems.map((item) => ({
+      slug: item.slug,
+      size: item.size,
+      color: item.color,
+      name: `${item.product.name} - ${item.color} / ${item.size}`,
+      quantity: item.quantity,
+      unit_amount: item.product.priceCents,
+      amount_total: item.lineTotalCents,
+      fulfilment: item.product.fulfilment,
+    })) as never,
+    shipping_details: shippingDetails as never,
+  });
+
+  if (error) {
+    console.error('No se pudo registrar el pedido', error);
+    return { error: 'No pudimos abrir el pago. Inténtalo de nuevo.' };
+  }
+
+  redirect(`/store/pago/${order}`);
 }

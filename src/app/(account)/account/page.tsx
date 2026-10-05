@@ -4,38 +4,24 @@ import { redirect } from 'next/navigation';
 
 import { Button } from '@/components/ui/button';
 import { getSession } from '@/features/account/controllers/get-session';
-import { getSubscription } from '@/features/account/controllers/get-subscription';
-import { PricingCard } from '@/features/pricing/components/price-card';
-import { getProducts } from '@/features/pricing/controllers/get-products';
-import { Price, ProductWithPrices } from '@/features/pricing/types';
+import { startPaymentAction } from '@/features/membership/actions/start-payment-action';
+import { PlanCard } from '@/features/membership/components/plan-card';
+import { getMembership } from '@/features/membership/controllers/get-membership';
+import { getPlan } from '@/features/membership/plans';
 import { getOrders } from '@/features/store/controllers/get-orders';
 import { formatPrice } from '@/features/store/utils/format-price';
 
 export default async function AccountPage() {
-  const [session, subscription, products, orders] = await Promise.all([
-    getSession(),
-    getSubscription(),
-    getProducts(),
-    getOrders(),
-  ]);
+  const [session, membership, orders] = await Promise.all([getSession(), getMembership(), getOrders()]);
 
   if (!session) {
     redirect('/login');
   }
 
-  let userProduct: ProductWithPrices | undefined;
-  let userPrice: Price | undefined;
-
-  if (subscription) {
-    for (const product of products) {
-      for (const price of product.prices) {
-        if (price.id === subscription.price_id) {
-          userProduct = product;
-          userPrice = price;
-        }
-      }
-    }
-  }
+  const plan = membership ? getPlan(membership.plan) : undefined;
+  const validUntil = membership
+    ? new Intl.DateTimeFormat('es-ES', { dateStyle: 'long' }).format(new Date(membership.current_period_end))
+    : null;
 
   return (
     <section className='rounded-lg bg-black px-4 py-16'>
@@ -43,23 +29,28 @@ export default async function AccountPage() {
 
       <div className='flex flex-col gap-4'>
         <Card
-          title='Your Plan'
+          title='Your entry to the Circle'
           footer={
-            subscription ? (
-              <Button size='sm' variant='secondary' asChild>
-                <Link href='/manage-subscription'>Manage your subscription</Link>
-              </Button>
+            plan ? (
+              <form action={startPaymentAction.bind(null, plan.slug)}>
+                <Button size='sm' variant='secondary' type='submit'>
+                  Renew for another year
+                </Button>
+              </form>
             ) : (
               <Button size='sm' variant='secondary' asChild>
-                <Link href='/pricing'>Start a subscription</Link>
+                <Link href='/pricing'>See the plans</Link>
               </Button>
             )
           }
         >
-          {userProduct && userPrice ? (
-            <PricingCard product={userProduct} price={userPrice} />
+          {plan ? (
+            <div className='flex flex-col gap-4'>
+              <p className='text-zinc-400'>Valid until {validUntil}.</p>
+              <PlanCard plan={plan} showAction={false} />
+            </div>
           ) : (
-            <p>You don&apos;t have an active subscription</p>
+            <p>Choose your entry to the Circle to begin.</p>
           )}
         </Card>
 
