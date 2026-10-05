@@ -1,7 +1,10 @@
 <p align="center">
   <h1 align="center">next-supabase-stripe-starter</h1>
+
+> **Nota:** Stripe queda eliminado de esta rama. El cobro va por el TPV Virtual de BBVA
+> sobre Redsys, descrito en `CLAUDE.md`. Lo que sigue mencionando Stripe describe la
+> plantilla original y ya no refleja el código.
   <p align="center">
-    <a href="https://twitter.com/KolbySisk"><img src="/delete-me/github-banner.png" /></a>
   </p>
 </p>
 
@@ -61,7 +64,6 @@ Bootstrap your SaaS with a modern tech stack built to move quick. Follow the gui
 1. Click Deploy
 1. While you wait, clone your new repo and open it in your code editor. Then create a file named `.env.local`. Copy and pase the contents of `.env.local.example` into this file and add the correct values. They should be the same values you added in above.
 
-![Vercel env config](/delete-me/deplyoment-env.png)
 
 ### 5. Stripe Webhook
 
@@ -95,7 +97,6 @@ Now we're going to run the initial [Supabase Migration](https://supabase.com/doc
 ### 8. Last steps
 
 1. Do a `Search All` in your code editor for `UPDATE_THIS` and update all instances with the relevant value (**except for .env.local.example!**)
-1. Delete the `delete-me` dir
 
 ### 9. Check it out!
 
@@ -130,6 +131,54 @@ const products = await getProducts();
 const productMetadata = productMetadataSchema.parse(products[0].metadata); // Now it's typesafe 🙌!
 productMetadata.teamInvites; // The value you set in the fixture
 ```
+
+### The shop
+
+The merch store lives in `src/features/store` and is served from `/store`.
+
+- **Catalog** — `src/features/store/catalog.ts` is the single source of truth: slug, copy, phrase, price (in cents), sizes, colours and the silhouette used by the preview. Add a product by adding an object; the grid, the product page, the sitemap and the structured data pick it up automatically.
+- **Previews** — there is no product photography yet, so `merch-preview.tsx` draws each item: the silhouette sits behind the print, the phrase is typeset the way it is printed (discreet front mark, full phrase on the back). Swap it for real photos by replacing that component.
+- **Cart** — client side, persisted in `localStorage` (`cart-provider.tsx`). It only ever stores slugs, variants and quantities.
+- **Checkout** — `create-store-checkout-action.ts` rebuilds the basket from the catalog on the server and creates a Stripe Checkout session with inline `price_data`, so no Stripe product has to be created up front. A tampered cart cannot change what a customer is charged. Shipping countries and rates are configured at the top of that file and in `catalog.ts`.
+- **Orders** — the Stripe webhook writes every completed one-off payment to the `orders` table (migration `20260914120000_store_orders.sql`). Members see their history on `/account`; row-level security keeps each member to their own rows. Run `npm run migration:up` after pulling.
+
+To change prices, edit `priceCents` in the catalog. To go live with a new product line, add products there and Stripe will price them at checkout.
+
+### Deployment and environment variables
+
+Build-time safety: the Stripe, Supabase-admin and Resend clients are built lazily through
+`src/utils/create-lazy-client.ts`, so `next build` completes with no secrets present and a
+missing credential surfaces on the request that needs it. Anything new that reads an env
+var at module scope will break preview builds again - construct it inside a factory
+instead.
+
+`vercel.json` turns off git-triggered deployments for `main`. Remove that line once this
+repository has a Vercel project of its own, separate from the one serving the marketing
+site.
+
+### Website tracking
+
+Tags are wired in `src/libs/analytics` and configured entirely through environment variables. Any id you leave blank simply does not load.
+
+| Variable | What it does |
+| --- | --- |
+| `NEXT_PUBLIC_GTM_ID` | Google Tag Manager container. Recommended: manage GA4, Ads and Meta from inside GTM. |
+| `NEXT_PUBLIC_GA_MEASUREMENT_ID` | GA4. Only injected directly when there is no GTM container, to avoid double counting. |
+| `NEXT_PUBLIC_META_PIXEL_ID` | Meta pixel for Instagram/Facebook campaigns. |
+| `NEXT_PUBLIC_GOOGLE_ADS_ID` | Google Ads conversion linker. |
+| `NEXT_PUBLIC_CLARITY_PROJECT_ID` | Microsoft Clarity: heatmaps, scroll maps and session replay. Free, unlimited traffic. |
+
+What is already instrumented, using the GA4 recommended e-commerce schema (so GTM's built-in tags work with no extra mapping):
+
+`page_view` on every client-side navigation, `view_item_list`, `view_item`, `add_to_cart`, `remove_from_cart`, `view_cart`, `begin_checkout`, and `purchase` on the confirmation page (deduplicated per order id, because people refresh). Membership events (`sign_up`, `login`, `select_plan`, `cta_click`) are available in `src/libs/analytics/events.ts`.
+
+Scroll depth is reported at 25/50/75/100% per page (`scroll_depth`), which is what tells you where readers stop.
+
+Consent Mode v2 is set to denied by default in `<head>` before any tag loads, and the banner in `consent-banner.tsx` updates it. This is what keeps EU traffic compliant and the numbers defensible. The Google tags run under Consent Mode and hold back storage themselves; Clarity and the Meta pixel wait for an explicit yes before they load at all.
+
+**Setting up heatmaps:** create a free project at [clarity.microsoft.com](https://clarity.microsoft.com), put the project id in `NEXT_PUBLIC_CLARITY_PROJECT_ID`, and in the Clarity project settings enable cookie consent so it honours the banner. Within a day you get click maps, scroll maps and session replays, plus rage clicks and dead clicks. Link the Clarity project to GA4 from Clarity's settings to filter recordings by GA4 segment.
+
+**Setting up GTM:** create a container at [tagmanager.google.com](https://tagmanager.google.com), put the `GTM-XXXXXXX` id in `NEXT_PUBLIC_GTM_ID`, then inside GTM add a GA4 Configuration tag on *All Pages* and GA4 Event tags triggered by the custom events listed above. Use *Preview* mode to confirm events fire before publishing the container.
 
 ### Managing your database schema
 
