@@ -1,10 +1,13 @@
 # Secret Key — App privada del Círculo
 
-> **Antes de tocar nada, lee esto.** Esta rama (`claude/bbva-ley-34-2002-compliance-qak9nb`)
-> salió de `main`, que está obsoleto. El trabajo vivo está en
-> `claude/funny-cannon-t9g3gh`, que ya trae páginas legales, banner de consentimiento,
-> datos de la sociedad, tiendas, analítica y el acuerdo de marca. **Parte de esa rama, no de
-> `main`**, y lee su `CLAUDE.md`, su `docs/brand-voice.md` y su `docs/port-to-production.md`.
+> **Antes de tocar nada, lee esto.** `main` está al día: trae las páginas legales, el
+> banner de consentimiento, los datos de la sociedad, las tiendas, la analítica, el acuerdo
+> de marca y el cobro por Redsys, ya sin Stripe. **Parte de `main`.**
+>
+> `claude/funny-cannon-t9g3gh` y `claude/funny-cannon-sin-stripe` quedaron fusionadas en
+> `main` y **ya no son la referencia**: conservan el domicilio equivocado
+> («Camí Vora Riu Solades 1771»), que `main` corrigió después. Partir de ellas reintroduce
+> el error, así que conviene dejarlas estar y borrarlas cuando se haga limpieza de ramas.
 
 ## Voz de marca — innegociable
 
@@ -79,6 +82,22 @@ El domicilio correcto es **1176**, confirmado por Tamara y coincidente con el av
 publicado en secretkey.vip. La variante «Camí Vora Riu Solades 1771» que circulaba en el
 código era errónea: mismos dígitos, orden cambiado. Es el dato que BBVA contrasta contra la
 escritura, así que no debe volver a bailar.
+
+**Revisado el 05/10/2026, rama a rama y página a página.** El **1176** sale correcto en las
+17 apariciones del repositorio del sitio y en todas las ramas vivas de esta aplicación,
+incluida `main`. El **1771** sobrevive únicamente en `claude/funny-cannon-t9g3gh` y
+`claude/funny-cannon-sin-stripe`, ya fusionadas en `main` y superadas por su corrección.
+
+La misma revisión destapó una referencia registral equivocada que sí estaba publicada: los
+pies de las ocho páginas del sitio decían «Hoja CS-50580, **Sección 8, Inscripción 1ª**».
+El registro lleva folio electrónico, así que las ocho pasan a «hoja CS-50580, folio
+electrónico, inscripción 1» (`tamara-sk/secret-key-site`, commit `c59b06c`).
+
+Del `aviso-legal.html` vivo quedan tres datos por corregir **a mano en el Mac**, porque esa
+página está fuera del repositorio a propósito: el teléfono (publica +34 605 188 495, cuando
+el de atención es +34 614 59 44 06), la inscripción (la misma «Sección 8») y el objeto
+social (publica el extracto corto, cuando la certificación trae el literal completo). Las
+instrucciones están en `LEGALES.md` del repositorio del sitio, apartado «1 bis».
 
 **Los datos de inscripción están confirmados** por la certificación registral que expidió la
 Registradora Mercantil de Castellón de la Plana el 22/01/2026 (asiento 56 del Diario 2026):
