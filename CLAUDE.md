@@ -5,8 +5,8 @@
 > la analítica y el cobro por Redsys que `main` ya traía. **Las ramas nuevas parten de
 > `main`.**
 >
-> `claude/funny-cannon-t9g3gh` y `claude/funny-cannon-sin-stripe` quedaron fusionadas en
-> `main` y **ya no son la referencia**: conservan el domicilio equivocado
+> Las dos ramas `claude/funny-cannon-*` quedaron fusionadas en `main` y **ya no son la
+> referencia**: conservan el domicilio equivocado
 > («Camí Vora Riu Solades 1771»), que `main` corrigió después. Partir de ellas reintroduce
 > el error, así que conviene dejarlas estar y borrarlas cuando se haga limpieza de ramas.
 
@@ -89,7 +89,8 @@ Key, en cualquier idioma y en cualquier soporte.
 | **Domicilio social** | **Camino Vora Riu Solades 1176, 12540 Vila-real, Castellón, España** |
 | Registro Mercantil | Castellón |
 | Escritura | 16/12/2025, protocolo 2025/1779 |
-| Teléfono de atención | +34 614 59 44 06 |
+| **Teléfono del art. 10** | **+34 605 188 495** (el de Tamara) |
+| **Teléfono de atención general** | **+34 614 59 44 06** (Digi) |
 
 El domicilio correcto es **1176**, confirmado por Tamara y coincidente con el aviso legal
 publicado en secretkey.vip. La variante «Camí Vora Riu Solades 1771» que circulaba en el
@@ -98,19 +99,26 @@ escritura, así que no debe volver a bailar.
 
 **Revisado el 05/10/2026, rama a rama y página a página.** El **1176** sale correcto en las
 17 apariciones del repositorio del sitio y en todas las ramas vivas de esta aplicación,
-incluida `main`. El **1771** sobrevive únicamente en `claude/funny-cannon-t9g3gh` y
-`claude/funny-cannon-sin-stripe`, ya fusionadas en `main` y superadas por su corrección.
+incluida `main`. El **1771** sobrevive únicamente en las dos ramas `claude/funny-cannon-*`,
+ya fusionadas en `main` y superadas por su corrección.
 
 La misma revisión destapó una referencia registral equivocada que sí estaba publicada: los
 pies de las ocho páginas del sitio decían «Hoja CS-50580, **Sección 8, Inscripción 1ª**».
 El registro lleva folio electrónico, así que las ocho pasan a «hoja CS-50580, folio
 electrónico, inscripción 1» (`tamara-sk/secret-key-site`, commit `c59b06c`).
 
-Del `aviso-legal.html` vivo quedan tres datos por corregir **a mano en el Mac**, porque esa
-página está fuera del repositorio a propósito: el teléfono (publica +34 605 188 495, cuando
-el de atención es +34 614 59 44 06), la inscripción (la misma «Sección 8») y el objeto
-social (publica el extracto corto, cuando la certificación trae el literal completo). Las
-instrucciones están en `LEGALES.md` del repositorio del sitio, apartado «1 bis».
+**Hay dos teléfonos, y cada uno tiene su sitio.** El **+34 605 188 495** es el de Tamara y
+es el contacto directo y efectivo del **art. 10**: aviso legal, condiciones y la fila de
+trámites legales de `/contacto`. El **+34 614 59 44 06** es la línea de **atención general**
+de Digi: cancelaciones, incidencias con un cargo, el `telephone` del JSON-LD y cualquier
+texto que no sea un trámite legal. En el código son `legalConfig.company.phone` y
+`legalConfig.company.supportPhone`.
+
+Del `aviso-legal.html` vivo quedan dos datos por corregir **a mano en el Mac**, porque esa
+página está fuera del repositorio a propósito: la inscripción (dice «Sección 8») y el objeto
+social (publica el extracto corto, cuando la certificación trae el literal completo). Su
+teléfono ya es el correcto. Las instrucciones están en `LEGALES.md` del repositorio del
+sitio, apartado «1 bis».
 
 **Los datos de inscripción están confirmados** por la certificación registral que expidió la
 Registradora Mercantil de Castellón de la Plana el 22/01/2026 (asiento 56 del Diario 2026):
@@ -140,7 +148,7 @@ que circulaba, y ya está literal en `legalConfig.company.corporatePurpose`.
 
 Secret Key cobra por el **TPV Virtual de BBVA, sobre Redsys**. La decisión está tomada.
 
-En esta rama **Stripe ya está eliminado**. El cobro de las entradas al Círculo va por Redsys:
+El cobro de las entradas al Círculo y de la tienda va por Redsys, de punta a punta:
 
 | Pieza | Dónde |
 | --- | --- |

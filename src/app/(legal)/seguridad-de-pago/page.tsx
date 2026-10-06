@@ -28,10 +28,12 @@ export default function SeguridadPage() {
       </p>
       <p>
         Al pagar, los datos de la tarjeta se introducen directamente en el entorno seguro de la entidad financiera:{' '}
-        <strong>{company.tradeName} no ve, no trata y no almacena en ningún momento el número completo de la tarjeta,
-        su fecha de caducidad ni el código de seguridad (CVV)</strong>. En nuestros sistemas solo queda constancia del
-        resultado de la operación, de su importe y de los últimos dígitos de la tarjeta, a efectos de facturación y
-        soporte.
+        <strong>
+          {company.tradeName} no ve, no trata y no almacena en ningún momento el número completo de la tarjeta, su fecha
+          de caducidad ni el código de seguridad (CVV)
+        </strong>
+        . En nuestros sistemas solo queda constancia del resultado de la operación, de su importe y de los últimos
+        dígitos de la tarjeta, a efectos de facturación y soporte.
       </p>
 
       <h2>2. Cifrado de las comunicaciones</h2>
@@ -60,7 +62,7 @@ export default function SeguridadPage() {
       <p>Si detectas en tu extracto un cargo de {company.tradeName} que no reconoces:</p>
       <ol>
         <li>
-          Escríbenos a {company.email} o llama al {company.phone} indicando el importe y la fecha. Revisaremos la
+          Escríbenos a {company.email} o llama al {company.supportPhone} indicando el importe y la fecha. Revisaremos la
           operación y te responderemos con la mayor brevedad.
         </li>
         <li>
@@ -99,9 +101,9 @@ export default function SeguridadPage() {
 
       <h2>9. Notificación de incidentes</h2>
       <p>
-        En caso de que se produjera una brecha de seguridad que afectara a tus datos personales,{' '}
-        {company.tradeName} la notificará a la Agencia Española de Protección de Datos en un plazo máximo de 72 horas y,
-        cuando entrañe un alto riesgo para tus derechos, te lo comunicará también a ti sin dilación indebida.
+        En caso de que se produjera una brecha de seguridad que afectara a tus datos personales, {company.tradeName} la
+        notificará a la Agencia Española de Protección de Datos en un plazo máximo de 72 horas y, cuando entrañe un alto
+        riesgo para tus derechos, te lo comunicará también a ti sin dilación indebida.
       </p>
     </LegalDoc>
   );

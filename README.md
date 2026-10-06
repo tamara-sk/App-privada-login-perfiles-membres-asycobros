@@ -17,8 +17,9 @@ memorables, ampliar el acceso o reforzar la relación con el Círculo.
 - **Vercel** — alojamiento
 - **GoHighLevel** — CRM y automatización
 
-Partiendo de [next-supabase-stripe-starter](https://github.com/KolbySisk/next-supabase-stripe-starter)
-de Kolby Sisk.
+Partiendo de una [plantilla de Kolby Sisk](https://github.com/KolbySisk/next-supabase-stripe-starter),
+de la que se conserva la base de Next.js y Supabase. La pasarela de pago se sustituyó por
+Redsys.
 
 ## Puesta en marcha
 

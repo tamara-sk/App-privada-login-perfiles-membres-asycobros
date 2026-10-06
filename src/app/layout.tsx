@@ -65,7 +65,7 @@ const organizationJsonLd = {
     addressCountry: companyConfig.address.country,
   },
   email: companyConfig.supportEmail,
-  telephone: legalConfig.company.phone,
+  telephone: legalConfig.company.supportPhone,
 };
 
 export default function RootLayout({ children }: PropsWithChildren) {

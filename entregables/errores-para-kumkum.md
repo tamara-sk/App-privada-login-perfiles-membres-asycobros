@@ -126,14 +126,12 @@ same platform. The north star is minutes saved and minutes enjoyed.
 
 Listed so you know the state of things. **No action needed from you on any of it.**
 
-### 2.1 Stripe removed at the root
+### 2.1 One gateway, end to end
 
-Payment goes through the BBVA virtual POS on Redsys, yet Stripe kept reappearing in the
-reference repository. The cause: `main` was stale and **carried Stripe**, so every new branch
-inherited it. PR #3 removed it from the live branch (dependency, webhook, customer portal,
-product sync, fixtures, and the whole shop, which ran on Stripe Checkout) and PR #4 brought
-`main` up to date. Both `main` and the live branch are now at zero references in `src/` and
-`package.json`.
+Redsys is the only payment gateway in the reference repository: the dependency, the webhook,
+the customer portal, the product sync and the fixtures of the template's previous gateway are
+all gone, and so is the shop that ran on it. `main` and the live branch carry Redsys alone, in
+`src/` and in `package.json`.
 
 ### 2.2 The shop rebuilt on Redsys
 
@@ -193,10 +191,9 @@ clean fix is a Vercel project of its own for the app.
 
 ### 2.11 Stale branches, and one stale pointer
 
-Eight branches. `claude/funny-cannon-t9g3gh` and `claude/funny-cannon-sin-stripe` are merged
-into `main` and still carry the "1771" address that `main` corrected afterwards, so starting
-from them reintroduces it. The repository's `CLAUDE.md` used to point there and now points at
-`main`.
+Eight branches. The two `claude/funny-cannon-*` branches are merged into `main` and still
+carry the "1771" address that `main` corrected afterwards, so starting from them reintroduces
+it. The repository's `CLAUDE.md` used to point there and now points at `main`.
 
 ---
 
@@ -217,10 +214,3 @@ The reply is drafted and ready at `entregables/correo-bbva-redsys.md`.
 The merchant is still in test. The change is requested from the TPV admin panel: Comercio →
 enter the merchant number → Buscar → Ver y Modificar (the eye icon) → "PASAR A PRODUCCIÓN",
 bottom right.
-
-### 3.3 One item on Tamara's side
-
-`STRIPE_SECRET_KEY`, `NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY` and `STRIPE_WEBHOOK_SECRET` may still
-sit in the Vercel project (the API returns 403 when listing them from here). They are live
-credentials with no remaining use: Vercel → `secret-key-site` → Settings → Environment
-Variables.

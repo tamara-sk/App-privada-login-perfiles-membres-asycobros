@@ -59,11 +59,11 @@ cobro directo contra el TPV, sin intermediarios en la operativa de pago.
 
 En `legal-config.ts`, `payments.ipsp` queda en `null`, que es lo que ya refleja el código.
 
-> **Pendiente de migración.** El repositorio todavía integra Stripe (`src/libs/stripe`,
-> `src/app/api/webhooks`, `src/features/pricing`). Es anterior a la decisión y hay que
-> sustituirlo por Redsys antes de cobrar en producción. Los detalles de qué implica Redsys
-> (pasarela por redirección, firma, «pago por referencia» para los cobros recurrentes) están en
-> `CLAUDE.md`.
+> **Integración al día.** El cobro va por Redsys de punta a punta: la firma y el formulario
+> en `src/libs/redsys/`, el inicio del pago en `startPaymentAction`, la tienda en
+> `/store/checkout`, y la confirmación en `/api/redsys/notificacion`. Los detalles de qué
+> implica Redsys (pasarela por redirección, firma, «pago por referencia» para los cobros
+> recurrentes) están en `CLAUDE.md`.
 
 ## 5. Documentación relacionada
 

@@ -42,7 +42,7 @@ export default function CancelacionPage() {
       <ul>
         <li>Desde su área privada, en la sección de gestión de la suscripción.</li>
         <li>Escribiendo a {company.email} desde la dirección asociada a su cuenta.</li>
-        <li>Llamando al {company.phone} en horario de atención.</li>
+        <li>Llamando al {company.supportPhone} en horario de atención.</li>
       </ul>
 
       <h3>3.2. Efectos</h3>

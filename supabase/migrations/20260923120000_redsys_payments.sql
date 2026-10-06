@@ -1,8 +1,8 @@
 /**
  * PAGOS CON REDSYS (TPV Virtual de BBVA)
  *
- * Sustituye el modelo de Stripe de la plantilla (customers, products, prices,
- * subscriptions). Los precios viven en el código (`src/features/membership/plans.ts`) y
+ * Sustituye el modelo de suscripciones de la plantilla (customers, products, prices,
+ * subscriptions), que se elimina más abajo. Los precios viven en el código (`src/features/membership/plans.ts`) y
  * el banco solo confirma cobros, así que basta con dos tablas: los pagos y la entrada
  * vigente de cada persona.
  */

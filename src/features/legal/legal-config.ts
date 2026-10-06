@@ -65,8 +65,15 @@ export const legalConfig = {
     email: 'legal@secretkey.vip',
     /** Atención comercial y del Círculo, para lo que no es un trámite legal. */
     supportEmail: 'hello@secretkey.vip',
-    /** Teléfono de atención al Círculo. */
-    phone: '+34 614 59 44 06',
+    /**
+     * Teléfono del contacto directo y efectivo del art. 10.1 a).
+     *
+     * Es el de Tamara, y es el que se publica en el aviso legal y en los trámites
+     * legales, por decisión suya. La atención general va por `supportPhone`.
+     */
+    phone: '+34 605 188 495',
+    /** Teléfono de atención general del Círculo, para lo que no es un trámite legal. */
+    supportPhone: '+34 614 59 44 06',
     /**
      * Datos registrales (art. 10.1 b).
      *

@@ -23,7 +23,8 @@ export default function ContactoPage() {
         rows={[
           { label: 'Titular', value: company.legalName },
           { label: 'Correo electrónico', value: company.email },
-          { label: 'Teléfono', value: company.phone },
+          { label: 'Teléfono (trámites legales)', value: company.phone },
+          { label: 'Teléfono de atención', value: company.supportPhone },
           { label: 'Domicilio', value: formatAddress() },
           { label: 'Protección de datos', value: dataProtection.privacyEmail },
         ]}
@@ -49,9 +50,8 @@ export default function ContactoPage() {
 
       <h2>3. Incidencias con pagos</h2>
       <p>
-        Si no reconoces un cargo, consulta{' '}
-        <Link href='/seguridad-de-pago'>seguridad y protección al comprador</Link>. Para solicitar una devolución,
-        revisa <Link href='/devoluciones'>devoluciones y reembolsos</Link>.
+        Si no reconoces un cargo, consulta <Link href='/seguridad-de-pago'>seguridad y protección al comprador</Link>.
+        Para solicitar una devolución, revisa <Link href='/devoluciones'>devoluciones y reembolsos</Link>.
       </p>
 
       <h2>4. Ejercicio de derechos en materia de protección de datos</h2>

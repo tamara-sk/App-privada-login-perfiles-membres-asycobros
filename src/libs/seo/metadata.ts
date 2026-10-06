@@ -60,6 +60,7 @@ export const companyConfig = {
   privacyEmail: dataProtection.privacyEmail,
   supportEmail: company.supportEmail,
   phone: company.phone,
+  supportPhone: company.supportPhone,
   /** Autoridad de control para reclamaciones de protección de datos. */
   supervisoryAuthority: `${dataProtection.supervisoryAuthority.name}, ${dataProtection.supervisoryAuthority.url}`,
   policyLastUpdated: legalConfig.lastUpdated,
