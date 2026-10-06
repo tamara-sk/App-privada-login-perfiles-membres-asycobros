@@ -135,7 +135,7 @@ export function trackPurchase({
   trackMeta('Purchase', { value, currency, content_ids: items.map((item) => item.item_id), content_type: 'product' });
 }
 
-/** Membership / lifecycle events — the funnel that matters upstream of the shop. */
+/** Eventos de entrada al Círculo y de ciclo de vida: el embudo que importa antes de la tienda. */
 export function trackSignUp({ method = 'email' }: { method?: string } = {}) {
   pushToDataLayer({ event: 'sign_up', method });
   trackMeta('CompleteRegistration');

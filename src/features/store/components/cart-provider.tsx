@@ -49,7 +49,7 @@ export function CartProvider({ children }: PropsWithChildren) {
   const [rawItems, setRawItems] = useState<CartItem[]>([]);
   const [isHydrated, setIsHydrated] = useState(false);
 
-  // The cart lives in localStorage so a member can close the tab mid-thought and
+  // El carrito vive en localStorage, de modo que se puede cerrar la pestaña a medias y
   // come back to the same basket. Hydration is deferred to avoid a SSR mismatch.
   useEffect(() => {
     setRawItems(readStoredCart());

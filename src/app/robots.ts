@@ -7,8 +7,19 @@ export default function robots(): MetadataRoute.Robots {
     rules: {
       userAgent: '*',
       allow: '/',
-      // Private or transactional routes have nothing to offer a search engine.
-      disallow: ['/account', '/store/cart', '/store/success', '/manage-subscription', '/api/'],
+      // El área privada y las rutas transaccionales quedan fuera del índice.
+      // Los textos legales sí se indexan: el art. 10 LSSI pide acceso permanente,
+      // fácil, directo y gratuito, y el buscador es una de esas vías.
+      disallow: [
+        '/account',
+        '/pago',
+        '/store/cart',
+        '/store/checkout',
+        '/store/pago',
+        '/store/success',
+        '/manage-subscription',
+        '/api/',
+      ],
     },
     sitemap: getURL('sitemap.xml'),
     host: getURL(),

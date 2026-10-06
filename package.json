@@ -7,6 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
+    "legal:check": "node scripts/check-legal-config.mjs",
     "email:build": "email build",
     "email:dev": "email dev --dir ./src/features/emails --port 3001",
     "email:export": "email export",

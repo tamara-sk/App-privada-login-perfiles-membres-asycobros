@@ -6,6 +6,8 @@ import { IoLogoFacebook, IoLogoInstagram, IoLogoTwitter } from 'react-icons/io5'
 
 import { Logo } from '@/components/logo';
 import { Toaster } from '@/components/ui/toaster';
+import { formatRegistry, legalConfig } from '@/features/legal/legal-config';
+import { legalDocuments } from '@/features/legal/legal-documents';
 import { CartProvider } from '@/features/store/components/cart-provider';
 import { AnalyticsProvider } from '@/libs/analytics/analytics-provider';
 import { ConsentBanner } from '@/libs/analytics/consent-banner';
@@ -63,16 +65,17 @@ const organizationJsonLd = {
     addressCountry: companyConfig.address.country,
   },
   email: companyConfig.supportEmail,
+  telephone: legalConfig.company.supportPhone,
 };
 
 export default function RootLayout({ children }: PropsWithChildren) {
   return (
-    <html lang='en'>
+    <html lang='es'>
       <head>
-        {/* Warm up the tag endpoints so the first measurement hit is not the slowest. */}
+        {/* Se calientan los extremos de los tags, para que el primer envío de medición deje de ser el más lento. */}
         <link rel='preconnect' href='https://www.googletagmanager.com' />
         <link rel='dns-prefetch' href='https://www.google-analytics.com' />
-        {/* Consent defaults must be set before any tag loads. */}
+        {/* Los valores de consentimiento por defecto se fijan antes de que cargue cualquier tag. */}
         <script dangerouslySetInnerHTML={{ __html: consentBootstrapScript }} />
         <script type='application/ld+json' dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }} />
       </head>
@@ -83,7 +86,7 @@ export default function RootLayout({ children }: PropsWithChildren) {
             href='#main-content'
             className='sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded-md focus:bg-white focus:px-4 focus:py-2 focus:text-black'
           >
-            Skip to content
+            Saltar al contenido
           </a>
           <div className='m-auto flex h-full max-w-[1440px] flex-col px-4'>
             <AppBar />
@@ -120,29 +123,35 @@ function Footer() {
         </div>
         <div className='grid grid-cols-2 gap-8 sm:grid-cols-4 lg:grid-cols-4 lg:gap-16'>
           <div className='flex flex-col gap-2 lg:gap-6'>
-            <div className='font-semibold text-neutral-100'>Membership</div>
+            <div className='font-semibold text-neutral-100'>El Círculo</div>
             <nav className='flex flex-col gap-2 lg:gap-6'>
-              <Link href='/pricing'>Pricing</Link>
-              <Link href='/account'>My account</Link>
+              <Link href='/pricing'>Planes</Link>
+              <Link href='/account'>Mi cuenta</Link>
+              <Link href='/about-us'>Quiénes somos</Link>
             </nav>
           </div>
           <div className='flex flex-col gap-2 lg:gap-6'>
-            <div className='font-semibold text-neutral-100'>Shop</div>
+            <div className='font-semibold text-neutral-100'>Tienda</div>
             <nav className='flex flex-col gap-2 lg:gap-6'>
-              <Link href='/store'>All products</Link>
-              <Link href='/store?category=headwear'>Headwear</Link>
-              <Link href='/store?category=apparel'>Apparel</Link>
+              <Link href='/store'>Todo el producto</Link>
+              <Link href='/store?category=headwear'>Gorras</Link>
+              <Link href='/store?category=apparel'>Prendas</Link>
+            </nav>
+          </div>
+          {/* El art. 10 LSSI pide acceso permanente, fácil y directo: el pie enlaza cada documento. */}
+          <div className='flex flex-col gap-2 lg:gap-6'>
+            <div className='font-semibold text-neutral-100'>Legal</div>
+            <nav className='flex flex-col gap-2 lg:gap-6'>
+              {legalDocuments.map((doc) => (
+                <Link key={doc.href} href={doc.href}>
+                  {doc.title}
+                </Link>
+              ))}
+              <Link href='/legal'>Información legal</Link>
             </nav>
           </div>
           <div className='flex flex-col gap-2 lg:gap-6'>
-            <div className='font-semibold text-neutral-100'>Company</div>
-            <nav className='flex flex-col gap-2 lg:gap-6'>
-              <Link href='/about-us'>About us</Link>
-              <Link href='/privacy'>Privacy</Link>
-            </nav>
-          </div>
-          <div className='flex flex-col gap-2 lg:gap-6'>
-            <div className='font-semibold text-neutral-100'>Follow us</div>
+            <div className='font-semibold text-neutral-100'>Síguenos</div>
             <nav className='flex flex-col gap-2 lg:gap-6'>
               <Link href='#' aria-label='Twitter'>
                 <span className='flex items-center gap-2'>
@@ -163,10 +172,11 @@ function Footer() {
           </div>
         </div>
       </div>
-      <div className='border-t border-zinc-800 py-6 text-center'>
-        <span className='text-xs text-neutral-500'>
-          Copyright {new Date().getFullYear()} © {siteConfig.name}
+      <div className='flex flex-col items-center gap-2 border-t border-zinc-800 py-6 text-center'>
+        <span className='text-xs text-neutral-400'>
+          {new Date().getFullYear()} © {legalConfig.company.legalName} · NIF {legalConfig.company.taxId}
         </span>
+        <span className='text-xs text-neutral-500'>{formatRegistry()}</span>
       </div>
     </footer>
   );

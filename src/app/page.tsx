@@ -1,8 +1,10 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import { IoCalendarOutline, IoKeyOutline, IoSparklesOutline, IoTimeOutline } from 'react-icons/io5';
 
 import { Container } from '@/components/container';
 import { Button } from '@/components/ui/button';
+import { legalConfig } from '@/features/legal/legal-config';
 import { PricingSection } from '@/features/membership/components/pricing-section';
 import { getFeaturedProducts } from '@/features/store/catalog';
 import { ProductCard } from '@/features/store/components/product-card';
@@ -12,6 +14,7 @@ export default async function HomePage() {
     <div className='flex flex-col gap-8 lg:gap-32'>
       <HeroSection />
       <PillarsSection />
+      <HowItWorksSection />
       <ShopSection />
       <PricingSection />
     </div>
@@ -22,23 +25,23 @@ function HeroSection() {
   return (
     <section className='relative overflow-hidden lg:overflow-visible'>
       <Container className='relative rounded-lg bg-black py-20 lg:py-[140px]'>
-        <div className='relative z-10 flex flex-col items-start gap-5 lg:max-w-xl lg:pl-8'>
+        <div className='relative z-10 flex flex-col gap-5 lg:max-w-xl lg:pl-8'>
           <div className='w-fit rounded-full bg-gradient-to-r from-[#616571] via-[#7782A9] to-[#826674] px-4 py-1'>
             <span className='font-alt text-sm font-semibold text-black mix-blend-soft-light'>
-              A time optimization and access ecosystem
+              El Círculo · Solo por invitación
             </span>
           </div>
-          <h1>Turn money into time.</h1>
+          <h1>Convierte dinero en tiempo.</h1>
           <p className='max-w-lg text-lg text-neutral-300'>
-            Secret Key hands back the hours your week spends on booking, chasing and waiting. What you do with them is
-            the interesting part.
+            {legalConfig.brand.name} es un ecosistema de optimización del tiempo, acceso extraordinario y bienestar. Nos
+            ocupamos de lo que te resta horas y te abrimos puertas que están fuera de los buscadores.
           </p>
-          <div className='flex flex-wrap items-center gap-3'>
+          <div className='flex flex-wrap gap-3'>
             <Button asChild variant='sexy'>
-              <Link href='/pricing'>Become a member</Link>
+              <Link href='/signup'>Solicitar acceso</Link>
             </Button>
             <Button asChild variant='outline'>
-              <Link href='/store'>Visit the shop</Link>
+              <Link href='/store'>Ver la tienda</Link>
             </Button>
           </div>
         </div>
@@ -49,38 +52,98 @@ function HeroSection() {
         height={790}
         alt=''
         className='absolute right-0 top-0 rounded-tr-lg'
-        sizes='(max-width: 1024px) 100vw, 867px'
         priority
-        quality={85}
+        quality={100}
       />
     </section>
   );
 }
 
-function PillarsSection() {
-  const pillars = [
-    {
-      title: 'Minutes saved',
-      body: 'One request, one answer. Reservations, travel, logistics and the hundred small errands that quietly eat a week.',
-    },
-    {
-      title: 'Extraordinary access',
-      body: 'Tables, rooms, seats and rooms full of interesting people. Access beats ownership, every single time.',
-    },
-    {
-      title: 'A community that compounds',
-      body: 'Members who share what works. The network grows richer with every introduction.',
-    },
-  ];
+const pillars = [
+  {
+    icon: IoTimeOutline,
+    title: 'Tiempo recuperado',
+    description:
+      'Delegas la gestión, las reservas y la logística. Cada semana vuelven a tu agenda las horas que antes se iban en organizar.',
+  },
+  {
+    icon: IoKeyOutline,
+    title: 'Acceso extraordinario',
+    description:
+      'Mesas, espacios y experiencias que no aparecen en ninguna plataforma pública. El acceso vale más que la propiedad.',
+  },
+  {
+    icon: IoSparklesOutline,
+    title: 'Experiencias que recuerdas',
+    description:
+      'Cada propuesta está diseñada para crear memoria. Pocos planes, elegidos con criterio, en lugares que se cuidan.',
+  },
+  {
+    icon: IoCalendarOutline,
+    title: 'El Círculo',
+    description:
+      'Personas que comparten criterio y tiempo. Los encuentros son reducidos y la confianza es la moneda de cambio.',
+  },
+];
 
+function PillarsSection() {
   return (
-    <section className='grid gap-4 sm:grid-cols-3'>
-      {pillars.map((pillar) => (
-        <div key={pillar.title} className='flex flex-col gap-2 rounded-lg border border-zinc-800 bg-black p-6'>
-          <h2 className='font-alt text-lg font-semibold text-white'>{pillar.title}</h2>
-          <p className='text-sm text-neutral-400'>{pillar.body}</p>
-        </div>
-      ))}
+    <section className='flex flex-col gap-8 rounded-lg bg-black px-4 py-16 lg:px-12'>
+      <div className='flex flex-col gap-4'>
+        <h2 className='font-alt text-3xl font-bold text-white lg:text-4xl'>El tiempo es el lujo definitivo.</h2>
+        <p className='max-w-2xl text-lg text-neutral-300'>
+          Un ecosistema que se mide en horas devueltas. Nos ocupamos de la gestión, las reservas y los detalles, y tú
+          decides en qué se convierte ese tiempo.
+        </p>
+        <p className='max-w-2xl text-lg text-neutral-300'>
+          Se apoya en el <strong className='text-neutral-100'>Tri Hita Karana</strong>, la filosofía balinesa de las
+          tres causas del bienestar: armonía con el propósito, entre las personas y con el lugar.
+        </p>
+      </div>
+      <div className='grid grid-cols-1 gap-6 sm:grid-cols-2'>
+        {pillars.map((pillar) => (
+          <div key={pillar.title} className='flex flex-col gap-3 rounded-lg border border-zinc-800 p-6'>
+            <pillar.icon size={28} className='text-cyan-400' />
+            <h3 className='font-alt text-xl font-semibold text-white'>{pillar.title}</h3>
+            <p className='text-neutral-400'>{pillar.description}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+const steps = [
+  {
+    number: '01',
+    title: 'Solicitas acceso',
+    description: 'Cuéntanos qué te quita tiempo hoy. Revisamos cada solicitud de forma individual.',
+  },
+  {
+    number: '02',
+    title: 'Diseñamos tu entrada',
+    description: 'Elegimos contigo el plan que encaja con tu ritmo y configuramos tus preferencias.',
+  },
+  {
+    number: '03',
+    title: 'Empiezas a recuperar horas',
+    description: 'Nos ocupamos de las reservas, la agenda y los detalles. Tú decides en qué inviertes ese tiempo.',
+  },
+];
+
+function HowItWorksSection() {
+  return (
+    <section className='flex flex-col gap-8 px-4'>
+      <h2 className='font-alt text-3xl font-bold text-white lg:text-4xl'>Cómo funciona</h2>
+      <div className='grid grid-cols-1 gap-6 lg:grid-cols-3'>
+        {steps.map((step) => (
+          <div key={step.number} className='flex flex-col gap-3 rounded-lg border border-zinc-800 bg-black p-6'>
+            <span className='font-alt text-3xl font-bold text-neutral-700'>{step.number}</span>
+            <h3 className='font-alt text-xl font-semibold text-white'>{step.title}</h3>
+            <p className='text-neutral-400'>{step.description}</p>
+          </div>
+        ))}
+      </div>
     </section>
   );
 }
@@ -89,21 +152,21 @@ function ShopSection() {
   const products = getFeaturedProducts().slice(0, 3);
 
   return (
-    <section className='flex flex-col gap-8'>
+    <section className='flex flex-col gap-8 px-4'>
       <div className='flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between'>
         <div className='flex flex-col gap-2'>
-          <span className='text-xs uppercase tracking-[0.3em] text-neutral-500'>The Shop</span>
-          <h2 className='font-alt text-3xl font-bold text-white lg:text-4xl'>Words worth wearing.</h2>
+          <span className='text-xs uppercase tracking-[0.3em] text-neutral-500'>La tienda</span>
+          <h2 className='font-alt text-3xl font-bold text-white lg:text-4xl'>Palabras que merece la pena llevar.</h2>
           <p className='max-w-xl text-neutral-400'>
-            Discreet on the front. Generous on the back. And for the people who have everything,{' '}
+            Discreto por delante. Generoso por detrás. Y para quien ya lo tiene todo,{' '}
             <Link href='/store?category=experience' className='underline underline-offset-4 hover:text-white'>
-              gifts that hand back their time
+              regalos que devuelven tiempo
             </Link>
             .
           </p>
         </div>
         <Button variant='outline' asChild>
-          <Link href='/store'>Shop everything</Link>
+          <Link href='/store'>Ver todo el producto</Link>
         </Button>
       </div>
       <div className='grid gap-4 sm:grid-cols-2 lg:grid-cols-3'>

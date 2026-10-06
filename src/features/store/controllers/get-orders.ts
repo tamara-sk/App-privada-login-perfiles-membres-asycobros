@@ -1,6 +1,6 @@
 import { createSupabaseServerClient } from '@/libs/supabase/supabase-server-client';
 
-/** Row-level security scopes this to the signed-in member's own orders. */
+/** La seguridad a nivel de fila lo limita a los pedidos de quien ha iniciado sesión. */
 export async function getOrders() {
   const supabase = await createSupabaseServerClient();
 

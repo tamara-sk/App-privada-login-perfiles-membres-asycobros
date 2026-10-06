@@ -11,15 +11,16 @@ import { CartButton } from '@/features/store/components/cart-button';
 import { signOut } from './(auth)/auth-actions';
 
 const NAV_LINKS = [
-  { href: '/store', label: 'Shop' },
-  { href: '/pricing', label: 'Membership' },
+  { href: '/store', label: 'Tienda' },
+  { href: '/pricing', label: 'Planes' },
+  { href: '/about-us', label: 'Quiénes somos' },
 ];
 
 export async function Navigation() {
   const session = await getSession();
 
   return (
-    <nav className='relative flex items-center gap-6' aria-label='Main'>
+    <nav className='relative flex items-center gap-6' aria-label='Principal'>
       <div className='hidden items-center gap-6 lg:flex'>
         {NAV_LINKS.map((link) => (
           <Link
@@ -39,10 +40,10 @@ export async function Navigation() {
       ) : (
         <>
           <Button variant='sexy' className='hidden flex-shrink-0 lg:flex' asChild>
-            <Link href='/signup'>Get started for free</Link>
+            <Link href='/signup'>Solicitar acceso</Link>
           </Button>
           <Sheet>
-            <SheetTrigger className='block lg:hidden' aria-label='Open menu'>
+            <SheetTrigger className='block lg:hidden' aria-label='Abrir el menú'>
               <IoMenu size={28} />
             </SheetTrigger>
             <SheetContent className='w-full bg-black'>
@@ -55,7 +56,7 @@ export async function Navigation() {
                     </Link>
                   ))}
                   <Button variant='sexy' className='flex-shrink-0' asChild>
-                    <Link href='/signup'>Get started for free</Link>
+                    <Link href='/signup'>Solicitar acceso</Link>
                   </Button>
                 </SheetDescription>
               </SheetHeader>

@@ -9,28 +9,30 @@ export function WelcomeEmail() {
   return (
     <Html>
       <Head />
-      <Preview>Welcome!</Preview>
+      <Preview>Bienvenida a Secret Key</Preview>
       <Tailwind config={tailwindConfig}>
         <Body className='mx-auto my-auto bg-slate-500 px-2 py-10 font-sans'>
           <Container className='mx-auto mt-[40px] w-[464px] overflow-hidden rounded-md bg-white'>
             <Section className={`h-[255px] w-full bg-black bg-[url('${baseUrl + '/hero-shape.png'}')] bg-center`}>
-              <Heading className='mb-0 mt-[70px] text-center text-[48px] font-bold text-white'>Welcome!</Heading>
+              <Heading className='mb-0 mt-[70px] text-center text-[48px] font-bold text-white'>Bienvenida</Heading>
             </Section>
             <Section className='p-8'>
               <Heading as='h2' className='m-0 text-[24px] font-bold'>
-                Thanks for signing up.
+                Ya formas parte de Secret Key.
               </Heading>
-              <Text className='my-6 text-[16px]'>Go to your dashboard to get started.</Text>
-              <Button href={baseUrl + '/dashboard'} className='rounded-md bg-black px-4 py-2 font-medium text-white'>
-                Dashboard
+              <Text className='my-6 text-[16px]'>
+                Entra en tu área privada para configurar tus preferencias y empezar a recuperar tiempo.
+              </Text>
+              <Button href={baseUrl + '/account'} className='rounded-md bg-black px-4 py-2 font-medium text-white'>
+                Entrar en mi cuenta
               </Button>
             </Section>
           </Container>
           <Container className='mx-auto mt-4'>
             <Section className='text-center'>
-              <Text className='m-0 text-xs text-white'>Not interested in receiving this email?</Text>
+              <Text className='m-0 text-xs text-white'>¿No quieres recibir estos correos?</Text>
               <Link className='text-center text-xs text-white underline' href={baseUrl + '/account'}>
-                Turn off this notification in your account settings.
+                Desactiva esta notificación en los ajustes de tu cuenta.
               </Link>
             </Section>
           </Container>

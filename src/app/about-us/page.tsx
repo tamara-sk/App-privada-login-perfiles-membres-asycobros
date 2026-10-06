@@ -7,54 +7,57 @@ import { ProductCard } from '@/features/store/components/product-card';
 import { companyConfig, constructMetadata, siteConfig } from '@/libs/seo/metadata';
 
 export const metadata: Metadata = constructMetadata({
-  title: 'About us',
-  description: `${siteConfig.name} is a time optimization and extraordinary access ecosystem. What we do, how we work, and how membership works.`,
+  title: 'Quiénes somos',
+  description: `${siteConfig.name} es un ecosistema de optimización del tiempo, acceso extraordinario y bienestar. Qué hacemos, cómo trabajamos y cómo funciona la entrada al Círculo.`,
   path: '/about-us',
 });
 
-const PRINCIPLES = [
+const PRINCIPIOS = [
   {
-    title: 'Time is the ultimate luxury',
-    body: 'Everything else can be bought back. An afternoon is spent once, so spend it well.',
+    title: 'El tiempo es el lujo definitivo',
+    body: 'Todo lo demás se puede recuperar. Una tarde se gasta una vez, así que conviene gastarla bien.',
   },
-  { title: 'Access beats ownership', body: 'The table, the room, the boat. Use it, enjoy it, pass it on.' },
-  { title: 'Simplicity scales', body: 'One request, one answer. Simple is what makes it repeatable.' },
-  { title: 'Trust compounds', body: 'We are told things in confidence. That is the whole business.' },
-  { title: 'Experiences create memories', body: 'The evening is what stays. We build for the evening.' },
-  { title: 'Community creates leverage', body: 'The members are the best part of the membership.' },
+  { title: 'El acceso vale más que la propiedad', body: 'La mesa, la sala, el barco. Úsalo, disfrútalo, pásalo.' },
+  { title: 'La simplicidad escala', body: 'Una petición, una respuesta. Lo simple es lo que se puede repetir.' },
+  { title: 'La confianza se acumula', body: 'Nos cuentan cosas en confianza. En eso consiste el negocio.' },
+  { title: 'Las experiencias crean recuerdos', body: 'Lo que queda es la velada. Construimos para la velada.' },
+  { title: 'La comunidad crea palanca', body: 'El Círculo es la mejor parte de entrar en el Círculo.' },
 ];
 
-const HOW_WE_WORK = [
-  { label: 'We anticipate', body: 'We learn how your week runs and handle the next thing before it lands on you.' },
+const COMO_TRABAJAMOS = [
   {
-    label: 'We measure in hours',
-    body: 'Every membership is judged on the time it hands back, and what you do with it.',
+    label: 'Anticipamos',
+    body: 'Aprendemos cómo funciona tu semana y resolvemos lo siguiente antes de que te caiga encima.',
   },
   {
-    label: 'We take it all the way',
-    body: 'Travel, tables, logistics, the long errands. Handed over once, carried to done.',
+    label: 'Medimos en horas',
+    body: 'Cada entrada al Círculo se juzga por el tiempo que devuelve, y por lo que haces con él.',
   },
   {
-    label: 'We keep the standard high',
-    body: 'The standard is what gathers the members, and the members are the best part.',
+    label: 'Lo llevamos hasta el final',
+    body: 'Viajes, mesas, logística, los recados largos. Se delegan una vez y se llevan hasta el final.',
+  },
+  {
+    label: 'Mantenemos el nivel',
+    body: 'El nivel es lo que reúne al Círculo, y el Círculo es la mejor parte.',
   },
 ];
 
-const STEPS = [
+const PASOS = [
   {
     step: '01',
-    title: 'Tell us what is eating your week',
-    body: 'The bookings, the chasing, the admin, the standing errands worth handing over.',
+    title: 'Cuéntanos qué te come la semana',
+    body: 'Las reservas, el seguimiento, la gestión, los recados fijos que merece la pena delegar.',
   },
   {
     step: '02',
-    title: 'We take it off your hands',
-    body: 'One request, one answer, carried end to end. You stay out of the logistics.',
+    title: 'Lo asumimos nosotros',
+    body: 'Una petición, una respuesta, de principio a fin. Tú te quedas fuera de la logística.',
   },
   {
     step: '03',
-    title: 'You get the hours back',
-    body: 'We measure the minutes we return. It is the only number that matters to us.',
+    title: 'Recuperas las horas',
+    body: 'Medimos los minutos que devolvemos. Es la única cifra que nos importa.',
   },
 ];
 
@@ -64,21 +67,21 @@ export default function AboutUsPage() {
   return (
     <div className='flex flex-col gap-16 py-8 lg:gap-24 lg:py-16'>
       <header className='flex max-w-3xl flex-col gap-5'>
-        <span className='text-xs uppercase tracking-[0.3em] text-neutral-500'>About us</span>
-        <h1>We are in the time business.</h1>
+        <span className='text-xs uppercase tracking-[0.3em] text-neutral-500'>Quiénes somos</span>
+        <h1>Nuestro negocio es el tiempo.</h1>
         <p className='text-lg text-neutral-300'>
-          Time is the one thing that gains value the moment you get it back. Secret Key is a time optimization and
-          extraordinary access ecosystem for people who choose presence: we take the booking, the chasing and the
-          arranging, and hand back the hours.
+          El tiempo es lo único que gana valor en el momento en que lo recuperas. Secret Key es un ecosistema de
+          optimización del tiempo, acceso extraordinario y bienestar para quien elige la presencia: asumimos la reserva,
+          el seguimiento y la organización, y te devolvemos las horas.
         </p>
         <p className='text-neutral-400'>
-          We measure ourselves in minutes saved and minutes enjoyed — the hours our members get back, and what those
-          hours become.
+          Nos medimos en minutos ahorrados y minutos disfrutados: las horas que el Círculo recupera, y en qué se
+          convierten esas horas.
         </p>
       </header>
 
       <section className='grid gap-4 sm:grid-cols-3'>
-        {STEPS.map((item) => (
+        {PASOS.map((item) => (
           <div key={item.step} className='flex flex-col gap-2 rounded-lg border border-zinc-800 bg-black p-6'>
             <span className='font-alt text-sm text-neutral-500'>{item.step}</span>
             <h2 className='font-alt text-lg font-semibold text-white'>{item.title}</h2>
@@ -89,11 +92,13 @@ export default function AboutUsPage() {
 
       <section className='flex flex-col gap-6'>
         <div className='flex flex-col gap-2'>
-          <h2 className='font-alt text-3xl font-bold text-white'>What makes it work.</h2>
-          <p className='max-w-2xl text-neutral-400'>Four habits that turn a membership into hours you can feel.</p>
+          <h2 className='font-alt text-3xl font-bold text-white'>Qué lo hace funcionar.</h2>
+          <p className='max-w-2xl text-neutral-400'>
+            Cuatro hábitos que convierten la entrada al Círculo en horas que se notan.
+          </p>
         </div>
         <div className='grid gap-4 sm:grid-cols-2'>
-          {HOW_WE_WORK.map((item) => (
+          {COMO_TRABAJAMOS.map((item) => (
             <div key={item.label} className='flex flex-col gap-1 rounded-lg border border-zinc-800 bg-black p-6'>
               <h3 className='font-alt text-base font-semibold text-white'>{item.label}</h3>
               <p className='text-sm text-neutral-400'>{item.body}</p>
@@ -104,16 +109,16 @@ export default function AboutUsPage() {
 
       <section className='flex flex-col gap-6'>
         <div className='flex flex-col gap-2'>
-          <h2 className='font-alt text-3xl font-bold text-white'>What we believe.</h2>
+          <h2 className='font-alt text-3xl font-bold text-white'>En qué creemos.</h2>
           <p className='max-w-2xl text-neutral-400'>
-            Six principles. Every decision we make has to earn its place against them.
+            Seis principios. Cada decisión que tomamos tiene que ganarse su sitio frente a ellos.
           </p>
         </div>
         <ul className='grid gap-4 sm:grid-cols-2 lg:grid-cols-3'>
-          {PRINCIPLES.map((principle) => (
-            <li key={principle.title} className='flex flex-col gap-1 rounded-lg border border-zinc-800 bg-black p-6'>
-              <h3 className='font-alt text-base font-semibold text-white'>{principle.title}</h3>
-              <p className='text-sm text-neutral-400'>{principle.body}</p>
+          {PRINCIPIOS.map((principio) => (
+            <li key={principio.title} className='flex flex-col gap-1 rounded-lg border border-zinc-800 bg-black p-6'>
+              <h3 className='font-alt text-base font-semibold text-white'>{principio.title}</h3>
+              <p className='text-sm text-neutral-400'>{principio.body}</p>
             </li>
           ))}
         </ul>
@@ -122,14 +127,14 @@ export default function AboutUsPage() {
       <section className='flex flex-col gap-6'>
         <div className='flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between'>
           <div className='flex flex-col gap-2'>
-            <h2 className='font-alt text-3xl font-bold text-white'>Things we made.</h2>
+            <h2 className='font-alt text-3xl font-bold text-white'>Lo que hemos hecho.</h2>
             <p className='max-w-xl text-neutral-400'>
-              The same belief, printed. Discreet on the front, generous on the back — starting with a sentence for
-              whoever is standing behind you.
+              La misma idea, impresa. Discreto por delante, generoso por detrás, empezando por una frase para quien va
+              detrás de ti.
             </p>
           </div>
           <Button variant='outline' asChild>
-            <Link href='/store'>Visit the shop</Link>
+            <Link href='/store'>Ver la tienda</Link>
           </Button>
         </div>
         <div className='grid gap-4 sm:grid-cols-2 lg:grid-cols-3'>
@@ -140,10 +145,10 @@ export default function AboutUsPage() {
       </section>
 
       <section className='flex flex-col items-start gap-5 rounded-lg border border-zinc-800 bg-black p-8 lg:p-12'>
-        <h2 className='font-alt text-3xl font-bold text-white'>Come and get your time back.</h2>
+        <h2 className='font-alt text-3xl font-bold text-white'>Ven a recuperar tu tiempo.</h2>
         <p className='max-w-2xl text-neutral-400'>
-          Membership is deliberately small so the answer is always fast. If that sounds like what you have been missing,
-          start here — or write to us first at{' '}
+          El Círculo se mantiene pequeño a propósito, para que la respuesta sea siempre rápida. Si te suena a lo que
+          llevas tiempo buscando, empieza aquí, o escríbenos antes a{' '}
           <a className='underline underline-offset-4 hover:text-white' href={`mailto:${companyConfig.supportEmail}`}>
             {companyConfig.supportEmail}
           </a>
@@ -151,10 +156,10 @@ export default function AboutUsPage() {
         </p>
         <div className='flex flex-wrap gap-3'>
           <Button variant='sexy' asChild>
-            <Link href='/pricing'>See membership</Link>
+            <Link href='/pricing'>Ver los planes</Link>
           </Button>
           <Button variant='outline' asChild>
-            <Link href='/privacy'>How we handle your data</Link>
+            <Link href='/privacidad'>Cómo tratamos tus datos</Link>
           </Button>
         </div>
       </section>

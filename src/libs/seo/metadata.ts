@@ -1,81 +1,74 @@
 import type { Metadata } from 'next';
 
+import { formatRegistry as formatLegalRegistry, legalConfig } from '@/features/legal/legal-config';
 import { getURL } from '@/utils/get-url';
 
 export const siteConfig = {
   name: 'Secret Key',
   shortName: 'SK',
-  tagline: 'Turn money into time.',
+  tagline: 'Convierte dinero en tiempo.',
   description:
-    'Secret Key is a time optimization and extraordinary access ecosystem. Membership, experiences and a small shop of objects that say something worth reading.',
-  locale: 'en_GB',
+    'Secret Key es un ecosistema de optimización del tiempo, acceso extraordinario y bienestar: un calendario global de experiencias por capítulos, una tienda local y acceso a propiedades seleccionadas de confianza y bienestar.',
+  locale: 'es_ES',
   twitter: '@secretkey',
   keywords: [
     'secret key',
-    'time optimization',
-    'private membership',
-    'extraordinary access',
-    'members club',
-    'lifestyle management',
+    'the circle',
+    'optimización del tiempo',
+    'acceso extraordinario',
+    'bienestar',
+    'experiencias',
   ],
 } as const;
 
 /**
- * Legal and contact details used by the privacy policy and the about page.
+ * Vista derivada de los datos identificativos, para los metadatos y el JSON-LD.
  *
- * These are the only places the legal entity is named, so filling them in once
- * updates every page that references them.
+ * La fuente única es `legalConfig` (`src/features/legal/legal-config.ts`), confirmada por
+ * la certificación registral del 22/01/2026. Aquí se reexpone con los nombres que esperan
+ * el esquema de `Organization` y las páginas de SEO, de modo que un cambio en la escritura
+ * se toca en un solo sitio y aparece en todos.
  */
+const { company, dataProtection } = legalConfig;
+
 export const companyConfig = {
-  legalName: 'THE SECRET KEY LABS, S.L.',
-  registeredAddress: 'Camino Vora Riu Solades 1176, 12540 Vila-real, Castellón, Spain',
-  /** Structured form of the address above, for the Organization schema. */
+  legalName: company.legalName,
+  registeredAddress: `${company.address.street}, ${company.address.postalCode} ${company.address.city}, ${company.address.province}, ${company.address.country}`,
+  /** Forma estructurada del domicilio, para el esquema de `Organization`. */
   address: {
-    street: 'Camino Vora Riu Solades 1176',
-    postalCode: '12540',
-    city: 'Vila-real',
-    region: 'Castellón',
+    street: company.address.street,
+    postalCode: company.address.postalCode,
+    city: company.address.city,
+    region: company.address.province,
+    /** Código ISO 3166-1 alfa-2, que es lo que pide schema.org. */
     country: 'ES',
   },
-  taxId: 'B25909565',
-  /**
-   * Companies-register details, required by article 10.1 b) of Spanish Law 34/2002.
-   *
-   * Confirmed by the registry certificate issued by the Registrar of Companies of
-   * Castellón de la Plana on 22 January 2026 (entry 56 of the 2026 Daybook).
-   *
-   * Castellón keeps an electronic folio, so the sheet and the entry identify the
-   * company and the paper volume and folio no longer apply. `folio` reads
-   * 'electronic' because that is the literal wording of the certificate.
-   */
+  taxId: company.taxId,
+  /** Datos registrales (art. 10.1 b de la Ley 34/2002). */
   registry: {
-    name: 'Registro Mercantil de Castellón',
-    sheet: 'CS-50580',
-    folio: 'electronic',
-    entry: '1',
-    /** European Unique Identifier (Regulation EU 2015/884). */
-    euid: 'ES12011.000207496',
-    registeredOn: '22 January 2026',
+    name: company.registry.name,
+    sheet: company.registry.reference?.sheet ?? null,
+    folio: company.registry.reference?.folio ?? null,
+    entry: company.registry.reference?.entry ?? null,
+    euid: company.registry.reference?.euid ?? null,
+    registeredOn: company.registry.reference?.registeredOn ?? null,
   },
-  /** Subscribed share capital, in euros. */
-  shareCapital: 3000,
-  /** Registered activity codes. */
-  cnae: ['8230', '6832', '7020'],
-  /** Governing body on record. */
-  governingBody: 'Sole director',
-  /** Date operations began, as registered. */
-  operationsSince: '16 December 2025',
-  privacyEmail: 'legal@secretkey.vip',
-  supportEmail: 'hello@secretkey.vip',
-  /** Lead supervisory authority for data protection complaints. */
-  supervisoryAuthority: 'the Spanish Data Protection Agency (AEPD, aepd.es)',
-  policyLastUpdated: '15 September 2026',
+  shareCapital: company.shareCapital,
+  cnae: company.cnae,
+  governingBody: company.governingBody,
+  operationsSince: company.operationsSince,
+  privacyEmail: dataProtection.privacyEmail,
+  supportEmail: company.supportEmail,
+  phone: company.phone,
+  supportPhone: company.supportPhone,
+  /** Autoridad de control para reclamaciones de protección de datos. */
+  supervisoryAuthority: `${dataProtection.supervisoryAuthority.name}, ${dataProtection.supervisoryAuthority.url}`,
+  policyLastUpdated: legalConfig.lastUpdated,
 } as const;
 
-/** The registry line as it should be published, per article 10.1 b) LSSI. */
+/** La línea registral tal y como debe publicarse (art. 10.1 b de la Ley 34/2002). */
 export function formatRegistry(): string {
-  const { name, sheet, folio, entry } = companyConfig.registry;
-  return `Registered at the ${name}, sheet ${sheet}, ${folio} folio, entry ${entry}.`;
+  return formatLegalRegistry();
 }
 
 /**

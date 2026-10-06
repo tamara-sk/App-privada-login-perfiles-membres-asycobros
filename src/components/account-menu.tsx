@@ -25,13 +25,13 @@ export function AccountMenu({ signOut }: { signOut: () => Promise<ActionResponse
     if (response?.error) {
       toast({
         variant: 'destructive',
-        description: 'An error occurred while logging out. Please try again or contact support.',
+        description: 'No hemos podido cerrar tu sesión. Vuelve a intentarlo o escríbenos.',
       });
     } else {
       router.refresh();
 
       toast({
-        description: 'You have been logged out.',
+        description: 'Has cerrado sesión.',
       });
     }
   }
@@ -43,9 +43,9 @@ export function AccountMenu({ signOut }: { signOut: () => Promise<ActionResponse
       </DropdownMenuTrigger>
       <DropdownMenuContent className='me-4'>
         <DropdownMenuItem asChild>
-          <Link href='/account'>Account</Link>
+          <Link href='/account'>Mi cuenta</Link>
         </DropdownMenuItem>
-        <DropdownMenuItem onClick={handleLogoutClick}>Log Out</DropdownMenuItem>
+        <DropdownMenuItem onClick={handleLogoutClick}>Cerrar sesión</DropdownMenuItem>
         <DropdownMenuArrow className='me-4 fill-white' />
       </DropdownMenuContent>
     </DropdownMenu>

@@ -1,3 +1,14 @@
+/**
+ * HISTÓRICO DE LA PLANTILLA — superado.
+ *
+ * Las tablas de pasarela que crea este fichero (customers, products, prices,
+ * subscriptions) y la columna users.payment_method las elimina después la migración
+ * `20260923120000_redsys_payments.sql`. El fichero se conserva sin tocar para que la
+ * historia siga siendo reproducible desde cero; nada de lo que define aquí sigue en pie.
+ *
+ * El modelo vigente son las tablas `payments`, `memberships` y `orders`.
+ */
+
 /** 
 * USERS
 * Note: This table contains user data. Users should only be able to view and update their own data.
