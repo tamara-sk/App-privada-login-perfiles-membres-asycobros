@@ -6,7 +6,7 @@ import { getSession } from '@/features/account/controllers/get-session';
 import { createOrderNumber } from '@/libs/redsys/payment';
 import { supabaseAdminClient } from '@/libs/supabase/supabase-admin';
 
-import { getPlan, isPaidPlan } from '../plans';
+import { annualAmountAt, getPlan, isPaidPlan } from '../plans';
 
 /**
  * Registra el pago como pendiente y lleva a la persona a la página que la envía a Redsys.
@@ -31,7 +31,7 @@ export async function startPaymentAction(planSlug: string) {
     user_id: session.user.id,
     order,
     plan: plan.slug,
-    amount: plan.annualAmount,
+    amount: annualAmountAt(plan),
     currency: process.env.REDSYS_CURRENCY || '978',
   });
 

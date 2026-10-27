@@ -7,6 +7,9 @@ import { PricingSection } from '@/features/membership/components/pricing-section
 import { getFeaturedProducts } from '@/features/store/catalog';
 import { ProductCard } from '@/features/store/components/product-card';
 
+// Los importes cambian por fecha: la página se renueva cada hora.
+export const revalidate = 3600;
+
 export default async function HomePage() {
   return (
     <div className='flex flex-col gap-8 lg:gap-32'>

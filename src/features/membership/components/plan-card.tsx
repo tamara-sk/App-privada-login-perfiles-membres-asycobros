@@ -6,17 +6,27 @@ import { Button } from '@/components/ui/button';
 import { formatPrice } from '@/utils/format-price';
 
 import { startPaymentAction } from '../actions/start-payment-action';
-import { isPaidPlan, Plan, planFeatures } from '../plans';
+import { annualAmountAt, isPaidPlan, nextPriceStep, Plan, planFeatures } from '../plans';
 
 export function PlanCard({ plan, showAction = true }: { plan: Plan; showAction?: boolean }) {
+  const nextStep = nextPriceStep(plan);
+  const nextDate = nextStep
+    ? new Intl.DateTimeFormat('es-ES', { dateStyle: 'long', timeZone: 'Europe/Madrid' }).format(new Date(nextStep.from))
+    : null;
+
   const card = (
     <div className='flex h-full w-full flex-col rounded-md border border-zinc-800 bg-black p-4 lg:p-8'>
       <div className='p-4'>
         <div className='mb-1 text-center font-alt text-xl font-bold'>{plan.name}</div>
         <div className='flex justify-center gap-0.5 text-zinc-400'>
-          <span className='font-semibold'>{formatPrice(plan.annualAmount, 'eur')}</span>
+          <span className='font-semibold'>{formatPrice(annualAmountAt(plan), 'eur')}</span>
           {isPaidPlan(plan) && <span>/año</span>}
         </div>
+        {nextStep && nextDate && (
+          <p className='mt-1 text-center text-xs text-zinc-500'>
+            Desde el {nextDate}: {formatPrice(nextStep.annualAmount, 'eur')}/año
+          </p>
+        )}
       </div>
 
       <div className='m-auto flex w-fit flex-1 flex-col gap-2 px-8 py-4'>
