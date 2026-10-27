@@ -9,13 +9,13 @@ the reader's head.
 
 **2. Positive language always.** Rewrite negation-led sentences into the affirmative.
 
-| Instead of | Write |
-| --- | --- |
-| "We don't waste your time" | "We hand your time back" |
-| "Not a luxury club" | "A membership measured in hours returned" |
-| "Nobody remembers the errand" | "The evening is what stays" |
-| "No season codes" | "One long life. Buy once, wear for years" |
-| "We do not sell your data" | "Your data is yours" |
+| Instead of                    | Write                                     |
+| ----------------------------- | ----------------------------------------- |
+| "We don't waste your time"    | "We hand your time back"                  |
+| "Not a luxury club"           | "A membership measured in hours returned" |
+| "Nobody remembers the errand" | "The evening is what stays"               |
+| "No season codes"             | "One long life. Buy once, wear for years" |
+| "We do not sell your data"    | "Your data is yours"                      |
 
 Watch for: `not`, `never`, `nobody`, `no …`, `don't`, `cannot`, `refuse`, `without`.
 Each one is a prompt to rewrite, in marketing copy and legal pages alike — precision in a
@@ -45,14 +45,14 @@ access or strengthening relationships. Anything else is out.
 Secret Key charges through the **BBVA virtual POS, on Redsys**. Stripe is gone from this
 branch: the dependency, the webhook, the customer portal, the product sync and the fixtures.
 
-| Piece | Where |
-| --- | --- |
-| Signature and redirect form | `src/libs/redsys/` |
-| Plan prices, the single source | `src/features/membership/plans.ts` |
-| Entry to the Circle: start | `startPaymentAction` → `/pago/[pedido]` |
-| Shop: address and shipping | `/store/checkout` → `/store/pago/[pedido]` |
-| Confirmation for both | `/api/redsys/notificacion` |
-| Data | `payments`, `memberships`, `orders` |
+| Piece                          | Where                                      |
+| ------------------------------ | ------------------------------------------ |
+| Signature and redirect form    | `src/libs/redsys/`                         |
+| Plan prices, the single source | `src/features/membership/plans.ts`         |
+| Entry to the Circle: start     | `startPaymentAction` → `/pago/[pedido]`    |
+| Shop: address and shipping     | `/store/checkout` → `/store/pago/[pedido]` |
+| Confirmation for both          | `/api/redsys/notificacion`                 |
+| Data                           | `payments`, `memberships`, `orders`        |
 
 Merchant code **370662108**. Terminal, signing key and environment live in `REDSYS_*`
 environment variables, read when used, so the build still runs without credentials. The
@@ -78,20 +78,35 @@ What Redsys means in practice:
 Confirm the specifics with BBVA before building: which Redsys environment, whether pago
 por referencia is enabled, and the exact terminal and currency setup.
 
+## Prices — one canon
+
+Source: **SK Master Context v4** (Notion, 25 Oct 2026, closed the night of 26 Oct). It
+replaces the 19 Oct price catalogue and every earlier version.
+
+| Piece                                                                                                                                                 | Where                                 |
+| ----------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------- |
+| Member tiers: Key 0 €, Secret Key 99 €/yr for entry before 1 Jan 2027 then 220 €/yr (20 €/mo), Master Key 2.500 €/yr (390 €/mo), Super Key 4.300 €/yr | `src/features/membership/plans.ts`    |
+| Partner tiers (facilitators, venues, sponsors): Key 0 € · 30 %, Secret Key 290 € · 20 %, Master Key 890 € · 15 %, Super Key = SK Ads pack · 10 %      | `src/features/membership/partners.ts` |
+| SK Ads: Essential 150 €/mo + 997 €, Growth 250 €/mo + 1.997 €, Signature 350 €/mo + 2.997 €, extra AI agent 150 €/mo                                  | `src/features/membership/partners.ts` |
+
+Open in v4 (do not invent): Secret Key 99 € first year only or while renewing, Master Key
+margin and monthly price, Llavecitas action table and welcome gift, member discounts.
+Monthly charging waits for «pago por referencia» on the BBVA terminal.
+
 ## Codebase
 
 Next.js 15 (App Router) · React 19 · TypeScript · Tailwind · Supabase · Redsys · Resend,
 deployed on Vercel.
 
-| Area | Where |
-| --- | --- |
-| Entry to the Circle: plans & payment | `src/features/membership` |
-| Accounts and sessions | `src/features/account` |
-| Shop: catalog, cart, checkout, orders | `src/features/store` |
-| Tracking, consent, dataLayer events | `src/libs/analytics` |
-| Metadata, brand copy, legal entity details | `src/libs/seo/metadata.ts` |
-| Redsys notification (entries + orders) | `src/app/api/redsys/notificacion/route.ts` |
-| Database migrations | `supabase/migrations` |
+| Area                                       | Where                                      |
+| ------------------------------------------ | ------------------------------------------ |
+| Entry to the Circle: plans & payment       | `src/features/membership`                  |
+| Accounts and sessions                      | `src/features/account`                     |
+| Shop: catalog, cart, checkout, orders      | `src/features/store`                       |
+| Tracking, consent, dataLayer events        | `src/libs/analytics`                       |
+| Metadata, brand copy, legal entity details | `src/libs/seo/metadata.ts`                 |
+| Redsys notification (entries + orders)     | `src/app/api/redsys/notificacion/route.ts` |
+| Database migrations                        | `supabase/migrations`                      |
 
 - **Shop products** live in `src/features/store/catalog.ts`. Adding an object there adds it
   to the grid, the product page, the sitemap and the structured data.
@@ -109,7 +124,7 @@ deployed on Vercel.
 
 ## Deployment
 
-The Vercel project `secret-key-site` serves **secretkey.vip** from a *different*
+The Vercel project `secret-key-site` serves **secretkey.vip** from a _different_
 codebase: a Vite SPA deployed by CLI from a local machine. That same Vercel project is
 also git-linked to this repository, so every push here triggers a preview build of this
 Next.js app inside a project configured for Vite.

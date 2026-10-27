@@ -16,7 +16,7 @@ export async function PricingSection({ isPricingPage }: { isPricingPage?: boolea
         <p className='text-center text-xl'>
           Elige el ritmo al que quieres recuperar tu tiempo. Cada entrada dura un año.
         </p>
-        <div className='flex w-full flex-col items-center justify-center gap-2 lg:flex-row lg:gap-8'>
+        <div className='flex w-full flex-col items-center justify-center gap-2 lg:flex-row lg:gap-4'>
           {PLANS.map((plan) => (
             <PlanCard key={plan.slug} plan={plan} />
           ))}

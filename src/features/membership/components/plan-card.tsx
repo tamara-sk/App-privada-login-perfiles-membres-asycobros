@@ -24,7 +24,7 @@ export function PlanCard({ plan, showAction = true }: { plan: Plan; showAction?:
         </div>
         {nextStep && nextDate && (
           <p className='mt-1 text-center text-xs text-zinc-500'>
-            Desde el {nextDate}: {formatPrice(nextStep.annualAmount, 'eur')}/año
+            Precio de esta temporada. Desde el {nextDate}: {formatPrice(nextStep.annualAmount, 'eur')}/año
           </p>
         )}
       </div>
