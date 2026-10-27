@@ -12,7 +12,7 @@
  * Los tiers de facilitadores, venues y sponsors, y el pack SK Ads, viven en `partners.ts`.
  */
 
-export type PlanSlug = 'member_key' | 'member_secret_key' | 'member_master_key' | 'member_super_key';
+export type PlanSlug = 'member_key' | 'member_secret_key' | 'member_master_key' | 'member_wisdom_key';
 
 export type Plan = {
   slug: PlanSlug;
@@ -73,8 +73,8 @@ export const PLANS: readonly Plan[] = [
     ],
   },
   {
-    slug: 'member_super_key',
-    name: 'Super Key',
+    slug: 'member_wisdom_key',
+    name: 'Wisdom Key',
     annualAmount: 430000,
     llavecitasRate: null,
     features: ['Todo lo de Master Key', 'La capa alta de dos SKWR al año', 'Seguimiento personal durante doce meses'],

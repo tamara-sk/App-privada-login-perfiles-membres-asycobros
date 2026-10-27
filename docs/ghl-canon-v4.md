@@ -11,8 +11,9 @@ manda este bloque.
 | Key        | 0 €                                                                           | Entrada al ecosistema y a la app. Precio público en experiencias                                                                                               |
 | Secret Key | 99 €/año para quien entra antes del 1 ene 2027. Después, 220 €/año o 20 €/mes | Precio de miembro en experiencias y SK Store, Llavecitas a ritmo 2×, Secret Circle de su chapter                                                               |
 | Master Key | 2.500 €/año o 390 €/mes                                                       | Todo lo de Secret Key, una experiencia de capa alta en un SKWR (Miami, Bali u otro), dos experiencias de un día en el chapter que elija, Llavecitas a ritmo 5× |
-| Super Key  | 4.300 €/año                                                                   | Todo lo de Master Key, la capa alta de dos SKWR al año, seguimiento personal durante doce meses                                                                |
+| Wisdom Key | 4.300 €/año                                                                   | Todo lo de Master Key, la capa alta de dos SKWR al año, seguimiento personal durante doce meses                                                                |
 
+- El cuarto tier se llama «Wisdom Key» (decidido el 27 oct 2026). La Llavecita vale 0,10 €.
 - Se escribe «Master Key», sin tilde en Master.
 - Corte del precio de 99 €: último día 31 dic 2026 (hora de Madrid). Desde el 1 ene 2027 rige 220 €/año.
 - Los 99 € son la promoción de fin de año para quien entra como Secret Key. En enero de 2027 el precio sube a 220 €/año. Se comunica como el precio de esta temporada.
@@ -28,11 +29,11 @@ Una sola escalera de cuatro tiers. La comisión es lo que Secret Key retiene de 
 | Key        | 0 €                     | 30 %           |
 | Secret Key | 290 €                   | 20 %           |
 | Master Key | 890 €                   | 15 %           |
-| Super Key  | Pack SK Ads (sección 3) | 10 %           |
+| Wisdom Key | Pack SK Ads (sección 3) | 10 %           |
 
 - Todo partner cede al Círculo al menos una experiencia o beneficio de cortesía, canjeable con Llavecitas.
 - La comisión mínima es el 10 %.
-- «Key Partner» y «Top Key» quedan retirados. «Super Key» de partner es el pack SK Ads, y su cuota anterior de 290 € queda retirada.
+- «Key Partner» y «Top Key» quedan retirados. El cuarto tier de partner, «Wisdom Key», es el pack SK Ads. El «Super Key» a 290 € del catálogo anterior queda retirado.
 - Comisiones de partner y condiciones de miembro son sistemas separados.
 
 ## 3. SK Ads (agente, CRM, bots, cuenta de GHL y automatizaciones)
@@ -47,7 +48,7 @@ Agente de IA adicional: 150 €/mes. SK Guest Journey (agente para anfitriones) 
 
 ## 4. Llavecitas y Sigils
 
-- Una Llavecita vale siempre 0,10 €. Por la misma acción: Key gana 0,1×, Secret Key 2×, Master Key 5×.
+- Una Llavecita vale siempre 0,10 € (confirmado el 27 oct 2026). Por la misma acción: Key gana 0,1×, Secret Key 2×, Master Key 5×.
 - Cubren hasta el 30 % de cada compra. En renovación y subida de tier, hasta el 100 %.
 - Caducan a los 12 meses, con aviso 30 días antes, y se prorrogan 12 meses cada vez que el miembro reserva una experiencia.
 - Sigils: los otorga el Círculo, los verifican los pares. Ilimitados, sin valor monetario, sin niveles.
@@ -81,7 +82,7 @@ Agente de IA adicional: 150 €/mes. SK Guest Journey (agente para anfitriones) 
 
 - Renovación de quien entra a 99 €: ¿paga 220 € al renovar o mantiene el precio?
 - Mensual de Secret Key antes del 1 ene 2027.
-- Margen de Master Key y de Super Key; mensual de Master Key (390 €/mes son 4.680 €/año).
+- Margen de los extras de Master Key y Wisdom Key (seguimiento personal, jornadas de un día); mensual de Master Key (390 €/mes son 4.680 €/año).
 - Tabla de acciones de Llavecitas y regalo de bienvenida.
 - Descuentos de miembro (v3: 10 % y 20 %).
 - Nombre de la capa alta de The Radiance.
@@ -109,7 +110,7 @@ El foco comercial de GHL es llenar los SKWR (retiros) con dos públicos: sponsor
 **Clientes de los SKWR**
 
 - Entrada: «Solicitar acceso» (sección 5). Con la solicitud aprobada, reserva de la experiencia con precio de miembro.
-- Capa alta de cada SKWR: la incluyen Master Key (una) y Super Key (dos al año).
+- Capa alta de cada SKWR: la incluyen Master Key (una) y Wisdom Key (dos al año).
 - Precio público de The Radiance: 1.900 € y 2.500 € la capa alta, alojamiento incluido. Miami Magic y Full Circle: NO CONFIRMADO.
 - Una experiencia sale con 6 personas como mínimo. Dato interno, nunca público.
 

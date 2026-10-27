@@ -6,15 +6,12 @@ Canon: SK Master Context v4 (Notion) y `docs/ghl-canon-v4.md`.
 Todo lo que aparece como PROPUESTA es una hipótesis del board para aprobar. Lo
 CONFIRMADO viene del canon. Lo NO CONFIRMADO espera un dato de Tamara.
 
-## 0. Dos conflictos de canon para cerrar primero
+## 0. Conflictos de canon: cerrados el 27 oct 2026
 
-| Dato                   | Notion v4 (leído hoy)                                                                            | Skill del board (copia sincronizada)           | Decide Tamara                      |
-| ---------------------- | ------------------------------------------------------------------------------------------------ | ---------------------------------------------- | ---------------------------------- |
-| Valor de una Llavecita | 0,10 € (10 Llavecitas = 1 €), decidido el 25 oct                                                 | 0,01 €                                         | ¿Cuál rige?                        |
-| Tier de 4.300 €/año    | Super Key                                                                                        | Master Key · Dos Temporadas                    | ¿Qué nombre?                       |
-| Tiers de partner       | Key 0 € · 30 %, Secret Key 290 € · 20 %, Master Key 890 € · 15 %, Super Key = pack SK Ads · 10 % | Key Partner 30 %, Super Key 20 %, Top Key 10 % | v4 los retira; actualizar la skill |
-
-El código y el canon de GHL siguen Notion v4. La skill del board necesita la misma actualización.
+- Una Llavecita vale **0,10 €**.
+- El tier de 4.300 €/año se llama **Wisdom Key**. La misma escalera sirve a miembros, facilitadores, venues y sponsors.
+- Sin tope público de plazas. Tampoco se menciona ningún número para sonar exclusivo.
+- La skill del board conserva valores anteriores (Llavecita a 0,01 €, «Dos Temporadas», Key Partner y Top Key). Se actualiza con este documento.
 
 ## 1. Experiencias 2027 por chapter
 
@@ -43,30 +40,31 @@ y capa alta. El board los decide en sesión.
 ### Cobertura de derechos de membresía (cuenta del CFO)
 
 - **Master Key** incluye una capa alta de SKWR al año. 2027 ya tiene dos SKWR (Miami Magic y The Radiance 2).
-- **Super Key** incluye la capa alta de **dos** SKWR al año. Con esos dos, el cupo queda cubierto en el primer trimestre.
-- Un tercer SKWR en el segundo semestre de 2027 le da a Master Key y a Super Key una segunda oportunidad de reservar. PROPUESTA: Mediterráneo u otro chapter.
+- **Wisdom Key** incluye la capa alta de **dos** SKWR al año. Con esos dos, el cupo queda cubierto en el primer trimestre.
+- Un tercer SKWR en el segundo semestre de 2027 le da a Master Key y a Wisdom Key una segunda oportunidad de reservar. PROPUESTA: Mediterráneo u otro chapter.
 
-## 2. Margen de Master Key y Super Key (decisión abierta de v4)
+## 2. Margen de Master Key y Wisdom Key
 
-Valor a precio público de lo que incluye Master Key (2.500 €):
+Coste por persona (dato de Tamara, 27 oct 2026, interno): **1.000 € en la capa premium y 1.300 € en la capa VIP.**
+Supuesto a confirmar: premium es la capa de 1.900 € y VIP la capa alta de 2.500 € de The Radiance.
 
-| Concepto                               | Valor             |
-| -------------------------------------- | ----------------- |
-| Capa alta de un SKWR (The Radiance)    | 2.500 €           |
-| Dos experiencias de un día (150–390 €) | 300–780 €         |
-| Secret Key incluida                    | 220 €             |
-| **Total**                              | **3.020–3.500 €** |
+| Capa            | Precio público | Coste   | Margen  | % margen |
+| --------------- | -------------- | ------- | ------- | -------- |
+| Premium         | 1.900 €        | 1.000 € | 900 €   | 47 %     |
+| VIP (capa alta) | 2.500 €        | 1.300 € | 1.200 € | 48 %     |
 
-Master Key se vende a 2.500 €: entrega entre un 17 % y un 29 % más de valor del que cobra.
-Super Key se vende a 4.300 € por dos capas altas (5.000 €) más seguimiento personal.
+| Tier       | Precio  | Coste de las capas altas | Margen antes de extras | % margen |
+| ---------- | ------- | ------------------------ | ---------------------- | -------- |
+| Master Key | 2.500 € | 1.300 € (una capa VIP)   | 1.200 €                | 48 %     |
+| Wisdom Key | 4.300 € | 2.600 € (dos capas VIP)  | 1.700 €                | 40 %     |
 
-Opciones del CFO para decidir (v4 ya las menciona):
+Los extras restan de ese margen: las dos jornadas de un día de Master Key y el seguimiento
+personal de Wisdom Key. Su coste es el dato que falta.
 
-1. Subir Master Key a unos 2.900 €.
-2. Incluir el programa del SKWR sin alojamiento.
-3. Mantener 2.500 € como captación, con un tope de Master Key por año.
-
-Falta el coste real por persona de cada SKWR para decidir con números.
+- **Master Key** mantiene un 40 % de margen mientras las dos jornadas cuesten hasta 200 € en total, y un 30 % hasta 450 €.
+- **Wisdom Key** queda en un 40 % antes del seguimiento personal. Cada hora de seguimiento resta de ahí.
+- Con estos costes, subir Master Key a 2.900 € es opcional. El board decide con el coste de las jornadas sobre la mesa.
+- Sin tope público de plazas, las capas altas incluidas en Master Key y Wisdom Key se reservan sujetas a disponibilidad de cada edición.
 
 ## 3. Plan de sponsors (SKWR)
 
@@ -91,7 +89,7 @@ Miami Magic tiene 0 leads y es el punto más crítico.
 
 ## 4. Plan de clientes (SKWR)
 
-Escalera comercial (CRO): Secret Circle local → Secret Key → experiencias de un día → SKWR → Master Key → Super Key.
+Escalera comercial (CRO): Secret Circle local → Secret Key → experiencias de un día → SKWR → Master Key → Wisdom Key.
 
 - Entrada por «Solicitar acceso» (tres preguntas). Con la solicitud aprobada, la persona reserva con precio de miembro.
 - Primeras plantillas de WhatsApp: hoy hay 0. Prioridad para Radiance y Magic.
@@ -110,7 +108,7 @@ Escalera comercial (CRO): Secret Circle local → Secret Key → experiencias de
 | Iniciativa                                  | Estratégico | Ingresos | Marca | Escala | Tiempo | Experiencia | Media |
 | ------------------------------------------- | ----------- | -------- | ----- | ------ | ------ | ----------- | ----- |
 | Embudo de solicitud → pago (Redsys probado) | 10          | 10       | 9     | 9      | 9      | 8           | 9,2   |
-| Cerrar tiers y margen de Master/Super Key   | 9           | 9        | 9     | 9      | 8      | 8           | 8,7   |
+| Cerrar tiers y margen de Master/Wisdom Key  | 9           | 9        | 9     | 9      | 8      | 8           | 8,7   |
 | Captación Miami Magic y The Radiance        | 9           | 9        | 9     | 8      | 8      | 9           | 8,7   |
 | Plan de sponsors por SKWR                   | 9           | 9        | 8     | 8      | 8      | 8           | 8,3   |
 | Gala de Sigils 2027                         | 8           | 6        | 10    | 6      | 6      | 10          | 7,7   |
@@ -120,8 +118,8 @@ Las puntuaciones son juicio del board, no datos medidos.
 
 ## 7. Decisiones para la sesión
 
-1. Valor de la Llavecita y nombre del tier de 4.300 €.
-2. Margen: opción 1, 2 o 3 para Master Key; coste real por persona de cada SKWR.
+1. Coste de las dos jornadas de un día de Master Key y del seguimiento personal de Wisdom Key.
+2. Confirmar que premium es la capa de 1.900 € y VIP la capa de 2.500 €.
 3. Los eventos 2027 por chapter, con los cinco datos.
 4. Un tercer SKWR en el segundo semestre.
 5. Aportación del sponsor a cada SKWR.

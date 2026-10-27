@@ -19,17 +19,17 @@ State what Secret Key **is**, and let the contrast happen in the reader's head.
 
 Every negation-led sentence gets rewritten into the affirmative.
 
-| Instead of | Write |
-| --- | --- |
-| "We don't waste your time" | "We hand your time back" |
-| "Not a luxury club" | "A membership measured in hours returned" |
-| "Nobody remembers the errand" | "The evening is what stays" |
-| "No hidden fees" | "One price, everything included" |
-| "Don't miss out" | "The door is open this week" |
-| "We do not sell your data" | "Your data is yours" |
+| Instead of                    | Write                                     |
+| ----------------------------- | ----------------------------------------- |
+| "We don't waste your time"    | "We hand your time back"                  |
+| "Not a luxury club"           | "A membership measured in hours returned" |
+| "Nobody remembers the errand" | "The evening is what stays"               |
+| "No hidden fees"              | "One price, everything included"          |
+| "Don't miss out"              | "The door is open this week"              |
+| "We do not sell your data"    | "Your data is yours"                      |
 
-Words that signal a rewrite is due: *not, never, nobody, no…, don't, can't, cannot,
-refuse, without, avoid, stop, miss out.*
+Words that signal a rewrite is due: _not, never, nobody, no…, don't, can't, cannot,
+refuse, without, avoid, stop, miss out._
 
 This holds in legal and policy copy too. Precision survives the rule: choose the
 affirmative phrasing that says the same thing.

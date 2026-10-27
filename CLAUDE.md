@@ -83,11 +83,11 @@ por referencia is enabled, and the exact terminal and currency setup.
 Source: **SK Master Context v4** (Notion, 25 Oct 2026, closed the night of 26 Oct). It
 replaces the 19 Oct price catalogue and every earlier version.
 
-| Piece                                                                                                                                                 | Where                                 |
-| ----------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------- |
-| Member tiers: Key 0 €, Secret Key 99 €/yr for entry before 1 Jan 2027 then 220 €/yr (20 €/mo), Master Key 2.500 €/yr (390 €/mo), Super Key 4.300 €/yr | `src/features/membership/plans.ts`    |
-| Partner tiers (facilitators, venues, sponsors): Key 0 € · 30 %, Secret Key 290 € · 20 %, Master Key 890 € · 15 %, Super Key = SK Ads pack · 10 %      | `src/features/membership/partners.ts` |
-| SK Ads: Essential 150 €/mo + 997 €, Growth 250 €/mo + 1.997 €, Signature 350 €/mo + 2.997 €, extra AI agent 150 €/mo                                  | `src/features/membership/partners.ts` |
+| Piece                                                                                                                                                  | Where                                 |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------- |
+| Member tiers: Key 0 €, Secret Key 99 €/yr for entry before 1 Jan 2027 then 220 €/yr (20 €/mo), Master Key 2.500 €/yr (390 €/mo), Wisdom Key 4.300 €/yr | `src/features/membership/plans.ts`    |
+| Partner tiers (facilitators, venues, sponsors): Key 0 € · 30 %, Secret Key 290 € · 20 %, Master Key 890 € · 15 %, Wisdom Key = SK Ads pack · 10 %      | `src/features/membership/partners.ts` |
+| SK Ads: Essential 150 €/mo + 997 €, Growth 250 €/mo + 1.997 €, Signature 350 €/mo + 2.997 €, extra AI agent 150 €/mo                                   | `src/features/membership/partners.ts` |
 
 Open in v4 (do not invent): Secret Key 99 € first year only or while renewing, Master Key
 margin and monthly price, Llavecitas action table and welcome gift, member discounts.
