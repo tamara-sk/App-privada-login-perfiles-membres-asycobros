@@ -15,7 +15,7 @@ manda este bloque.
 
 - Se escribe «Master Key», sin tilde en Master.
 - Corte del precio de 99 €: último día 31 dic 2026 (hora de Madrid). Desde el 1 ene 2027 rige 220 €/año.
-- Los 99 € se comunican como el precio de esta temporada.
+- Los 99 € son la promoción de fin de año para quien entra como Secret Key. En enero de 2027 el precio sube a 220 €/año. Se comunica como el precio de esta temporada.
 - Anual es la opción que se recomienda; el mensual existe para quien lo prefiera.
 - Cobro mensual y renovación automática: pendientes de «pago por referencia» en BBVA. Hasta entonces el pago es manual.
 
@@ -79,7 +79,7 @@ Agente de IA adicional: 150 €/mes. SK Guest Journey (agente para anfitriones) 
 
 ## 8. Abierto en v4 (no inventar)
 
-- Los 99 €: ¿solo el primer año o mientras renueve?
+- Renovación de quien entra a 99 €: ¿paga 220 € al renovar o mantiene el precio?
 - Mensual de Secret Key antes del 1 ene 2027.
 - Margen de Master Key y de Super Key; mensual de Master Key (390 €/mes son 4.680 €/año).
 - Tabla de acciones de Llavecitas y regalo de bienvenida.
@@ -94,3 +94,41 @@ Agente de IA adicional: 150 €/mes. SK Guest Journey (agente para anfitriones) 
 - El 99 € se comunica como el precio de esta temporada, con la puerta abierta hasta el 31 dic y sin cuenta atrás.
 - En público no se menciona el número de plazas. El mínimo operativo de 6 personas es interno.
 - Toda frase se escribe en afirmativo.
+
+## 10. Captación en GHL: sponsors y clientes de los SKWR
+
+El foco comercial de GHL es llenar los SKWR (retiros) con dos públicos: sponsors y clientes.
+
+**Sponsors**
+
+- Entran por la escalera de partners (sección 2) y ceden al Círculo al menos una experiencia o beneficio de cortesía.
+- Un formulario de captación propio, con el tono de marca y sin mencionar nunca número de plazas ni de sponsors.
+- Seguimiento: confirmación inmediata, conversación con el equipo, propuesta, acuerdo.
+- Pendiente de precio: la aportación de un sponsor a cada SKWR (NO CONFIRMADO).
+
+**Clientes de los SKWR**
+
+- Entrada: «Solicitar acceso» (sección 5). Con la solicitud aprobada, reserva de la experiencia con precio de miembro.
+- Capa alta de cada SKWR: la incluyen Master Key (una) y Super Key (dos al año).
+- Precio público de The Radiance: 1.900 € y 2.500 € la capa alta, alojamiento incluido. Miami Magic y Full Circle: NO CONFIRMADO.
+- Una experiencia sale con 6 personas como mínimo. Dato interno, nunca público.
+
+## 11. Calendario de experiencias
+
+Confirmado:
+
+| Fecha                                      | Experiencia                         | Chapter |
+| ------------------------------------------ | ----------------------------------- | ------- |
+| 9–16 dic 2026                              | The Radiance                        | Bali    |
+| 29–31 ene 2027 (Full Circle: 28 ene–1 feb) | Miami Magic · Conscious Investments | Miami   |
+| 10 mar 2027                                | The Radiance, segunda edición       | Bali    |
+
+Para 2027, el calendario se completa con las experiencias que Tamara confirme: nombre, chapter, fechas, precio público y capa alta. Cada línea se publica solo con esos cinco datos.
+
+## 12. Gala benéfica y de Sigils, 2027
+
+- Se planifica para 2027 y se presenta a la candidatura de impacto social.
+- Estado: planificada, sin fecha, lugar ni formato confirmados.
+- Los Sigils reconocen la contribución real. Los otorga el Círculo y los verifican los pares. No se compran, no se gastan y no tienen valor monetario, tampoco en la gala ni para sponsors.
+- Llavecitas destinadas a causas: bloqueado hasta definir quién paga la caja real.
+- Candidatura de impacto social: nombre, convocatoria y plazo, NO CONFIRMADO.
