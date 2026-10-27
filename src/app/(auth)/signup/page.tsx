@@ -15,7 +15,7 @@ export default async function SignUp() {
   }
 
   if (session && !membership) {
-    redirect('/pricing');
+    redirect('/solicitar');
   }
 
   return (

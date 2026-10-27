@@ -24,7 +24,7 @@ export async function GET(request: NextRequest) {
       return NextResponse.redirect(`${siteUrl}/login`);
     }
 
-    // Sin entrada vigente, la persona elige una en /pricing.
+    // Sin entrada vigente, la persona presenta su solicitud en /solicitar.
     const { data: membership } = await supabase
       .from('memberships')
       .select('user_id')
@@ -33,7 +33,7 @@ export async function GET(request: NextRequest) {
       .maybeSingle();
 
     if (!membership) {
-      return NextResponse.redirect(`${siteUrl}/pricing`);
+      return NextResponse.redirect(`${siteUrl}/solicitar`);
     } else {
       return NextResponse.redirect(`${siteUrl}`);
     }

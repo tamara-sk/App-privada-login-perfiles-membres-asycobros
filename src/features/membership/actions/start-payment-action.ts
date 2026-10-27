@@ -9,7 +9,7 @@ import { supabaseAdminClient } from '@/libs/supabase/supabase-admin';
 import { annualAmountAt, getPlan, isPaidPlan } from '../plans';
 
 /**
- * Registra el pago como pendiente y lleva a la persona a la página que la envía a Redsys.
+ * Exige una solicitud aprobada. Registra el pago como pendiente y lleva a la persona a la página que la envía a Redsys.
  * El importe sale de `plans.ts`, nunca del navegador.
  */
 export async function startPaymentAction(planSlug: string) {
@@ -17,6 +17,17 @@ export async function startPaymentAction(planSlug: string) {
 
   if (!session?.user) {
     redirect('/signup');
+  }
+
+  const { data: application } = await supabaseAdminClient
+    .from('applications')
+    .select('status')
+    .eq('user_id', session.user.id)
+    .maybeSingle();
+
+  // El pago llega una vez dentro: primero se contestan las tres preguntas y el Círculo aprueba.
+  if (application?.status !== 'approved') {
+    redirect('/solicitar');
   }
 
   const plan = getPlan(planSlug);

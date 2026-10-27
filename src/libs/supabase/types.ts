@@ -56,6 +56,42 @@ export interface Database {
           }
         ];
       };
+      applications: {
+        Row: {
+          circle_contribution: string;
+          created_at: string;
+          decided_at: string | null;
+          email: string;
+          nature_contribution: string;
+          status: Database['public']['Enums']['application_status'];
+          updated_at: string;
+          user_id: string;
+          who_you_are: string;
+        };
+        Insert: {
+          circle_contribution: string;
+          created_at?: string;
+          decided_at?: string | null;
+          email: string;
+          nature_contribution: string;
+          status?: Database['public']['Enums']['application_status'];
+          updated_at?: string;
+          user_id: string;
+          who_you_are: string;
+        };
+        Update: {
+          circle_contribution?: string;
+          created_at?: string;
+          decided_at?: string | null;
+          email?: string;
+          nature_contribution?: string;
+          status?: Database['public']['Enums']['application_status'];
+          updated_at?: string;
+          user_id?: string;
+          who_you_are?: string;
+        };
+        Relationships: [];
+      };
       memberships: {
         Row: {
           cancel_at_period_end: boolean;
@@ -191,6 +227,7 @@ export interface Database {
       [_ in never]: never;
     };
     Enums: {
+      application_status: 'pending' | 'approved' | 'rejected' | 'vetoed';
       membership_status: 'active' | 'expired' | 'canceled';
       payment_status: 'pending' | 'paid' | 'failed';
     };

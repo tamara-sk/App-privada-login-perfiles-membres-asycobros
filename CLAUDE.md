@@ -93,6 +93,21 @@ Open in v4 (do not invent): Secret Key 99 € first year only or while renewing,
 margin and monthly price, Llavecitas action table and welcome gift, member discounts.
 Monthly charging waits for «pago por referencia» on the BBVA terminal.
 
+## Entry to the Circle — apply first, pay inside
+
+1. Sign up, then answer three questions on `/solicitar`: who you are (title or location),
+   what you bring to the Circle, what you bring to nature.
+2. GHL (built by Kumkum) approves automatically. A **human** decides a rejection, and the
+   person may apply again. SK, the board and Circle members can **veto** people or
+   companies; a veto closes the application with no retry.
+3. Once approved, the person pays any tier from inside (`startPaymentAction` requires
+   `applications.status = 'approved'`).
+4. GHL pushes decisions to `POST /api/solicitudes/estado` (`Authorization: Bearer
+APPLICATIONS_WEBHOOK_SECRET`, body `{ email, status }`).
+5. GHL reminds members 10 days before `current_period_end`. An expired entry ends access
+   (`getMembership` reads only active, in-date entries) until the member pays again. This
+   holds until «pago por referencia» is enabled on the BBVA terminal.
+
 ## Codebase
 
 Next.js 15 (App Router) · React 19 · TypeScript · Tailwind · Supabase · Redsys · Resend,
