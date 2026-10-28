@@ -1,19 +1,26 @@
-# Mensajes de captación · versión 2, para aprobar
+# Mensajes de captación · versión 3, para aprobar
 
 28 oct 2026 · Reescritos por el board con la dirección de Tamara y revisados contra el
 [canon](secret-key-canon.md) 1.4. Son borradores: no se ha enviado ninguno.
 
 **La estructura de todo primer mensaje**
 
-1. El dolor: más conectados que nunca y, aun así, la conexión deja de sentirse.
-2. Lo que Secret Key devuelve: la conexión real, la que siempre estuvo, la ancestral. Contigo,
+1. El dolor del mundo: más conectados que nunca y, aun así, la conexión deja de sentirse. Cada vez
+   más notificaciones y menos presencia, y una voz cansada que dice: no puedo más.
+2. El dolor de Tamara: horas y horas buscando recomendaciones, y dificultad para encontrar cosas
+   que se alinearan con ella. De esa búsqueda salió Secret Key: un círculo de confianza con
+   actividades probadas por el propio círculo.
+3. Lo que Secret Key devuelve: la conexión real, la que siempre estuvo, la ancestral. Contigo,
    con las personas y con el lugar, de forma local, entre iguales, donde lo que cuenta es quién eres.
-3. El origen, en primera persona de Tamara: Secret Key se fue gestando entre sesiones de KAP,
-   constelaciones, eneagrama, talleres y el Camino del Artista. Todo eso le ayudó, y quiere que
-   otras personas den menos vueltas y encuentren una red de iguales que inspira a ser mejor y a
-   conocerse, para vivir mejores relaciones con ellas mismas, con las demás y con el entorno.
-4. La llave secreta: de vuelta a lo que hay cuando se quita el ruido.
-5. Por qué esta persona o este lugar, y una invitación abierta a saber más.
+4. El camino, en primera persona de Tamara: Secret Key se fue gestando sin que lo supiera, entre
+   sesiones de KAP, constelaciones, eneagrama, talleres y el Camino del Artista. Todo eso le ayudó,
+   y quiere que otras personas den menos vueltas y encuentren una red de iguales que inspira a
+   ser mejor y a conocerse, para vivir mejores relaciones con ellas mismas, con las demás y con
+   el entorno.
+5. La llave secreta: de vuelta a lo que hay cuando se quita el ruido.
+6. Por qué esta persona o este lugar, y una invitación abierta a saber más.
+
+**Firma:** Tamara Edo, desde tamara@secretkey.vip.
 
 El primer mensaje no lleva precio, comisión, cuota ni petición de cortesía. Las condiciones van
 en un **segundo mensaje**, que se envía solo si la persona responde con interés.
@@ -30,25 +37,25 @@ En WhatsApp, cada conversación incluye una palabra para parar: «BAJA».
 
 **Control de 12 puntos** (todo mensaje debe pasarlos)
 
-| #   | Punto                                                                           |
-| --- | ------------------------------------------------------------------------------- |
-| 1   | Todo en afirmativo                                                              |
-| 2   | Ninguna palabra retirada por el canon                                           |
-| 3   | Sin guiones largos, exclamaciones ni emoji                                      |
-| 4   | Cifras verificadas: la única cifra citable es 111 personas en el verano de 2026 |
-| 5   | Sin plazas, sponsors ni mínimo operativo                                        |
-| 6   | El primer mensaje sin condiciones, comisiones ni precios                        |
-| 7   | Orden de la historia: dolor, conexión, Secret Key, origen, invitación           |
-| 8   | De Tamara solo los hechos que ella dio                                          |
-| 9   | La salud mental y el estrés solo como contexto, sin promesas clínicas           |
-| 10  | Remitente identificado en cada correo                                           |
-| 11  | Base legal del contacto y línea de baja                                         |
-| 12  | Campos rellenados, enlaces probados, prueba a Tamara y aprobación escrita       |
+| #   | Punto                                                                                                                                       |
+| --- | ------------------------------------------------------------------------------------------------------------------------------------------- |
+| 1   | Todo en afirmativo                                                                                                                          |
+| 2   | Ninguna palabra retirada por el canon                                                                                                       |
+| 3   | Sin guiones largos, exclamaciones ni emoji                                                                                                  |
+| 4   | Cifras verificadas: la única cifra citable es 111 personas en el verano de 2026                                                             |
+| 5   | Sin plazas, sponsors ni mínimo operativo                                                                                                    |
+| 6   | El primer mensaje sin condiciones, comisiones ni precios                                                                                    |
+| 7   | Orden de la historia: dolor, búsqueda de Tamara, conexión, camino, invitación                                                               |
+| 8   | De Tamara solo los hechos que ella dio: la búsqueda, el círculo de confianza, KAP, constelaciones, eneagrama, talleres y Camino del Artista |
+| 9   | La salud mental y el estrés solo como contexto, sin promesas clínicas                                                                       |
+| 10  | Remitente identificado en cada correo                                                                                                       |
+| 11  | Base legal del contacto y línea de baja                                                                                                     |
+| 12  | Campos rellenados, enlaces probados, prueba a Tamara y aprobación escrita                                                                   |
 
 **Ocho preguntas que Tamara responde antes de enviar**
 
-1. Quién firma y desde qué cuenta o número envía.
-2. Qué dominio y buzón se usan, y si el dominio está calentado (SPF, DKIM y DMARC activos).
+1. Quién firma y desde qué cuenta o número envía. Decidido: Tamara Edo, desde tamara@secretkey.vip.
+2. Qué dominio y buzón se usan, y si el dominio está calentado (SPF, DKIM y DMARC activos). El dominio secretkey.vip está calentado. Un agente se encargará de mantener y mejorar su posicionamiento.
 3. Qué lista exacta se contacta, de qué fuente y cuántas personas por audiencia.
 4. Qué base legal tiene cada contacto: consentimiento, relación previa o contacto personal 1 a 1.
 5. Calendario y volumen diario (propuesta: unos 20 al día la primera semana).
@@ -56,8 +63,9 @@ En WhatsApp, cada conversación incluye una palabra para parar: «BAJA».
 7. Qué pasa si dicen sí.
 8. Qué pasa si no responden.
 
-**Nota sobre «no llego, no puedo».** Es la frase de Tamara y se queda en la parte del dolor.
-Si prefiere cero negaciones, se sustituye por «una voz cansada que dice que ya es demasiado».
+**Nota sobre «no puedo más».** Es la frase de Tamara y se queda en la parte del dolor, igual que
+«cada vez más notificaciones y menos presencia». Si prefiere cero negaciones, se sustituye por
+«una voz cansada que dice que ya es demasiado».
 
 ## Secuencia por audiencia en GoHighLevel
 
@@ -84,63 +92,70 @@ _Variantes:_ Hay lugares donde la conexión se siente · [Nombre del lugar] y la
 
 > Hola [nombre],
 >
-> Vivimos más conectados que nunca y, aun así, la conexión deja de sentirse. Pantallas llenas,
-> agendas llenas y una voz cansada que repite «no llego, no puedo».
+> Una pantalla abierta, veinte pestañas, una lista de recomendaciones que no acaba. Tantas
+> opciones, cada vez más notificaciones y menos presencia, y una pregunta que se repite: ¿a quién
+> creo? Ya no se sabe por dónde empezar, y aparece esa voz cansada: no puedo más.
 >
-> Secret Key devuelve la conexión que siempre estuvo ahí, la ancestral: contigo, con las personas
-> y con el lugar. De forma local, entre iguales, donde lo que cuenta es quién eres.
+> Yo estuve ahí. Pasaba horas y horas buscando recomendaciones, y me costaba encontrar lo que se
+> alineaba conmigo. Entendí que la confianza llega por las personas, y de ahí salió Secret Key: un
+> círculo de confianza con actividades probadas por el propio círculo.
 >
-> Esto me sorprendió por el camino. Se fue gestando entre sesiones de KAP, constelaciones,
-> eneagrama, talleres y el Camino del Artista. Todo aquello me ayudó, y hoy quiero que otras
-> personas den menos vueltas. Que encuentren una red de iguales que inspira a ser mejor y a
-> conocerse, para disfrutar de mejores relaciones con ellas mismas, con las demás y con el entorno.
+> Secret Key devuelve la conexión real, la que siempre estuvo: contigo, con las personas y con el
+> lugar. De forma local, entre iguales, donde lo que cuenta es quién eres.
 >
-> Secret Key es una llave secreta de vuelta a lo que hay cuando se quita el ruido.
+> Se fue gestando sin que yo lo supiera, entre sesiones de KAP, constelaciones, eneagrama,
+> talleres y el Camino del Artista. Todo aquello me ayudó, y hoy quiero que otras personas lleguen
+> con menos vueltas a una red de iguales que inspira a ser mejor y a conocerse.
 >
-> [Nombre del lugar] me hizo pensar en eso: un sitio donde uno se queda, y se siente.
+> [Nombre del lugar] me hizo pensar en eso: un sitio donde uno se queda, y se siente. Secret Key
+> es una llave secreta de vuelta a lo que hay cuando se quita el ruido.
 >
-> Soy Tamara. Si te apetece saber más, escríbeme y te cuento.
+> Soy Tamara Edo. Si te apetece saber más, escríbeme y te cuento.
 >
 > Con presencia,
-> Tamara
+> Tamara Edo
 
 **Subject:** A key back to what is already there
 _Variants:_ Some places let connection be felt · [Place name] and the connection that was always there
 
 > Hello [name],
 >
-> We live more connected than ever, and still the connection stops being felt. Full screens, full
-> calendars and a tired voice repeating "I can't keep up, I can't cope."
+> An open screen, twenty tabs, a list of recommendations that never ends. So many options, more
+> and more notifications and less presence, and a question that keeps returning: whom do I
+> believe? Where to begin? That tired voice appears: I can't take it anymore.
 >
-> Secret Key gives back the connection that was always there, the ancestral one: with yourself,
-> with people and with place. Local, among equals, where what counts is who you are.
+> I was there. I spent hours and hours searching for recommendations, and I struggled to find what
+> aligned with me. I understood that trust arrives through people, and Secret Key came out of
+> that: a circle of trust with activities tested by the circle itself.
 >
-> This surprised me along the way. It took shape slowly through KAP sessions, constellations, the
-> Enneagram, workshops and the Artist's Way. All of it helped me, and today I want other people to
-> take fewer detours. To find a network of equals who inspire them to be better and to know
-> themselves, so they can enjoy better relationships with themselves, with others and with their
-> surroundings.
+> Secret Key gives back the real connection, the one that was always there: with yourself, with
+> people and with place. Local, among equals, where what counts is who you are.
 >
-> Secret Key is a secret key back to what is there when the noise is taken away.
+> It took shape without my knowing it, between KAP sessions, constellations, enneagram work,
+> workshops and the Artist's Way. All of it helped me, and today I want other people to arrive
+> with fewer detours at a network of equals that inspires them to be better and to know
+> themselves.
 >
-> [Place name] made me think of that: a place where one stays, and feels.
+> [Place name] made me think of that: a place where one stays, and feels. Secret Key is a secret
+> key back to what is there when the noise is taken away.
 >
-> I am Tamara. If you would like to know more, write to me and I will tell you.
+> I am Tamara Edo. If you would like to know more, write to me and I will tell you.
 >
 > With presence,
-> Tamara
+> Tamara Edo
 
 _Primer mensaje. WhatsApp._
 
-> Hola [nombre], soy Tamara. Vivimos más conectados que nunca y la conexión deja de sentirse.
-> Secret Key devuelve la de siempre, la real: contigo, con las personas y con el lugar. Al ver
-> [Nombre del lugar] pensé en eso, en un sitio donde uno se queda y se siente. ¿Te cuento más
-> cuando te venga bien?
+> Hola [nombre], soy Tamara Edo. Tantas opciones, cada vez más notificaciones y menos presencia, y
+> ya no se sabe a quién creer: no puedo más. Tras horas y horas buscando, entendí que la confianza
+> llega por las personas, y así nació Secret Key: un círculo de confianza con actividades probadas
+> por el círculo. [Nombre del lugar] me hizo pensar en eso. ¿Te cuento más? Tamara Edo
 
-> Hello [name], this is Tamara. We live more connected than ever and the connection stops being
-> felt. Secret Key gives back the real one, the one that was always there: with yourself, with
-> people and with place. Seeing [Place name] I thought of exactly that, a place where one stays
-> and feels. May I tell you more whenever suits you?
+> Hello [name], this is Tamara Edo. So many options, more and more notifications and less
+> presence, and nobody knows whom to believe: I can't take it anymore. After hours of searching, I
+> understood that trust arrives through people, and that is how Secret Key began: a circle of
+> trust with activities tested by the circle. [Place name] made me think of that. May I tell you
+> more? Tamara Edo
 
 _Segundo mensaje, solo si responden con interés. Correo._
 
@@ -151,21 +166,21 @@ _Variantes:_ Los detalles, con calma · Lo que te propongo, paso a paso
 >
 > Gracias por tu respuesta, me alegra mucho. Te cuento cómo sería.
 >
-> [Nombre del lugar] sería un Trusted Place del Chapter de [Chapter]: un sitio donde el Círculo
-> se reúne, descansa y se queda. Cada lugar tiene su página en la historia, y la contamos con el
+> [Nombre del lugar] sería un Trusted Place del Chapter de [Chapter]: un sitio donde el Círculo se
+> reúne, descansa y se queda. Cada lugar tiene su página en la historia, y la contamos con el
 > cuidado que merece. Lo que sientes tú al estar allí es justo lo que queremos que sienta quien
 > llegue.
 >
-> Hay dos condiciones sencillas. La primera: cada partner cede al Círculo al menos una
-> experiencia o un beneficio de cortesía, canjeable con Llavecitas, la moneda de la comunidad. La
-> segunda: Secret Key trabaja con una comisión sobre las reservas que llegan a través del Círculo.
-> Depende del tier de partner (30, 20, 15 o 10 %) y la explicamos con calma en la llamada, con los
-> números sobre la mesa.
+> Hay dos condiciones sencillas. La primera: cada partner cede al Círculo al menos una experiencia
+> o un beneficio de cortesía, canjeable con Llavecitas, la moneda de la comunidad. La segunda:
+> Secret Key trabaja con una comisión sobre las reservas que llegan a través del Círculo. Depende
+> del tier de partner (30, 20, 15 o 10 %) y la explicamos con calma en la llamada, con los números
+> sobre la mesa.
 >
 > ¿Te viene bien una conversación de 15 minutos esta semana? Dime día y hora, y allí estaré.
 >
 > Con presencia,
-> Tamara
+> Tamara Edo
 
 **Subject:** How [Place name] would live in the Circle
 _Variants:_ The details, calmly · What I propose, step by step
@@ -188,29 +203,29 @@ _Variants:_ The details, calmly · What I propose, step by step
 > there.
 >
 > With presence,
-> Tamara
+> Tamara Edo
 
 _Segundo mensaje. WhatsApp._
 
 > Gracias por responder, [nombre]. Te cuento lo esencial: [Nombre del lugar] sería un Trusted
 > Place de [Chapter]. Cada partner cede al Círculo una experiencia o beneficio de cortesía,
 > canjeable con Llavecitas, y la comisión de Secret Key depende del tier de partner (30, 20, 15 o
-> 10 %). Lo vemos juntos en una llamada de 15 minutos. ¿Qué día te viene bien?
+> 10 %). Lo vemos juntos en una llamada de 15 minutos. ¿Qué día te viene bien? Tamara Edo
 
 > Thank you for replying, [name]. The essentials: [Place name] would be a Trusted Place of
 > [Chapter]. Every partner gives the Circle one complimentary experience or benefit, redeemable
 > with Llavecitas, and Secret Key's commission depends on the partner tier (30, 20, 15 or 10 %).
-> We go through it together in a 15 minute call. Which day suits you?
+> We go through it together in a 15 minute call. Which day suits you? Tamara Edo
 
 _Seguimiento a los 5 días. WhatsApp._
 
 > Hola [nombre]. Te escribí hace unos días sobre Secret Key. Cuando se quita el ruido, queda lo
 > que importa, y [Nombre del lugar] tiene mucho de eso. Cuando tengas un momento, me encantaría
-> contarte más. ¿Te viene bien esta semana?
+> contarte más. ¿Te viene bien esta semana? Tamara Edo
 
 > Hello [name]. I wrote a few days ago about Secret Key. When the noise is taken away, what
 > matters remains, and [Place name] holds a lot of it. Whenever you have a moment, I would love to
-> tell you more. Does this week suit you?
+> tell you more. Does this week suit you? Tamara Edo
 
 ## 2. Facilitadores y Keyholders
 
@@ -221,66 +236,72 @@ _Variantes:_ Quien abre una sesión abre una puerta · La conexión que siempre 
 
 > Hola [nombre],
 >
-> Vivimos más conectados que nunca y, aun así, la conexión deja de sentirse. Entre el estrés
-> diario y esa voz cansada que repite «no llego, no puedo», muchas personas buscan un lugar donde
-> volver a sentirse.
+> Una pantalla abierta, veinte pestañas, una lista de recomendaciones que no acaba. Tantas
+> opciones, cada vez más notificaciones y menos presencia, y una pregunta que se repite: ¿a quién
+> creo? Ya no se sabe por dónde empezar, y aparece esa voz cansada: no puedo más.
 >
-> Secret Key devuelve la conexión real, la que siempre estuvo ahí, la ancestral: contigo, con las
-> personas y con el lugar. De forma local, entre iguales, donde lo que cuenta es quién eres.
+> Yo estuve ahí. Pasaba horas y horas buscando recomendaciones, y me costaba encontrar lo que se
+> alineaba conmigo. Entendí que la confianza llega por las personas, y de ahí salió Secret Key: un
+> círculo de confianza con actividades probadas por el propio círculo.
 >
-> Nació por sorpresa, entre sesiones de KAP, constelaciones, eneagrama, talleres y el Camino del
-> Artista. Personas como tú sostienen ese camino, y a mí me ayudó muchísimo. Hoy quiero que quien
-> llegue después dé menos vueltas y encuentre una red de iguales que inspira a ser mejor y a
-> conocerse.
+> Secret Key devuelve la conexión real, la que siempre estuvo: contigo, con las personas y con el
+> lugar. De forma local, entre iguales, donde lo que cuenta es quién eres.
+>
+> Se fue gestando sin que yo lo supiera, entre sesiones de KAP, constelaciones, eneagrama,
+> talleres y el Camino del Artista. Todo aquello me ayudó, y hoy quiero que otras personas lleguen
+> con menos vueltas a una red de iguales que inspira a ser mejor y a conocerse.
 >
 > Lo que haces en [ciudad] se siente como una transmisión más que como una clase, y por eso pensé
-> en ti. Un Keyholder abre una sesión y el Círculo la vive.
->
-> Secret Key es una llave secreta de vuelta a lo que hay cuando se quita el ruido.
+> en ti. Un Keyholder abre una sesión y el Círculo la vive. Secret Key es una llave secreta de
+> vuelta a lo que hay cuando se quita el ruido.
 >
 > Si te apetece saber más, escríbeme y te cuento.
 >
 > Con intención,
-> Tamara
+> Tamara Edo
 
 **Subject:** Your practice and a network of equals
 _Variants:_ Whoever opens a session opens a door · The connection that was always there
 
 > Hello [name],
 >
-> We live more connected than ever, and still the connection stops being felt. Between daily
-> stress and that tired voice repeating "I can't keep up, I can't cope," many people look for a
-> place where they can feel again.
+> An open screen, twenty tabs, a list of recommendations that never ends. So many options, more
+> and more notifications and less presence, and a question that keeps returning: whom do I
+> believe? Where to begin? That tired voice appears: I can't take it anymore.
 >
-> Secret Key gives back the real connection, the one that was always there, the ancestral one:
-> with yourself, with people and with place. Local, among equals, where what counts is who you are.
+> I was there. I spent hours and hours searching for recommendations, and I struggled to find what
+> aligned with me. I understood that trust arrives through people, and Secret Key came out of
+> that: a circle of trust with activities tested by the circle itself.
 >
-> It was born as a surprise, through KAP sessions, constellations, the Enneagram, workshops and
-> the Artist's Way. People like you sustain that path, and it helped me enormously. Today I want
-> whoever arrives next to take fewer detours and to find a network of equals who inspire them to
-> be better and to know themselves.
+> Secret Key gives back the real connection, the one that was always there: with yourself, with
+> people and with place. Local, among equals, where what counts is who you are.
 >
-> What you do in [city] feels like a transmission more than a class, and that is why I thought of
-> you. A Keyholder opens a session and the Circle lives it.
+> It took shape without my knowing it, between KAP sessions, constellations, enneagram work,
+> workshops and the Artist's Way. All of it helped me, and today I want other people to arrive
+> with fewer detours at a network of equals that inspires them to be better and to know
+> themselves.
 >
-> Secret Key is a secret key back to what is there when the noise is taken away.
+> What you do in [city] feels like a transmission, and that is why I thought of you. A Keyholder
+> opens a session and the Circle lives it. Secret Key is a secret key back to what is there when
+> the noise is taken away.
 >
-> If you would like to know more, write to me and I will tell you.
+> Write to me and I will tell you more.
 >
 > With intention,
-> Tamara
+> Tamara Edo
 
 _Primer mensaje. WhatsApp._
 
-> Hola [nombre], soy Tamara. Entre el estrés diario y el «no llego, no puedo», la conexión deja de
-> sentirse. Secret Key devuelve la real, entre iguales: contigo, con las personas y con el lugar.
-> Lo que haces en [ciudad] se siente como una transmisión, y pensé en ti. ¿Te cuento más cuando te
-> venga bien?
+> Hola [nombre], soy Tamara Edo. Tantas opciones, cada vez más notificaciones y menos presencia, y
+> ya no se sabe a quién creer: no puedo más. Tras horas y horas buscando, entendí que la confianza
+> llega por las personas, y así nació Secret Key: un círculo de confianza con actividades probadas
+> por el círculo. Lo que haces en [ciudad] es una transmisión. ¿Te cuento más? Tamara Edo
 
-> Hello [name], this is Tamara. Between daily stress and the "I can't keep up, I can't cope,"
-> connection stops being felt. Secret Key gives back the real one, among equals: with yourself,
-> with people and with place. What you do in [city] feels like a transmission, and I thought of
-> you. May I tell you more whenever suits you?
+> Hello [name], this is Tamara Edo. So many options, more and more notifications and less
+> presence, and nobody knows whom to believe: I can't take it anymore. After hours of searching, I
+> understood that trust arrives through people, and that is how Secret Key began: a circle of
+> trust with activities tested by the circle. What you do in [city] is a transmission. May I tell
+> you more? Tamara Edo
 
 _Segundo mensaje, solo si responden con interés. Correo._
 
@@ -305,7 +326,7 @@ _Variantes:_ Los detalles, con calma · Lo que te propongo
 > ¿Te viene bien una conversación de 15 minutos esta semana? Dime día y hora, y allí estaré.
 >
 > Con intención,
-> Tamara
+> Tamara Edo
 
 **Subject:** How opening a session in the Circle would work
 _Variants:_ The details, calmly · What I propose
@@ -318,40 +339,40 @@ _Variants:_ The details, calmly · What I propose
 > Key calendar of the [Chapter] Chapter, and we take care of everything around the experience, so
 > you stay with the work, with the presence and with the people who arrive.
 >
-> There are two simple conditions. The first: every facilitator gives the Circle one
-> complimentary experience or benefit, redeemable with Llavecitas, the community's currency. The
-> second: Secret Key works with a commission on the bookings that arrive through the Circle. It
-> depends on the partner tier (30, 20, 15 or 10 %) and we explain it calmly on the call, with the
-> numbers on the table.
+> There are two simple conditions. The first: every facilitator gives the Circle one complimentary
+> experience or benefit, redeemable with Llavecitas, the community's currency. The second: Secret
+> Key works with a commission on the bookings that arrive through the Circle. It depends on the
+> partner tier (30, 20, 15 or 10 %) and we explain it calmly on the call, with the numbers on the
+> table.
 >
 > Would a 15 minute conversation this week suit you? Tell me a day and a time, and I will be
 > there.
 >
 > With intention,
-> Tamara
+> Tamara Edo
 
 _Segundo mensaje. WhatsApp._
 
 > Gracias por responder, [nombre]. Lo esencial: un Keyholder abre una sesión y el Círculo reserva
 > en la app; nosotros cuidamos lo que la rodea. Cada facilitador cede una experiencia o beneficio
 > de cortesía, canjeable con Llavecitas, y la comisión de Secret Key depende del tier de partner
-> (30, 20, 15 o 10 %). Lo vemos en una llamada de 15 minutos. ¿Qué día te viene bien?
+> (30, 20, 15 o 10 %). Lo vemos en una llamada de 15 minutos. ¿Qué día te viene bien? Tamara Edo
 
-> Thank you for replying, [name]. The essentials: a Keyholder opens a session and the Circle
-> books in the app, while we care for everything around it. Every facilitator gives one
-> complimentary experience or benefit, redeemable with Llavecitas, and Secret Key's commission
-> depends on the partner tier (30, 20, 15 or 10 %). We go through it in a 15 minute call. Which
-> day suits you?
+> Thank you for replying, [name]. The essentials: a Keyholder opens a session and the Circle books
+> in the app, while we care for everything around it. Every facilitator gives one complimentary
+> experience or benefit, redeemable with Llavecitas, and Secret Key's commission depends on the
+> partner tier (30, 20, 15 or 10 %). We go through it in a 15 minute call. Which day suits you?
+> Tamara Edo
 
 _Seguimiento a los 5 días. WhatsApp._
 
 > Hola [nombre]. Te escribí hace unos días sobre Secret Key. Pensé en ti porque lo que abres en
 > [ciudad] devuelve a las personas a lo que hay cuando se quita el ruido. Cuando tengas un
-> momento, me encantaría contarte más. ¿Hablamos esta semana?
+> momento, me encantaría contarte más. ¿Hablamos esta semana? Tamara Edo
 
-> Hello [name]. I wrote a few days ago about Secret Key. I thought of you because what you open
-> in [city] returns people to what is there when the noise is taken away. Whenever you have a
-> moment, I would love to tell you more. Shall we talk this week?
+> Hello [name]. I wrote a few days ago about Secret Key. I thought of you because what you open in
+> [city] returns people to what is there when the noise is taken away. Whenever you have a moment,
+> I would love to tell you more. Shall we talk this week? Tamara Edo
 
 ## 3. Centros de retiro y venues SKWR
 
@@ -362,64 +383,70 @@ _Variantes:_ [Nombre del centro] y la conexión que siempre estuvo · Cuando se 
 
 > Estimado/a [nombre],
 >
-> Vivimos más conectados que nunca y, aun así, la conexión deja de sentirse. El estrés diario, la
-> agenda llena y esa voz cansada que repite «no llego, no puedo» piden un lugar donde parar.
+> Una pantalla abierta, veinte pestañas, una lista de recomendaciones que no acaba. Tantas
+> opciones, cada vez más notificaciones y menos presencia, y una pregunta que se repite: ¿a quién
+> creo? Ya no se sabe por dónde empezar, y aparece esa voz cansada: no puedo más.
 >
-> Secret Key devuelve la conexión real, la que siempre estuvo ahí, la ancestral: contigo, con las
-> personas y con el lugar. De forma local, entre iguales, donde lo que cuenta es quién eres.
+> Yo estuve ahí. Pasaba horas y horas buscando recomendaciones, y me costaba encontrar lo que se
+> alineaba conmigo. Entendí que la confianza llega por las personas, y de ahí salió Secret Key: un
+> círculo de confianza con actividades probadas por el propio círculo.
 >
-> Esto se fue gestando por el camino, como una sorpresa, entre sesiones de KAP, constelaciones,
-> eneagrama, talleres y el Camino del Artista. Todo aquello me ayudó, y hoy quiero que otras
-> personas lleguen antes a una red de iguales que inspira a ser mejor y a conocerse, para disfrutar
-> de mejores relaciones con ellas mismas, con las demás y con el entorno.
+> Secret Key devuelve la conexión real, la que siempre estuvo: contigo, con las personas y con el
+> lugar. De forma local, entre iguales, donde lo que cuenta es quién eres.
 >
-> [Una frase concreta sobre el entorno o la filosofía de [Nombre del centro]] es ese regreso a lo
-> esencial. Por eso le escribo.
+> Se fue gestando sin que yo lo supiera, entre sesiones de KAP, constelaciones, eneagrama,
+> talleres y el Camino del Artista. Todo aquello me ayudó, y hoy quiero que otras personas lleguen
+> con menos vueltas a una red de iguales que inspira a ser mejor y a conocerse.
 >
-> Secret Key es una llave secreta de vuelta a lo que hay cuando se quita el ruido.
+> [Una frase concreta sobre [Nombre del centro]] es ese regreso a lo esencial. Secret Key es una
+> llave secreta de vuelta a lo que hay cuando se quita el ruido.
 >
-> Soy Tamara, fundadora de Secret Key. Si desea saber más, me encantará contárselo.
+> Soy Tamara Edo, fundadora de Secret Key. Me encantará contarle más.
 >
 > Con respeto,
-> Tamara
+> Tamara Edo
 
 **Subject:** A return to the essential
 _Variants:_ [Center name] and the connection that was always there · When the noise is taken away
 
 > Dear [name],
 >
-> We live more connected than ever, and still the connection stops being felt. Daily stress, the
-> full calendar and that tired voice repeating "I can't keep up, I can't cope" ask for a place to
-> pause.
+> An open screen, twenty tabs, a list of recommendations that never ends. So many options, more
+> and more notifications and less presence, and a question that keeps returning: whom do I
+> believe? Where to begin? That tired voice appears: I can't take it anymore.
 >
-> Secret Key gives back the real connection, the one that was always there, the ancestral one:
-> with yourself, with people and with place. Local, among equals, where what counts is who you are.
+> I was there. I spent hours and hours searching for recommendations, and I struggled to find what
+> aligned with me. I understood that trust arrives through people, and Secret Key came out of
+> that: a circle of trust with activities tested by the circle itself.
 >
-> This took shape along the way, as a surprise, through KAP sessions, constellations, the
-> Enneagram, workshops and the Artist's Way. All of it helped me, and today I want other people to
-> arrive sooner at a network of equals who inspire them to be better and to know themselves, so
-> they can enjoy better relationships with themselves, with others and with their surroundings.
+> Secret Key gives back the real connection, the one that was always there: with yourself, with
+> people and with place. Local, among equals, where what counts is who you are.
 >
-> [A concrete sentence about the setting or philosophy of [Center name]] is that return to the
-> essential. That is why I am writing.
+> It took shape without my knowing it, between KAP sessions, constellations, enneagram work,
+> workshops and the Artist's Way. All of it helped me, and today I want other people to arrive
+> with fewer detours at a network of equals that inspires them to be better and to know
+> themselves.
 >
-> Secret Key is a secret key back to what is there when the noise is taken away.
+> [A concrete sentence about [Center name]] is that return to the essential. Secret Key is a
+> secret key back to what is there when the noise is taken away.
 >
-> I am Tamara, founder of Secret Key. If you would like to know more, I would be glad to tell you.
+> I am Tamara Edo, founder of Secret Key. I would be glad to tell you more.
 >
 > With respect,
-> Tamara
+> Tamara Edo
 
 _Primer mensaje. WhatsApp._
 
-> Hola [nombre], soy Tamara, de Secret Key. Vivimos más conectados que nunca y la conexión deja de
-> sentirse. Devolverla, la real y la de siempre, es lo que nos mueve. [Nombre del centro] es ese
-> regreso a lo esencial, y por eso os escribo. ¿Os cuento más cuando os venga bien?
+> Hola [nombre], soy Tamara Edo. Tantas opciones, cada vez más notificaciones y menos presencia, y
+> ya no se sabe a quién creer: no puedo más. Tras horas y horas buscando, entendí que la confianza
+> llega por las personas, y así nació Secret Key: un círculo de confianza con actividades probadas
+> por el círculo. [Nombre del centro] es un regreso a lo esencial. ¿Os cuento más? Tamara Edo
 
-> Hello [name], this is Tamara, from Secret Key. We live more connected than ever and the
-> connection stops being felt. Giving it back, the real one, the one that was always there, is
-> what moves us. [Center name] is that return to the essential, and that is why I am writing. May
-> I tell you more whenever suits you?
+> Hello [name], this is Tamara Edo. So many options, more and more notifications and less
+> presence, and nobody knows whom to believe: I can't take it anymore. After hours of searching, I
+> understood that trust arrives through people, and that is how Secret Key began: a circle of
+> trust with activities tested by the circle. [Center name] is a return to the essential. May I
+> tell you more? Tamara Edo
 
 _Segundo mensaje, solo si responden con interés. Correo._
 
@@ -444,7 +471,7 @@ _Variantes:_ Los detalles, con calma · Una propuesta para vuestros retiros
 > ¿Le viene bien una conversación de 15 minutos esta semana? Dígame día y hora, y allí estaré.
 >
 > Con respeto,
-> Tamara
+> Tamara Edo
 
 **Subject:** How [Center name] would live in Secret Key
 _Variants:_ The details, calmly · A proposal for your retreats
@@ -467,7 +494,7 @@ _Variants:_ The details, calmly · A proposal for your retreats
 > there.
 >
 > With respect,
-> Tamara
+> Tamara Edo
 
 _Segundo mensaje. WhatsApp._
 
@@ -475,24 +502,24 @@ _Segundo mensaje. WhatsApp._
 > el calendario de Secret Key y el Círculo reservaría en la app. Cada partner cede una experiencia
 > o beneficio de cortesía por temporada, canjeable con Llavecitas, y la comisión de Secret Key
 > depende del tier de partner (30, 20, 15 o 10 %). Lo vemos en una llamada de 15 minutos. ¿Qué día
-> os viene bien?
+> os viene bien? Tamara Edo
 
 > Thank you for replying, [name]. The essentials: the retreats of [Center name] would appear in
 > the Secret Key calendar and the Circle would book in the app. Every partner gives one
 > complimentary experience or benefit per season, redeemable with Llavecitas, and Secret Key's
 > commission depends on the partner tier (30, 20, 15 or 10 %). We go through it in a 15 minute
-> call. Which day suits you?
+> call. Which day suits you? Tamara Edo
 
 _Seguimiento a los 5 días. WhatsApp._
 
 > Hola [nombre]. Os escribí hace unos días sobre Secret Key. Un retiro es una manera de quitar el
 > ruido, y [Nombre del centro] lo hace con mucho cuidado. Cuando tengáis un momento, me encantaría
 > contaros cómo imagino que vuestros retiros podrían encontrarse con el Círculo. ¿Os viene bien
-> esta semana?
+> esta semana? Tamara Edo
 
 > Hello [name]. I wrote a few days ago about Secret Key. A retreat is a way of taking the noise
 > away, and [Center name] does it well. Whenever you have a moment, I would love to tell you more.
-> Does this week suit you?
+> Does this week suit you? Tamara Edo
 
 ## 4. Invitación a una persona al Círculo
 
@@ -501,70 +528,70 @@ _Variantes:_ Una llave de vuelta · La conexión que siempre estuvo
 
 > Hola [nombre],
 >
-> El mundo está más conectado que nunca y, aun así, hay días en que la conexión deja de sentirse.
-> Suben las notificaciones, sube el cansancio, y aparece esa frase que tantas personas llevamos
-> dentro: no llego, no puedo.
+> Una pantalla abierta, veinte pestañas, una lista de recomendaciones que no acaba. Tantas
+> opciones, cada vez más notificaciones y menos presencia, y una pregunta que se repite: ¿a quién
+> creo? Ya no se sabe por dónde empezar, y aparece esa voz cansada: no puedo más.
 >
-> Secret Key devuelve la conexión real, la que siempre estuvo. La ancestral, la que te une
-> contigo, con las personas y con el lugar donde vives. Local, entre iguales, con tu nombre y tu
-> verdad como única credencial.
+> Yo estuve ahí. Pasaba horas y horas buscando recomendaciones, y me costaba encontrar lo que se
+> alineaba conmigo. Entendí que la confianza llega por las personas, y de ahí salió Secret Key: un
+> círculo de confianza con actividades probadas por el propio círculo.
 >
-> Te cuento cómo nació. Se fue gestando mientras yo aún no lo sabía, entre sesiones de KAP,
-> constelaciones, eneagrama, talleres y el Camino del Artista. Todo eso me ayudó a volver a mí.
-> Ahora quiero que otras personas den menos vueltas de las que di yo y encuentren una red de
-> iguales que inspira a ser mejor y a conocerse, para disfrutar de mejores relaciones con las
-> demás y con el entorno.
+> Secret Key devuelve la conexión real, la que siempre estuvo: contigo, con las personas y con el
+> lugar. De forma local, entre iguales, donde lo que cuenta es quién eres.
 >
-> Secret Key es una llave secreta de vuelta a lo que queda cuando se quita el ruido.
+> Se fue gestando sin que yo lo supiera, entre sesiones de KAP, constelaciones, eneagrama,
+> talleres y el Camino del Artista. Todo aquello me ayudó, y hoy quiero que otras personas lleguen
+> con menos vueltas a una red de iguales que inspira a ser mejor y a conocerse.
+>
+> Secret Key es una llave secreta de vuelta a lo que hay cuando se quita el ruido.
 >
 > Pensé en ti. Si te resuena, esta es la puerta: una solicitud de tres preguntas, quién eres, qué
-> aportas al Círculo y qué aportas a la naturaleza.
->
-> [Solicitar acceso]
+> aportas al Círculo y qué aportas a la naturaleza. [Solicitar acceso]
 >
 > Con cariño,
-> Tamara
+> Tamara Edo
 
 **Subject:** Back to what was always there
 _Variants:_ A key back to yourself · The connection that was always there
 
 > Hello [name],
 >
-> The world is more connected than ever, and still there are days when the connection stops being
-> felt. Notifications rise, tiredness rises, and a sentence many of us carry shows up: I can't keep
-> up, I can't.
+> An open screen, twenty tabs, a list of recommendations that never ends. So many options, more
+> and more notifications and less presence, and a question that keeps returning: whom do I
+> believe? Where to begin? That tired voice appears: I can't take it anymore.
 >
-> Secret Key gives back the real connection, the one that was always there. The ancestral one,
-> which joins you with yourself, with people and with the place where you live. Local, among
-> equals, with your name and your truth as your only credential.
+> I was there. I spent hours and hours searching for recommendations, and I struggled to find what
+> aligned with me. I understood that trust arrives through people, and Secret Key came out of
+> that: a circle of trust with activities tested by the circle itself.
 >
-> Let me tell you how it began. It took shape while I did not yet know it, between KAP sessions,
-> constellations, enneagram work, workshops and the Artist's Way. All of it helped me come back to
-> myself. Now I want other people to take fewer detours than I did, and to find a network of
-> equals that inspires them to be better and to know themselves, so they can enjoy better
-> relationships with others and with their surroundings.
+> Secret Key gives back the real connection, the one that was always there: with yourself, with
+> people and with place. Local, among equals, where what counts is who you are.
 >
-> Secret Key is a secret key back to what remains when the noise is taken away.
+> It took shape without my knowing it, between KAP sessions, constellations, enneagram work,
+> workshops and the Artist's Way. All of it helped me, and today I want other people to arrive
+> with fewer detours at a network of equals that inspires them to be better and to know
+> themselves.
+>
+> Secret Key is a secret key back to what is there when the noise is taken away.
 >
 > I thought of you. If it resonates, here is the door: a request with three questions, who you
-> are, what you bring to the Circle and what you bring to nature.
->
-> [Request access]
+> are, what you bring to the Circle and what you bring to nature. [Request access]
 >
 > With love,
-> Tamara
+> Tamara Edo
 
 _WhatsApp_
 
-> Hola [nombre]. El mundo está más conectado que nunca y, aun así, la conexión a veces deja de
-> sentirse. Secret Key la devuelve: contigo, con las personas y con el lugar, entre iguales.
-> Nació entre sesiones de KAP, constelaciones y Camino del Artista, y quiero compartirlo contigo.
-> Si te resuena, esta es la puerta: [enlace]. Con cariño, Tamara
+> Hola [nombre], soy Tamara Edo. Tantas opciones, cada vez más notificaciones y menos presencia, y
+> ya no se sabe a quién creer: no puedo más. Tras horas y horas buscando, entendí que la confianza
+> llega por las personas, y así nació Secret Key: un círculo de confianza con actividades probadas
+> por el círculo. Si te resuena, esta es la puerta: [enlace]. Con cariño, Tamara Edo
 
-> Hello [name]. The world is more connected than ever, and still the connection sometimes stops
-> being felt. Secret Key gives it back: with yourself, with people and with place, among equals.
-> It took shape between KAP sessions, constellations and the Artist's Way, and I want to share it
-> with you. If it resonates, here is the door: [link]. With love, Tamara
+> Hello [name], this is Tamara Edo. So many options, more and more notifications and less
+> presence, and nobody knows whom to believe: I can't take it anymore. After hours of searching, I
+> understood that trust arrives through people, and that is how Secret Key began: a circle of
+> trust with activities tested by the circle. If it resonates, here is the door: [link]. With
+> love, Tamara Edo
 
 ## 5. The Feminine Frequency
 
@@ -573,68 +600,70 @@ _Variantes:_ La frecuencia que ya llevas dentro · Mujeres del Círculo, juntas
 
 > Querida [nombre],
 >
-> El mundo está más conectado que nunca y, aun así, muchas mujeres sostienen a todas las personas
-> de su vida mientras la conexión con ellas mismas se apaga un poco cada día. El estrés diario
-> crece, y con él esa voz que dice: no llego, no puedo.
+> Una pantalla abierta y una lista de recomendaciones que no acaba. Tantas opciones, cada vez más
+> notificaciones y menos presencia, y muchas mujeres sostienen a todas las personas de su vida
+> mientras la conexión con ellas mismas se apaga. Aparece esa voz: no puedo más.
 >
-> Secret Key devuelve la conexión real, la que siempre estuvo: contigo, con las demás personas y
-> con el lugar donde vives, de forma local y entre iguales, con tu nombre y tu verdad como única
-> credencial.
+> Yo estuve ahí. Pasaba horas y horas buscando recomendaciones, y me costaba encontrar lo que se
+> alineaba conmigo. Entendí que la confianza llega por las personas, y de ahí salió Secret Key: un
+> círculo de confianza con actividades probadas por el propio círculo.
 >
-> Te cuento de dónde viene. Secret Key se fue gestando mientras yo aún no lo sabía, entre sesiones
-> de KAP, constelaciones, eneagrama, talleres y el Camino del Artista. Todo eso me ayudó a volver
-> a mí, y quiero que otras mujeres lleguen con menos vueltas.
+> Secret Key devuelve la conexión real, la que siempre estuvo: contigo, con las personas y con el
+> lugar. De forma local, entre iguales, donde lo que cuenta es quién eres.
 >
-> Así nace The Feminine Frequency, la comunidad de mujeres del Círculo. Un espacio de presencia,
-> de resonancia y de confianza para empoderarnos entre nosotras. Es gratuita y vive en el portal
-> de la app.
+> Se fue gestando sin que yo lo supiera, entre sesiones de KAP, constelaciones, eneagrama,
+> talleres y el Camino del Artista. Todo eso me ayudó a volver a mí, y quiero que otras mujeres
+> lleguen con menos vueltas.
 >
-> Si te resuena, solicita acceso al Círculo y elige The Feminine Frequency como tu comunidad.
->
-> [Solicitar acceso]
+> Así nace The Feminine Frequency, la comunidad de mujeres del Círculo: presencia, resonancia y
+> confianza para empoderarnos entre nosotras. Es gratuita y vive en el portal de la app. Si te
+> resuena, solicita acceso al Círculo y elige The Feminine Frequency como tu comunidad. [Solicitar
+> > acceso]
 >
 > Con amor,
-> Tamara
+> Tamara Edo
 
 **Subject:** A place to hold each other
 _Variants:_ The frequency you already carry · Women of the Circle, together
 
 > Dear [name],
 >
-> The world is more connected than ever, and still many women hold everyone in their lives while
-> the connection with themselves dims a little more each day. Daily stress grows, and with it that
-> voice that says: I can't keep up, I can't.
+> An open screen and a list of recommendations that never ends. So many options, more and more
+> notifications and less presence, and many women hold everyone in their lives while the
+> connection with themselves dims. That voice appears: I can't take it anymore.
+>
+> I was there. I spent hours and hours searching for recommendations, and I struggled to find what
+> aligned with me. I understood that trust arrives through people, and Secret Key came out of
+> that: a circle of trust with activities tested by the circle itself.
 >
 > Secret Key gives back the real connection, the one that was always there: with yourself, with
-> other people and with the place where you live, local and among equals, with your name and your
-> truth as your only credential.
+> people and with place. Local, among equals, where what counts is who you are.
 >
-> Let me tell you where it comes from. Secret Key took shape while I did not yet know it, between
-> KAP sessions, constellations, enneagram work, workshops and the Artist's Way. All of it helped
-> me come back to myself, and I want other women to arrive with fewer detours.
+> It took shape without my knowing it, between KAP sessions, constellations, enneagram work,
+> workshops and the Artist's Way. All of it helped me come back to myself, and I want other women
+> to arrive with fewer detours.
 >
-> That is how The Feminine Frequency was born, the women's community of the Circle. A space of
-> presence, resonance and trust, to empower each other. It is free and lives in the app portal.
->
-> If it resonates, request access to the Circle and choose The Feminine Frequency as your
-> community.
->
+> That is how The Feminine Frequency was born, the women's community of the Circle: presence,
+> resonance and trust, to empower each other. It is free and lives in the app portal. If it
+> resonates, request access to the Circle and choose The Feminine Frequency as your community.
 > [Request access]
 >
 > With love,
-> Tamara
+> Tamara Edo
 
 _WhatsApp_
 
-> Querida [nombre]. El mundo está más conectado que nunca y aun así la conexión con una misma se
-> apaga. Por eso nace The Feminine Frequency, la comunidad de mujeres del Círculo: presencia,
-> resonancia y confianza para empoderarnos entre nosotras. Es gratuita y vive en el portal de la
-> app. Si te resuena, esta es la puerta: [enlace]. Con amor, Tamara
+> Querida [nombre], soy Tamara Edo. Tantas opciones, cada vez más notificaciones y menos
+> presencia, y ya no se sabe a quién creer: no puedo más. Tras horas y horas buscando, entendí que
+> la confianza llega por las personas, y así nació Secret Key: un círculo de confianza con
+> actividades probadas por el círculo. Dentro vive The Feminine Frequency, la comunidad de mujeres
+> del Círculo, gratuita: [enlace]. Tamara Edo
 
-> Dear [name]. The world is more connected than ever, and still the connection with oneself dims.
-> That is why The Feminine Frequency was born, the women's community of the Circle: presence,
-> resonance and trust to empower each other. It is free and lives in the app portal. If it
-> resonates, here is the door: [link]. With love, Tamara
+> Dear [name], this is Tamara Edo. So many options, more and more notifications and less presence,
+> and nobody knows whom to believe: I can't take it anymore. After hours of searching, I
+> understood that trust arrives through people, and that is how Secret Key began: a circle of
+> trust with activities tested by the circle. Inside lives The Feminine Frequency, the women's
+> community of the Circle, free: [link]. Tamara Edo
 
 _Decisión de Tamara:_ la frase sobre mujeres que sostienen a todas las personas de su vida es un
 recurso general. Se queda tal cual o se suaviza.
@@ -648,65 +677,72 @@ _Variantes:_ Volver a lo que hay · Una escena para [Marca]
 
 > Hola [nombre],
 >
-> El mundo está más conectado que nunca y, aun así, la conexión deja de sentirse. Vivimos con
-> prisa, con el estrés a cuestas y con la sensación de que no llegamos.
+> Una pantalla abierta, veinte pestañas, una lista de recomendaciones que no acaba. Tantas
+> opciones, cada vez más notificaciones y menos presencia, y una pregunta que se repite: ¿a quién
+> creo? Ya no se sabe por dónde empezar, y aparece esa voz cansada: no puedo más.
 >
-> Secret Key es la llave de vuelta a lo que hay cuando se quita el ruido: la conexión real, la
-> ancestral, contigo, con las personas y con el lugar. Local, entre iguales, con tu nombre como
-> única credencial.
+> Yo estuve ahí. Pasaba horas y horas buscando recomendaciones, y me costaba encontrar lo que se
+> alineaba conmigo. Entendí que la confianza llega por las personas, y de ahí salió Secret Key: un
+> círculo de confianza con actividades probadas por el propio círculo.
 >
-> Nació mientras yo aún no lo sabía, entre sesiones de KAP, constelaciones, eneagrama, talleres y
-> el Camino del Artista. Todo eso me ayudó, y ahora quiero que otras personas encuentren, con
-> menos vueltas, una red de iguales que inspira a ser mejor, a conocerse y a disfrutar de mejores
-> relaciones con las demás y con el entorno.
+> Secret Key devuelve la conexión real, la que siempre estuvo: contigo, con las personas y con el
+> lugar. De forma local, entre iguales, donde lo que cuenta es quién eres.
 >
-> Pensé en [Marca] porque [una frase concreta sobre por qué su mirada comparte esto]. Cada
-> experiencia nuestra se cuenta como una escena, y hay escenas que se escriben mejor a varias
-> manos.
+> Se fue gestando sin que yo lo supiera, entre sesiones de KAP, constelaciones, eneagrama,
+> talleres y el Camino del Artista. Todo aquello me ayudó, y hoy quiero que otras personas lleguen
+> con menos vueltas a una red de iguales que inspira a ser mejor y a conocerse.
 >
-> Mi propuesta es sencilla: conversar. ¿Te cuento cómo imagino la próxima historia, [Bali, 9 a 16
-> > de diciembre / Miami, 22 a 24 de enero]?
+> Pensé en [Marca] porque [una frase concreta sobre su mirada]. Cada experiencia nuestra es una
+> escena, y algunas se escriben mejor a varias manos. Secret Key es una llave secreta de vuelta a
+> lo que hay cuando se quita el ruido.
+>
+> ¿Conversamos sobre la próxima historia, en [Bali / Miami]?
 >
 > Con presencia,
-> Tamara
+> Tamara Edo
 
 **Subject:** A story where your brand belongs
 _Variants:_ Back to what is there · A scene for [Brand]
 
 > Hello [name],
 >
-> The world is more connected than ever, and still the connection stops being felt. We live in a
-> hurry, with stress on our shoulders and the feeling that we are not getting there.
+> An open screen, twenty tabs, a list of recommendations that never ends. So many options, more
+> and more notifications and less presence, and a question that keeps returning: whom do I
+> believe? Where to begin? That tired voice appears: I can't take it anymore.
 >
-> Secret Key is the key back to what is there when the noise is taken away: the real connection,
-> the ancestral one, with yourself, with people and with place. Local, among equals, with your
-> name as your only credential.
+> I was there. I spent hours and hours searching for recommendations, and I struggled to find what
+> aligned with me. I understood that trust arrives through people, and Secret Key came out of
+> that: a circle of trust with activities tested by the circle itself.
 >
-> It began while I did not yet know it, between KAP sessions, constellations, enneagram work,
-> workshops and the Artist's Way. All of it helped me, and now I want other people to find, with
-> fewer detours, a network of equals that inspires them to be better, to know themselves and to
-> enjoy better relationships with others and with their surroundings.
+> Secret Key gives back the real connection, the one that was always there: with yourself, with
+> people and with place. Local, among equals, where what counts is who you are.
 >
-> I thought of [Brand] because [a specific sentence about why their outlook shares this]. Each of
-> our experiences is told as a scene, and some scenes are better written by many hands.
+> It took shape without my knowing it, between KAP sessions, constellations, enneagram work,
+> workshops and the Artist's Way. All of it helped me, and today I want other people to arrive
+> with fewer detours at a network of equals that inspires them to be better and to know
+> themselves.
 >
-> My proposal is simple: a conversation. May I tell you how I imagine the next story, [Bali,
-> > December 9 to 16 / Miami, January 22 to 24]?
+> I thought of [Brand] because [a specific sentence about their outlook]. Each of our experiences
+> is a scene, and some are better written by many hands. Secret Key is a secret key back to what
+> is there when the noise is taken away.
+>
+> Shall we talk about the next story, in [Bali / Miami]?
 >
 > With presence,
-> Tamara
+> Tamara Edo
 
 _WhatsApp_
 
-> Hola [nombre]. El mundo está más conectado que nunca y la conexión a veces deja de sentirse.
-> Secret Key la devuelve: contigo, con las personas y con el lugar, entre iguales. Pensé en
-> [Marca] para una de nuestras escenas en [Bali / Miami]. ¿Te cuento cómo imagino la historia en
-> una llamada breve esta semana? Con presencia, Tamara
+> Hola [nombre], soy Tamara Edo. Tantas opciones, cada vez más notificaciones y menos presencia, y
+> ya no se sabe a quién creer: no puedo más. Tras horas y horas buscando, entendí que la confianza
+> llega por las personas, y así nació Secret Key: un círculo de confianza con actividades probadas
+> por el círculo. Pensé en [Marca] para una de nuestras escenas en [Bali / Miami]. ¿Hablamos?
+> Tamara Edo
 
-> Hello [name]. The world is more connected than ever, and the connection sometimes stops being
-> felt. Secret Key gives it back: with yourself, with people and with place, among equals. I
-> thought of [Brand] for one of our scenes in [Bali / Miami]. May I share how I imagine the story
-> in a short call this week? With presence, Tamara
+> Hello [name], this is Tamara Edo. So many options, more and more notifications and less
+> presence, and nobody knows whom to believe: I can't take it anymore. After hours of searching, I
+> understood that trust arrives through people, and that is how Secret Key began: a circle of
+> trust. I thought of [Brand] for one of our scenes in [Bali / Miami]. Shall we talk? Tamara Edo
 
 _Segundo mensaje, solo si hay interés. Correo._
 
@@ -734,7 +770,7 @@ _Variantes:_ Las escenas de [Bali / Miami] · Tu marca, personaje de la historia
 > ¿Qué escena sientes tuya?
 >
 > Con presencia,
-> Tamara
+> Tamara Edo
 
 **Subject:** How your brand joins the story
 _Variants:_ The scenes of [Bali / Miami] · Your brand, a character in the story
@@ -759,19 +795,19 @@ _Variants:_ The scenes of [Bali / Miami] · Your brand, a character in the story
 > Which scene feels like yours?
 >
 > With presence,
-> Tamara
+> Tamara Edo
 
 _WhatsApp_
 
 > Gracias, [nombre]. Tu marca puede sumarse en especie, en efectivo o con las dos cosas, en la
 > escena que elijas: travesía, mesa larga, spa, traslado o noche. Una escena admite varias marcas,
 > y cada una cede al Círculo una cortesía canjeable con Llavecitas. ¿Hablamos 15 minutos para ver
-> cuál sientes tuya? Tamara
+> cuál sientes tuya? Tamara Edo
 
 > Thank you, [name]. Your brand can join in kind, in cash or with both, in the scene you choose:
 > crossing, long table, spa, transfer or night. One scene welcomes several brands, and each gives
 > the Circle a complimentary benefit redeemable with Llavecitas. Shall we talk for 15 minutes to
-> find the one that feels yours? Tamara
+> find the one that feels yours? Tamara Edo
 
 ## 7. Expositores de Miami (abogados, agentes y promotores)
 
@@ -782,15 +818,17 @@ _Variantes:_ Una casa que cuida · Habitar con presencia
 
 > Hola [nombre],
 >
-> El mundo está más conectado que nunca y la conexión deja de sentirse. Volvemos a casa cansados,
-> con el estrés a cuestas y esa frase: no llego, no puedo. La casa debería ser el primer lugar
-> donde todo se recoloca.
+> Una pantalla abierta y una lista de recomendaciones que no acaba. Tantas opciones, cada vez más
+> notificaciones y menos presencia, y volvemos a casa cansados, con esa voz: no puedo más. La casa
+> debería ser el primer lugar donde todo se recoloca.
 >
-> Secret Key devuelve la conexión real, la que siempre estuvo: contigo, con las personas y con el
-> lugar, de forma local y entre iguales. Nació mientras yo aún no lo sabía, entre sesiones de KAP,
-> constelaciones, eneagrama, talleres y el Camino del Artista. Todo eso me ayudó, y quiero que
-> otras personas lleguen con menos vueltas a una red que las inspire a conocerse y a vivir mejor
-> con las demás y con el entorno.
+> Yo estuve ahí. Pasaba horas y horas buscando recomendaciones, y me costaba encontrar lo que se
+> alineaba conmigo. Entendí que la confianza llega por las personas, y de ahí salió Secret Key: un
+> círculo de confianza con actividades probadas por el propio círculo.
+>
+> Secret Key devuelve la conexión real, la que siempre estuvo, de forma local y entre iguales. Se
+> fue gestando sin que yo lo supiera, entre sesiones de KAP, constelaciones, eneagrama, talleres y
+> el Camino del Artista, y todo aquello me ayudó.
 >
 > Del 22 al 24 de enero reunimos en Miami una experiencia sobre la casa como espacio sagrado: luz,
 > aire, agua, materiales, silencio. Tu trabajo como [abogado/a, agente, promotor/a] encaja con esa
@@ -799,22 +837,24 @@ _Variantes:_ Una casa que cuida · Habitar con presencia
 > Me gustaría compartir contigo cómo imagino ese encuentro. ¿Hablamos?
 >
 > Con un abrazo,
-> Tamara
+> Tamara Edo
 
 **Subject:** Home, the first place where connection returns
 _Variants:_ A home that cares · Living with presence
 
 > Hello [name],
 >
-> The world is more connected than ever, and the connection stops being felt. We come home tired,
-> with stress on our shoulders and that sentence: I can't keep up, I can't. Home should be the
-> first place where everything settles back into place.
+> An open screen and a list of recommendations that never ends. So many options, more and more
+> notifications and less presence, and we come home tired, with that voice: I can't take it
+> anymore. Home should be the first place where everything settles back into place.
 >
-> Secret Key gives back the real connection, the one that was always there: with yourself, with
-> people and with place, local and among equals. It began while I did not yet know it, between KAP
-> sessions, constellations, enneagram work, workshops and the Artist's Way. All of it helped me,
-> and I want other people to arrive with fewer detours at a network that inspires them to know
-> themselves and to live better with others and with their surroundings.
+> I was there. I spent hours and hours searching for recommendations, and I struggled to find what
+> aligned with me. I understood that trust arrives through people, and Secret Key came out of
+> that: a circle of trust with activities tested by the circle itself.
+>
+> Secret Key gives back the real connection, the one that was always there, local and among
+> equals. It took shape without my knowing it, between KAP sessions, constellations, enneagram
+> work, workshops and the Artist's Way, and all of it helped me.
 >
 > From January 22 to 24 we gather in Miami an experience about the home as a sacred space: light,
 > air, water, materials, silence. Your work as [attorney, agent, developer] fits that
@@ -823,19 +863,20 @@ _Variants:_ A home that cares · Living with presence
 > I would love to share how I imagine that gathering. Shall we talk?
 >
 > With an embrace,
-> Tamara
+> Tamara Edo
 
 _WhatsApp_
 
-> Hola [nombre]. El mundo está más conectado que nunca y la conexión deja de sentirse; la casa
-> debería ser donde vuelve. Secret Key reúne en Miami, del 22 al 24 de enero, una experiencia
-> sobre la casa como espacio sagrado, y tu trabajo encaja con esa conversación. ¿Te cuento cómo la
-> imagino? Un abrazo, Tamara
+> Hola [nombre], soy Tamara Edo. Tantas opciones, cada vez más notificaciones y menos presencia, y
+> ya no se sabe a quién creer: no puedo más. Tras horas y horas buscando, entendí que la confianza
+> llega por las personas, y así nació Secret Key: un círculo de confianza con actividades probadas
+> por el círculo. Del 22 al 24 de enero, en Miami: la casa como espacio sagrado. ¿Hablamos? Tamara
+> Edo
 
-> Hello [name]. The world is more connected than ever and the connection stops being felt; home
-> should be where it returns. Secret Key gathers in Miami, January 22 to 24, an experience about
-> the home as a sacred space, and your work fits that conversation. May I share how I imagine it?
-> An embrace, Tamara
+> Hello [name], this is Tamara Edo. So many options, more and more notifications and less
+> presence, and nobody knows whom to believe: I can't take it anymore. After hours of searching, I
+> understood that trust arrives through people, and that is how Secret Key began: a circle of
+> trust. January 22 to 24, in Miami: the home as a sacred space. Shall we talk? Tamara Edo
 
 _Segundo mensaje, solo si hay interés. Sujeto a revisión legal: no se envía hasta aprobarla._
 
@@ -862,7 +903,7 @@ _Variantes:_ Tu lugar en la conversación sobre la casa · Charla, mesa o visita
 > ¿Qué formato te resuena?
 >
 > Un abrazo,
-> Tamara
+> Tamara Edo
 
 **Subject:** Three ways to be in Miami
 _Variants:_ Your place in the conversation about home · Talk, table or visit
@@ -886,18 +927,18 @@ _Variants:_ Your place in the conversation about home · Talk, table or visit
 > Which format resonates with you?
 >
 > An embrace,
-> Tamara
+> Tamara Edo
 
 _WhatsApp_
 
 > Gracias, [nombre]. En Miami puedes sumarte con una charla breve, un lugar en la mesa larga o una
 > visita in situ a un proyecto. Cada participante cede al Círculo una cortesía canjeable con
-> Llavecitas. ¿Hablamos 15 minutos para ver qué formato te resuena? Un abrazo, Tamara
+> Llavecitas. ¿Hablamos 15 minutos para ver qué formato te resuena? Un abrazo, Tamara Edo
 
-> Thank you, [name]. In Miami you can join with a short talk, a place at the long table or an
-> on-site visit to a project. Every participant gives the Circle a complimentary benefit
-> redeemable with Llavecitas. Shall we talk for 15 minutes to see which format resonates with
-> you? An embrace, Tamara
+> Thank you, [name]. In Miami you can join with a short talk, a place at the long table or an on-
+> site visit to a project. Every participant gives the Circle a complimentary benefit redeemable
+> with Llavecitas. Shall we talk for 15 minutes to see which format resonates with you? An
+> embrace, Tamara Edo
 
 ## 8. Propiedades de Bali para SK Stays
 
