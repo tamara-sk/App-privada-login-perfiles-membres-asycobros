@@ -1,6 +1,6 @@
 # Miami Magic y Full Circle · Plan de sponsors
 
-Informe del board de agentes (CFO, CRO, CMO, COO y CEO) · 28 oct 2026 · Uso interno.
+Informe del board de agentes (CFO, CRO, CMO, COO y CEO) · 28 oct 2026 · Uso interno. Los costes vigentes están en [miami-costes.md](miami-costes.md).
 Todo sigue el [canon](secret-key-canon.md). Las cifras son estimaciones de mercado con fuentes
 públicas y sirven como orden de magnitud. Se sustituyen por presupuestos firmados.
 

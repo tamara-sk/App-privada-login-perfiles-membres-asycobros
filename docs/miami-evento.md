@@ -1,6 +1,6 @@
 # Miami Magic · Conscious Investments · Estudio, DAFO y paquetes
 
-Informe del board de agentes (CFO, CRO, CMO, COO y CEO) · 28 oct 2026 · Uso interno.
+Informe del board de agentes (CFO, CRO, CMO, COO y CEO) · 28 oct 2026 · Uso interno. Los costes vigentes están en [miami-costes.md](miami-costes.md).
 Complementa [docs/miami-sponsors.md](miami-sponsors.md) y sigue el [canon](secret-key-canon.md).
 Las cifras son estimaciones con fuentes públicas y se sustituyen por presupuestos reales.
 
