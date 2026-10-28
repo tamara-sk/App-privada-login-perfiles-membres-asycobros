@@ -1,6 +1,6 @@
 # Secret Key · Canon del ecosistema
 
-Versión 1.5 · 28 oct 2026 · Autora: Tamara · Estado: vigente. Los puntos de la sección 11 siguen abiertos
+Versión 1.6 · 28 oct 2026 · Autora: Tamara · Estado: vigente. Los puntos de la sección 11 siguen abiertos
 
 Este es el único documento de referencia de Secret Key. Lo cargan todas las IA y todas las
 personas que escriben, venden, programan o publican en nombre de Secret Key: Claude,
@@ -28,12 +28,12 @@ en lo que difieran).
 
 ## 1. Qué es Secret Key
 
-Secret Key es el primer ecosistema de bienestar basado en el Tri Hita Karana para vivir como
-local, estés donde estés.
+Secret Key es el primer ecosistema de bienestar basado en el Tri Hita Karana para vivir local,
+estés donde estés. Es un círculo de confianza con actividades probadas por el círculo.
 
 - **Claim:** Vive local, estés donde estés. EN: Live local, wherever you are.
 - **Definición larga, para prensa:** un sistema operativo cultural y emocional vivo.
-- **Idea de fondo:** te devolvemos la llave de tu tiempo.
+- **Idea de fondo:** te devolvemos la llave de tu tiempo y te ahorramos vueltas.
 - **Término propio para sembrar:** la economía del descubrimiento (EN: the discovery economy).
 - **Tri Hita Karana:** armonía contigo, con las personas y con el lugar.
 - **Pilares públicos:** Lo Invisible, El Círculo, El Mundo (EN: The Unseen, The Circle, The World).
@@ -87,8 +87,10 @@ Key Partner y "marketplace" sin definición.
 ## Identidad visual
 
 El icono de la app es un sello de cera color crema con cuatro anillos dorados entrelazados,
-sobre el mar turquesa y la arena. Archivo: `public/logo.png` (512 px). Paleta de la nueva
-identidad: turquesa del mar, arena, crema y dorado.
+sobre el mar turquesa y la arena. Archivos: `public/logo.png` y `public/brand/secret-key-icon-1024.png`
+(1024 px, para Apple), y `public/brand/secret-key-seal-gold-1024.png` (el motivo dorado sobre
+fondo transparente, para Android). Paleta de la nueva identidad: turquesa del mar, arena, crema
+y dorado.
 
 La cabecera es el mismo sello a la izquierda y la firma «Secret Key» en trazo de pincel negro a
 la derecha, con la línea «LIVE LOCAL, WHEREVER YOU ARE» en versalitas doradas. Archivo:
@@ -261,7 +263,7 @@ emocional vivo con Chapters activos en el Mediterráneo, Bali, Madrid y Miami.
 | 6   | Margen de Wisdom Key: coste real por persona de cada SKWR                                                                               | Falta               |
 | 7   | Tier de partner que corresponde a cada nivel de aportación de un sponsor                                                                | Falta               |
 | 8   | PVP de Magic (1.800, 1.900 o superior según costes reales), IVA, y PVP de Full Circle tras la revisión legal del servicio personalizado | Falta               |
-| 9   | Secret Key «precio de miembro» (canon operativo de Codex) frente a comisión de reserva por tier sin descuentos (decisión del 28 oct)    | Confirmar redacción |
+| 9   | Redacción de la condición de Secret Key: comisión de reserva por tier, sin descuentos (decisión del 28 oct)                             | Confirmar redacción |
 
 ## 12. Estado técnico conocido (28 oct 2026)
 
@@ -274,9 +276,12 @@ se registra la discrepancia y no se afirma sincronización sin evidencia.
 - El 28 oct se actualizó `public.price_catalog` en Supabase con el canon del 27 oct: membresías
   y partners. Las mensualidades de Secret Key y de Master Key permanecen `pendiente` hasta el
   pago por referencia de BBVA. SK Ads ya coincidía.
-- En GHL existen los productos Secret Circle (Secret Key, Master Key, Wisdom Key) y Partner
-  (Secret Key y Master Key), sin precio definido en la lectura del 28 oct. Los GHL product IDs de
-  los productos renombrados siguen vinculados y se comprueban antes de sincronizar.
+- En GHL existen los productos Secret Circle (Secret Key, Master Key y Wisdom Key) y Partner
+  (Secret Key y Master Key). El 28 oct sus precios coinciden con este canon: Secret Key 99 € hasta
+  el 31 dic 2026 y 220 € desde el 1 ene 2027, Master Key 2.500 € y Wisdom Key 4.300 €. Los
+  mensuales (20 € y 390 €) existen y no cobran de forma automática. Queda un precio mensual
+  retirado de 39 € de Secret Key, para archivar sin borrar. El campo `hasPrices` del listado de
+  GHL devuelve falso aunque haya precios.
 - La revisión automática rechazó una operación para borrar ocho GHL product IDs, por el riesgo de
   romper checkout y sincronización. No se repite ni se elude. Cada correspondencia se valida en GHL
   antes de pedir una autorización concreta.
@@ -289,13 +294,61 @@ se registra la discrepancia y no se afirma sincronización sin evidencia.
 - El sitio vivo es el Vite de `secret-key-site/` (recursos en `public/`, build en `dist/`). Este
   repositorio Next.js no es el sitio publicado.
 
+## 13. Cómo se cuenta Secret Key en los mensajes
+
+**Quién firma:** Tamara Edo, desde `tamara@secretkey.vip`.
+
+**El dolor.** Estar tan abrumada que no se sabe dónde buscar. Tanto ruido, tantas opciones y cada
+vez más notificaciones y menos presencia, hasta que llega la frase: no puedo más. Tamara pasaba
+horas y horas buscando recomendaciones, y todo se parecía a lo que ya ponía Google o la web de
+cada sitio.
+
+**Lo que es.** Un círculo de confianza con actividades probadas por el círculo. Quien recomienda
+algo ya lo vivió. Se vive local, entre iguales, y con tu nombre basta.
+
+**El origen, en primera persona de Tamara.** Secret Key se fue gestando sin que lo supiera, entre
+sesiones de KAP, constelaciones, eneagrama, talleres y El camino del artista. Hoy quiere ahorrar
+vueltas y tiempo a quien viene detrás: que encuentre antes una red de iguales que inspira a ser
+mejor y a conocerse, para vivir mejores relaciones con las demás personas y con el entorno. Solo
+se cuentan los hechos que Tamara ha contado.
+
+**Dos pasos.**
+
+1. El primer mensaje cuenta qué es Secret Key y por qué existe. No lleva precio, comisión,
+   cuota ni petición de cortesía. Termina con una invitación abierta a saber más.
+2. El segundo mensaje se envía solo si la persona responde con interés. Explica las
+   condiciones: una experiencia o beneficio de cortesía canjeable con Llavecitas, y la comisión de
+   Secret Key según el tier de partner (30, 20, 15 o 10 %), con la llamada de 15 minutos.
+
+**Escribir como una persona.** Frases cortas, una imagen concreta por párrafo y la voz de Tamara.
+Señales que delatan a una IA y se evitan: tríadas repetidas («contigo, con las personas y con el
+lugar» en cada mensaje), la misma fórmula idéntica en todos los textos, frases y párrafos
+simétricos, giros de «no es X, es Y», revelaciones de manual («un día entendí que…»),
+abstracciones gruesas (conexión real, esencia, frecuencia, transformación), preguntas retóricas al
+cierre, el «te cuento cómo» al final de cada correo, relleno de cortesía y vocabulario de
+catálogo (tejer, sostener, desbloquear, navegar, sagrado). La fórmula de la llave secreta y la
+tríada aparecen una sola vez por serie.
+
+**Base legal y envío.**
+
+- Envío solo a personas con relación previa, consentimiento o contacto personal uno a uno.
+- La comunidad actual confirma con doble opt-in.
+- Cada correo identifica a la entidad (The Secret Key Labs, S.L., NIF B25909565) y ofrece la baja
+  con la palabra BAJA. Cada WhatsApp ofrece parar con una palabra.
+- Ningún mensaje sale sin la aprobación de Tamara.
+- Volumen: se sube por fases, empezando por 20 envíos al día.
+
+**The Feminine Frequency** se cuenta con palabras naturales en español: «Muchas mujeres cuidan de
+todo el mundo y esperan su turno» y «un sitio donde nos cuidamos entre nosotras».
+
 ## Historial
 
-| Versión | Fecha       | Cambio                                                                                                                                                                                                       |
-| ------- | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| 1.5 | 28 oct 2026 | El claim pasa a «Vive local, estés donde estés» («Live local, wherever you are»), como en la cabecera |
-| 1.4     | 28 oct 2026 | Wisdom Key aprobado, renovación manual hasta enero de 2027 con serie de correos y bloqueo, The Feminine Frequency sin cuota en el portal de la app, nuevo icono y cabecera                                   |
-| 1.3     | 28 oct 2026 | Confirmados: marzo de 2027 es The Glow, Miami Magic 22 a 24 ene y Full Circle 21 a 25 ene, asistencia a Biohackers World sujeta a cobertura                                                                  |
-| 1.2     | 28 oct 2026 | Integra el canon operativo de Codex (foco comercial, escalera de venta, gala sin anunciar, estado técnico). Las decisiones del 28 oct prevalecen sobre su lista de pendientes                                |
-| 1.1     | 28 oct 2026 | Confirmados: v4 manda, Wisdom Key, dos vías de acceso (Círculo y partners), tier Wisdom Key de partner gratis para facilitadores de referencia, nueva identidad visual. Retirada la atribución "Abierto por" |
-| 1.0     | 28 oct 2026 | Primera edición. Integra Master Context v4, canon del 27 oct y decisiones del 28 oct (Inmersión, precios de Miami, renovación de Secret Key, sin descuentos, sponsors múltiples)                             |
+| Versión | Fecha       | Cambio                                                                                                                                                                                                                               |
+| ------- | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| 1.6     | 28 oct 2026 | Secret Key es un círculo de confianza con actividades probadas por el círculo. Añadida la sección 13 (cómo se cuenta, dos pasos, escribir como una persona, base legal), precios de GHL verificados y «vivir local» en la definición |
+| 1.5     | 28 oct 2026 | El claim pasa a «Vive local, estés donde estés» («Live local, wherever you are»), como en la cabecera                                                                                                                                |
+| 1.4     | 28 oct 2026 | Wisdom Key aprobado, renovación manual hasta enero de 2027 con serie de correos y bloqueo, The Feminine Frequency sin cuota en el portal de la app, nuevo icono y cabecera                                                           |
+| 1.3     | 28 oct 2026 | Confirmados: marzo de 2027 es The Glow, Miami Magic 22 a 24 ene y Full Circle 21 a 25 ene, asistencia a Biohackers World sujeta a cobertura                                                                                          |
+| 1.2     | 28 oct 2026 | Integra el canon operativo de Codex (foco comercial, escalera de venta, gala sin anunciar, estado técnico). Las decisiones del 28 oct prevalecen sobre su lista de pendientes                                                        |
+| 1.1     | 28 oct 2026 | Confirmados: v4 manda, Wisdom Key, dos vías de acceso (Círculo y partners), tier Wisdom Key de partner gratis para facilitadores de referencia, nueva identidad visual. Retirada la atribución "Abierto por"                         |
+| 1.0     | 28 oct 2026 | Primera edición. Integra Master Context v4, canon del 27 oct y decisiones del 28 oct (Inmersión, precios de Miami, renovación de Secret Key, sin descuentos, sponsors múltiples)                                                     |
