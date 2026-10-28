@@ -309,3 +309,67 @@ corto con las tres preguntas del canon.
 5. Cómo se presenta el servicio de Full Circle tras la revisión legal.
 6. Programa definitivo y responsable de captación y producción.
 7. Presupuestos reales de hotel, barco, transporte y spa.
+
+## 13. Fechas alternativas y aprendizajes de Biohackers World (propuesta, pendiente de decisión)
+
+Tamara indica que Biohackers World Conference & Expo es un solo evento, el **16 y 17 de enero de
+2027 en Miami** (sábado y domingo, fin de semana del festivo de Martin Luther King). Las fuentes
+públicas no coinciden en las fechas, así que se confirma en la página oficial del evento.
+
+|                                     | Fechas del canon                     | Propuesta                            |
+| ----------------------------------- | ------------------------------------ | ------------------------------------ |
+| Miami Magic · Conscious Investments | 29 a 31 ene 2027 (viernes a domingo) | 22 a 24 ene 2027 (viernes a domingo) |
+| Full Circle                         | 28 ene a 1 feb 2027                  | 21 a 25 ene 2027 (jueves a lunes)    |
+
+El canon mantiene las fechas actuales hasta que Tamara confirme el cambio. «VIP» queda retirado
+del léxico: la capa alta de Miami se llama Full Circle.
+
+**Qué ganamos**
+
+- Quienes asisten a su expo ya están en Miami, y sus speakers y expositores son candidatos a
+  visitar, exponer o patrocinar el nuestro.
+- Nuestro encuentro llega justo después, con un posicionamiento propio: un viaje íntimo con casa,
+  barco e inversión.
+- Su entrada incluye invitación a eventos previos y posteriores: Magic puede presentarse a su
+  organizador como evento posterior.
+
+**Qué se aprieta**
+
+- Entre el regreso de The Radiance en Bali (16 dic) y Miami (22 ene) hay cinco semanas con las
+  fiestas de por medio. El calendario de captación del COO se acorta unos 6 días:
+  el último día para confirmar sponsor pasa del 15 al 9 de enero.
+- Entre su evento (17 ene) y el nuestro (22 ene) hay cinco días. Quien venga a ambos necesita
+  una estancia prolongada. Conviene decidir si se ofrece o si cada evento se vive por separado.
+- Hoteles y barco cambian de tarifa de una semana a otra. Los presupuestos reales se piden para
+  las nuevas fechas.
+
+**Inspiración de su entrada (Early Bird hasta el 10 de noviembre, 11:59 PM EST)**
+
+| Su tipo de entrada | Precio de lanzamiento       | Qué incluye                                                                                                                                                                                                                                                                    |
+| ------------------ | --------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| General Admission  | 239 $                       | 2 días de keynotes y paneles, Expo Hall, networking con asistentes, speakers y partners, invitación a eventos previos y posteriores y ofertas de partners                                                                                                                      |
+| VIP Experience     | 798 $                       | Todo lo anterior, sala VIP con tratamientos de bienestar, bolsa de bienvenida con regalos de sponsors, comida de networking con speakers los dos días, sala de conversaciones 1 a 1, acceso privado a speakers, check-in prioritario, primera fila y certificado de asistencia |
+| Practitioner       | Cifra cortada en la captura | No consta                                                                                                                                                                                                                                                                      |
+
+**Ideas para Magic y Full Circle**
+
+1. **Bolsa de bienvenida con regalos de sponsors:** una partida en especie fácil de patrocinar,
+   con varias marcas por bolsa. Cada regalo cuenta una escena.
+2. **Conversaciones 1 a 1 con speakers y expositores:** encaja con Full Circle y con el acompañamiento
+   personal. Se programan, no se improvisan.
+3. **Comida de networking con speakers:** nuestra mesa larga ya lo cubre. Se anuncia como la
+   mesa donde se sientan los speakers.
+4. **Espacio de recuperación:** un rincón con tratamientos de bienestar patrocinados, dentro del
+   hotel de las dos noches.
+5. **Certificado de asistencia:** un detalle opcional. Los Sigils siguen siendo
+   reconocimiento verificado por pares y no se otorgan por asistir.
+6. **Beneficios de partners:** se comunican como beneficios del Círculo y no como descuentos.
+7. **Evento posterior oficial:** pedir al organizador de Biohackers World que incluya Magic en su
+   lista de eventos posteriores.
+
+**Decisiones**
+
+1. Confirmar fechas de Biohackers World en la página oficial del evento.
+2. Confirmar Magic el 22 a 24 de enero y Full Circle el 21 a 25.
+3. Decidir si Tamara o el equipo compran entrada antes del 10 de noviembre para asistir.
+4. Pedir presupuestos de hotel, barco y transporte para las nuevas fechas.
