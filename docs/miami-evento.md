@@ -446,3 +446,94 @@ _A un speaker o asistente de Biohackers World (a partir del 17 de enero)_
 
 Los tres mensajes pasan por la revisión legal antes de enviarse. Las fechas y el PVP se rellenan
 cuando Tamara los confirme. Ninguno se envía desde este repo.
+
+## 15. Formato de exposición, propuestas de precio y flujo automatizado
+
+### 15.1 Qué significa exponer: un formato mixto, sin stands
+
+Miami Magic es una experiencia con conversación y no una feria. Exponer significa ocupar una
+escena del programa. Siete formatos que se combinan:
+
+| Formato                  | Qué es                                                                                                      | Quién lo usa                        |
+| ------------------------ | ----------------------------------------------------------------------------------------------------------- | ----------------------------------- |
+| **Charla**               | Ponencia de 15 a 20 minutos dentro de la jornada de Conscious Investments                                   | Abogados, promotores, facilitadores |
+| **Panel o conversación** | Mesa de 3 a 4 personas moderada sobre un tema (compra internacional, estructura, salud del hogar)           | Varios expositores a la vez         |
+| **Mesa larga**           | Un expositor ocupa un lugar en la cena y conversa con quien se sienta                                       | Agentes, abogados                   |
+| **Visita in situ**       | El grupo visita su proyecto con el recorrido de la checklist                                                | Promotores                          |
+| **Conversación 1 a 1**   | Franjas privadas con asistentes que lo piden, inspiradas en la sala 1 a 1 de Biohackers World               | Abogados, asesores                  |
+| **Pieza de contenido**   | Guía, workbook o vídeo contado como escena del proyecto                                                     | Todos                               |
+| **Presencia sutil**      | Un rincón de materiales o tecnología de la casa sagrada (aire, agua, luz) dentro del alojamiento, sin stand | Marcas de salud del hogar           |
+
+La jornada de Conscious Investments queda como **mix**: charlas y paneles por la mañana, mesa
+larga y conversaciones 1 a 1 durante el día, visita in situ por la tarde. Sin stands ni feria.
+
+### 15.2 Precios de Magic y Full Circle: tres propuestas
+
+Costes del caso medio con alojamiento, 2 noches en doble compartida, visitas y grupo de 14
+personas (32.910 €, 2.351 € por persona). Antes de IVA, equipo, producción y comisiones de cobro.
+La cobertura externa son sponsors, expositores y speakers.
+
+| Propuesta               | PVP Magic | Resultado con 14 personas sin ayuda externa | Con 8 personas | Con 20 personas | Lectura                                                                                  |
+| ----------------------- | --------- | ------------------------------------------- | -------------- | --------------- | ---------------------------------------------------------------------------------------- |
+| **A. Accesible**        | 1.800 €   | -7.710 €                                    | -10.020 €      | -13.450 €       | Las entradas no cubren el coste. Exige 4 a 5 expositores o una partida patrocinada mayor |
+| **B. Cobertura propia** | 2.400 €   | +690 €                                      | -5.220 €       | -1.450 €        | Equilibrio con 14 personas. La aportación externa pasa a ser margen                      |
+| **C. Premium sereno**   | 2.900 €   | +7.690 €                                    | -1.220 €       | +8.550 €        | Margen sin depender de expositores. Entrada a un grupo más reducido                      |
+
+Referencias del mercado: Biohackers World, entrada general de 239 $ y VIP de 798 $ (2 días, sin
+alojamiento). Don't Die Summit Miami, de 349 a 1.499 $. Simposio de bienestar inmobiliario de
+Global Wellness Summit, de 1.200 a 1.500 $. Retiros de bienestar, de 5.000 a 10.000 USD.
+
+**Complementos que amplían público e ingreso**
+
+- **Jornada Conscious Investments:** entrada de un día a la conferencia y las visitas, sin
+  alojamiento, entre 250 y 390 € (escalón de un día del canon). Atrae a quien vive en Miami y
+  a asistentes de Biohackers World.
+- **Suplemento de habitación individual:** entre 264 y 720 € según el hotel.
+
+**Full Circle (21 a 25 ene, 4 noches).** Coste medio estimado por persona, 5.091 €: Magic
+(2.351 €), análisis y acompañamiento (1.500 €), 2 días extra (400 €) y 2 noches más (840 €). Tres
+propuestas: **3.900 €** (necesita sponsors o expositores), **4.900 €** (cercano al coste) y
+**5.900 €** (con margen). El servicio personalizado de inversión sigue sujeto a la revisión
+legal de la sección 6.
+
+### 15.3 Precios de exposición: tres propuestas
+
+| Formato                                | Conservadora | Media   | Ambiciosa |
+| -------------------------------------- | ------------ | ------- | --------- |
+| Presencia en mesa larga o 1 a 1        | 800 €        | 1.200 € | 1.800 €   |
+| Charla o panel                         | 1.500 €      | 2.500 € | 3.500 €   |
+| Visita in situ con cena                | 4.000 €      | 6.000 € | 8.000 €   |
+| Presencia sutil (rincón de materiales) | 1.000 €      | 1.500 € | 2.500 €   |
+| Pieza de contenido                     | 500 €        | 800 €   | 1.200 €   |
+
+Referencias: stands de 5.000 a 10.000 $ en convenciones inmobiliarias de Miami. Con un grupo
+pequeño y cualificado se propone el 15 a 50 % de esos valores. Todo expositor cede su experiencia
+o beneficio de cortesía y firma el acuerdo de partner. La cuota es fija por formato.
+
+### 15.4 Flujo automatizado, independiente de dónde esté el equipo
+
+El flujo respeta el canon: la solicitud no genera un cobro y se paga tras la aprobación.
+El diseño es una especificación para el agente de GoHighLevel. Se prueba en entorno de pruebas
+antes de activarlo y requiere dos revisiones humanas fijas: la revisión legal previa y el veto.
+
+| Paso                     | Qué ocurre                                                                                                                 | Automatizado | Humano                                                         |
+| ------------------------ | -------------------------------------------------------------------------------------------------------------------------- | ------------ | -------------------------------------------------------------- |
+| 1. Entrada               | La persona rellena la solicitud con las tres preguntas del canon, más su interés en Miami (asistente, expositor o speaker) | Sí           |                                                                |
+| 2. Puntuación            | El formulario puntúa al expositor con la checklist de la sección 7 y aplica los requisitos de entrada                      | Sí           |                                                                |
+| 3. Aprobación            | GoHighLevel aprueba al asistente. Para expositores, aprueba si la puntuación llega al umbral                               | Sí           | Puede rechazar. Secret Key, el board y el Círculo pueden vetar |
+| 4. Oferta                | Se envía la oferta del formato elegido y el acuerdo de partner                                                             | Sí           |                                                                |
+| 5. Pago                  | El pago se hace dentro, tras la aprobación                                                                                 | Sí           |                                                                |
+| 6. Cortesía y contenido  | Se recogen la experiencia de cortesía y los materiales                                                                     | Sí           |                                                                |
+| 7. Recordatorios         | Secuencia de correos y WhatsApp hasta el evento                                                                            | Sí           |                                                                |
+| 8. Contratos de sponsors | Revisión y firma de acuerdos                                                                                               |              | Tamara, tras la revisión legal                                 |
+
+Hasta que BBVA habilite el pago por referencia, solo se usan pagos de importe único. La
+aprobación automática y el pago dentro de la app se comprueban en producción antes de
+anunciarse.
+
+**Decisiones**
+
+1. PVP de Magic: A, B o C, y qué complementos incluir.
+2. PVP de Full Circle, a decidir tras la revisión legal del servicio personalizado.
+3. Mix de formatos de exposición y qué lista de precios usar.
+4. Dar luz verde a que el agente de GoHighLevel prepare el flujo en entorno de pruebas.
