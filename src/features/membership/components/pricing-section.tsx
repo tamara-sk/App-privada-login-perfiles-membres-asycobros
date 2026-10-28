@@ -34,7 +34,8 @@ export async function PricingSection({ isPricingPage }: { isPricingPage?: boolea
           {isSecretKeyPromoOpen() && (
             <p>
               Secret Key a {formatPrice(PLANS[1].annualAmount, 'eur')}/año es el precio de esta temporada. La puerta
-              sigue abierta hasta el 31 de diciembre de 2026. Desde el 1 de enero de 2027, Secret Key es de{' '}
+              sigue abierta hasta el 31 de diciembre de 2026. La primera renovación llega al cumplir tu año, a 220
+              €/año. Para las altas desde el 1 de enero de 2027, Secret Key es de{' '}
               {formatPrice(SECRET_KEY_REGULAR_ANNUAL_AMOUNT, 'eur')}/año o{' '}
               {formatPrice(SECRET_KEY_REGULAR_MONTHLY_AMOUNT, 'eur')}
               /mes.

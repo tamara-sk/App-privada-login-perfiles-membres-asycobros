@@ -6,8 +6,10 @@
  *
  * Los `slug` son los que figuran en datos y facturas: nunca «Key» a secas en un cargo.
  *
- * Abierto, a la espera de Tamara (no se inventa aquí): precio de Secret Key promo al renovar,
- * mensual de Secret Key antes de enero, descuentos de miembro, acciones de Llavecitas y
+ * Decidido: quien entra con Secret Key promo (99 €) renueva a 220 €/año al cumplir su año,
+ * es decir, a finales de 2027.
+ *
+ * Abierto, a la espera de Tamara (no se inventa aquí): mensual de Secret Key antes de enero, descuentos de miembro, acciones de Llavecitas y
  * nombre de la capa alta de Wisdom Key. El cobro mensual y la renovación automática esperan
  * el pago por referencia de BBVA.
  */
