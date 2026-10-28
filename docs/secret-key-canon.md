@@ -1,13 +1,13 @@
 # Secret Key · Canon del ecosistema
 
-Versión 1.0 · 28 oct 2026 · Autora: Tamara · Estado: borrador a la espera de su firma
+Versión 1.1 · 28 oct 2026 · Autora: Tamara · Estado: vigente. Los puntos de la sección 11 siguen abiertos
 
 Este es el único documento de referencia de Secret Key. Lo cargan todas las IA y todas las
 personas que escriben, venden, programan o publican en nombre de Secret Key: Claude,
 ChatGPT Enterprise y sus agentes, el agente de GoHighLevel, Lovable, Replit, agencias y
 freelancers.
 
-Sustituye al Master Context v4 y a cualquier documento anterior (catálogo del 19 oct,
+Integra y sustituye al Master Context v4 y a cualquier documento anterior (catálogo del 19 oct,
 Llavecitas v1, Master Context v3, guías de marca previas, CLAUDE.md y docs/brand-voice.md
 en lo que difieran).
 
@@ -56,43 +56,49 @@ quiere estar en ella.
 - Los sponsors forman parte de la escena (sección 8), igual que el barco o el spa.
 
 **Palabras retiradas en todos los idiomas:** lujo/luxury, exclusivo como reclamo,
-curated/curado (se dice *secret* o *seleccionadas*), club, members' club, Keybearer,
+curated/curado (se dice _secret_ o _seleccionadas_), club, members' club, Keybearer,
 Guardián, Inner Circle, SK Circle, Free como nombre de tier, la escalera
 Seeker/Initiate/Adept/Guardian/Architect/Luminary, los niveles Seeker/Initiate/Keeper/
 Wayfarer, los siete arquetipos, Intentional Living Ecosystem, "Where money becomes time",
 lenguaje de startup (launch, beta, founding members, early adopters), "descuento" como
-promesa de miembro y "Abierto por" como atribución de sponsors.
+promesa de miembro y "Abierto por" como atribución.
 
 ## 3. Léxico
 
-| Término | Qué es |
-| --- | --- |
-| Secret Circle / el Círculo | Las personas aceptadas en Secret Key |
-| Trusted Place | El lugar o venue |
-| Clauer | Quien abre una ciudad, sea partner o miembro. No se traduce |
-| Keyholder | El facilitador que abre una sesión |
-| Chapter | Cada territorio: Mediterranean Alchemy, Bali Connection, Madrid Hub, Miami Magic |
-| Experiencia | Lo que en otros sitios se llama evento |
-| SKWR | Retiro de varios días |
-| Sigils | Reconocimiento verificado por pares |
-| Llavecitas | La moneda del Círculo |
-| SK Alchemy | El servicio que se ocupa de lo que consume horas |
-| SK Stay | Lugares y anfitriones |
-| SK Store | La tienda |
+| Término                    | Qué es                                                                           |
+| -------------------------- | -------------------------------------------------------------------------------- |
+| Secret Circle / el Círculo | Las personas aceptadas en Secret Key                                             |
+| Trusted Place              | El lugar o venue                                                                 |
+| Clauer                     | Quien abre una ciudad, sea partner o miembro. No se traduce                      |
+| Keyholder                  | El facilitador que abre una sesión                                               |
+| Chapter                    | Cada territorio: Mediterranean Alchemy, Bali Connection, Madrid Hub, Miami Magic |
+| Experiencia                | Lo que en otros sitios se llama evento                                           |
+| SKWR                       | Retiro de varios días                                                            |
+| Sigils                     | Reconocimiento verificado por pares                                              |
+| Llavecitas                 | La moneda del Círculo                                                            |
+| SK Alchemy                 | El servicio que se ocupa de lo que consume horas                                 |
+| SK Stay                    | Lugares y anfitriones                                                            |
+| SK Store                   | La tienda                                                                        |
 
 **CTA de la web:** "Solicitar acceso" / "Request Access". Para entrar: "Apply to the Secret Circle".
+
+## Identidad visual
+
+El icono de la app es un sello de cera color crema con cuatro anillos dorados entrelazados,
+sobre el mar turquesa y la arena. Archivo: `public/logo.png` (512 px). Paleta de la nueva
+identidad: turquesa del mar, arena, crema y dorado.
 
 ## 4. Membresía
 
 Cuatro formas de estar en el Círculo. El acceso a cualquiera se solicita y lo reconoce el
 Círculo.
 
-| Tier | Precio | Qué incluye |
-| --- | --- | --- |
-| Key | 0 € | Entrada al ecosistema y a la app. Precio público en experiencias |
-| Secret Key | 99 €/año para altas hasta el 31 dic 2026 a las 23:59 (hora de Madrid). Desde el 1 ene 2027: 220 €/año o 20 €/mes | Acumula Llavecitas, Secret Circle de su chapter, reserva con la comisión de su tier |
-| Master Key | 2.500 €/año o 390 €/mes | Todo lo de Secret Key, una experiencia de capa alta en un SKWR (Miami, Bali u otro) y dos experiencias de un día en el chapter que elija |
-| Wisdom Key | 4.300 €/año | Todo lo de Master Key, la capa alta de dos SKWR al año y seguimiento personal durante doce meses |
+| Tier       | Precio                                                                                                           | Qué incluye                                                                                                                              |
+| ---------- | ---------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
+| Key        | 0 €                                                                                                              | Entrada al ecosistema y a la app. Precio público en experiencias                                                                         |
+| Secret Key | 99 €/año para altas hasta el 31 dic 2026 a las 23:59 (hora de Madrid). Desde el 1 ene 2027: 220 €/año o 20 €/mes | Acumula Llavecitas, Secret Circle de su chapter, reserva con la comisión de su tier                                                      |
+| Master Key | 2.500 €/año o 390 €/mes                                                                                          | Todo lo de Secret Key, una experiencia de capa alta en un SKWR (Miami, Bali u otro) y dos experiencias de un día en el chapter que elija |
+| Wisdom Key | 4.300 €/año                                                                                                      | Todo lo de Master Key, la capa alta de dos SKWR al año y seguimiento personal durante doce meses                                         |
 
 - **Secret Key de temporada:** 99 € es el precio de esta temporada, con la puerta abierta hasta
   el 31 dic 2026. Se comunica sin cuenta atrás ni urgencia.
@@ -106,6 +112,14 @@ Círculo.
   sujetas a disponibilidad.
 
 ## 5. Acceso
+
+Dos vías de entrada:
+
+- **El Círculo, entre iguales:** miembros que solicitan Key, Secret Key, Master Key o Wisdom Key.
+- **Partners:** facilitadores, organizadores y venues. Todo organizador, facilitador o venue es
+  partner y entra por la escalera de la sección 7.
+
+Para el Círculo:
 
 1. La persona **solicita acceso** primero. La solicitud contiene tres preguntas: quién eres
    (cargo o ubicación), qué aportas al Círculo y qué aportas a la naturaleza.
@@ -143,20 +157,22 @@ cuando se hayan comprobado en producción.
 Una sola escalera de cuatro tiers para miembros, facilitadores, venues y sponsors. La comisión
 es lo que Secret Key retiene de cada venta hecha a través de SK.
 
-| Tier | Cuota anual de partner | Comisión de Secret Key |
-| --- | --- | --- |
-| Key | 0 € | 30 % |
-| Secret Key | 290 € | 20 % |
-| Master Key | 890 € | 15 % |
-| Wisdom Key | Pack SK Ads | 10 % como mínimo |
+| Tier       | Cuota anual de partner | Comisión de Secret Key |
+| ---------- | ---------------------- | ---------------------- |
+| Key        | 0 €                    | 30 %                   |
+| Secret Key | 290 €                  | 20 %                   |
+| Master Key | 890 €                  | 15 %                   |
+| Wisdom Key | Pack SK Ads            | 10 % como mínimo       |
 
 - **Pack SK Ads** (agente, CRM, bots, cuenta de GHL y automatizaciones): Essential 150 €/mes
-  + 997 € de alta · Growth 250 €/mes + 1.997 € · Signature 350 €/mes + 2.997 € · agente de IA
-  adicional 150 €/mes.
+  - 997 € de alta · Growth 250 €/mes + 1.997 € · Signature 350 €/mes + 2.997 € · agente de IA
+    adicional 150 €/mes.
 - **Experiencia de cortesía:** todo partner cede al Círculo al menos una experiencia o
   beneficio, canjeable con Llavecitas. Figura en contratos, onboarding, captación, web, app y
   GHL.
 - La comisión mínima es del 10 %.
+- **Facilitadores de referencia:** los facilitadores más altos del Círculo reciben el tier
+  Wisdom Key de partner sin coste. Los invita Tamara.
 - Las comisiones de partner y las condiciones de miembro son sistemas separados.
 
 ## 8. Sponsors
@@ -173,21 +189,21 @@ es lo que Secret Key retiene de cada venta hecha a través de SK.
 
 ## 9. Experiencias y calendario
 
-| Escalón | Precio público |
-| --- | --- |
-| Entrada · Secret Circle local | 25 a 60 € |
-| Experiencia de un día o fin de semana | 150 a 390 € |
-| SKWR · retiro | Según edición |
+| Escalón                               | Precio público |
+| ------------------------------------- | -------------- |
+| Entrada · Secret Circle local         | 25 a 60 €      |
+| Experiencia de un día o fin de semana | 150 a 390 €    |
+| SKWR · retiro                         | Según edición  |
 
 Los precios se publican como el precio de la experiencia.
 
-| Fecha | Experiencia | Precios |
-| --- | --- | --- |
-| 9 a 16 dic 2026 | The Radiance, Bali | 1.900 € con alojamiento incluido. **Inmersión** 2.500 €: videoreportaje de los momentos clave, 2 sesiones 1 a 1 personalizadas, workbook más completo y 3 llamadas de seguimiento tras el evento |
-| 29 a 31 ene 2027 | Miami Magic · Conscious Investments (Biohacking Homes & Longevity) | 1.900 €: asistencia a la experiencia con barco, spa y transporte entre localizaciones |
-| 28 ene a 1 feb 2027 | Miami Full Circle | 2.700 €: Magic más análisis personalizado de inversiones, estudio personalizado, análisis de propuestas, seguimiento y acompañamiento |
-| 10 mar 2027 | The Radiance, segunda edición, tras Nyepi | Según edición |
-| Fecha por anunciar | Quedadas del Secret Circle, Madrid Hub | Entrada 25 a 60 € |
+| Fecha               | Experiencia                                                        | Precios                                                                                                                                                                                          |
+| ------------------- | ------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| 9 a 16 dic 2026     | The Radiance, Bali                                                 | 1.900 € con alojamiento incluido. **Inmersión** 2.500 €: videoreportaje de los momentos clave, 2 sesiones 1 a 1 personalizadas, workbook más completo y 3 llamadas de seguimiento tras el evento |
+| 29 a 31 ene 2027    | Miami Magic · Conscious Investments (Biohacking Homes & Longevity) | 1.900 €: asistencia a la experiencia con barco, spa y transporte entre localizaciones                                                                                                            |
+| 28 ene a 1 feb 2027 | Miami Full Circle                                                  | 2.700 €: Magic más análisis personalizado de inversiones, estudio personalizado, análisis de propuestas, seguimiento y acompañamiento                                                            |
+| 10 mar 2027         | The Radiance, segunda edición, tras Nyepi                          | Según edición                                                                                                                                                                                    |
+| Fecha por anunciar  | Quedadas del Secret Circle, Madrid Hub                             | Entrada 25 a 60 €                                                                                                                                                                                |
 
 Cualquier otra actividad de 2027 se publica cuando Tamara confirme los datos.
 
@@ -212,20 +228,19 @@ emocional vivo con Chapters activos en el Mediterráneo, Bali, Madrid y Miami.
 
 ## 11. Pendientes de decisión (solo Tamara)
 
-| # | Tema | Estado |
-| --- | --- | --- |
-| 1 | Nombre definitivo del cuarto tier: Wisdom Key (27 oct) o Super Key (v4) | Confirmar |
-| 2 | Cifras de comisión de reserva por tier de miembro | Falta |
-| 3 | Tabla de acciones de Llavecitas, regalo de bienvenida y tope de canje por tier | Falta |
-| 4 | Secret Key mensual antes de enero | Falta |
-| 5 | Mensual de Master Key: 390 €/mes equivale a 4.680 €/año. Confirmar que es lo previsto | Confirmar |
-| 6 | Margen de Master Key frente a la capa alta de Bali (ambas a 2.500 €) | Falta |
-| 7 | Margen de Wisdom Key: coste real por persona de cada SKWR | Falta |
-| 8 | Tier de partner que corresponde a cada nivel de aportación de un sponsor | Falta |
-| 9 | Atribución a organizadores de terceros (la fórmula "Abierto por" queda retirada para sponsors) | Falta |
+| #   | Tema                                                                                  | Estado    |
+| --- | ------------------------------------------------------------------------------------- | --------- |
+| 1   | Cifras de comisión de reserva por tier de miembro                                     | Falta     |
+| 2   | Tabla de acciones de Llavecitas, regalo de bienvenida y tope de canje por tier        | Falta     |
+| 3   | Secret Key mensual antes de enero                                                     | Falta     |
+| 4   | Mensual de Master Key: 390 €/mes equivale a 4.680 €/año. Confirmar que es lo previsto | Confirmar |
+| 5   | Margen de Master Key frente a la capa alta de Bali (ambas a 2.500 €)                  | Falta     |
+| 6   | Margen de Wisdom Key: coste real por persona de cada SKWR                             | Falta     |
+| 7   | Tier de partner que corresponde a cada nivel de aportación de un sponsor              | Falta     |
 
 ## Historial
 
-| Versión | Fecha | Cambio |
-| --- | --- | --- |
-| 1.0 | 28 oct 2026 | Primera edición. Integra Master Context v4, canon del 27 oct y decisiones del 28 oct (Inmersión, precios de Miami, renovación de Secret Key, sin descuentos, sponsors múltiples) |
+| Versión | Fecha       | Cambio                                                                                                                                                                                                       |
+| ------- | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| 1.1     | 28 oct 2026 | Confirmados: v4 manda, Wisdom Key, dos vías de acceso (Círculo y partners), tier Wisdom Key de partner gratis para facilitadores de referencia, nueva identidad visual. Retirada la atribución "Abierto por" |
+| 1.0     | 28 oct 2026 | Primera edición. Integra Master Context v4, canon del 27 oct y decisiones del 28 oct (Inmersión, precios de Miami, renovación de Secret Key, sin descuentos, sponsors múltiples)                             |

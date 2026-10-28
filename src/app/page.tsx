@@ -25,17 +25,17 @@ function HeroSection() {
         <div className='relative z-10 flex flex-col items-start gap-5 lg:max-w-xl lg:pl-8'>
           <div className='w-fit rounded-full bg-gradient-to-r from-[#616571] via-[#7782A9] to-[#826674] px-4 py-1'>
             <span className='font-alt text-sm font-semibold text-black mix-blend-soft-light'>
-              A time optimization and access ecosystem
+              A living cultural and emotional operating system
             </span>
           </div>
-          <h1>Turn money into time.</h1>
+          <h1>Live like a local, wherever you are.</h1>
           <p className='max-w-lg text-lg text-neutral-300'>
-            Secret Key hands back the hours your week spends on booking, chasing and waiting. What you do with them is
-            the interesting part.
+            Secret Key is the first wellbeing ecosystem based on the Tri Hita Karana: harmony with yourself, with the
+            people around you and with the place you inhabit. We hand you back the key to your time.
           </p>
           <div className='flex flex-wrap items-center gap-3'>
             <Button asChild variant='sexy'>
-              <Link href='/pricing'>Become a member</Link>
+              <Link href='/pricing'>Request access</Link>
             </Button>
             <Button asChild variant='outline'>
               <Link href='/store'>Visit the shop</Link>
@@ -60,16 +60,16 @@ function HeroSection() {
 function PillarsSection() {
   const pillars = [
     {
-      title: 'Minutes saved',
-      body: 'One request, one answer. Reservations, travel, logistics and the hundred small errands that quietly eat a week.',
+      title: 'The Unseen',
+      body: 'Calm, presence and the inner work that makes everything else possible. Harmony with yourself.',
     },
     {
-      title: 'Extraordinary access',
-      body: 'Tables, rooms, seats and rooms full of interesting people. Access beats ownership, every single time.',
+      title: 'The Circle',
+      body: 'People who care for themselves, for each other and for the place they live. Harmony with the people around you.',
     },
     {
-      title: 'A community that compounds',
-      body: 'Members who share what works. The network grows richer with every introduction.',
+      title: 'The World',
+      body: 'Places opened by the people who know them, in the Mediterranean, Bali, Madrid and Miami. Harmony with the place.',
     },
   ];
 

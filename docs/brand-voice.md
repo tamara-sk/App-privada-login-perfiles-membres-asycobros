@@ -22,7 +22,7 @@ Every negation-led sentence gets rewritten into the affirmative.
 | Instead of | Write |
 | --- | --- |
 | "We don't waste your time" | "We hand your time back" |
-| "Not a luxury club" | "A membership measured in hours returned" |
+| "Not a club" | "A circle of people who care for themselves, each other and the place" |
 | "Nobody remembers the errand" | "The evening is what stays" |
 | "No hidden fees" | "One price, everything included" |
 | "Don't miss out" | "The door is open this week" |
@@ -36,7 +36,7 @@ affirmative phrasing that says the same thing.
 
 ## What Secret Key is
 
-A **time optimization and extraordinary access ecosystem**.
+The first **wellbeing ecosystem based on the Tri Hita Karana**, to live like a local, wherever you are. The key to your time is handed back. The full wording lives in `docs/secret-key-canon.md`, which wins over this file.
 
 Every piece of copy reinforces that. The north star is minutes saved and minutes enjoyed —
 time returned to members, and what those hours become.
@@ -52,7 +52,7 @@ Avoid: hype, urgency theatre, exclamation marks, buzzwords, hard-sell CTAs, apol
 
 ## Principles behind the words
 
-1. Time is the ultimate luxury
+1. Time is the greatest gift
 2. Access beats ownership
 3. Simplicity scales
 4. Trust compounds

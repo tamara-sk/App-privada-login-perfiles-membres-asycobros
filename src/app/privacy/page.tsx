@@ -115,31 +115,31 @@ export default function PrivacyPage() {
       <Section title='What we collect and why'>
         <ul className='flex list-disc flex-col gap-3 pl-5'>
           <li>
-            <strong className='text-neutral-200'>Account details</strong> — your email address, and a name if you give
-            us one. We need these to create your account and let you sign in. Legal basis: performance of our contract
-            with you.
+            <strong className='text-neutral-200'>Account details</strong>: your email address, and a name if you give us
+            one. We need these to create your account and let you sign in. Legal basis: performance of our contract with
+            you.
           </li>
           <li>
-            <strong className='text-neutral-200'>Your entry to the Circle, and billing</strong> — your plan, its status and your
-            payment history. Card details are handled end to end by Redsys and BBVA, and they stay with the bank. Legal basis: contract and our legal
-            obligation to keep accounting records.
+            <strong className='text-neutral-200'>Your entry to the Circle, and billing</strong>: your plan, its status
+            and your payment history. Card details are handled end to end by Redsys and BBVA, and they stay with the
+            bank. Legal basis: contract and our legal obligation to keep accounting records.
           </li>
           <li>
-            <strong className='text-neutral-200'>Orders from the shop</strong> — what you bought, your delivery address
-            and your phone number, so the parcel arrives. Collected on our checkout page and stored against your order; the card itself is entered on the bank&rsquo;s page.
-            Legal basis: contract.
+            <strong className='text-neutral-200'>Orders from the shop</strong>: what you bought, your delivery address
+            and your phone number, so the parcel arrives. Collected on our checkout page and stored against your order;
+            the card itself is entered on the bank&rsquo;s page. Legal basis: contract.
           </li>
           <li>
-            <strong className='text-neutral-200'>Requests you send us</strong> — the things you ask us to arrange, and
+            <strong className='text-neutral-200'>Requests you send us</strong>: the things you ask us to arrange, and
             the correspondence around them. Legal basis: contract.
           </li>
           <li>
-            <strong className='text-neutral-200'>How you use the site</strong> — pages viewed, products opened, items
+            <strong className='text-neutral-200'>How you use the site</strong>: pages viewed, products opened, items
             added to the bag, orders completed. This tells us which parts of the service are worth building on. Legal
             basis: your consent, through the cookie banner.
           </li>
           <li>
-            <strong className='text-neutral-200'>Technical logs</strong> — IP address, browser and timestamps, kept by
+            <strong className='text-neutral-200'>Technical logs</strong>: IP address, browser and timestamps, kept by
             our hosting provider to keep the site secure and available. Legal basis: our legitimate interest in running
             a service that works and resists abuse.
           </li>
@@ -149,7 +149,7 @@ export default function PrivacyPage() {
       <Section title='Cookies and measurement'>
         <p>
           Analytics and marketing cookies stay <strong className='text-neutral-200'>off until you say yes</strong>. We
-          use Google Consent Mode, so measurement waits for your permission — and the site works exactly the same
+          use Google Consent Mode, so measurement waits for your permission and the site works exactly the same
           whichever you choose.
         </p>
         <div className='overflow-x-auto'>
@@ -224,7 +224,7 @@ export default function PrivacyPage() {
           <li>correct anything that is wrong;</li>
           <li>delete your data, where the law allows us to let it go;</li>
           <li>restrict or object to how we use it, including profiling for marketing;</li>
-          <li>withdraw your consent at any time — the cookie control above does exactly that.</li>
+          <li>withdraw your consent at any time with the cookie control above.</li>
         </ul>
         <p>
           Write to{' '}

@@ -9,12 +9,14 @@ export function WelcomeEmail() {
   return (
     <Html>
       <Head />
-      <Preview>Welcome!</Preview>
+      <Preview>Welcome to the Circle.</Preview>
       <Tailwind config={tailwindConfig}>
         <Body className='mx-auto my-auto bg-slate-500 px-2 py-10 font-sans'>
           <Container className='mx-auto mt-[40px] w-[464px] overflow-hidden rounded-md bg-white'>
             <Section className={`h-[255px] w-full bg-black bg-[url('${baseUrl + '/hero-shape.png'}')] bg-center`}>
-              <Heading className='mb-0 mt-[70px] text-center text-[48px] font-bold text-white'>Welcome!</Heading>
+              <Heading className='mb-0 mt-[70px] text-center text-[48px] font-bold text-white'>
+                Welcome to the Circle.
+              </Heading>
             </Section>
             <Section className='p-8'>
               <Heading as='h2' className='m-0 text-[24px] font-bold'>

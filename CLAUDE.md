@@ -14,7 +14,7 @@ the reader's head.
 | Instead of | Write |
 | --- | --- |
 | "We don't waste your time" | "We hand your time back" |
-| "Not a luxury club" | "A membership measured in hours returned" |
+| "Not a club" | "A circle of people who care for themselves, each other and the place" |
 | "Nobody remembers the errand" | "The evening is what stays" |
 | "No season codes" | "One long life. Buy once, wear for years" |
 | "We do not sell your data" | "Your data is yours" |
@@ -23,9 +23,10 @@ Watch for: `not`, `never`, `nobody`, `no …`, `don't`, `cannot`, `refuse`, `wit
 Each one is a prompt to rewrite, in marketing copy and legal pages alike — precision in a
 privacy policy is kept by choosing affirmative phrasing, not by dropping the rule.
 
-**3. Positioning.** Secret Key is a **time optimization and extraordinary access
-ecosystem**. Every piece of copy should reinforce that. The north star is minutes saved
-and minutes enjoyed — time returned, and what it becomes.
+**3. Positioning.** Secret Key is the first wellbeing ecosystem based on the **Tri Hita
+Karana**, to live like a local wherever you are. Claim: "Live like a local, wherever you
+are." The idea underneath: we hand you back the key to your time. Full wording in
+`docs/secret-key-canon.md`, which replaces the older "time optimization" positioning.
 
 **4. Tone.** Calm, confident, understated. Short sentences. Warm, generous, human. Never
 loud, never salesy, never apologetic.
@@ -35,7 +36,7 @@ loud, never salesy, never apologetic.
 Every feature earns its place by saving time, creating a meaningful experience, increasing
 access or strengthening relationships. Anything else is out.
 
-1. Time is the ultimate luxury
+1. Time is the greatest gift
 2. Access beats ownership
 3. Simplicity scales
 4. Trust compounds

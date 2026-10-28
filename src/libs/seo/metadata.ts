@@ -5,18 +5,19 @@ import { getURL } from '@/utils/get-url';
 export const siteConfig = {
   name: 'Secret Key',
   shortName: 'SK',
-  tagline: 'Turn money into time.',
+  tagline: 'Live like a local, wherever you are.',
   description:
-    'Secret Key is a time optimization and extraordinary access ecosystem. Membership, experiences and a small shop of objects that say something worth reading.',
+    'Secret Key is the first wellbeing ecosystem based on the Tri Hita Karana: a living cultural and emotional operating system to live like a local, wherever you are. Membership, experiences and a small shop of objects that say something worth reading.',
   locale: 'en_GB',
   twitter: '@secretkey',
   keywords: [
     'secret key',
-    'time optimization',
-    'private membership',
-    'extraordinary access',
-    'members club',
-    'lifestyle management',
+    'tri hita karana',
+    'live like a local',
+    'wellbeing ecosystem',
+    'secret circle',
+    'the discovery economy',
+    'conscious travel',
   ],
 } as const;
 

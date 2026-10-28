@@ -32,7 +32,7 @@ export default async function OpengraphImage() {
           {siteConfig.tagline}
         </div>
         <div style={{ display: 'flex', fontSize: 30, opacity: 0.7, maxWidth: 900 }}>
-          A time optimization and extraordinary access ecosystem.
+          The first wellbeing ecosystem based on the Tri Hita Karana.
         </div>
       </div>
     ),

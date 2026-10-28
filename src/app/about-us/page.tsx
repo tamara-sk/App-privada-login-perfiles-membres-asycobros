@@ -8,13 +8,13 @@ import { companyConfig, constructMetadata, siteConfig } from '@/libs/seo/metadat
 
 export const metadata: Metadata = constructMetadata({
   title: 'About us',
-  description: `${siteConfig.name} is a time optimization and extraordinary access ecosystem. What we do, how we work, and how membership works.`,
+  description: `${siteConfig.name} is the first wellbeing ecosystem based on the Tri Hita Karana. What we do, how we work, and how membership works.`,
   path: '/about-us',
 });
 
 const PRINCIPLES = [
   {
-    title: 'Time is the ultimate luxury',
+    title: 'Time is the greatest gift',
     body: 'Everything else can be bought back. An afternoon is spent once, so spend it well.',
   },
   { title: 'Access beats ownership', body: 'The table, the room, the boat. Use it, enjoy it, pass it on.' },
@@ -65,14 +65,15 @@ export default function AboutUsPage() {
     <div className='flex flex-col gap-16 py-8 lg:gap-24 lg:py-16'>
       <header className='flex max-w-3xl flex-col gap-5'>
         <span className='text-xs uppercase tracking-[0.3em] text-neutral-500'>About us</span>
-        <h1>We are in the time business.</h1>
+        <h1>Live like a local, wherever you are.</h1>
         <p className='text-lg text-neutral-300'>
-          Time is the one thing that gains value the moment you get it back. Secret Key is a time optimization and
-          extraordinary access ecosystem for people who choose presence: we take the booking, the chasing and the
-          arranging, and hand back the hours.
+          Secret Key is the first wellbeing ecosystem based on the Tri Hita Karana: harmony with yourself, with the
+          people around you and with the place you inhabit. It serves people willing to care for themselves, care for
+          others and respect the place they live. We take the booking, the chasing and the arranging, and hand back the
+          key to your time.
         </p>
         <p className='text-neutral-400'>
-          We measure ourselves in minutes saved and minutes enjoyed — the hours our members get back, and what those
+          We measure ourselves in minutes saved and minutes enjoyed: the hours our members get back, and what those
           hours become.
         </p>
       </header>
@@ -124,7 +125,7 @@ export default function AboutUsPage() {
           <div className='flex flex-col gap-2'>
             <h2 className='font-alt text-3xl font-bold text-white'>Things we made.</h2>
             <p className='max-w-xl text-neutral-400'>
-              The same belief, printed. Discreet on the front, generous on the back — starting with a sentence for
+              The same belief, printed. Discreet on the front, generous on the back, starting with a sentence for
               whoever is standing behind you.
             </p>
           </div>
@@ -143,7 +144,7 @@ export default function AboutUsPage() {
         <h2 className='font-alt text-3xl font-bold text-white'>Come and get your time back.</h2>
         <p className='max-w-2xl text-neutral-400'>
           Membership is deliberately small so the answer is always fast. If that sounds like what you have been missing,
-          start here — or write to us first at{' '}
+          start here, or write to us first at{' '}
           <a className='underline underline-offset-4 hover:text-white' href={`mailto:${companyConfig.supportEmail}`}>
             {companyConfig.supportEmail}
           </a>

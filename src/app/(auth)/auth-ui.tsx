@@ -14,7 +14,7 @@ import { ActionResponse } from '@/types/action-response';
 
 const titleMap = {
   login: `Welcome back to ${siteConfig.name}`,
-  signup: `Join ${siteConfig.name} and start getting your hours back`,
+  signup: 'Apply to the Secret Circle',
 } as const;
 
 export function AuthUI({
