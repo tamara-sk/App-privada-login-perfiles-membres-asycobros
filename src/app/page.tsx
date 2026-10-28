@@ -28,7 +28,7 @@ function HeroSection() {
               A living cultural and emotional operating system
             </span>
           </div>
-          <h1>Live like a local, wherever you are.</h1>
+          <h1>Live local, wherever you are.</h1>
           <p className='max-w-lg text-lg text-neutral-300'>
             Secret Key is the first wellbeing ecosystem based on the Tri Hita Karana: harmony with yourself, with the
             people around you and with the place you inhabit. We hand you back the key to your time.

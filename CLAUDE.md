@@ -24,8 +24,7 @@ Each one is a prompt to rewrite, in marketing copy and legal pages alike — pre
 privacy policy is kept by choosing affirmative phrasing, not by dropping the rule.
 
 **3. Positioning.** Secret Key is the first wellbeing ecosystem based on the **Tri Hita
-Karana**, to live like a local wherever you are. Claim: "Live like a local, wherever you
-are." The idea underneath: we hand you back the key to your time. Full wording in
+Karana**, to live local wherever you are. Claim: "Live local, wherever you are." The idea underneath: we hand you back the key to your time. Full wording in
 `docs/secret-key-canon.md`, which replaces the older "time optimization" positioning.
 
 **4. Tone.** Calm, confident, understated. Short sentences. Warm, generous, human. Never

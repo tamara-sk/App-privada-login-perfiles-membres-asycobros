@@ -36,7 +36,7 @@ affirmative phrasing that says the same thing.
 
 ## What Secret Key is
 
-The first **wellbeing ecosystem based on the Tri Hita Karana**, to live like a local, wherever you are. The key to your time is handed back. The full wording lives in `docs/secret-key-canon.md`, which wins over this file.
+The first **wellbeing ecosystem based on the Tri Hita Karana**, to live local, wherever you are. The key to your time is handed back. The full wording lives in `docs/secret-key-canon.md`, which wins over this file.
 
 Every piece of copy reinforces that. The north star is minutes saved and minutes enjoyed —
 time returned to members, and what those hours become.

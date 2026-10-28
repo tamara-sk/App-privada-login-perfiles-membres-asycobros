@@ -1,6 +1,6 @@
 # Secret Key · Canon del ecosistema
 
-Versión 1.4 · 28 oct 2026 · Autora: Tamara · Estado: vigente. Los puntos de la sección 11 siguen abiertos
+Versión 1.5 · 28 oct 2026 · Autora: Tamara · Estado: vigente. Los puntos de la sección 11 siguen abiertos
 
 Este es el único documento de referencia de Secret Key. Lo cargan todas las IA y todas las
 personas que escriben, venden, programan o publican en nombre de Secret Key: Claude,
@@ -31,7 +31,7 @@ en lo que difieran).
 Secret Key es el primer ecosistema de bienestar basado en el Tri Hita Karana para vivir como
 local, estés donde estés.
 
-- **Claim:** Vive como local, estés donde estés. EN: Live like a local, wherever you are.
+- **Claim:** Vive local, estés donde estés. EN: Live local, wherever you are.
 - **Definición larga, para prensa:** un sistema operativo cultural y emocional vivo.
 - **Idea de fondo:** te devolvemos la llave de tu tiempo.
 - **Término propio para sembrar:** la economía del descubrimiento (EN: the discovery economy).
@@ -262,7 +262,6 @@ emocional vivo con Chapters activos en el Mediterráneo, Bali, Madrid y Miami.
 | 7   | Tier de partner que corresponde a cada nivel de aportación de un sponsor                                                                | Falta               |
 | 8   | PVP de Magic (1.800, 1.900 o superior según costes reales), IVA, y PVP de Full Circle tras la revisión legal del servicio personalizado | Falta               |
 | 9   | Secret Key «precio de miembro» (canon operativo de Codex) frente a comisión de reserva por tier sin descuentos (decisión del 28 oct)    | Confirmar redacción |
-| 10  | La cabecera dice «Live local, wherever you are» y el claim del canon dice «Live like a local, wherever you are»                         | Confirmar           |
 
 ## 12. Estado técnico conocido (28 oct 2026)
 
@@ -294,6 +293,7 @@ se registra la discrepancia y no se afirma sincronización sin evidencia.
 
 | Versión | Fecha       | Cambio                                                                                                                                                                                                       |
 | ------- | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| 1.5 | 28 oct 2026 | El claim pasa a «Vive local, estés donde estés» («Live local, wherever you are»), como en la cabecera |
 | 1.4     | 28 oct 2026 | Wisdom Key aprobado, renovación manual hasta enero de 2027 con serie de correos y bloqueo, The Feminine Frequency sin cuota en el portal de la app, nuevo icono y cabecera                                   |
 | 1.3     | 28 oct 2026 | Confirmados: marzo de 2027 es The Glow, Miami Magic 22 a 24 ene y Full Circle 21 a 25 ene, asistencia a Biohackers World sujeta a cobertura                                                                  |
 | 1.2     | 28 oct 2026 | Integra el canon operativo de Codex (foco comercial, escalera de venta, gala sin anunciar, estado técnico). Las decisiones del 28 oct prevalecen sobre su lista de pendientes                                |

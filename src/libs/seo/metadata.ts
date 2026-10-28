@@ -5,15 +5,15 @@ import { getURL } from '@/utils/get-url';
 export const siteConfig = {
   name: 'Secret Key',
   shortName: 'SK',
-  tagline: 'Live like a local, wherever you are.',
+  tagline: 'Live local, wherever you are.',
   description:
-    'Secret Key is the first wellbeing ecosystem based on the Tri Hita Karana: a living cultural and emotional operating system to live like a local, wherever you are. Membership, experiences and a small shop of objects that say something worth reading.',
+    'Secret Key is the first wellbeing ecosystem based on the Tri Hita Karana: a living cultural and emotional operating system to live local, wherever you are. Membership, experiences and a small shop of objects that say something worth reading.',
   locale: 'en_GB',
   twitter: '@secretkey',
   keywords: [
     'secret key',
     'tri hita karana',
-    'live like a local',
+    'live local',
     'wellbeing ecosystem',
     'secret circle',
     'the discovery economy',

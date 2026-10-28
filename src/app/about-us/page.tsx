@@ -65,7 +65,7 @@ export default function AboutUsPage() {
     <div className='flex flex-col gap-16 py-8 lg:gap-24 lg:py-16'>
       <header className='flex max-w-3xl flex-col gap-5'>
         <span className='text-xs uppercase tracking-[0.3em] text-neutral-500'>About us</span>
-        <h1>Live like a local, wherever you are.</h1>
+        <h1>Live local, wherever you are.</h1>
         <p className='text-lg text-neutral-300'>
           Secret Key is the first wellbeing ecosystem based on the Tri Hita Karana: harmony with yourself, with the
           people around you and with the place you inhabit. It serves people willing to care for themselves, care for

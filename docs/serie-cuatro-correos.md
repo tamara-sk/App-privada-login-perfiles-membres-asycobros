@@ -1,142 +1,116 @@
 # Secret Key · serie de cuatro correos
 
-**Estado:** borrador editorial v2 para revisar. No programado ni enviado.
-Parte del borrador de ChatGPT, conserva su arco de cuatro correos y reescribe tono y
-storytelling con la dirección de Tamara: el dolor es estar tan abrumada que no se sabe dónde
-buscar, y Secret Key es un círculo de confianza con actividades probadas por el círculo.
+**Estado:** borrador v3, humanizado con [guia-humanizar.md](guia-humanizar.md). No programado ni
+enviado. Parte del arco de ChatGPT (el dolor, el origen, lo que es, la invitación) y cambia la voz:
+frases cortas, una imagen concreta por correo y la voz de Tamara.
 
-## Qué cambia respecto al borrador de ChatGPT
+**Ritmo de envío sugerido:** día 0, día 3, día 7 y día 12. La serie se detiene si la persona
+responde, pide la baja o el correo rebota. Los precios y las condiciones quedan para quien
+responda con interés (flujo de [captacion-flujos.md](captacion-flujos.md)).
 
-| El borrador                                                                            | La versión 2                                                                    |
-| -------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- |
-| El dolor es una conexión genérica que no se siente                                     | El dolor es el abrumo: tanto ruido que no se sabe dónde buscar ni a quién creer |
-| Falta la idea central: un círculo de confianza con actividades probadas por el círculo | Es el corazón del correo 3                                                      |
-| «Cada decisión...», explicaciones y matices                                            | Escenas concretas: la pantalla, las pestañas, la lista de recomendaciones       |
-| Varias negaciones («no prometemos», «no para decirles», «no tienes que decidir»)       | Frases afirmativas                                                              |
-| Una cautela sobre lo «ancestral» que apaga la poesía                                   | «Para mí es una conexión ancestral», dicho en primera persona                   |
-| «No estaba creando un proyecto»                                                        | Un asunto que abre una imagen                                                   |
-| Cierra con una pregunta general                                                        | Cierra con una pregunta pequeña y fácil de contestar                            |
+## Correo 1
 
-**Ritmo de envío sugerido:** día 0, día 3, día 7 y día 12. La serie se detiene en cuanto la
-persona responde, pide la baja o el correo rebota. Los precios y las condiciones quedan para
-quien responda con interés (flujo de [captacion-flujos.md](captacion-flujos.md)).
+**Asunto:** Veinte pestañas abiertas
+_Variantes:_ Y ninguna te dice cuál · ¿A quién haces caso?
 
-## Correo 1 · Tantas voces
-
-**Asunto:** Veinte pestañas abiertas y ninguna respuesta
-_Variantes:_ ¿A quién escuchas cuando todo suena a la vez? · Cuando ya no sabes dónde buscar
-
-**Preencabezado:** Más conectadas que nunca, y cada vez más lejos de lo que importa.
+**Preencabezado:** Hay tanto donde buscar que ya no sabes por dónde empezar.
 
 Hola, {{contact.first_name}},
 
-Es tarde. Tienes veinte pestañas abiertas, tres listas de recomendaciones y un móvil que no deja
-de vibrar. Buscas un lugar, una persona, una práctica que te devuelva a ti, y todas las opciones
-prometen lo mismo.
+Piensa en la última vez que buscaste algo que de verdad te importaba. Un sitio, una persona,
+una práctica que te sentara bien.
 
-Cada vez más notificaciones y menos presencia. Información hay de sobra. Lo que escasea es
-alguien en quien confiar. Y en algún momento llega la frase: no puedo más.
+Veinte pestañas abiertas. Seis listas de «lo mejor de». El móvil vibrando con otra cosa. Cada vez
+más notificaciones y menos presencia, y de pronto la frase que se te escapa por la noche: no
+puedo más.
 
-Yo he estado ahí. Pasaba horas y horas buscando recomendaciones, tan abrumada que no sabía por
-dónde empezar, y me costaba encontrar lo que se alineaba conmigo.
+A mí me pasó. Me pasaba horas y horas buscando recomendaciones. Estaba tan abrumada que no sabía
+por dónde empezar, y casi nada de lo que encontraba se parecía a mí.
 
-Un día entendí que lo que buscaba no se encontraba en un buscador. Venía de personas.
+Información había de sobra. Me faltaba alguien en quien confiar que ya lo hubiera probado.
 
-Te cuento cómo lo descubrí.
+¿Te suena? Respóndeme con dos palabras, me ayuda saberlo.
 
-Un abrazo,
 Tamara Edo
 
-## Correo 2 · Antes de tener nombre
+## Correo 2
 
-**Asunto:** Todo empezó antes de llamarse Secret Key
-_Variantes:_ Una puerta, y luego otra · El camino que fue formando algo
+**Asunto:** Antes de llamarse Secret Key
+_Variantes:_ Yo no quería montar nada · Una puerta, y luego otra
 
 **Preencabezado:** KAP, constelaciones, eneatipo, talleres y El camino del artista.
 
 Hola, {{contact.first_name}},
 
-Yo no me senté un día a crear Secret Key. Iba de puerta en puerta, buscando entenderme.
+Yo no me senté a montar nada. Estaba buscando.
 
-Pasé por sesiones de KAP, por constelaciones, por el eneatipo, por talleres y por _El camino del
-artista_. Cada experiencia me ayudó a su manera. Me acercó a mí, y desde ahí, a las personas y al
-lugar donde vivo.
+Pasé por sesiones de KAP. Por constelaciones. Por el eneatipo, por talleres, por _El camino del
+artista_. Cada una me abrió una puerta distinta y todas me ayudaron.
 
-Mientras caminaba, algo se iba formando sin que yo lo supiera. Cada hallazgo se quedaba en mí
-como una pieza, y las piezas fueron haciendo un dibujo.
+Lo que no sabía es que, sin darme cuenta, Secret Key se estaba gestando entre una sesión y la
+siguiente.
 
-Hoy quiero que quien viene detrás dé menos vueltas de las que di yo. Que encuentre, a la primera,
-una red de iguales que inspira a ser mejor, a conocerse y a disfrutar de mejores relaciones con
-las demás personas y con el entorno.
+Después de tanto camino, lo que más me apetece es ahorrar vueltas a quien viene detrás. Que
+encuentre antes a personas que le inspiren, con las que sentirse de igual a igual, y que desde ahí
+se conozca mejor y se lleve mejor con los demás y con su entorno.
 
-Cuando vi el dibujo entero, le puse nombre. Secret Key.
+El nombre llegó mucho después.
 
-Con cariño,
 Tamara Edo
 
-## Correo 3 · La llave
+## Correo 3
 
-**Asunto:** Una llave secreta de vuelta a lo que hay
-_Variantes:_ Vive como local, estés donde estés · Un círculo de confianza
+**Asunto:** Qué es Secret Key
+_Variantes:_ Un círculo de confianza · Vive local, estés donde estés
 
-**Preencabezado:** Actividades probadas por el círculo, entre personas que se reconocen.
+**Preencabezado:** Lo ha probado alguien del círculo antes que tú.
 
 Hola, {{contact.first_name}},
 
-Secret Key es un círculo de confianza. Las actividades que encuentras en él las ha probado el
-círculo. Cuando una persona lo recomienda, ya lo vivió.
+Te lo explico en dos líneas. Secret Key es un círculo de confianza. Las actividades que verás
+dentro las ha probado alguien del círculo antes que tú, así que cuando te recomiendan algo, ya lo
+vivió.
 
-Cada recomendación llega de alguien que se parece a ti. Así termina la búsqueda interminable y
-empieza la confianza.
+Se vive en Chapters (Mediterráneo, Bali, Madrid y Miami), con una app y un calendario para
+encontrarnos. Lo demás pasa entre personas. De igual a igual, y con tu nombre basta.
 
-Para mí es una conexión ancestral, la que siempre estuvo ahí: contigo, con las personas y con el
-lugar. Se vive de forma local, entre iguales, donde lo que cuenta es quién eres.
+Nuestra frase es esta: Vive local, estés donde estés.
 
-Se vive en Chapters, en el Mediterráneo, Bali, Madrid y Miami, con una app y un calendario que
-ayudan a encontrarnos. Lo importante pasa entre las personas.
+Yo lo siento como algo muy antiguo. Sentirte en casa contigo, con la gente que tienes cerca y con
+el sitio donde estás. Es lo que queda cuando se quita el ruido.
 
-Lo resumimos así: Vive como local, estés donde estés.
+Si hubiera un círculo así, ¿qué sería lo primero que te gustaría que te recomendara?
 
-Secret Key es una llave secreta de vuelta a lo que hay cuando se quita el ruido.
-
-¿Qué parte de esa vuelta te gustaría recuperar?
-
-Un abrazo,
 Tamara Edo
 
-## Correo 4 · Una conversación
+## Correo 4
 
-**Asunto:** Si algo de esto te resuena, empecemos hablando
-_Variantes:_ Una respuesta de una frase · El primer paso es una conversación
+**Asunto:** ¿Hablamos un rato?
+_Variantes:_ Si algo de esto te sonó · Quince minutos, cuando te venga bien
 
-**Preencabezado:** Conoce Secret Key a tu ritmo y pregunta lo que quieras.
+**Preencabezado:** Respóndeme con una frase y seguimos desde ahí.
 
 Hola, {{contact.first_name}},
 
-Te he contado cómo nació Secret Key para mí: de una búsqueda, de muchas puertas y del deseo de
-que otras personas encuentren compañía en su propio camino.
+Te he contado de dónde sale Secret Key: de mucho buscar, de muchas puertas y de las ganas de que
+otras personas encuentren compañía en su camino.
 
-Ahora quiero saber qué te ha resonado. Puede ser conocer el Círculo, acercarte a un Chapter,
-descubrir una experiencia o encontrar un lugar desde el que vivir como local. Una conversación
-es suficiente para empezar.
+Ahora me gustaría saber qué te ha resonado a ti. Conocer el Círculo, acercarte a un Chapter,
+probar una experiencia, encontrar un sitio desde el que vivir local. Para empezar basta una
+conversación de quince minutos, cuando te venga bien.
 
 Y si tienes un espacio, una práctica o una experiencia que quieras compartir con el Círculo,
-hablamos de una colaboración. Si te interesa esa vía, te explico con calma las condiciones: la
-experiencia o el beneficio de cortesía que se comparte, y las cuotas y comisiones de cada nivel.
-Tendrás todos los detalles antes de decidir.
+también lo hablamos. Si te interesa ese camino, te explico con calma cómo funciona: lo que se
+comparte con el Círculo y las cuotas y comisiones de cada nivel. Lo verás todo antes de decidir.
 
-Responde con una frase:
+Respóndeme con una de estas frases:
 
 - Quiero conocer el Círculo
 - Quiero explorar una colaboración
 - Cuéntame qué buscas, y te cuento
 
-Te respondo yo.
+Te contesto yo.
 
-El camino se hace al andar. A veces el primer paso es hablar con alguien que entiende la
-búsqueda.
-
-Con cariño,
 Tamara Edo
 
 ## Pie fijo de cada correo
@@ -145,6 +119,17 @@ Tamara Edo
 > Castellón. Escríbenos en hello@secretkey.vip. Para dar de baja tu correo, responde BAJA.
 > Información sobre tus datos: legal@secretkey.vip.
 
+## Qué se cambió al humanizar
+
+| Antes                                                                                 | Ahora                                                                   |
+| ------------------------------------------------------------------------------------- | ----------------------------------------------------------------------- |
+| «Hola… A veces el móvil no deja de sonar» en abstracto                                | Veinte pestañas, seis listas y el móvil vibrando                        |
+| «Un día entendí que lo que buscaba no se encontraba en un buscador»                   | Se dice qué faltaba: alguien en quien confiar que ya lo hubiera probado |
+| Cada correo terminaba con «Te cuento cómo»                                            | Cada correo se sostiene solo y termina con algo que se puede contestar  |
+| «Conexión real, ancestral, contigo, con las personas y con el lugar» en varias frases | Una sola vez, en el correo 3, con otras palabras: sentirte en casa      |
+| Tres negaciones en el correo 3                                                        | Frases afirmativas                                                      |
+| Preguntas retóricas de cierre                                                         | Preguntas pequeñas que se contestan en una línea                        |
+
 ## Revisión antes de programar
 
 - Confirmar el público, la base legal y la fecha de envío. Adaptar el saludo si falta el nombre.
@@ -152,9 +137,8 @@ Tamara Edo
   activos. Hoy la renovación es manual.
 - Si alguien pregunta por precios o acceso, compartir la condición vigente antes de que decida.
 - Si alguien pregunta por colaborar, explicar la cuota, la comisión, el alcance y la experiencia
-  o el beneficio de cortesía que corresponda a su nivel.
-- Frases a confirmar por Tamara: «Un día entendí que lo que buscaba no se encontraba en un
-  buscador. Venía de personas» (correo 1) y «Cuando vi el dibujo entero, le puse nombre» (correo 2).
-  Son interpretaciones de lo que Tamara contó, no hechos nuevos.
+  o el beneficio de cortesía de su nivel.
+- Frases a confirmar por Tamara: «Casi nada de lo que encontraba se parecía a mí» (correo 1) y
+  «Después de tanto camino, lo que más me apetece es ahorrar vueltas a quien viene detrás» (correo 2).
+  Son interpretaciones de lo que contó, no hechos nuevos.
 - Versión en inglés bajo petición.
-- Probar los enlaces y la prueba de envío en GoHighLevel.
