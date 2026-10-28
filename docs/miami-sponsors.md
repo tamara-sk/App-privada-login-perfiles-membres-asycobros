@@ -7,6 +7,8 @@ públicas y sirven como orden de magnitud. Se sustituyen por presupuestos firmad
 Experiencias: Miami Magic · Conscious Investments, 29 a 31 ene 2027 (1.900 €) y Full Circle,
 28 ene a 1 feb 2027 (2.700 €).
 
+Estudio completo del evento, DAFO, paquetes de expositor, landing y cartel: [miami-evento.md](miami-evento.md).
+
 Principio: una partida admite varios sponsors, en especie, en efectivo o en ambas. Cada
 sponsor es un personaje de la historia.
 
