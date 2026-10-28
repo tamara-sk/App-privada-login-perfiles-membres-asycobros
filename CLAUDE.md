@@ -1,5 +1,7 @@
 # Secret Key — working agreement
 
+> **Fuente de verdad:** [`docs/secret-key-canon.md`](docs/secret-key-canon.md). Si algo de este archivo la contradice, manda el canon.
+
 ## Brand voice — non-negotiable
 
 **1. Never define Secret Key by what it is not.** No "we are not a concierge", no "not a
