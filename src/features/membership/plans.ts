@@ -1,10 +1,15 @@
 /**
- * Las tres entradas al Círculo. Decididas: no se tratan como una decisión abierta.
+ * Las entradas al Círculo según el canon del 27 de octubre de 2026.
  *
  * Esta es la única fuente de precios. El navegador solo envía el `slug`; el importe se
  * vuelve a leer aquí, en el servidor, antes de firmar el pago. Mantenlo así.
  *
  * Los `slug` son los que figuran en datos y facturas: nunca «Key» a secas en un cargo.
+ *
+ * Abierto, a la espera de Tamara (no se inventa aquí): precio de Secret Key promo al renovar,
+ * mensual de Secret Key antes de enero, descuentos de miembro, acciones de Llavecitas y
+ * nombre de la capa alta de Wisdom Key. El cobro mensual y la renovación automática esperan
+ * el pago por referencia de BBVA.
  */
 
 export type PlanSlug = 'member_key' | 'member_secret_key' | 'member_master_key';
@@ -12,37 +17,52 @@ export type PlanSlug = 'member_key' | 'member_secret_key' | 'member_master_key';
 export type Plan = {
   slug: PlanSlug;
   name: string;
-  /** Importe anual en céntimos. 0 = entrada sin coste. */
-  annualAmount: number;
-  /** Descuento en porcentaje. */
-  discount: number;
-  /** Llavecitas ganadas por cada 10 € gastados. */
-  llavecitasPer10Eur: number;
+  /** Importe anual en céntimos que se cobra ahora. 0 = entrada sin coste. */
+  readonly annualAmount: number;
+  /** Multiplicador de Llavecitas por la misma acción: Key 0,1×, Secret Key 2×, Master Key 5×. */
+  llavecitasMultiplier: number;
   highlighted?: boolean;
 };
+
+/** Última hora del precio de temporada de Secret Key: 31 dic 2026, 23:59 en Madrid (CET, UTC+1). */
+export const SECRET_KEY_PROMO_ENDS_AT = Date.parse('2026-12-31T23:59:59+01:00');
+
+/** Desde el 1 ene 2027 la entrada a Secret Key es de 220 €/año (o 20 €/mes cuando BBVA habilite el pago por referencia). */
+export const SECRET_KEY_REGULAR_ANNUAL_AMOUNT = 22000;
+export const SECRET_KEY_REGULAR_MONTHLY_AMOUNT = 2000;
+
+const SECRET_KEY_PROMO_ANNUAL_AMOUNT = 9900;
+
+/** Wisdom Key se concede por solicitud de acceso: se muestra, sin botón de pago. */
+export const WISDOM_KEY = { name: 'Wisdom Key', annualAmount: 430000 } as const;
+
+export const MASTER_KEY_MONTHLY_AMOUNT = 39000;
+
+/** Cada Llavecita vale 0,10 €. */
+export const LLAVECITA_VALUE_EUR = 0.1;
 
 export const PLANS: readonly Plan[] = [
   {
     slug: 'member_key',
     name: 'Key',
     annualAmount: 0,
-    discount: 0,
-    llavecitasPer10Eur: 3,
+    llavecitasMultiplier: 0.1,
   },
   {
     slug: 'member_secret_key',
     name: 'Secret Key',
-    annualAmount: 9900,
-    discount: 10,
-    llavecitasPer10Eur: 4,
+    // El precio de temporada se aplica solo hasta la fecha de cierre; después rige el de 2027.
+    get annualAmount() {
+      return Date.now() <= SECRET_KEY_PROMO_ENDS_AT ? SECRET_KEY_PROMO_ANNUAL_AMOUNT : SECRET_KEY_REGULAR_ANNUAL_AMOUNT;
+    },
+    llavecitasMultiplier: 2,
     highlighted: true,
   },
   {
     slug: 'member_master_key',
-    name: 'Máster Key',
-    annualAmount: 39000,
-    discount: 20,
-    llavecitasPer10Eur: 5,
+    name: 'Master Key',
+    annualAmount: 250000,
+    llavecitasMultiplier: 5,
   },
 ] as const;
 
@@ -54,10 +74,17 @@ export function isPaidPlan(plan: Plan): boolean {
   return plan.annualAmount > 0;
 }
 
+export function isSecretKeyPromoOpen(): boolean {
+  return Date.now() <= SECRET_KEY_PROMO_ENDS_AT;
+}
+
+function formatMultiplier(value: number): string {
+  return `${String(value).replace('.', ',')}×`;
+}
+
 export function planFeatures(plan: Plan): string[] {
   return [
     'Acceso a la app y al calendario de experiencias',
-    ...(plan.discount > 0 ? [`${plan.discount} % de descuento`] : []),
-    `${plan.llavecitasPer10Eur} Llavecitas por cada 10 €`,
+    `Llavecitas ${formatMultiplier(plan.llavecitasMultiplier)} por la misma acción`,
   ];
 }

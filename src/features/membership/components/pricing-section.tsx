@@ -1,6 +1,15 @@
 import Image from 'next/image';
 
-import { PLANS } from '../plans';
+import { formatPrice } from '@/utils/format-price';
+
+import {
+  isSecretKeyPromoOpen,
+  MASTER_KEY_MONTHLY_AMOUNT,
+  PLANS,
+  SECRET_KEY_REGULAR_ANNUAL_AMOUNT,
+  SECRET_KEY_REGULAR_MONTHLY_AMOUNT,
+  WISDOM_KEY,
+} from '../plans';
 
 import { PlanCard } from './plan-card';
 
@@ -20,6 +29,27 @@ export async function PricingSection({ isPricingPage }: { isPricingPage?: boolea
           {PLANS.map((plan) => (
             <PlanCard key={plan.slug} plan={plan} />
           ))}
+        </div>
+        <div className='flex max-w-3xl flex-col gap-2 text-center text-sm text-neutral-400'>
+          {isSecretKeyPromoOpen() && (
+            <p>
+              Secret Key a {formatPrice(PLANS[1].annualAmount, 'eur')}/año es el precio de esta temporada. La puerta
+              sigue abierta hasta el 31 de diciembre de 2026. Desde el 1 de enero de 2027, Secret Key es de{' '}
+              {formatPrice(SECRET_KEY_REGULAR_ANNUAL_AMOUNT, 'eur')}/año o{' '}
+              {formatPrice(SECRET_KEY_REGULAR_MONTHLY_AMOUNT, 'eur')}
+              /mes.
+            </p>
+          )}
+          <p>
+            Master Key: {formatPrice(PLANS[2].annualAmount, 'eur')}/año o{' '}
+            {formatPrice(MASTER_KEY_MONTHLY_AMOUNT, 'eur')}/mes. Wisdom Key:{' '}
+            {formatPrice(WISDOM_KEY.annualAmount, 'eur')}/año. El cobro mensual y la renovación automática llegan con el
+            pago por referencia de BBVA.
+          </p>
+          <p>
+            El acceso se solicita primero. Cuando se aprueba, eliges tu entrada y la pagas dentro. Cada Llavecita vale
+            0,10 €.
+          </p>
         </div>
       </div>
       <Image
