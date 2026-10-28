@@ -545,20 +545,20 @@ _WhatsApp_
 ## 5. The Feminine Frequency
 
 **Asunto:** Un lugar para nosotras
-_Variantes:_ La frecuencia que ya llevas dentro · Mujeres del Círculo, juntas
+_Variantes:_ Cuidar de todo y también de ti · Mujeres del Círculo, juntas
 
 > Querida [nombre],
 >
-> Muchas mujeres llevan a todo el mundo a cuestas, con cada vez más notificaciones y menos
-> presencia, y cuando llega la noche aparece la frase: no puedo más. Yo pasé horas y horas
-> buscando recomendaciones, y casi todo repetía lo que ya decía Google.
+> Muchas mujeres cuidan de todo el mundo y esperan su turno. Mientras tanto, cada vez más
+> notificaciones y menos presencia, y cuando llega la noche aparece la frase: no puedo más. Yo pasé
+> horas y horas buscando recomendaciones, y casi todo repetía lo que ya decía Google.
 >
 > De ahí salió Secret Key, un círculo de confianza con actividades probadas por el propio círculo.
 > Se fue formando sin que yo lo supiera, entre sesiones de KAP, constelaciones, eneagrama, talleres
 > y El camino del artista, y a mí me ayudó a volver a mí.
 >
 > Dentro vive The Feminine Frequency, la comunidad de mujeres del Círculo. Es gratuita, está en el
-> portal de la app y es un sitio para empoderarnos entre nosotras, con gente que te entiende.
+> portal de la app y es un sitio donde nos cuidamos entre nosotras, con gente que te entiende.
 >
 > Si te resuena, solicita acceso al Círculo y elige The Feminine Frequency como tu comunidad.
 > [Solicitar acceso]
@@ -567,20 +567,21 @@ _Variantes:_ La frecuencia que ya llevas dentro · Mujeres del Círculo, juntas
 > Tamara Edo
 
 **Subject:** A place for us
-_Variants:_ The frequency you already carry · Women of the Circle, together
+_Variants:_ Looking after everyone, and after you too · Women of the Circle, together
 
 > Dear [name],
 >
-> Many women carry everyone else on their backs, with more and more notifications and less
-> presence, and when night comes the sentence appears: I can't take it anymore. I spent hours and
-> hours searching for recommendations, and nearly everything repeated what Google already said.
+> Many women look after everyone else and wait for their turn. Meanwhile, more and more
+> notifications and less presence, and when night comes the sentence appears: I can't take it
+> anymore. I spent hours and hours searching for recommendations, and nearly everything repeated
+> what Google already said.
 >
 > That is where Secret Key came from, a circle of trust with activities tried by the circle
 > itself. It took shape without my knowing it, between KAP sessions, constellations, enneagram
 > work, workshops and The Artist's Way, and it helped me come back to myself.
 >
 > Inside lives The Feminine Frequency, the women's community of the Circle. It is free, it lives in
-> the app portal and it is a place to empower each other, with people who understand you.
+> the app portal and it is a place where we look after each other, with people who understand you.
 >
 > If it resonates, request access to the Circle and choose The Feminine Frequency as your
 > community. [Request access]
@@ -590,18 +591,15 @@ _Variants:_ The frequency you already carry · Women of the Circle, together
 
 _WhatsApp_
 
-> Querida [nombre], soy Tamara Edo. Muchas mujeres llevan a todo el mundo a cuestas, y yo pasé
-> horas y horas buscando algo que se alineara conmigo. Así nació Secret Key, un círculo de
-> confianza. Dentro vive The Feminine Frequency, la comunidad de mujeres del Círculo, gratuita:
-> [enlace]. Tamara Edo
+> Querida [nombre], soy Tamara Edo. Muchas mujeres cuidan de todo el mundo y esperan su turno. Yo
+> pasé horas y horas buscando y casi todo repetía lo que decía Google. Así nació Secret Key, un
+> círculo de confianza. Dentro vive The Feminine Frequency, la comunidad de mujeres del Círculo,
+> gratuita, donde nos cuidamos entre nosotras: [enlace].
 
-> Dear [name], this is Tamara Edo. Many women carry everyone on their backs, and I spent hours and
-> hours searching while every page repeated what Google said. That is how Secret Key began, a circle of
-> trust. Inside lives The Feminine Frequency, the women's community of the Circle, free: [link].
-> Tamara Edo
-
-_Decisión de Tamara:_ la frase sobre mujeres que sostienen a todas las personas de su vida es un
-recurso general. Se queda tal cual o se suaviza.
+> Dear [name], this is Tamara Edo. Many women look after everyone else and wait for their turn. I
+> spent hours and hours searching and nearly everything repeated what Google said. That is how
+> Secret Key began, a circle of trust. Inside lives The Feminine Frequency, the women's community of
+> the Circle, free, where we look after each other: [link].
 
 ## 6. Sponsors (The Radiance y Miami Magic)
 
