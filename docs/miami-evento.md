@@ -373,3 +373,76 @@ del léxico: la capa alta de Miami se llama Full Circle.
 2. Confirmar Magic el 22 a 24 de enero y Full Circle el 21 a 25.
 3. Decidir si Tamara o el equipo compran entrada antes del 10 de noviembre para asistir.
 4. Pedir presupuestos de hotel, barco y transporte para las nuevas fechas.
+
+## 14. Plan hasta el 10 de noviembre: ir a Biohackers World si Magic se sostiene
+
+Decisión de Tamara: asistir a Biohackers World si el evento propio se monta y cubre costes,
+incluido el vuelo. Si hay apuntados, quedan unas dos semanas para comprar el Early Bird (hasta
+el 10 de noviembre, 11:59 PM EST). Después se identifica a quién va y se invita a hablar en
+Miami a quien resulte interesante.
+
+**Regla de decisión (propuesta, se cierra el 8 de noviembre)**
+
+- **Luz verde de viaje:** compromisos por escrito de expositores o sponsors que cubran el viaje de
+  Tamara (vuelo, 2 noches y entrada) y acerquen el equilibrio de Magic (en el caso medio con 14
+  personas, unos 4 expositores de 2.500 €). Tamara pone la cifra de su viaje.
+- **Sin compromisos suficientes:** no se compra entrada y Magic se retoma con la fecha que
+  convenga, sin la presión del Early Bird.
+- Ninguna solicitud genera un cobro. Los expositores y asistentes confirman por escrito y pagan
+  tras la aprobación, como marca el canon.
+
+**Calendario**
+
+| Fecha          | Acción                                                                                                                                                                   | Responsable              |
+| -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------ |
+| 28 a 30 oct    | Confirmar fechas de Biohackers World, PVP de Magic y revisión legal rápida del texto de invitación. Lista de 20 a 30 contactos de Tamara (abogados, agentes, promotores) | Tamara y equipo          |
+| 31 oct a 3 nov | Primera ola de mensajes personales a esa lista y mensaje al organizador de Biohackers World                                                                              | Tamara                   |
+| 4 a 7 nov      | Seguimiento y llamadas de 15 minutos con quien responde. Solicitudes recogidas por la vía de acceso                                                                      | Responsable de captación |
+| 8 nov          | Reunión de decisión: luz verde o pausa                                                                                                                                   | Tamara                   |
+| 9 y 10 nov     | Compra de entradas si hay luz verde                                                                                                                                      | Tamara                   |
+| Desde 17 ene   | Quién asiste a Biohackers World: invitaciones a hablar en Miami según la checklist de la sección 7                                                                       | Tamara y equipo          |
+
+**Quién habla en nuestro evento.** Speakers e invitados de Biohackers World entran con la
+checklist de la sección 7 y firman el acuerdo de partner. Cada uno cede su experiencia o
+beneficio de cortesía. La cuota o aportación se fija con el CFO.
+
+**Borradores de mensaje (no enviados)**
+
+_A un abogado o agente de confianza_
+
+> Hola [nombre],
+>
+> Secret Key reúne en Miami, del [22 al 24 de enero de 2027, por confirmar], una experiencia
+> en torno a la casa como espacio sagrado: visitas a proyectos, mesa larga, barco y spa con
+> el Círculo. Tu trabajo encaja con la conversación.
+>
+> Hay un espacio para quien representa proyectos con visión de habitabilidad: una mesa, una
+> charla breve o una visita in situ. Cuéntame si quieres que te mande el detalle.
+>
+> Un abrazo,
+> Tamara
+
+_Al organizador de Biohackers World_
+
+> Hola [nombre],
+>
+> Soy Tamara, de Secret Key. Estaremos en Miami el [16 y 17 de enero, por confirmar] y
+> preparamos Miami Magic · Conscious Investments el fin de semana siguiente, sobre longevidad,
+> inversión consciente y la casa como espacio sagrado. Me gustaría incluirlo entre los eventos
+> posteriores que recomendáis a vuestro público. ¿Hablamos?
+>
+> Gracias,
+> Tamara
+
+_A un speaker o asistente de Biohackers World (a partir del 17 de enero)_
+
+> Hola [nombre],
+>
+> Fue un placer coincidir en Biohackers World. Secret Key reúne en Miami, esta semana, a un
+> grupo pequeño para hablar de la casa como espacio de salud, con visitas a proyectos. Tu
+> mirada aportaría. ¿Te gustaría compartir una charla de 20 minutos?
+>
+> Tamara
+
+Los tres mensajes pasan por la revisión legal antes de enviarse. Las fechas y el PVP se rellenan
+cuando Tamara los confirme. Ninguno se envía desde este repo.
