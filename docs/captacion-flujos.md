@@ -20,8 +20,8 @@ especificaciones para el agente de GoHighLevel, que las construye en borrador y 
 
 **El dolor, tal como lo cuenta Tamara.** El dolor es estar tan abrumada que no se sabe dónde
 buscar. Tanto ruido, tantas opciones y tantas notificaciones que ya no se sabe a quién creer ni
-por dónde empezar. Tamara pasaba horas y horas buscando recomendaciones y le costaba encontrar lo
-que se alineaba con ella. De ahí salió Secret Key: un círculo de confianza con actividades
+por dónde empezar. Tamara pasaba horas y horas buscando recomendaciones y le costaba encontrar
+lo que de verdad la ayudara: todo se parecía a lo que ya ponía Google o la web de cada sitio. De ahí salió Secret Key: un círculo de confianza con actividades
 probadas por el círculo, donde la confianza llega por las personas. Los textos de captación lo
 recogen, con «no puedo más» y «cada vez más notificaciones y menos presencia».
 

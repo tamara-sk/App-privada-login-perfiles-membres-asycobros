@@ -25,7 +25,8 @@ más notificaciones y menos presencia, y de pronto la frase que se te escapa por
 puedo más.
 
 A mí me pasó. Me pasaba horas y horas buscando recomendaciones. Estaba tan abrumada que no sabía
-por dónde empezar, y casi nada de lo que encontraba se parecía a mí.
+por dónde empezar, y todo lo que encontraba se parecía a lo que ya ponía Google o la web de cada
+sitio.
 
 Información había de sobra. Me faltaba alguien en quien confiar que ya lo hubiera probado.
 
@@ -50,7 +51,7 @@ artista_. Cada una me abrió una puerta distinta y todas me ayudaron.
 Lo que no sabía es que, sin darme cuenta, Secret Key se estaba gestando entre una sesión y la
 siguiente.
 
-Después de tanto camino, lo que más me apetece es ahorrar vueltas a quien viene detrás. Que
+Después de tanto camino, lo que más me apetece es ahorrar vueltas y tiempo a quien viene detrás. Que
 encuentre antes a personas que le inspiren, con las que sentirse de igual a igual, y que desde ahí
 se conozca mejor y se lleve mejor con los demás y con su entorno.
 
@@ -138,7 +139,6 @@ Tamara Edo
 - Si alguien pregunta por precios o acceso, compartir la condición vigente antes de que decida.
 - Si alguien pregunta por colaborar, explicar la cuota, la comisión, el alcance y la experiencia
   o el beneficio de cortesía de su nivel.
-- Frases a confirmar por Tamara: «Casi nada de lo que encontraba se parecía a mí» (correo 1) y
-  «Después de tanto camino, lo que más me apetece es ahorrar vueltas a quien viene detrás» (correo 2).
-  Son interpretaciones de lo que contó, no hechos nuevos.
-- Versión en inglés bajo petición.
+- Frases confirmadas por Tamara el 28 oct: «todo lo que encontraba se parecía a lo que ya ponía
+  Google o la web de cada sitio» (correo 1) y «ahorrar vueltas y tiempo» (correo 2).
+- Versión en inglés: [serie-cuatro-correos-en.md](serie-cuatro-correos-en.md).
