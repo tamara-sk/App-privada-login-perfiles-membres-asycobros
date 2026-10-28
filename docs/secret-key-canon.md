@@ -1,6 +1,6 @@
 # Secret Key · Canon del ecosistema
 
-Versión 1.1 · 28 oct 2026 · Autora: Tamara · Estado: vigente. Los puntos de la sección 11 siguen abiertos
+Versión 1.2 · 28 oct 2026 · Autora: Tamara · Estado: vigente. Los puntos de la sección 11 siguen abiertos
 
 Este es el único documento de referencia de Secret Key. Lo cargan todas las IA y todas las
 personas que escriben, venden, programan o publican en nombre de Secret Key: Claude,
@@ -61,7 +61,8 @@ Guardián, Inner Circle, SK Circle, Free como nombre de tier, la escalera
 Seeker/Initiate/Adept/Guardian/Architect/Luminary, los niveles Seeker/Initiate/Keeper/
 Wayfarer, los siete arquetipos, Intentional Living Ecosystem, "Where money becomes time",
 lenguaje de startup (launch, beta, founding members, early adopters), "descuento" como
-promesa de miembro y "Abierto por" como atribución.
+promesa de miembro, "Abierto por" como atribución, Super Key para el tier de 4.300 €, Top Key,
+Key Partner y "marketplace" sin definición.
 
 ## 3. Léxico
 
@@ -151,6 +152,7 @@ cuando se hayan comprobado en producción.
 
 - Los otorga el Círculo y los verifican los pares. Son ilimitados y nacen en cada chapter.
 - Valor monetario cero, ningún nivel, ninguna compra.
+- Reconocen contribución. Los sponsors reciben visibilidad y presencia dentro de la historia.
 
 ## 7. Partners
 
@@ -205,7 +207,16 @@ Los precios se publican como el precio de la experiencia.
 | 10 mar 2027         | The Radiance, segunda edición, tras Nyepi                          | Según edición                                                                                                                                                                                    |
 | Fecha por anunciar  | Quedadas del Secret Circle, Madrid Hub                             | Entrada 25 a 60 €                                                                                                                                                                                |
 
-Cualquier otra actividad de 2027 se publica cuando Tamara confirme los datos.
+Cualquier otra actividad de 2027 se publica cuando Tamara confirme los datos: nombre, Chapter,
+fechas, precio público y capa alta.
+
+**Gala de impacto social y Sigils:** prevista para 2027, sin fecha, lugar ni formato. No se
+anuncia.
+
+**Foco comercial:** sponsors y compradores de SKWR, primero The Radiance y Miami Magic.
+
+**Escalera de venta:** Secret Circle local (25 a 60 €), Secret Key, experiencias de un día
+(150 a 390 €), SKWR, Master Key y Wisdom Key.
 
 **Dato citable:** 111 personas pasaron por las experiencias de Secret Key en el verano de 2026.
 Toda cifra de la base de datos se filtra de perfiles de prueba antes de citarla.
@@ -228,19 +239,49 @@ emocional vivo con Chapters activos en el Mediterráneo, Bali, Madrid y Miami.
 
 ## 11. Pendientes de decisión (solo Tamara)
 
-| #   | Tema                                                                                  | Estado    |
-| --- | ------------------------------------------------------------------------------------- | --------- |
-| 1   | Cifras de comisión de reserva por tier de miembro                                     | Falta     |
-| 2   | Tabla de acciones de Llavecitas, regalo de bienvenida y tope de canje por tier        | Falta     |
-| 3   | Secret Key mensual antes de enero                                                     | Falta     |
-| 4   | Mensual de Master Key: 390 €/mes equivale a 4.680 €/año. Confirmar que es lo previsto | Confirmar |
-| 5   | Margen de Master Key frente a la capa alta de Bali (ambas a 2.500 €)                  | Falta     |
-| 6   | Margen de Wisdom Key: coste real por persona de cada SKWR                             | Falta     |
-| 7   | Tier de partner que corresponde a cada nivel de aportación de un sponsor              | Falta     |
+| #   | Tema                                                                                                                                 | Estado              |
+| --- | ------------------------------------------------------------------------------------------------------------------------------------ | ------------------- |
+| 1   | Cifras de comisión de reserva por tier de miembro                                                                                    | Falta               |
+| 2   | Tabla de acciones de Llavecitas, regalo de bienvenida y tope de canje por tier                                                       | Falta               |
+| 3   | Secret Key mensual antes de enero                                                                                                    | Falta               |
+| 4   | Mensual de Master Key: 390 €/mes equivale a 4.680 €/año. Confirmar que es lo previsto                                                | Confirmar           |
+| 5   | Margen de Master Key frente a la capa alta de Bali (ambas a 2.500 €)                                                                 | Falta               |
+| 6   | Margen de Wisdom Key: coste real por persona de cada SKWR                                                                            | Falta               |
+| 7   | Tier de partner que corresponde a cada nivel de aportación de un sponsor                                                             | Falta               |
+| 8   | Marzo de 2027 en Bali: The Glow (canon operativo de Codex) o The Radiance, segunda edición, el 10 mar (canon del 27 oct)             | Confirmar           |
+| 9   | Fechas de Miami: 29 a 31 ene (canon) o 22 a 24 ene (propuesta tras Biohackers World), y PVP de Magic y de Full Circle                | Confirmar           |
+| 10  | Secret Key «precio de miembro» (canon operativo de Codex) frente a comisión de reserva por tier sin descuentos (decisión del 28 oct) | Confirmar redacción |
+
+## 12. Estado técnico conocido (28 oct 2026)
+
+Resumen de Codex y de la revisión de Claude. Si un sistema conectado difiere de este canon,
+se registra la discrepancia y no se afirma sincronización sin evidencia.
+
+- El formulario local `/acceso` escribe en `public.access_requests` de Supabase. No está
+  acreditado que el flujo de solicitudes esté conectado a GHL ni que aprobación, veto y pago
+  interior funcionen.
+- El 28 oct se actualizó `public.price_catalog` en Supabase con el canon del 27 oct: membresías
+  y partners. Las mensualidades de Secret Key y de Master Key permanecen `pendiente` hasta el
+  pago por referencia de BBVA. SK Ads ya coincidía.
+- En GHL existen los productos Secret Circle (Secret Key, Master Key, Wisdom Key) y Partner
+  (Secret Key y Master Key), sin precio definido en la lectura del 28 oct. Los GHL product IDs de
+  los productos renombrados siguen vinculados y se comprueban antes de sincronizar.
+- La revisión automática rechazó una operación para borrar ocho GHL product IDs, por el riesgo de
+  romper checkout y sincronización. No se repite ni se elude. Cada correspondencia se valida en GHL
+  antes de pedir una autorización concreta.
+- El checkout de Redsys usa un único secreto de precio. No está verificado para selección de tier,
+  mensualidad ni cambio de fecha. Las tarjetas públicas no cobran: el pago se hace dentro, tras la
+  aprobación.
+- El 28 oct se publicó el sitio en Vercel y se reasignaron `www.secretkey.vip` y `secretkey.vip`
+  al deployment nuevo. Se verificaron 200 y contenido para inicio, press, acceso, llms, sitemap,
+  términos y store. El origen del catálogo de la tienda en GHL no se verificó ni se sincronizó.
+- El sitio vivo es el Vite de `secret-key-site/` (recursos en `public/`, build en `dist/`). Este
+  repositorio Next.js no es el sitio publicado.
 
 ## Historial
 
 | Versión | Fecha       | Cambio                                                                                                                                                                                                       |
 | ------- | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| 1.2     | 28 oct 2026 | Integra el canon operativo de Codex (foco comercial, escalera de venta, gala sin anunciar, estado técnico). Las decisiones del 28 oct prevalecen sobre su lista de pendientes                                |
 | 1.1     | 28 oct 2026 | Confirmados: v4 manda, Wisdom Key, dos vías de acceso (Círculo y partners), tier Wisdom Key de partner gratis para facilitadores de referencia, nueva identidad visual. Retirada la atribución "Abierto por" |
 | 1.0     | 28 oct 2026 | Primera edición. Integra Master Context v4, canon del 27 oct y decisiones del 28 oct (Inmersión, precios de Miami, renovación de Secret Key, sin descuentos, sponsors múltiples)                             |
