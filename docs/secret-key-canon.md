@@ -1,6 +1,6 @@
 # Secret Key · Canon del ecosistema
 
-Versión 1.2 · 28 oct 2026 · Autora: Tamara · Estado: vigente. Los puntos de la sección 11 siguen abiertos
+Versión 1.3 · 28 oct 2026 · Autora: Tamara · Estado: vigente. Los puntos de la sección 11 siguen abiertos
 
 Este es el único documento de referencia de Secret Key. Lo cargan todas las IA y todas las
 personas que escriben, venden, programan o publican en nombre de Secret Key: Claude,
@@ -199,13 +199,13 @@ es lo que Secret Key retiene de cada venta hecha a través de SK.
 
 Los precios se publican como el precio de la experiencia.
 
-| Fecha               | Experiencia                                                        | Precios                                                                                                                                                                                          |
-| ------------------- | ------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| 9 a 16 dic 2026     | The Radiance, Bali                                                 | 1.900 € con alojamiento incluido. **Inmersión** 2.500 €: videoreportaje de los momentos clave, 2 sesiones 1 a 1 personalizadas, workbook más completo y 3 llamadas de seguimiento tras el evento |
-| 29 a 31 ene 2027    | Miami Magic · Conscious Investments (Biohacking Homes & Longevity) | 1.900 €: asistencia a la experiencia con barco, spa y transporte entre localizaciones                                                                                                            |
-| 28 ene a 1 feb 2027 | Miami Full Circle                                                  | 2.700 €: Magic más análisis personalizado de inversiones, estudio personalizado, análisis de propuestas, seguimiento y acompañamiento                                                            |
-| 10 mar 2027         | The Radiance, segunda edición, tras Nyepi                          | Según edición                                                                                                                                                                                    |
-| Fecha por anunciar  | Quedadas del Secret Circle, Madrid Hub                             | Entrada 25 a 60 €                                                                                                                                                                                |
+| Fecha              | Experiencia                                                        | Precios                                                                                                                                                                                          |
+| ------------------ | ------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| 9 a 16 dic 2026    | The Radiance, Bali                                                 | 1.900 € con alojamiento incluido. **Inmersión** 2.500 €: videoreportaje de los momentos clave, 2 sesiones 1 a 1 personalizadas, workbook más completo y 3 llamadas de seguimiento tras el evento |
+| 22 a 24 ene 2027   | Miami Magic · Conscious Investments (Biohacking Homes & Longevity) | PVP por confirmar (1.900 € en el canon del 27 oct): 2 noches de alojamiento, asistencia, barco, spa y traslados entre localizaciones                                                             |
+| 21 a 25 ene 2027   | Miami Full Circle                                                  | 2.700 €: Magic más análisis personalizado de inversiones, estudio personalizado, análisis de propuestas, seguimiento y acompañamiento                                                            |
+| Marzo de 2027      | The Glow, Bali, tras Nyepi                                         | Según edición                                                                                                                                                                                    |
+| Fecha por anunciar | Quedadas del Secret Circle, Madrid Hub                             | Entrada 25 a 60 €                                                                                                                                                                                |
 
 Cualquier otra actividad de 2027 se publica cuando Tamara confirme los datos: nombre, Chapter,
 fechas, precio público y capa alta.
@@ -234,23 +234,24 @@ emocional vivo con Chapters activos en el Mediterráneo, Bali, Madrid y Miami.
   pendientes.
 - Llavecitas a causas: en pausa hasta definir quién paga la caja real.
 - Board / Consejo del Círculo: contenido interno hasta que las invitaciones estén aceptadas.
+- Asistencia de Tamara a Biohackers World Miami (16 y 17 ene 2027): sujeta a que Miami Magic cubra
+  el viaje. Decisión el 8 de nov. Su Early Bird termina el 10 de nov.
 - Cobros: web y app cobran con la TPV virtual de BBVA sobre Redsys. Comercio 370662108. La
   clave de firma permanece en variables de entorno.
 
 ## 11. Pendientes de decisión (solo Tamara)
 
-| #   | Tema                                                                                                                                 | Estado              |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------ | ------------------- |
-| 1   | Cifras de comisión de reserva por tier de miembro                                                                                    | Falta               |
-| 2   | Tabla de acciones de Llavecitas, regalo de bienvenida y tope de canje por tier                                                       | Falta               |
-| 3   | Secret Key mensual antes de enero                                                                                                    | Falta               |
-| 4   | Mensual de Master Key: 390 €/mes equivale a 4.680 €/año. Confirmar que es lo previsto                                                | Confirmar           |
-| 5   | Margen de Master Key frente a la capa alta de Bali (ambas a 2.500 €)                                                                 | Falta               |
-| 6   | Margen de Wisdom Key: coste real por persona de cada SKWR                                                                            | Falta               |
-| 7   | Tier de partner que corresponde a cada nivel de aportación de un sponsor                                                             | Falta               |
-| 8   | Marzo de 2027 en Bali: The Glow (canon operativo de Codex) o The Radiance, segunda edición, el 10 mar (canon del 27 oct)             | Confirmar           |
-| 9   | Fechas de Miami: 29 a 31 ene (canon) o 22 a 24 ene (propuesta tras Biohackers World), y PVP de Magic y de Full Circle                | Confirmar           |
-| 10  | Secret Key «precio de miembro» (canon operativo de Codex) frente a comisión de reserva por tier sin descuentos (decisión del 28 oct) | Confirmar redacción |
+| #   | Tema                                                                                                                                    | Estado              |
+| --- | --------------------------------------------------------------------------------------------------------------------------------------- | ------------------- |
+| 1   | Cifras de comisión de reserva por tier de miembro                                                                                       | Falta               |
+| 2   | Tabla de acciones de Llavecitas, regalo de bienvenida y tope de canje por tier                                                          | Falta               |
+| 3   | Secret Key mensual antes de enero                                                                                                       | Falta               |
+| 4   | Mensual de Master Key: 390 €/mes equivale a 4.680 €/año. Confirmar que es lo previsto                                                   | Confirmar           |
+| 5   | Margen de Master Key frente a la capa alta de Bali (ambas a 2.500 €)                                                                    | Falta               |
+| 6   | Margen de Wisdom Key: coste real por persona de cada SKWR                                                                               | Falta               |
+| 7   | Tier de partner que corresponde a cada nivel de aportación de un sponsor                                                                | Falta               |
+| 8   | PVP de Magic (1.800, 1.900 o superior según costes reales), IVA, y PVP de Full Circle tras la revisión legal del servicio personalizado | Falta               |
+| 9   | Secret Key «precio de miembro» (canon operativo de Codex) frente a comisión de reserva por tier sin descuentos (decisión del 28 oct)    | Confirmar redacción |
 
 ## 12. Estado técnico conocido (28 oct 2026)
 
@@ -282,6 +283,7 @@ se registra la discrepancia y no se afirma sincronización sin evidencia.
 
 | Versión | Fecha       | Cambio                                                                                                                                                                                                       |
 | ------- | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| 1.3     | 28 oct 2026 | Confirmados: marzo de 2027 es The Glow, Miami Magic 22 a 24 ene y Full Circle 21 a 25 ene, asistencia a Biohackers World sujeta a cobertura                                                                  |
 | 1.2     | 28 oct 2026 | Integra el canon operativo de Codex (foco comercial, escalera de venta, gala sin anunciar, estado técnico). Las decisiones del 28 oct prevalecen sobre su lista de pendientes                                |
 | 1.1     | 28 oct 2026 | Confirmados: v4 manda, Wisdom Key, dos vías de acceso (Círculo y partners), tier Wisdom Key de partner gratis para facilitadores de referencia, nueva identidad visual. Retirada la atribución "Abierto por" |
 | 1.0     | 28 oct 2026 | Primera edición. Integra Master Context v4, canon del 27 oct y decisiones del 28 oct (Inmersión, precios de Miami, renovación de Secret Key, sin descuentos, sponsors múltiples)                             |

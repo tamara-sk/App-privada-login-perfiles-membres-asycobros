@@ -310,7 +310,7 @@ corto con las tres preguntas del canon.
 6. Programa definitivo y responsable de captación y producción.
 7. Presupuestos reales de hotel, barco, transporte y spa.
 
-## 13. Fechas alternativas y aprendizajes de Biohackers World (propuesta, pendiente de decisión)
+## 13. Fechas alternativas y aprendizajes de Biohackers World (fechas decididas el 28 oct, PVP pendiente)
 
 Tamara indica que Biohackers World Conference & Expo es un solo evento, el **16 y 17 de enero de
 2027 en Miami** (sábado y domingo, fin de semana del festivo de Martin Luther King). Las fuentes
