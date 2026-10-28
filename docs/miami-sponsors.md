@@ -12,8 +12,8 @@ sponsor es un personaje de la historia.
 
 ## Resumen del board
 
-1. **Los sponsors son caja.** Con los precios actuales, el coste medio estimado de Magic
-   deja un margen del 5 % y el de Full Circle supera su precio.
+1. **Los sponsors, speakers y promotores son la caja.** Con el coste medio estimado, Magic queda en
+   el punto de equilibrio y Full Circle supera su precio. El detalle por escenarios está en 1b.
 2. **Decisión del CEO:** seguir adelante (media 8,3). Condición: costes reales y contrato tipo
    antes del 3 nov.
 3. **Cuello de botella:** Tamara aprueba la lista de marcas y firma. Lo demás se delega.
@@ -62,6 +62,70 @@ patrocinado o un precio mayor lo consiguen).
 **Decisiones para Tamara:** precio de Full Circle (subir, patrocinar el análisis o ajustar el
 acompañamiento), si 1.900 € y 2.700 € incluyen IVA (con el 21 % el ingreso neto de Magic es de
 1.570 €), si incluyen alojamiento, y presupuestos reales de barco, spa y análisis.
+
+## 1b. Escenarios con PVP de 1.800 € (Magic)
+
+Los costes de Miami eran un punto sin cubrir. Estos escenarios sustituyen a una cifra única y
+se recalculan con los presupuestos reales. Tamara menciona un PVP de 1.800 € y el canon
+recoge 1.900 €: hasta confirmarlo, los cálculos usan 1.800 €. Cada 100 € de PVP suman 100 € por
+persona de ingreso.
+
+Cómo se calcula:
+
+- **Costes fijos del grupo:** barco y transporte. Una Sprinter por cada 14 plazas. Con más de 14
+  personas el barco se estima un 50 % más caro.
+- **Costes por persona:** spa, cócteles, cenas y noches fuera.
+- **Ingreso:** PVP por el número de asistentes, antes de IVA, equipo, producción y comisiones de
+  cobro.
+- **Tamaño del grupo:** 8, 14 y 20 personas son supuestos internos. Cambian con la demanda y
+  quedan dentro.
+
+| Caso de coste | Grupo | Coste total | Coste por persona | Ingreso a 1.800 € | Resultado sin ayuda externa |
+| ------------- | ----- | ----------- | ----------------- | ----------------- | --------------------------- |
+| Bajo          | 8     | 11.006 €    | 1.376 €           | 14.400 €          | +3.394 €                    |
+| Bajo          | 14    | 14.336 €    | 1.024 €           | 25.200 €          | +10.864 €                   |
+| Bajo          | 20    | 22.279 €    | 1.114 €           | 36.000 €          | +13.721 €                   |
+| Medio         | 8     | 19.580 €    | 2.448 €           | 14.400 €          | -5.180 €                    |
+| Medio         | 14    | 25.340 €    | 1.810 €           | 25.200 €          | -140 €                      |
+| Medio         | 20    | 39.150 €    | 1.958 €           | 36.000 €          | -3.150 €                    |
+| Alto          | 8     | 32.088 €    | 4.011 €           | 14.400 €          | -17.688 €                   |
+| Alto          | 14    | 41.748 €    | 2.982 €           | 25.200 €          | -16.548 €                   |
+| Alto          | 20    | 64.617 €    | 3.231 €           | 36.000 €          | -28.617 €                   |
+
+**Objetivo ideal:** que sponsors, speakers y promotores cubran el coste completo y que las
+entradas de los asistentes sean margen.
+
+| Caso de coste | Grupo | Aportación externa necesaria | En aportaciones de 5.000 € |
+| ------------- | ----- | ---------------------------- | -------------------------- |
+| Bajo          | 14    | 14.336 €                     | 3                          |
+| Medio         | 8     | 19.580 €                     | 4                          |
+| Medio         | 14    | 25.340 €                     | 5                          |
+| Medio         | 20    | 39.150 €                     | 8                          |
+| Alto          | 14    | 41.748 €                     | 9                          |
+
+**Mínimo de equilibrio:** en el caso medio con 14 personas, la entrada cubre casi todo el coste y
+basta una partida patrocinada pequeña. En el caso alto la aportación externa debe ser de entre
+16.500 € y 28.600 €.
+
+**Tres fuentes de cobertura**
+
+1. **Sponsors en especie:** la mayor palanca, porque barco, transporte, spa y cenas son cuatro
+   partidas grandes que una marca puede aportar sin que salga caja.
+2. **Sponsors en efectivo:** cubren lo que ninguna marca aporta en especie, como la producción y
+   el contenido.
+3. **Speakers y promotores que mueven sus proyectos:** cada speaker o promotor participa con un
+   espacio dentro de Conscious Investments (charla, mesa o presentación) y aporta una cuota o
+   cubre una partida. Un proyecto de inversión o de longevidad encuentra en Miami a las personas
+   adecuadas. Falta fijar la cuota por tipo de espacio. Cada uno cede además su experiencia o
+   beneficio de cortesía, como todo partner.
+
+**Orden de decisión**
+
+1. Confirmar PVP de Magic: 1.800 o 1.900 €, y si incluye IVA.
+2. Pedir tres presupuestos reales de barco, transporte y spa para ver en qué caso estamos.
+3. Fijar la cuota de speaker y de promotor por tipo de espacio.
+4. Fijar el mínimo de aportación externa que da luz verde a la experiencia. Propuesta: el
+   coste total del caso medio con el grupo mínimo operativo.
 
 ## 2. Marcas candidatas por partida (CRO)
 
