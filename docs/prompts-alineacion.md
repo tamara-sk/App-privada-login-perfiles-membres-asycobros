@@ -32,7 +32,7 @@ Orden para monetizar cuanto antes: **1. Codex** (el acceso funciona), **2. GoHig
 
 El campo `hasPrices` del listado de GoHighLevel devuelve `false` aunque haya precios, así que no
 sirve como prueba. Esto corrige lo que dije antes: los precios de membresía ya están en el
-canon. Quedan por borrar o archivar el mensual retirado de 39 € y por aprobar Wisdom Key.
+canon. Queda por archivar el mensual retirado de 39 €. Wisdom Key quedó aprobado el 28 oct.
 
 ## 1. Codex · sitio Vite, Supabase y acceso
 
@@ -103,8 +103,9 @@ Tamara autorizó alinear el catálogo y los flujos con el canon 1.3, con estas r
 Tareas, en este orden:
 1. Catálogo. Los precios de Secret Key (99 € hasta el 31 dic 2026, 220 € desde el 1 ene 2027,
    mensual 20 € pendiente de BBVA), Master Key (2.500 €, mensual 390 € pendiente de BBVA) y
-   Wisdom Key (4.300 €, pendiente de aprobación) ya existen. Deja inactivos los mensuales hasta
-   que BBVA habilite el pago por referencia. Archiva, sin borrar, el precio mensual de 39 € de
+   Wisdom Key (4.300 €, pendiente de aprobación) ya existen. Wisdom Key queda aprobado (4.300 €). Los
+   mensuales no cobran de forma automática hasta que BBVA habilite el pago por referencia: se
+   gestionan con la renovación manual de la sección 8. Archiva, sin borrar, el precio mensual de 39 € de
    Secret Key rotulado «precio retirado, no usar». Lee los precios de Partner · Secret Key y
    Partner · Master Key y compáralos con el canon (290 € y 20 %, 890 € y 15 %). Añade Partner ·
    Key (0 €, 30 %) y Partner · Wisdom Key (pack SK Ads, 10 % mínimo) si faltan. Comprueba que
@@ -252,3 +253,79 @@ cargo («C-level en telco y tech»). El canon define a las personas por mentalid
 
 **Decisiones de Tamara:** si la comunidad tiene cuota o es parte de cualquier tier, si se organiza
 en GoHighLevel o en la app, quién la dinamiza, y cuándo es el primer encuentro.
+
+## 8. Renovación manual hasta enero de 2027
+
+Decisión de Tamara: hasta enero de 2027 no hay cobro automático de renovaciones ni mensualidades,
+para evitar devoluciones y cuidar la relación con el banco. La renovación se hace a mano.
+
+| Momento                          | Qué ocurre                                                                                | Dónde                          |
+| -------------------------------- | ----------------------------------------------------------------------------------------- | ------------------------------ |
+| 10 días antes de la fecha de fin | Correo 1: invitación a extender la membresía y renovar el pago, con enlace al pago dentro | GoHighLevel                    |
+| 5 días antes                     | Correo 2: recordatorio con el saldo de Llavecitas y el enlace                             | GoHighLevel                    |
+| 2 días antes                     | Correo 3: último aviso                                                                    | GoHighLevel                    |
+| 1 día antes de que caduque       | Se bloquea el acceso a la cuenta hasta que pague                                          | App y Supabase                 |
+| Al pagar                         | Se extiende la fecha de fin y se desbloquea la cuenta                                     | Redsys, Supabase y GoHighLevel |
+
+**Pendiente de confirmar:** el bloqueo un día antes quita un día ya pagado. Si Tamara quiere
+bloquear al vencer, el correo 3 pasa a ser el último aviso del día anterior.
+
+**Correos (borrador, en español, con versión en inglés para el mismo tono)**
+
+_Correo 1, 10 días antes_
+
+> Asunto: Tu lugar en el Círculo sigue abierto
+>
+> Hola {{first_name}},
+>
+> En {{days_left}} días termina tu año en el Círculo. Para que tu lugar siga abierto, renueva tu
+> membresía desde tu cuenta. Es un gesto breve y todo queda como lo dejaste: tus Llavecitas,
+> tus Sigils y tus reservas.
+>
+> {{renew_link}}
+>
+> Gracias por estar aquí.
+> Secret Key
+
+> Subject: Your place in the Circle stays open
+>
+> Hello {{first_name}}, your year in the Circle ends in {{days_left}} days. To keep your place
+> open, renew your membership from your account. Your Llavecitas, your Sigils and your
+> reservations stay exactly as you left them. {{renew_link}} Thank you for being here.
+
+_Correo 2, 5 días antes_
+
+> Asunto: Tu saldo de Llavecitas te espera
+>
+> Hola {{first_name}},
+>
+> Te quedan {{days_left}} días. Tienes {{llavecitas_balance}} Llavecitas, que cubren hasta el
+> 100 % de una renovación. Puedes usarlas al renovar.
+>
+> {{renew_link}}
+
+_Correo 3, 2 días antes_
+
+> Asunto: Un último paso para seguir dentro
+>
+> Hola {{first_name}},
+>
+> Tu membresía termina el {{end_date}}. Renuévala hoy y tu cuenta sigue abierta sin pausa.
+>
+> {{renew_link}}
+
+_Aviso al bloquear_
+
+> Asunto: Tu cuenta te espera
+>
+> Hola {{first_name}},
+>
+> Tu cuenta queda en pausa hasta que renueves. En cuanto lo hagas, vuelve a abrirse con todo lo
+> que construiste: Llavecitas, Sigils y reservas.
+>
+> {{renew_link}}
+
+**Para el agente de GoHighLevel:** crea el workflow en borrador con estos disparadores sobre el
+campo «fecha de fin de membresía». **Para Codex:** el bloqueo se aplica en la app y en Supabase
+con el estado de membresía (`expired`), y el pago de renovación extiende `current_period_end`
+sin perder Llavecitas ni Sigils.

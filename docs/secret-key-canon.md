@@ -1,6 +1,6 @@
 # Secret Key · Canon del ecosistema
 
-Versión 1.3 · 28 oct 2026 · Autora: Tamara · Estado: vigente. Los puntos de la sección 11 siguen abiertos
+Versión 1.4 · 28 oct 2026 · Autora: Tamara · Estado: vigente. Los puntos de la sección 11 siguen abiertos
 
 Este es el único documento de referencia de Secret Key. Lo cargan todas las IA y todas las
 personas que escriben, venden, programan o publican en nombre de Secret Key: Claude,
@@ -79,6 +79,7 @@ Key Partner y "marketplace" sin definición.
 | Llavecitas                 | La moneda del Círculo                                                            |
 | SK Alchemy                 | El servicio que se ocupa de lo que consume horas                                 |
 | SK Stay                    | Lugares y anfitriones                                                            |
+| The Feminine Frequency     | La comunidad de mujeres del Círculo, sin cuota, en el portal de la app           |
 | SK Store                   | La tienda                                                                        |
 
 **CTA de la web:** "Solicitar acceso" / "Request Access". Para entrar: "Apply to the Secret Circle".
@@ -88,6 +89,11 @@ Key Partner y "marketplace" sin definición.
 El icono de la app es un sello de cera color crema con cuatro anillos dorados entrelazados,
 sobre el mar turquesa y la arena. Archivo: `public/logo.png` (512 px). Paleta de la nueva
 identidad: turquesa del mar, arena, crema y dorado.
+
+La cabecera es el mismo sello a la izquierda y la firma «Secret Key» en trazo de pincel negro a
+la derecha, con la línea «LIVE LOCAL, WHEREVER YOU ARE» en versalitas doradas. Archivo:
+`public/brand/secret-key-header.png` (1024 × 500). La app, la web, los correos, las redes y
+GoHighLevel usan el icono y la cabecera.
 
 ## 4. Membresía
 
@@ -105,8 +111,12 @@ Círculo.
   el 31 dic 2026. Se comunica sin cuenta atrás ni urgencia.
 - **Renovación de quien entra a 99 €:** 220 €/año al cumplir su año, a finales de 2027.
 - **Anual recomendado.** El mensual existe para quien lo prefiera.
-- **Cobro mensual y renovación automática** llegan con el pago por referencia de BBVA. Hasta
-  entonces, la renovación es manual desde la cuenta.
+- **Wisdom Key:** aprobado el 28 oct 2026.
+- **Mensual y renovación hasta enero de 2027:** el cobro no es automático, porque una devolución
+  pondría en riesgo la relación con el banco. La persona renueva y paga a mano desde la cuenta.
+  Desde 10 días antes de la fecha de fin recibe una serie de correos para extender la membresía
+  y renovar el pago. Un día antes de que caduque, la cuenta queda bloqueada hasta que pague.
+  El cobro automático llega con el pago por referencia de BBVA.
 - **Condiciones de reserva por tier:** cada tier reserva con su propia comisión. Secret Key
   habla de comisión por tier y de precio de la experiencia. Las cifras están en la sección 11.
 - **Experiencias incluidas en Master Key y Wisdom Key:** se reservan como cualquier miembro,
@@ -252,6 +262,7 @@ emocional vivo con Chapters activos en el Mediterráneo, Bali, Madrid y Miami.
 | 7   | Tier de partner que corresponde a cada nivel de aportación de un sponsor                                                                | Falta               |
 | 8   | PVP de Magic (1.800, 1.900 o superior según costes reales), IVA, y PVP de Full Circle tras la revisión legal del servicio personalizado | Falta               |
 | 9   | Secret Key «precio de miembro» (canon operativo de Codex) frente a comisión de reserva por tier sin descuentos (decisión del 28 oct)    | Confirmar redacción |
+| 10  | La cabecera dice «Live local, wherever you are» y el claim del canon dice «Live like a local, wherever you are»                         | Confirmar           |
 
 ## 12. Estado técnico conocido (28 oct 2026)
 
@@ -283,6 +294,7 @@ se registra la discrepancia y no se afirma sincronización sin evidencia.
 
 | Versión | Fecha       | Cambio                                                                                                                                                                                                       |
 | ------- | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| 1.4     | 28 oct 2026 | Wisdom Key aprobado, renovación manual hasta enero de 2027 con serie de correos y bloqueo, The Feminine Frequency sin cuota en el portal de la app, nuevo icono y cabecera                                   |
 | 1.3     | 28 oct 2026 | Confirmados: marzo de 2027 es The Glow, Miami Magic 22 a 24 ene y Full Circle 21 a 25 ene, asistencia a Biohackers World sujeta a cobertura                                                                  |
 | 1.2     | 28 oct 2026 | Integra el canon operativo de Codex (foco comercial, escalera de venta, gala sin anunciar, estado técnico). Las decisiones del 28 oct prevalecen sobre su lista de pendientes                                |
 | 1.1     | 28 oct 2026 | Confirmados: v4 manda, Wisdom Key, dos vías de acceso (Círculo y partners), tier Wisdom Key de partner gratis para facilitadores de referencia, nueva identidad visual. Retirada la atribución "Abierto por" |
