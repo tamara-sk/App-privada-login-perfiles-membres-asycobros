@@ -19,7 +19,7 @@ repiten en todos. Quedan el dolor, el círculo de confianza, el camino de Tamara
    con las personas y con el lugar, de forma local, entre iguales, donde lo que cuenta es quién eres.
 4. El camino, en primera persona de Tamara: Secret Key se fue gestando sin que lo supiera, entre
    sesiones de KAP, constelaciones, eneagrama, talleres y el Camino del Artista. Todo eso le ayudó,
-   y quiere que otras personas den menos vueltas y encuentren una red de iguales que inspira a
+   y quiere que otras personas ahorren vueltas y tiempo y encuentren una red de iguales que inspira a
    ser mejor y a conocerse, para vivir mejores relaciones con ellas mismas, con las demás y con
    el entorno.
 5. La llave secreta: de vuelta a lo que hay cuando se quita el ruido.
@@ -99,14 +99,14 @@ _Variantes:_ [Nombre del lugar] y un círculo de confianza · Una pregunta sobre
 >
 > Buscas un sitio donde alojarte y acabas con veinte pestañas abiertas, reseñas que no se ponen de
 > acuerdo y el móvil vibrando con otra cosa. Cada vez más notificaciones y menos presencia. Yo
-> pasaba horas y horas buscando recomendaciones, y me costaba encontrar algo que se pareciera a
-> mí. Hasta que pensé: no puedo más.
+> pasaba horas y horas buscando recomendaciones, y casi todo se parecía a lo que ya decía Google o
+> la web de cada sitio. Hasta que pensé: no puedo más.
 >
 > De ahí salió Secret Key, un círculo de confianza. Lo que se recomienda dentro, lo ha probado
 > alguien del círculo antes que tú.
 >
 > Se fue formando sin que yo lo supiera, entre sesiones de KAP, constelaciones, eneagrama, talleres
-> y El camino del artista. Hoy quiero que otras personas den menos vueltas de las que di yo.
+> y El camino del artista. Hoy quiero ahorrarle vueltas y tiempo a quien viene detrás.
 >
 > [Nombre del lugar] me hizo pensar en esto: es de esos sitios donde uno se queda y se siente en
 > casa. Si te apetece, cuéntame cómo es por dentro.
@@ -121,14 +121,15 @@ _Variants:_ [Place name] and a circle of trust · A question about [Place name]
 >
 > You look for somewhere to stay and end up with twenty tabs open, reviews that disagree with each
 > other and your phone buzzing with something else. More and more notifications, less and less
-> presence. I used to spend hours and hours searching for recommendations, and it was hard to find
-> anything that looked like me. Until I thought: I can't take it anymore.
+> presence. I used to spend hours and hours searching for recommendations, and almost everything
+> sounded like what Google or each place's own website already said. Until I thought: I can't
+> take it anymore.
 >
 > That is where Secret Key came from, a circle of trust. What gets recommended inside has been
 > tried first by someone in the circle.
 >
 > It took shape without my knowing it, between KAP sessions, constellations, enneagram work,
-> workshops and The Artist's Way. Today I want other people to take fewer detours than I did.
+> workshops and The Artist's Way. Today I want to save people the detours and the time it cost me.
 >
 > [Place name] made me think of this: it is one of those places where people stay and feel at
 > home. If you feel like it, tell me what it is like inside.
@@ -144,7 +145,7 @@ _Primer mensaje. WhatsApp._
 > venga bien?
 
 > Hello [name], this is Tamara Edo. I used to spend hours and hours searching for recommendations
-> and almost nothing looked like me. That is how Secret Key began, a circle of trust where every
+> and nearly everything sounded like what Google already said. That is how Secret Key began, a circle of trust where every
 > recommendation has been tried by someone in the circle. [Place name] made me think of that. May I
 > tell you more whenever it suits you?
 
@@ -363,12 +364,12 @@ _Variantes:_ [Nombre del centro] y un círculo de confianza · Cuando se quita e
 >
 > Elegir un retiro entre cientos de fotos parecidas cansa. Cada vez más notificaciones, menos
 > presencia, y una frase que a mucha gente se le escapa por la noche: no puedo más. Yo pasaba horas
-> y horas buscando recomendaciones, y me costaba encontrar lo que se alineaba conmigo.
+> y horas buscando recomendaciones, y cada página decía lo mismo que la web de al lado.
 >
 > De ahí salió Secret Key, un círculo de confianza con actividades probadas por el propio círculo.
 > Se fue formando sin que yo lo supiera, entre sesiones de KAP, constelaciones, eneagrama, talleres
-> y El camino del artista, y hoy quiero que otras personas lleguen antes, con menos vueltas, a una
-> red de iguales que inspira.
+> y El camino del artista, y hoy quiero ahorrarle vueltas y tiempo a quien llegue, para que encuentre
+> antes una red de iguales que inspira.
 >
 > [Una frase concreta sobre [Nombre del centro]] es justo lo que buscan esas personas: un lugar al
 > que volver cuando se quita el ruido.
@@ -385,12 +386,12 @@ _Variants:_ [Center name] and a circle of trust · When the noise is taken away
 >
 > Choosing a retreat among hundreds of similar photos is tiring. More and more notifications, less
 > presence, and a sentence many people let slip at night: I can't take it anymore. I used to spend
-> hours and hours searching for recommendations, and it was hard to find what aligned with me.
+> hours and hours searching for recommendations, and every page said what the one next to it said.
 >
 > That is where Secret Key came from, a circle of trust with activities tried by the circle itself.
 > It took shape without my knowing it, between KAP sessions, constellations, enneagram work,
-> workshops and The Artist's Way, and today I want other people to arrive sooner, with fewer
-> detours, at a network of equals that inspires.
+> workshops and The Artist's Way, and today I want to save people detours and time, so they reach
+> a network of equals that inspires sooner.
 >
 > [A concrete sentence about [Center name]] is just what those people look for: a place to come
 > back to when the noise is taken away.
@@ -493,13 +494,13 @@ _Variantes:_ Una puerta, si te apetece · Vive local, estés donde estés
 > Hola [nombre],
 >
 > Cada vez más notificaciones y menos presencia. Durante un tiempo pasé horas y horas buscando
-> recomendaciones, tan abrumada que no sabía ni por dónde empezar, y casi nada se parecía a mí.
+> recomendaciones, tan abrumada que no sabía ni por dónde empezar, y casi todo se parecía a lo que ya decía Google.
 > Hasta que me salió, sin más: no puedo más.
 >
 > Secret Key es lo que hice después. Un círculo de confianza, donde lo que se recomienda lo ha
 > probado alguien del círculo. Se fue formando sin que yo lo supiera, entre sesiones de KAP,
-> constelaciones, eneagrama, talleres y El camino del artista. Quiero que tú des menos vueltas de
-> las que di yo.
+> constelaciones, eneagrama, talleres y El camino del artista. Quiero ahorrarte las vueltas y el
+> tiempo que me costó a mí.
 >
 > Nuestro lema es Vive local, estés donde estés. Si te resuena, esta es la puerta: una solicitud de
 > tres preguntas, quién eres, qué aportas al Círculo y qué aportas a la naturaleza. [Solicitar
@@ -515,12 +516,12 @@ _Variants:_ A door, if you feel like it · Live local, wherever you are
 > Hello [name],
 >
 > More and more notifications and less presence. For a while I spent hours and hours searching for
-> recommendations, so overwhelmed that I did not even know where to start, and almost nothing
-> looked like me. Until it came out of me, just like that: I can't take it anymore.
+> recommendations, so overwhelmed that I did not even know where to start, and almost everything
+> sounded like what Google already said. Until it came out of me, just like that: I can't take it anymore.
 >
 > Secret Key is what I did next. A circle of trust, where what gets recommended has been tried by
 > someone in the circle. It took shape without my knowing it, between KAP sessions, constellations,
-> enneagram work, workshops and The Artist's Way. I want you to take fewer detours than I did.
+> enneagram work, workshops and The Artist's Way. I want to save you the detours and the time it cost me.
 >
 > Our motto is Live local, wherever you are. If it resonates, here is the door: a request with
 > three questions, who you are, what you bring to the Circle and what you bring to nature.
@@ -550,7 +551,7 @@ _Variantes:_ La frecuencia que ya llevas dentro · Mujeres del Círculo, juntas
 >
 > Muchas mujeres llevan a todo el mundo a cuestas, con cada vez más notificaciones y menos
 > presencia, y cuando llega la noche aparece la frase: no puedo más. Yo pasé horas y horas
-> buscando recomendaciones, y me costaba encontrar lo que se alineaba conmigo.
+> buscando recomendaciones, y casi todo repetía lo que ya decía Google.
 >
 > De ahí salió Secret Key, un círculo de confianza con actividades probadas por el propio círculo.
 > Se fue formando sin que yo lo supiera, entre sesiones de KAP, constelaciones, eneagrama, talleres
@@ -572,7 +573,7 @@ _Variants:_ The frequency you already carry · Women of the Circle, together
 >
 > Many women carry everyone else on their backs, with more and more notifications and less
 > presence, and when night comes the sentence appears: I can't take it anymore. I spent hours and
-> hours searching for recommendations, and it was hard to find what aligned with me.
+> hours searching for recommendations, and nearly everything repeated what Google already said.
 >
 > That is where Secret Key came from, a circle of trust with activities tried by the circle
 > itself. It took shape without my knowing it, between KAP sessions, constellations, enneagram
@@ -595,7 +596,7 @@ _WhatsApp_
 > [enlace]. Tamara Edo
 
 > Dear [name], this is Tamara Edo. Many women carry everyone on their backs, and I spent hours and
-> hours looking for something that aligned with me. That is how Secret Key began, a circle of
+> hours searching while every page repeated what Google said. That is how Secret Key began, a circle of
 > trust. Inside lives The Feminine Frequency, the women's community of the Circle, free: [link].
 > Tamara Edo
 
@@ -612,7 +613,7 @@ _Variantes:_ Una historia en la que tu marca encaja · Una conversación sobre [
 > Hola [nombre],
 >
 > Entre tantas notificaciones y tanto ruido, casi nadie sabe ya a quién creer. Yo pasaba horas y
-> horas buscando recomendaciones, y me costaba encontrar lo que se parecía a mí. Hasta que pensé:
+> horas buscando recomendaciones, y todo se parecía a lo que ya decía cada web. Hasta que pensé:
 > no puedo más.
 >
 > Secret Key nació de ahí, un círculo de confianza con actividades probadas por el propio círculo.
@@ -651,12 +652,12 @@ _Variants:_ A story where your brand belongs · A conversation about [Bali / Mia
 
 _WhatsApp_
 
-> Hola [nombre], soy Tamara Edo. Yo pasaba horas y horas buscando recomendaciones y me costaba
-> encontrar lo que se parecía a mí. Así nació Secret Key, un círculo de confianza. Pensé en [Marca]
+> Hola [nombre], soy Tamara Edo. Yo pasaba horas y horas buscando recomendaciones y todo se
+> parecía a lo que ya decía Google. Así nació Secret Key, un círculo de confianza. Pensé en [Marca]
 > para una de nuestras escenas en [Bali / Miami]. ¿Hablamos?
 
 > Hello [name], this is Tamara Edo. I used to spend hours and hours searching for recommendations
-> and it was hard to find what looked like me. That is how Secret Key began, a circle of trust. I
+> and everything sounded like what Google already said. That is how Secret Key began, a circle of trust. I
 > thought of [Brand] for one of our scenes in [Bali / Miami]. Shall we talk?
 
 _Segundo mensaje, solo si hay interés. Correo._
@@ -735,7 +736,7 @@ _Variantes:_ Una casa que cuida · Habitar con presencia
 >
 > Volvemos a casa con cada vez más notificaciones y menos presencia, y la casa, que debería ser
 > donde todo se recoloca, se llena de ruido también. Yo pasaba horas y horas buscando
-> recomendaciones, y me costaba encontrar lo que se alineaba conmigo. Un día pensé: no puedo más.
+> recomendaciones, y casi todo se parecía a lo que ya decía cada web. Un día pensé: no puedo más.
 >
 > De ahí salió Secret Key, un círculo de confianza con actividades probadas por el propio círculo,
 > formado sin que yo lo supiera entre sesiones de KAP, constelaciones, eneagrama, talleres y El
@@ -757,7 +758,7 @@ _Variants:_ A home that cares · Living with presence
 >
 > We come home with more and more notifications and less presence, and the home, which should be
 > where everything settles back into place, fills with noise too. I used to spend hours and hours
-> searching for recommendations, and it was hard to find what aligned with me. One day I thought:
+> searching for recommendations, and nearly everything repeated what each website said. One day I thought:
 > I can't take it anymore.
 >
 > That is where Secret Key came from, a circle of trust with activities tried by the circle itself,
