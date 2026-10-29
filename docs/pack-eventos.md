@@ -1,6 +1,6 @@
 # Secret Key · pack de eventos (Miami y Event Planner)
 
-Generado el 2026-10-28 a partir de los documentos de `docs/`. Si algo choca con el canon
+Generado el 2026-10-29 a partir de los documentos de `docs/`. Si algo choca con el canon
 (`secret-key-canon.md`), manda el canon. No se edita a mano: se cambian los documentos fuente y
 se vuelve a generar con `python3 docs/build-packs.py`.
 

@@ -13,7 +13,9 @@ PACKS = {
     "pack-agentes.md": (
         "Secret Key · pack general para agentes",
         [
+            "instruccion-agentes.md",
             "secret-key-canon.md",
+            "narrativa-secret-key-super-revisada.md",
             "guia-humanizar.md",
             "mensajes-captacion.md",
             "serie-cuatro-correos.md",
