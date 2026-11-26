@@ -1,8 +1,7 @@
 /**
  * Las cuatro entradas al Círculo. Decididas: no se tratan como una decisión abierta.
  *
- * Fuente: SK Master Context v4 (Notion, 25 oct 2026, cerrado la noche del 26 oct), que
- * sustituye a todo lo anterior, incluido el catálogo del 19 oct.
+ * Fuente: `docs/canon.md`.
  *
  * Esta es la única fuente de precios. El navegador solo envía el `slug`; el importe se
  * vuelve a leer aquí, en el servidor, antes de firmar el pago. Mantenlo así.

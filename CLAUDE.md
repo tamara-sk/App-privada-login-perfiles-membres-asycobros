@@ -80,18 +80,18 @@ por referencia is enabled, and the exact terminal and currency setup.
 
 ## Prices — one canon
 
-Source: **SK Master Context v4** (Notion, 25 Oct 2026, closed the night of 26 Oct). It
-replaces the 19 Oct price catalogue and every earlier version.
+`docs/canon.md` is the single canon: member tiers, partner tiers and the Clauer commission,
+SK Ads, Llavecitas, the calendar and what is still open. Nothing else in the repo restates
+prices, so there is one place to change.
 
-| Piece                                                                                                                                                  | Where                                 |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------- |
-| Member tiers: Key 0 €, Secret Key 99 €/yr for entry before 1 Jan 2027 then 220 €/yr (20 €/mo), Master Key 2.500 €/yr (390 €/mo), Wisdom Key 4.300 €/yr | `src/features/membership/plans.ts`    |
-| Partner tiers (facilitators, venues, sponsors): Key 0 € · 30 %, Secret Key 290 € · 20 %, Master Key 890 € · 15 %, Wisdom Key = SK Ads pack · 10 %      | `src/features/membership/partners.ts` |
-| SK Ads: Essential 150 €/mo + 997 €, Growth 250 €/mo + 1.997 €, Signature 350 €/mo + 2.997 €, extra AI agent 150 €/mo                                   | `src/features/membership/partners.ts` |
+| Piece                                          | Where                                 |
+| ---------------------------------------------- | ------------------------------------- |
+| Member tiers and their prices                  | `src/features/membership/plans.ts`    |
+| Partner tiers, SK Ads packs, Clauer commission | `src/features/membership/partners.ts` |
 
-Open in v4 (do not invent): Secret Key 99 € first year only or while renewing, Master Key
-margin and monthly price, Llavecitas action table and welcome gift, member discounts.
-Monthly charging waits for «pago por referencia» on the BBVA terminal.
+When a price changes, change `docs/canon.md` and the file above together. Open points stay
+open: do not invent them. Monthly charging waits for «pago por referencia» on the BBVA
+terminal.
 
 ## Entry to the Circle — apply first, pay inside
 

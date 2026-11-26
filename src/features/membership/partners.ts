@@ -1,6 +1,6 @@
 /**
  * Una sola escalera de cuatro tiers para miembros, facilitadores, venues y sponsors
- * (decidido el 26 oct 2026, SK Master Context v4).
+ * (`docs/canon.md`).
  *
  * La comisión es lo que Secret Key retiene de cada venta hecha a través de SK, según el
  * tier de quien vende. Nunca baja del 10 %. Las comisiones de partner y las condiciones
@@ -34,3 +34,11 @@ export const SK_ADS_PACKS = [
 
 /** Agente de IA adicional, por mes. */
 export const SK_ADS_EXTRA_AGENT_MONTHLY = 15000;
+
+/**
+ * Clauer: quien abre una ciudad, sea partner o miembro. Durante el primer año comisiona
+ * este porcentaje de cada reserva que entra por ese partner. Se descuenta de la comisión
+ * de Secret Key (pendiente de confirmar), de modo que el neto de SK en el año 1 es
+ * `commissionPercent - CLAUER_FIRST_YEAR_COMMISSION_PERCENT`.
+ */
+export const CLAUER_FIRST_YEAR_COMMISSION_PERCENT = 5;

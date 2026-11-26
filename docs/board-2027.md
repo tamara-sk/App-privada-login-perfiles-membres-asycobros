@@ -1,17 +1,17 @@
 # Board · sesión de trabajo 2027
 
 Preparada el 27 oct 2026 con las voces del board (CEO, CMO, CRO, COO, CFO, Strategic Advisor).
-Canon: SK Master Context v4 (Notion) y `docs/ghl-canon-v4.md`.
+Canon: `docs/canon.md`.
 
 Todo lo que aparece como PROPUESTA es una hipótesis del board para aprobar. Lo
 CONFIRMADO viene del canon. Lo NO CONFIRMADO espera un dato de Tamara.
 
-## 0. Conflictos de canon: cerrados el 27 oct 2026
+## 0. Decisiones cerradas (27 oct 2026)
 
 - Una Llavecita vale **0,10 €**.
 - El tier de 4.300 €/año se llama **Wisdom Key**. La misma escalera sirve a miembros, facilitadores, venues y sponsors.
 - Sin tope público de plazas. Tampoco se menciona ningún número para sonar exclusivo.
-- La skill del board conserva valores anteriores (Llavecita a 0,01 €, «Dos Temporadas», Key Partner y Top Key). Se actualiza con este documento.
+- El Clauer comisiona el 5 % de cada reserva durante el primer año (`docs/canon.md`, sección 3).
 
 ## 1. Experiencias 2027 por chapter
 
@@ -70,7 +70,7 @@ personal de Wisdom Key. Su coste es el dato que falta.
 
 **Estructura**
 
-1. Los sponsors entran por la escalera de partners (0 / 290 / 890 € y pack SK Ads) y ceden al Círculo una experiencia o beneficio de cortesía.
+1. Los sponsors entran por la escalera de partners (Key, Secret Key, Master Key y Wisdom Key; cuotas en `docs/canon.md`) y ceden al Círculo una experiencia o beneficio de cortesía.
 2. Cada SKWR tiene un paquete de sponsor. Importe y contraprestación: NO CONFIRMADO. El board los fija con el coste real del evento.
 3. En público no se menciona el número de sponsors ni el de plazas.
 4. Los Sigils reconocen contribución real. Un sponsor recibe visibilidad y presencia, y jamás un Sigil a cambio de dinero.
@@ -125,3 +125,4 @@ Las puntuaciones son juicio del board, no datos medidos.
 5. Aportación del sponsor a cada SKWR.
 6. Fecha y formato de la gala.
 7. Si los 99 € se mantienen al renovar.
+8. Que el 5 % del Clauer sale de la comisión de Secret Key. Con Wisdom Key (10 %), el neto de SK en el primer año baja al 5 %.
