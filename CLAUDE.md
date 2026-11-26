@@ -12,7 +12,7 @@ the reader's head.
 | Instead of | Write |
 | --- | --- |
 | "We don't waste your time" | "We hand your time back" |
-| "Not a luxury club" | "A membership measured in hours returned" |
+| "Not a luxury club" | "Access measured in hours returned" |
 | "Nobody remembers the errand" | "The evening is what stays" |
 | "No season codes" | "One long life. Buy once, wear for years" |
 | "We do not sell your data" | "Your data is yours" |
@@ -24,6 +24,10 @@ privacy policy is kept by choosing affirmative phrasing, not by dropping the rul
 **3. Positioning.** Secret Key is a **time optimization and extraordinary access
 ecosystem**. Every piece of copy should reinforce that. The north star is minutes saved
 and minutes enjoyed — time returned, and what it becomes.
+
+**5. Canon 1.8 (26 Nov 2026) prevails.** Official description, "lo local al mundo y el mundo a
+ti", never "miembros" or "comunidad" (say el Círculo), SAK and SKWR definitions: see
+`docs/brand-voice.md` and https://app.notion.com/p/424f97a6895381cfbd2cf14174e93cf9.
 
 **4. Tone.** Calm, confident, understated. Short sentences. Warm, generous, human. Never
 loud, never salesy, never apologetic.
@@ -38,7 +42,7 @@ access or strengthening relationships. Anything else is out.
 3. Simplicity scales
 4. Trust compounds
 5. Experiences create memories
-6. Community creates leverage
+6. The Circle creates leverage
 
 ## Payments — Redsys, and that is what the code does
 
